@@ -106,7 +106,7 @@ export const CustomerVirtualMenuView: React.FC<CustomerVirtualMenuViewProps> = (
 
   // State: Filtering & Search
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
+  const [selectedCategory, setSelectedCategory] = useState<string>('ENTRADAS_PETISCOS');
   const [onlyRegional, setOnlyRegional] = useState<boolean>(false);
 
   // State: Customization Modal
@@ -234,15 +234,16 @@ export const CustomerVirtualMenuView: React.FC<CustomerVirtualMenuViewProps> = (
     ];
   }, []);
 
-  // Filtro de itens do cardápio
+  // Filtro de itens do cardápio com suporte a busca global e navegação veloz por categoria
   const filteredItems = useMemo(() => {
+    const query = searchQuery.toLowerCase().trim();
     return ALL_MENU_ITEMS.filter((item) => {
-      const matchesCat = selectedCategory === 'ALL' || item.category === selectedCategory;
+      // Se há busca ativa, pesquisa no cardápio todo; caso contrário, foca na categoria atual para máxima performance
+      const matchesCat = !query ? (selectedCategory === 'ALL' || item.category === selectedCategory) : true;
       const matchesRegional = !onlyRegional || item.isRegionalAmazonico;
 
       const title = item.name[selectedLanguage].toLowerCase();
       const desc = item.description[selectedLanguage].toLowerCase();
-      const query = searchQuery.toLowerCase().trim();
 
       const matchesSearch = !query || title.includes(query) || desc.includes(query);
 
@@ -253,22 +254,33 @@ export const CustomerVirtualMenuView: React.FC<CustomerVirtualMenuViewProps> = (
   // Seções organizadas do cardápio real (divididas por categoria)
   const sectionsToRender = useMemo(() => {
     const validCats = categories.filter((c) => c.id !== 'ALL');
+    const query = searchQuery.toLowerCase().trim();
 
-    if (selectedCategory !== 'ALL') {
+    if (!query && selectedCategory !== 'ALL') {
       const active = validCats.find((c) => c.id === selectedCategory);
       if (!active) return [];
       const itemsInCat = filteredItems.filter((item) => item.category === active.id);
       return itemsInCat.length > 0 ? [{ ...active, items: itemsInCat }] : [];
     }
 
-    // Em modo "ALL", renderiza as categorias em ordem que possuem itens correspondentes
+    // Em modo "ALL" ou busca ativa, renderiza as categorias que possuem itens correspondentes
     return validCats
       .map((cat) => ({
         ...cat,
         items: filteredItems.filter((item) => item.category === cat.id)
       }))
       .filter((section) => section.items.length > 0);
-  }, [categories, selectedCategory, filteredItems]);
+  }, [categories, selectedCategory, filteredItems, searchQuery]);
+
+  // Próxima categoria para navegação sequencial sem scroll infinito travado
+  const nextCategory = useMemo(() => {
+    const validCats = categories.filter((c) => c.id !== 'ALL');
+    const currentIndex = validCats.findIndex((c) => c.id === selectedCategory);
+    if (currentIndex >= 0 && currentIndex < validCats.length - 1) {
+      return validCats[currentIndex + 1];
+    }
+    return validCats[0];
+  }, [categories, selectedCategory]);
 
   // Abertura de modal de item
   const handleOpenItem = (item: CustomerMenuItem) => {
@@ -768,40 +780,54 @@ export const CustomerVirtualMenuView: React.FC<CustomerVirtualMenuViewProps> = (
           </button>
         </div>
 
-        {/* Carrossel de Categorias */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
-          {categories.map((cat) => {
-            const Icon = cat.icon;
-            const isSelected = selectedCategory === cat.id;
-            return (
-              <button
-                key={cat.id}
-                onClick={() => setSelectedCategory(cat.id)}
-                className={`px-3.5 py-2 rounded-2xl text-xs font-bold whitespace-nowrap transition-all flex items-center gap-2 cursor-pointer border ${
-                  isSelected
-                    ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-md'
-                    : 'bg-slate-900 text-slate-400 border-slate-800 hover:text-white hover:bg-slate-800'
-                }`}
-              >
-                <Icon className="w-3.5 h-3.5" />
-                <span>{cat.label[selectedLanguage]}</span>
-              </button>
-            );
-          })}
+        {/* Carrossel de Categorias Fixo / Sticky com Contagem */}
+        <div className="sticky top-0 z-20 bg-slate-950/95 backdrop-blur-md py-3 -mx-4 sm:-mx-6 px-4 sm:px-6 border-b border-slate-800/80 shadow-md">
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+            {categories.map((cat) => {
+              const Icon = cat.icon;
+              const isSelected = selectedCategory === cat.id;
+              const catItemCount = cat.id === 'ALL'
+                ? ALL_MENU_ITEMS.length
+                : ALL_MENU_ITEMS.filter((i) => i.category === cat.id).length;
+
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => {
+                    setSelectedCategory(cat.id);
+                    window.scrollTo({ top: 100, behavior: 'smooth' });
+                  }}
+                  className={`px-3.5 py-2 rounded-2xl text-xs font-bold whitespace-nowrap transition-all flex items-center gap-2 cursor-pointer border shrink-0 ${
+                    isSelected
+                      ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-md scale-102 font-black'
+                      : 'bg-slate-900 text-slate-400 border-slate-800 hover:text-white hover:bg-slate-800'
+                  }`}
+                >
+                  <Icon className="w-3.5 h-3.5" />
+                  <span>{cat.label[selectedLanguage]}</span>
+                  <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${
+                    isSelected ? 'bg-slate-950/20 text-slate-950' : 'bg-slate-800 text-slate-500'
+                  }`}>
+                    {catItemCount}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Divisão por Categorias do Cardápio Real */}
         <div className="space-y-10">
           <div className="flex items-center justify-between text-xs text-slate-400 px-1">
             <span>
-              {filteredItems.length} {selectedLanguage === 'pt' ? 'pratos encontrados' : selectedLanguage === 'en' ? 'dishes found' : 'platos encontrados'}
+              {filteredItems.length} {selectedLanguage === 'pt' ? 'pratos nesta categoria' : selectedLanguage === 'en' ? 'dishes in this category' : 'platos en esta categoría'}
             </span>
             {selectedCategory !== 'ALL' && (
               <button
                 onClick={() => setSelectedCategory('ALL')}
                 className="text-xs text-amber-400 hover:underline font-semibold cursor-pointer"
               >
-                {selectedLanguage === 'pt' ? '← Ver cardápio completo dividido' : selectedLanguage === 'en' ? '← View full categorized menu' : '← Ver carta completa dividida'}
+                {selectedLanguage === 'pt' ? 'Ver todas as categorias juntas' : selectedLanguage === 'en' ? 'View all categories together' : 'Ver todas las categorías juntas'}
               </button>
             )}
           </div>
@@ -878,6 +904,7 @@ export const CustomerVirtualMenuView: React.FC<CustomerVirtualMenuViewProps> = (
                     {section.items.map((item) => (
                       <div
                         key={item.id}
+                        style={{ contentVisibility: 'auto', containIntrinsicSize: '0 160px' }}
                         className="bg-slate-900/90 rounded-3xl border border-slate-800 p-4 sm:p-5 flex flex-col justify-between gap-4 hover:border-slate-700 hover:shadow-xl transition-all group"
                       >
                         <div className="flex gap-4 items-start">
@@ -889,6 +916,7 @@ export const CustomerVirtualMenuView: React.FC<CustomerVirtualMenuViewProps> = (
                                 alt={item.name[selectedLanguage]}
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                 loading="lazy"
+                                decoding="async"
                                 onError={(e) => {
                                   (e.currentTarget as HTMLElement).style.display = 'none';
                                 }}
@@ -951,6 +979,37 @@ export const CustomerVirtualMenuView: React.FC<CustomerVirtualMenuViewProps> = (
                         </div>
                       </div>
                     ))}
+
+                    {/* Botão de Navegação para a Próxima Seção */}
+                    {selectedCategory !== 'ALL' && nextCategory && (
+                      <div className="col-span-1 md:col-span-2 pt-4">
+                        <button
+                          onClick={() => {
+                            setSelectedCategory(nextCategory.id);
+                            window.scrollTo({ top: 100, behavior: 'smooth' });
+                          }}
+                          className="w-full p-5 rounded-3xl bg-gradient-to-r from-slate-900 via-amber-950/20 to-slate-900 border border-amber-500/30 hover:border-amber-400 flex items-center justify-between gap-4 group transition-all cursor-pointer shadow-lg hover:shadow-amber-500/10 active:scale-99"
+                        >
+                          <div className="flex items-center gap-3.5 text-left">
+                            <div className="w-11 h-11 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 shrink-0 shadow-inner">
+                              <nextCategory.icon className="w-5 h-5" />
+                            </div>
+                            <div>
+                              <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400">
+                                {selectedLanguage === 'pt' ? 'Próxima Seção do Cardápio' : selectedLanguage === 'en' ? 'Next Menu Section' : 'Siguiente Sección de la Carta'}
+                              </span>
+                              <h4 className="text-sm sm:text-base font-serif font-black text-white group-hover:text-amber-300 transition-colors">
+                                {nextCategory.label[selectedLanguage]}
+                              </h4>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-2 text-xs font-bold text-amber-400 group-hover:translate-x-1 transition-transform">
+                            <span>{selectedLanguage === 'pt' ? 'Ver Pratos' : selectedLanguage === 'en' ? 'Explore Category' : 'Ver Platos'}</span>
+                            <ArrowRight className="w-4 h-4" />
+                          </div>
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </section>
               );
