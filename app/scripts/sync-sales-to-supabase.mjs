@@ -168,22 +168,31 @@ async function syncToSupabase() {
     console.log('Itens do freezer e cotas de degelo sincronizados com sucesso!');
   }
 
-  // 3. Register Audit Log
+  // 3. Register Audit Log in system_audit_logs
   const auditRow = {
     id: `audit-sales-ingestion-${Date.now()}`,
     restaurant_id: 'rest-engenho-manauara',
+    user_id: 'usr-pabricio-master',
+    user_name: 'Pabricio (Master Admin)',
+    user_role: 'DONO',
     action: 'INGESTAO_VENDAS_TEKNISA',
-    entity_name: 'Vendas-Realizadas-Por-Caixa (2).csv',
-    operator_name: 'Pabricio (Master Admin)',
-    details: `Ingestão concluída de 98.393 vendas reais (90 dias). Faturamento total: R$ ${analyticsData.summary.totalRevenue.toLocaleString('pt-BR')}. Mix de 772 produtos. Configurado estoque de segurança anti-ruptura e cotas de degelo.`,
+    module: 'ESTOQUE_VENDAS_CDA',
+    description: `Ingestão concluída de 98.393 vendas reais (90 dias). Faturamento total: R$ ${analyticsData.summary.totalRevenue.toLocaleString('pt-BR')}. Mix de 772 produtos. Configurado estoque de segurança anti-ruptura e cotas de degelo.`,
+    metadata: {
+      totalRevenue: analyticsData.summary.totalRevenue,
+      totalOrders: analyticsData.summary.dailyAverageOrders * analyticsData.summary.totalDays,
+      totalItemsSold: analyticsData.summary.totalItemsSold,
+      sourceFile: 'Vendas-Realizadas-Por-Caixa (2).csv'
+    },
+    severity: 'INFO',
     created_at: new Date().toISOString()
   };
 
-  const { error: audErr } = await supabase.from('audit_logs').insert([auditRow]);
+  const { error: audErr } = await supabase.from('system_audit_logs').insert([auditRow]);
   if (audErr) {
     console.warn('Aviso ao registrar log de auditoria:', audErr.message);
   } else {
-    console.log('Log de auditoria registrado no Supabase com sucesso.');
+    console.log('Log de auditoria registrado no Supabase em system_audit_logs com sucesso.');
   }
 
   console.log('\n=== SINCRONIZAÇÃO COM SUPABASE FINALIZADA COM ÊXITO ===');
