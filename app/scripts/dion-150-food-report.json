@@ -1,0 +1,1202 @@
+[
+  {
+    "id": "dish-dion-001",
+    "name_pt": "Salada Verano",
+    "name_en": "Summer Verano Garden Salad with House Dressing",
+    "desc_pt": "Folhas, tomate, cebola, fruta da estação e molho especial",
+    "desc_en": "Crisp garden greens, vine-ripened tomatoes, red onions, and fresh seasonal tropical fruit, drizzled with our signature house herb vinaigrette.",
+    "desc_es": "Mix de hojas frescas de huerto, tomates maduros, cebolla roja y frutas tropicales de temporada con aderezo especial de la casa."
+  },
+  {
+    "id": "dish-dion-002",
+    "name_pt": "Caldinho de Feijão",
+    "name_en": "Slow-Simmered Black Bean Broth with Bacon",
+    "desc_pt": "Caldo com charque desfiado, linguiça defumada e bacon crocante",
+    "desc_en": "rich bean broth slow-simmered with shredded jerked beef, smoked artisan sausage, and crispy bacon bits",
+    "desc_es": "caldo concentrado de frijoles negros estofado con carne seca deshebrada, embutido ahumado y tocino crujiente"
+  },
+  {
+    "id": "dish-dion-003",
+    "name_pt": "Bolinho De Carne Seca Executivo",
+    "name_en": "Crispy Jerked Beef Croquettes (Executive)",
+    "desc_pt": "Massa de macaxeira com carne seca (charque) desfiada",
+    "desc_en": "delicate golden cassava dough filled with tender shredded Brazilian jerked beef",
+    "desc_es": "suave masa dorada de yuca rellena de jugosa carne seca brasileña deshebrada"
+  },
+  {
+    "id": "dish-dion-004",
+    "name_pt": "Carne De Sol Nordestina",
+    "name_en": "Northeastern Brazilian Sun-Cured Beef with Creamy Baião",
+    "desc_pt": "Carne de sol assada na brasa, queijo coalho acompanhado de baião cremoso, macaxeira frita e farofa",
+    "desc_en": "charcoal-grilled sun-cured beef and golden coalho cheese, accompanied by creamy baião de dois, crisp cassava fries, and toasted farofa",
+    "desc_es": "carne de sol asada a las brasas y queso coalho dorado, con baião de dois cremoso, yuca frita y farofa tostada"
+  },
+  {
+    "id": "dish-dion-005",
+    "name_pt": "Costela De Tambaqui Executivo",
+    "name_en": "Amazonian Tambaqui Ribs na Brasa (Executive Lunch)",
+    "desc_pt": "Costela de tambaqui assada na brasa, acompanhado de vinagrete de feijão manteiguinha, farofa de banana e arroz paraense.",
+    "desc_en": "charcoal-grilled tambaqui ribs, served with manteiguinha bean salsa, sweet plantain farofa, and Pará herb rice",
+    "desc_es": "costillas de tambaquí a la parrilla con vinagreta de frijol manteiguinha de Santarém, farofa de plátano y arroz Pará"
+  },
+  {
+    "id": "dish-dion-006",
+    "name_pt": "Moqueca De Banana Da Terra",
+    "name_en": "Plantain Moqueca Stew with Coconut Milk & Brazil Nuts",
+    "desc_pt": "Banana pacovã moqueada, molho da casa com dendê finalizada com castanha, acompanhado de arroz branco.",
+    "desc_en": "clay-pot simmered Amazonian pacovã plantain in aromatic dendê sauce, topped with crunchy Brazil nuts and served with white rice",
+    "desc_es": "plátano macho pacovã estofado en cazuela de barro con salsa de dendê, castañas de Pará y arroz blanco"
+  },
+  {
+    "id": "dish-dion-007",
+    "name_pt": "Bobó De Camarão Executivo",
+    "name_en": "Creamy Cassava & Shrimp Bobó Stew (Executive)",
+    "desc_pt": "Camarões levemente salteados no azeite, creme de macaxeira azeite de dendê, leite de coco, acompanhado de arroz branco e farofa de coco.",
+    "desc_en": "succulent shrimps sautéed in olive oil, simmered in velvety cassava cream, dendê oil, and coconut milk, served with rice and coconut farofa",
+    "desc_es": "camarones salteados en aceite de oliva, bañados en crema aterciopelada de yuca con leche de coco y aceite de dendê, con arroz y farofa de coco"
+  },
+  {
+    "id": "dish-dion-008",
+    "name_pt": "Moqueca de Pirarucu",
+    "name_en": "Amazonian Pirarucu Clay-Pot Moqueca Stew",
+    "desc_pt": "Aquela moqueca Amazônica com nosso rei dos rios, servida com arroz e pirão",
+    "desc_en": "authentic Amazonian clay-pot moqueca stew with wild pirarucu fillet, served with fluffy rice and savory fish pirão",
+    "desc_es": "auténtica moqueca amazónica en cazuela de barro con lomo de pirarucú fresco, acompañada de arroz y pirão"
+  },
+  {
+    "id": "dish-dion-009",
+    "name_pt": "Carne de Panela",
+    "name_en": "Homestyle Braised Pot Roast Beef in Rich Gravy",
+    "desc_pt": "Bife refogado com cebola, tomate, alho, com molho marcante relembrando a boa e velha comida de mãe, guarnecida com arroz no próprio molho e purê de batatas",
+    "desc_en": "comforting pot roast braised with sweet onions, tomatoes, and garlic in rich pan gravy, served with gravy-infused rice and silky mashed potatoes",
+    "desc_es": "asado casero de res estofado con cebolla, tomate y ajo en su propia salsa tradicional, servido con arroz y puré suave de papas"
+  },
+  {
+    "id": "dish-dion-010",
+    "name_pt": "Mini Pudim de Leite",
+    "name_en": "Velvety Caramel Milk Flan with Dulce de Leche",
+    "desc_pt": "Pudim de leite finalizado com um delicioso doce de leite",
+    "desc_en": "classic velvety Brazilian condensed milk custard flan, crowned with rich artisanal dulce de leche",
+    "desc_es": "clásico flan casero de leche condensada bañado en caramelo y coronado con dulce de leche artesanal"
+  },
+  {
+    "id": "dish-dion-011",
+    "name_pt": "Sorvete com Farofa de Brownie",
+    "name_en": "Artisanal Ice Cream with Crunchy Brownie Crumble",
+    "desc_pt": "Bola de sorvete empanada com farofa crocante de brownie",
+    "desc_en": "scoop of premium artisanal ice cream rolled in a crunchy chocolate brownie crumble",
+    "desc_es": "bola de helado artesanal cubierta con crumble crujiente de brownie de chocolate"
+  },
+  {
+    "id": "dish-dion-012",
+    "name_pt": "Pastel de Belém",
+    "name_en": "Authentic Portuguese Custard Tart (Pastel de Nata)",
+    "desc_pt": "Tradicional doce português, massa folheada crocante recheada com creme à base de ovos.",
+    "desc_en": "authentic Portuguese pastry featuring delicate crisp puff pastry filled with creamy egg custard",
+    "desc_es": "tradicional dulce portugués con masa hojaldrada crujiente y relleno cremoso de crema de yemas"
+  },
+  {
+    "id": "dish-dion-013",
+    "name_pt": "Feijuca ao Som de Samba",
+    "name_en": "Traditional Brazilian Feijoada Feast (Buffet)",
+    "desc_pt": "Nossa tradicional feijoada, com todos os ingredientes separados, vários acompanhamentos, incluindo nosso Joelho de Porco que você se serve a vontade com preço fixo. Ao som de um Samba raiz!",
+    "desc_en": "our signature Brazilian black bean feijoada feast with all premium meats served separately, unlimited side dishes including smoked pork shank, and authentic live samba",
+    "desc_es": "nuestra gran feijoada brasileña con carnes nobles servidas por separado, guarniciones libres incluido codillo ahumado y samba en vivo"
+  },
+  {
+    "id": "dish-dion-014",
+    "name_pt": "Mousse de Cupuaçu",
+    "name_en": "Velvety Amazonian Cupuaçu Rainforest Mousse",
+    "desc_pt": "Textura aerada e sabor marcante da Amazônia, com dulçor equilibrado e baixo em açucares adicionado. Doce na medida certa. Calorias: 180kcal Valor proteico: 4g Fibras: 1g",
+    "desc_en": "airy velvety mousse celebrating the vibrant tropical flavor of wild Amazonian cupuaçu with a perfectly balanced sweetness",
+    "desc_es": "mousse ligera y aireada que resalta el aroma tropical del copoazú silvestre con un dulzor perfecto y equilibrado"
+  },
+  {
+    "id": "dish-dion-015",
+    "name_pt": "Abacaxi Braseado",
+    "name_en": "Charcoal-Grilled Pineapple Glazed with Cinnamon",
+    "desc_pt": "Abacaxi grelhado, finalizado com toque de canela, sem adição de açucar. Simples, leve e surpreendente. Calorias: 120kcal Valor proteico: 1g Fibras: 2g",
+    "desc_en": "flame-grilled pineapple finished with a hint of warm cinnamon and natural caramelized sweetness",
+    "desc_es": "piña asada a la parrilla con aroma a canela y dulzor caramelizado naturalmente"
+  },
+  {
+    "id": "dish-dion-016",
+    "name_pt": "Doce de Banana com Castanha",
+    "name_en": "Caramelized Sweet Plantain with Crunchy Brazil Nuts",
+    "desc_pt": "Banana caramelizada naturalmente sem adição de açucar, com crocante de castanhas. Sabor brasileiro com leveza. Calorias: 260kcal Valor proteico: 3g Fibras: 3g",
+    "desc_en": "naturally caramelized plantains with crunchy roasted Brazil nut crumble, highlighting pure Brazilian fruit essence",
+    "desc_es": "plátano maduro caramelizado naturalmente con crujiente de castañas de Pará tostadas"
+  },
+  {
+    "id": "dish-dion-017",
+    "name_pt": "Chocolate 70% com Castanha",
+    "name_en": "70% Dark Artisan Chocolate Bar with Roasted Brazil Nuts",
+    "desc_pt": "Porção equilibrada de chocolate intenso com castanhas selecionadas. Prazer sem exageros. Calorias: 300kcal Valor proteico: 5g Fibras: 3g",
+    "desc_en": "balanced portion of intense 70% dark artisanal chocolate paired with hand-selected roasted Brazil nuts",
+    "desc_es": "porción equilibrada de chocolate negro artesanal al 70% cacao con castañas selectas"
+  },
+  {
+    "id": "dish-dion-018",
+    "name_pt": "Pirarucu Grelhado com Legumes",
+    "name_en": "Charcoal-Grilled Amazonian Pirarucu with Garden Vegetables",
+    "desc_pt": "Filé de pirarucu grelhado, acompanhado de legumes selecionados também grelhados, e finalizado com azeite e ervas. Leve, nutritivo e cheio de sabor. Calorias: 420kcal Valor proteico: 42g Fibras: 5g",
+    "desc_en": "tender flame-grilled Amazonian pirarucu fillet, accompanied by grilled seasonal garden vegetables, finished with extra virgin olive oil and herbs",
+    "desc_es": "filete tierno de pirarucú amazónico a la parrilla con vegetales frescos asados, aceite de oliva virgen extra y hierbas"
+  },
+  {
+    "id": "dish-dion-019",
+    "name_pt": "Carne Magra na Brasa",
+    "name_en": "Lean Prime Steak na Brasa with Fresh Salad",
+    "desc_pt": "Corte selecionado grelhado, servido com legumes e salada fresca. Sabor intenso com leveza na medida certa. Calorias: 550kcal Valor proteico: 45g Fibras: 4g",
+    "desc_en": "select prime beef steak grilled over open coals, served with tender garden vegetables and a crisp fresh salad",
+    "desc_es": "corte noble de res a la parrilla servido con vegetales asados y ensalada fresca crujiente"
+  },
+  {
+    "id": "dish-dion-020",
+    "name_pt": "Bowl Brasileiro Proteico",
+    "name_en": "Brazilian Protein Bowl with Grilled Chicken & Grains",
+    "desc_pt": "Arroz integral 7 grãos, com frango grelhado, legumes da estação e farofa leve de castanhas. Equilíbrio perfeito entre nutrição e sabor. Calorias: 520kcal Valor proteico: 38g Fibras: 9g",
+    "desc_en": "wholesome 7-grain brown rice served with tender grilled chicken breast, seasonal vegetables, and a light Brazil nut farofa",
+    "desc_es": "arroz integral 7 granos con pechuga de pollo a la plancha, vegetales de temporada y farofa ligera de castañas"
+  },
+  {
+    "id": "dish-dion-021",
+    "name_pt": "Bobó de Camarão",
+    "name_en": "Bahian Shrimp Bobó in Velvety Cassava & Coconut Puree",
+    "desc_pt": "Versão equilibrada do clássico nordestino, com redução de gordura e textura mais leve, sem perder a cremosidade. Tradição com novo olhar. Calorias: 480kcal Valor proteico: 28g Fibras: 4g",
+    "desc_en": "a lighter, velvety balance of the classic Northeastern shrimp bobó, gently simmered in cassava cream and coconut milk",
+    "desc_es": "versión equilibrada y aterciopelada del tradicional bobó de camarones, cocinado en suave crema de yuca y coco"
+  },
+  {
+    "id": "dish-dion-022",
+    "name_pt": "Salada Amazônica Proteica",
+    "name_en": "Amazonian Protein Salad with Shrimps & Brazil Nuts",
+    "desc_pt": "Mix de folhas frescas, camarões grelhados, manga, castanha-do-pará e vinagrete leve de ervas. Frescor, proteína e o toque amazônico do Engenho. Calorias: 320kcal Valor protéico: 22g Fibras: 6g",
+    "desc_en": "Fresh garden salad tossed with flame-grilled jumbo shrimps, ripe mango slices, crunchy toasted Brazil nuts, and a light herb vinaigrette (320 kcal | 22g protein | 6g fiber).",
+    "desc_es": "Ensalada fresca con camarones a la plancha, mango maduro en láminas, castañas de Pará tostadas y vinagreta suave de hierbas (320 kcal | 22g proteína | 6g fibra)."
+  },
+  {
+    "id": "dish-dion-023",
+    "name_pt": "Dadinho de Tapioca (de forno)",
+    "name_en": "Oven-Baked Golden Tapioca & Coalho Cheese Cubes",
+    "desc_pt": "Crocante por fora, macio por dentro, preparado no forno combinado, e servido com geleia de cupuaçu SEM AÇÚCAR. Um clássico com mais leveza. Calorias: 280kcal Valor proteico: 8g Fibras: 1,5g",
+    "desc_en": "Crispy outside and velvety soft inside, baked in a combi-oven with artisanal tapioca and coalho cheese; served with sugar-free Amazonian cupuaçu fruit reduction (280 kcal | 8g protein).",
+    "desc_es": "Dados horneados de tapioca y queso coalho, crujientes por fuera y cremosos por dentro, acompañados de jalea artesanal de copoazú sin azúcar añadida (280 kcal | 8g proteína)."
+  },
+  {
+    "id": "dish-dion-024",
+    "name_pt": "Carpaccio de Pirarucu",
+    "name_en": "Thinly Sliced Amazonian Pirarucu Carpaccio",
+    "desc_pt": "Lâminas finas de pirarucu defumado com azeite, limão, ervas frescas e leve toque de pimenta delicado, sofisticado e cheio de identidade regional. Calorias: 189kcal Valor protéico: 26g Fibras: 1g",
+    "desc_en": "Wild Amazonian pirarucu, known as the king of rivers, delicately grilled over charcoal and served with fresh regional sides and herbs.",
+    "desc_es": "Fresco filete del rey de los ríos de la Amazonía, de carne blanca y textura inigualable, asado a la parrilla con hierbas aromáticas y guarniciones regionales."
+  },
+  {
+    "id": "dish-dion-025",
+    "name_pt": "Couvert do Engenho",
+    "name_en": "Engenho Signature Bread & Spreads Couvert",
+    "desc_pt": "Pão Terra & Mar com dois sabores de antepasto",
+    "desc_en": "freshly baked artisan Terra & Mar crusty bread served with a duo of chef signature spreads",
+    "desc_es": "pan artesanal crujiente Terra & Mar acompañado de un dúo de patés y antipastos de la casa"
+  },
+  {
+    "id": "dish-dion-026",
+    "name_pt": "Azeitonas Empanadas",
+    "name_en": "Crispy Panko-Breaded Green Olives",
+    "desc_pt": "Azeitonas verdes sem caroço temperadas empanadas na farinha panko e servida com maionese de alho confitado.",
+    "desc_en": "Pitted seasoned green olives coated in Japanese panko breadcrumbs and flash-fried to golden perfection, served with silky roasted garlic confit aioli.",
+    "desc_es": "Aceitunas verdes descarozadas y sazonadas, rebozadas en panko crujiente y fritas doradas, servidas con alioli de ajo confitado."
+  },
+  {
+    "id": "dish-dion-027",
+    "name_pt": "Crocante de Costela",
+    "name_en": "Crispy Pulled Beef Rib Croquettes",
+    "desc_pt": "Costela bovina desfiada e empanada, na mistura com próprio molho, guarnecida com geleia de melancia.",
+    "desc_en": "Tender slow-cooked ribs braised to perfection, falling off the bone and finished with rich glaze and golden accompaniments.",
+    "desc_es": "Costillas tiernas cocinadas lentamente hasta desprenderse del hueso, glaseadas en su propio jugo y servidas con guarniciones doradas."
+  },
+  {
+    "id": "dish-dion-028",
+    "name_pt": "Trio do Engenho",
+    "name_en": "Engenho Taster Trio (Pastel, Rib & Tapioca)",
+    "desc_pt": "Combinação de Charque na brasa, Lascas de Joelho e Costela de Tambaqui, sobre um incrível barbecue de cupuaçu.",
+    "desc_en": "generous tasting platter combining charcoal-grilled jerked beef, flakes of smoked pork shank, and crispy tambaqui ribs",
+    "desc_es": "plato degustación con carne seca a la brasa, lascas de codillo ahumado y costillas crujientes de tambaquí"
+  },
+  {
+    "id": "dish-dion-029",
+    "name_pt": "Camarões na Cerveja",
+    "name_en": "Beer-Battered Crispy Shrimps with Herb Dip",
+    "desc_pt": "Camarões embebidos na cerveja, levemente empanados com um refrescante Aioli verde.",
+    "desc_en": "Chilled bottled beer served ice-cold, perfectly refreshing for pairing with our authentic grilled meats and tapas.",
+    "desc_es": "Cerveza embotellada helada, ideal para maridar con nuestros cortes de carne a la brasa y tapas típicas."
+  },
+  {
+    "id": "dish-dion-030",
+    "name_pt": "Rocambole Suíno",
+    "name_en": "Crispy Crackling Pork Belly Roulade (Pururuca)",
+    "desc_pt": "Barriga cozida lentamente, enrolada e pururucada, servida com rodelas de abacaxi selado.",
+    "desc_en": "Tender pork belly slow-braised for hours, rolled tight and finished with ultra-crisp crackling skin (pururuca), accompanied by pan-seared sweet pineapple slices.",
+    "desc_es": "Panceta de cerdo cocida a fuego lento, enrollada y terminada con piel crujiente pururuca, servida con rodajas de piña selladas al fuego."
+  },
+  {
+    "id": "dish-dion-031",
+    "name_pt": "Coraçãozinho de Galinha",
+    "name_en": "Charcoal-Grilled Garlic Chicken Hearts",
+    "desc_pt": "21 Deliciosos corações de galinha, grelhados com alho laminado e com cebola crispy, pra comer no palito",
+    "desc_en": "21 juicy chicken hearts flame-grilled over natural charcoal embers with toasted sliced garlic and crunchy crispy onions, served on skewers for effortless sharing.",
+    "desc_es": "21 jugosos corazones de pollo asados a la brasa con láminas de ajo dorado y cebolla crujiente, servidos en brochetas para compartir."
+  },
+  {
+    "id": "dish-dion-032",
+    "name_pt": "Pão De Alho",
+    "name_en": "Artisanal Charcoal-Toasted Garlic Bread",
+    "desc_pt": "Pão baguete tostado na brasa, recheado com generoso creme artesanal de alho, queijo derretido e ervas finas.",
+    "desc_en": "Artisanal crusty baguette toasted over charcoal embers, filled with rich roasted garlic cream, melted mozzarella cheese, and fresh garden herbs.",
+    "desc_es": "Pan baguette crujiente dorado a la brasa, relleno con abundante crema casera de ajo asado, queso derretido y finas hierbas."
+  },
+  {
+    "id": "dish-dion-033",
+    "name_pt": "Camarão De Montão",
+    "name_en": "Heaping Platter of Crispy Golden Shrimps",
+    "desc_pt": "Camarões salteados no azeite com alho frito, acompanhado de limão e molho de cerveja.",
+    "desc_en": "Chilled bottled beer served ice-cold, perfectly refreshing for pairing with our authentic grilled meats and tapas.",
+    "desc_es": "Cerveza embotellada helada, ideal para maridar con nuestros cortes de carne a la brasa y tapas típicas."
+  },
+  {
+    "id": "dish-dion-034",
+    "name_pt": "Isca De Carne De Sol Do Engenho",
+    "name_en": "Engenho Sun-Cured Beef Bites with Fried Cassava",
+    "desc_pt": "Deliciosa carne de sol, sucesso há 15 anos, servida em tiras e acompanhada de bolinho de macaxeira e queijo coalho frito",
+    "desc_en": "Artisan sun-cured beef roasted over hot coals with clarified butter, accompanied by creamy baião de dois, crispy cassava, and toasted farofa.",
+    "desc_es": "Carne curada artesanalmente asada a las brasas con mantequilla clarificada de botella, acompañada de cremoso baião de dois, yuca frita y farofa."
+  },
+  {
+    "id": "dish-dion-035",
+    "name_pt": "Macaxeira Frita",
+    "name_en": "Crispy Golden Amazonian Cassava (Yucca)",
+    "desc_pt": "Porção de macaxeira amarela regional cozida e frita na hora, crocante por fora e macia por dentro, finalizada com manteiga de garrafa e flor de sal.",
+    "desc_en": "Golden Amazonian yellow cassava, steam-cooked and flash-fried until crunchy outside and fluffy inside, finished with clarified bottle butter and sea salt flakes.",
+    "desc_es": "Porción de yuca amarilla regional cocida y frita al momento, crujiente por fuera y suave por dentro, terminada con mantequilla clarificada y flor de sal."
+  },
+  {
+    "id": "dish-dion-036",
+    "name_pt": "Batata Frita",
+    "name_en": "Crispy Golden French Fries",
+    "desc_pt": "Batatas selecionadas fritas até ficarem douradas e crocantes, sequinhas por fora e macias por dentro, com leve toque de sal.",
+    "desc_en": "Select hand-cut potatoes fried until crisp and golden brown, dry on the outside and tender inside, seasoned with fine sea salt.",
+    "desc_es": "Papas seleccionadas fritas al punto dorado y crujiente, secas por fuera y tiernas por dentro, con un toque suave de sal fina."
+  },
+  {
+    "id": "dish-dion-037",
+    "name_pt": "Bolinho De Bacalhau Tradicional",
+    "name_en": "Traditional Golden Salt Cod Fritters (6 pcs)",
+    "desc_pt": "6 unidades. Bacalhau Gadus morhua servido como manda a tradição portuguesa",
+    "desc_en": "6 authentic Portuguese codfish fritters made with wild Gadus morhua, creamy potato mash, and fresh parsley, fried to golden crispness.",
+    "desc_es": "6 buñuelos tradicionales portugueses de bacalao Gadus morhua con patata cremosa y perejil fresco, fritos hasta quedar dorados y crujientes."
+  },
+  {
+    "id": "dish-dion-038",
+    "name_pt": "Bolinho De Macaxeira",
+    "name_en": "Golden Crispy Cassava Croquettes",
+    "desc_pt": "12 unidades. Bolinhos de macaxeira fritos, acompanhados de geleia de cebola feita com melaço de cana",
+    "desc_en": "12 golden bite-sized cassava fritters, crisp on the outside and creamy inside, served with house-made caramelized onion jam infused with sugarcane molasses.",
+    "desc_es": "12 bocaditos dorados de yuca crujientes por fuera y cremosos por dentro, acompañados de mermelada de cebolla caramelizada con melaza de caña."
+  },
+  {
+    "id": "dish-dion-039",
+    "name_pt": "Polenta Frita",
+    "name_en": "Polenta Crispy Fried",
+    "desc_pt": "Deliciosos palitos de polenta frita, sequinha e saborosa",
+    "desc_en": "Crispy fried golden corn polenta batons, crunchy on the exterior and velvety soft inside, dusted with sea salt.",
+    "desc_es": "Bastones dorados de polenta frita crujiente, secos por fuera y suaves por dentro, sazonados con un toque de sal marina."
+  },
+  {
+    "id": "dish-dion-040",
+    "name_pt": "Joelho Trinchado",
+    "name_en": "Sliced Smoked Pork Shank with Rustic Potatoes",
+    "desc_pt": "Lascas de joelho de porco, batata rústica e geleia de cebola, finalização com alecrim",
+    "desc_en": "Tender shredded smoked pork shank tossed with skin-on rustic potatoes, sweet caramelized onion jam, and fragrant fresh rosemary sprigs.",
+    "desc_es": "Lajas jugosas de codillo de cerdo ahumado con papas rústicas con piel, mermelada de cebolla caramelizada y romero fresco."
+  },
+  {
+    "id": "dish-dion-041",
+    "name_pt": "Meladinho De Minas",
+    "name_en": "Golden Coalho Cheese Cubes with Cane Molasses Dip",
+    "desc_pt": "Queijo coalho na chapa com melaço de cana",
+    "desc_en": "Thick slices of artisanal coalho cheese seared on the flat-top griddle with a golden crust, drizzled with pure sugarcane molasses.",
+    "desc_es": "Rebanadas gruesas de queso coalho a la plancha con costra dorada, bañadas con melaza pura de caña de azúcar."
+  },
+  {
+    "id": "dish-dion-042",
+    "name_pt": "Completa Do Engenho",
+    "name_en": "The Ultimate Engenho Charcoal Grill & Tapas Feast",
+    "desc_pt": "Tiras de filé fritas na manteiga, linguicinhas e costela de porco defumadas, bolinhos de macaxeira fritos, acompanhado de salame, azeitonas e salada",
+    "desc_en": "Tender slow-cooked ribs braised to perfection, falling off the bone and finished with rich glaze and golden accompaniments.",
+    "desc_es": "Costillas tiernas cocinadas lentamente hasta desprenderse del hueso, glaseadas en su propio jugo y servidas con guarniciones doradas."
+  },
+  {
+    "id": "dish-dion-043",
+    "name_pt": "Pirarucu Ribeirinho",
+    "name_en": "Riverbank-Style Charcoal-Grilled Pirarucu Fillet",
+    "desc_pt": "Tiras de filé de pirarucu frito com chips de banana acompanhado de geleia de cupuaçu",
+    "desc_en": "Wild Amazonian pirarucu, known as the king of rivers, delicately grilled over charcoal and served with fresh regional sides and herbs.",
+    "desc_es": "Fresco filete del rey de los ríos de la Amazonía, de carne blanca y textura inigualable, asado a la parrilla con hierbas aromáticas y guarniciones regionales."
+  },
+  {
+    "id": "dish-dion-044",
+    "name_pt": "Costelinha Do Engenho",
+    "name_en": "House Honey-Glazed Charcoal Pork Ribs",
+    "desc_pt": "Sucesso a mais de 16 anos. Costelinhas suínas defumadas e fritas, acompanhadas de geleia de cupuaçu",
+    "desc_en": "A 16-year house specialty: tender smoked pork ribs flash-fried until crackling crisp, served with our signature sweet and tart cupuaçu fruit dip.",
+    "desc_es": "Especialidad de la casa desde hace 16 años: costillitas de cerdo ahumadas y fritas crujientes, acompañadas de jalea agridulce de copoazú."
+  },
+  {
+    "id": "dish-dion-045",
+    "name_pt": "Filé Com Fritas",
+    "name_en": "Tender Beef Tenderloin Strips with French Fries",
+    "desc_pt": "Tiras de filé passadas na manteiga com cebola em pétalas e azeitonas. Acompanhadas de batata frita e fatias de pão italiano",
+    "desc_en": "Tender beef tenderloin medallion seared with butter and aromatic herbs, served with delicious house accompaniments.",
+    "desc_es": "Medallón tierno de lomo fino sellado con mantequilla y finas hierbas, servido con deliciosas guarniciones de la casa."
+  },
+  {
+    "id": "dish-dion-046",
+    "name_pt": "Deliciosos copinhos que podem ser servidos individuais ou em combos com 3 sabores para compartilhar – Uma verdadeira delícia na sua mesa!",
+    "name_en": "Engenho Savory Tasting Cups (Individual or Trio Flight)",
+    "desc_pt": "Deliciosos copinhos que podem ser servidos individuais ou em combos com 3 sabores para compartilhar – Uma verdadeira delícia na sua mesa! - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira.",
+    "desc_en": "Mini savory tasting shot flight: choose 3 artisan comfort soups/creams from black bean, velvety pumpkin with jerked beef, or Amazonian tacacá.",
+    "desc_es": "Degustación de chupitos salados calientes: elige 3 deliciosas cremas artesanales entre caldito de frijol, calabaza con carne seca o tacacá amazónico."
+  },
+  {
+    "id": "dish-dion-047",
+    "name_pt": "Copinho de Feijão",
+    "name_en": "Mini Tasting Cup: Slow-Simmered Black Bean Soup",
+    "desc_pt": "Caldinho de feijão com farofa de bacon – O Tradicional caldinho mudou de “roupa”!",
+    "desc_en": "Rich and hearty slow-simmered black bean broth served in a tasting glass, crowned with crunchy smoky bacon farofa crumble.",
+    "desc_es": "Caldito espeso y aromático de frijoles negros servido en vaso de degustación, coronado con crujiente farofa de tocino ahumado."
+  },
+  {
+    "id": "dish-dion-048",
+    "name_pt": "Copinho de Abóbora",
+    "name_en": "Mini Tasting Cup: Velvety Pumpkin & Jerked Beef Cream",
+    "desc_pt": "creme de abóbora com carne seca e crispe de couve – Esse é pra lembrar do sertão!",
+    "desc_en": "Velvety roasted pumpkin cream layered with tender shredded sun-cured beef and topped with flash-fried crispy collard greens ribbons.",
+    "desc_es": "Crema aterciopelada de calabaza asada con carne seca desmechada y crujiente de col verde salteada al instante."
+  },
+  {
+    "id": "dish-dion-049",
+    "name_pt": "Copinho Amazônico",
+    "name_en": "Mini Tasting Cup: Pirarucu in Tucupi & Jambu Cream",
+    "desc_pt": "creme de tacacá com camarão seco e jambú – Nós caboclos adoramos e se você não provou, merece!",
+    "desc_en": "Traditional Amazonian tacacá soup tasting: yellow tucupi broth, wild jambú leaves with their tingling sensation, and salted dried shrimps.",
+    "desc_es": "Degustación de tacacá amazónico: caldo aromático de tucupí amarillo, hojas de jambú con su cosquilleo característico y camarón seco."
+  },
+  {
+    "id": "dish-dion-050",
+    "name_pt": "Copinho de Strogonoff",
+    "name_en": "Mini Tasting Cup: Creamy Beef Stroganoff with Shoestring Fries",
+    "desc_pt": "de frango com chips de batata doce – Aquele Strogonofe que lembra casa da Vovô!",
+    "desc_en": "Creamy homestyle chicken stroganoff in a velvety tomato-cream sauce, crowned with crunchy sweet potato crisps.",
+    "desc_es": "Strogonoff cremoso y casero de pollo en salsa aterciopelada con champiñones, coronado con chips crujientes de camote."
+  },
+  {
+    "id": "dish-dion-051",
+    "name_pt": "Copinho de Vaca Atolada",
+    "name_en": "Mini Tasting Cup: Braised Beef Ribs & Cassava Soup",
+    "desc_pt": "creme de mandioca com costela bovina – Temperado daquele jeito que vai te levar lá em Minas Gerais sô!",
+    "desc_en": "Tender slow-cooked ribs braised to perfection, falling off the bone and finished with rich glaze and golden accompaniments.",
+    "desc_es": "Costillas tiernas cocinadas lentamente hasta desprenderse del hueso, glaseadas en su propio jugo y servidas con guarniciones doradas."
+  },
+  {
+    "id": "dish-dion-052",
+    "name_pt": "Mini Pastel Queijo Coalho",
+    "name_en": "Crispy Mini Pastries Filled with Golden Coalho Cheese",
+    "desc_pt": "Porção de mini pastéis crocantes de massa artesanal, recheados com queijo coalho nordestino derretido e dourado.",
+    "desc_en": "Crispy, golden-fried Brazilian mini pastries with delicate flaky crust, generously filled and served piping hot.",
+    "desc_es": "Empanaditas brasileñas recién fritas de masa hojaldrada crujiente, rellenas generosamente y servidas bien calientes."
+  },
+  {
+    "id": "dish-dion-053",
+    "name_pt": "Mini Pastel Carne De Sol",
+    "name_en": "Crispy Mini Pastries with Sun-Cured Beef & Cream",
+    "desc_pt": "Porção de mini pastéis com recheio suculento de carne de sol desfiada, refogada na manteiga de garrafa e cebola roxa.",
+    "desc_en": "Artisan sun-cured beef roasted over hot coals with clarified butter, accompanied by creamy baião de dois, crispy cassava, and toasted farofa.",
+    "desc_es": "Carne curada artesanalmente asada a las brasas con mantequilla clarificada de botella, acompañada de cremoso baião de dois, yuca frita y farofa."
+  },
+  {
+    "id": "dish-dion-054",
+    "name_pt": "Mini Pasteis de Camarão",
+    "name_en": "Crispy Mini Pastries Filled with Sautéed Shrimps",
+    "desc_pt": "Camarões selecionados limpos e salteados com azeite, alho e temperos frescos, com textura tenra e sabor marcante.",
+    "desc_en": "Crisp, flaky mini pastry pockets stuffed with tender wild shrimps sautéed in extra virgin olive oil, minced garlic, and fresh herbs.",
+    "desc_es": "Mini empanadas crujientes rellenas de camarones salteados en aceite de oliva virgen extra, ajo tierno y hierbas frescas aromáticas."
+  },
+  {
+    "id": "dish-dion-055",
+    "name_pt": "Mini Pastel de Bacalhau",
+    "name_en": "Mini Crispy Brazilian Pastry with Bacalhau",
+    "desc_pt": "Porção de mini pastéis com autêntico recheio de bacalhau desfiado, azeitonas pretas, azeite extravirgem e salsinha.",
+    "desc_en": "Crispy, golden-fried Brazilian mini pastries with delicate flaky crust, generously filled and served piping hot.",
+    "desc_es": "Empanaditas brasileñas recién fritas de masa hojaldrada crujiente, rellenas generosamente y servidas bien calientes."
+  },
+  {
+    "id": "dish-dion-056",
+    "name_pt": "Linguicinha Picante",
+    "name_en": "Charcoal-Grilled Spicy Brazilian Sausage",
+    "desc_pt": "Deliciosa linguiça suína picante, defumada e curada com molho de limão, acompanhada do nosso bolinho de macaxeira",
+    "desc_en": "Spicy artisan smoked pork sausage grilled over charcoal, accompanied by fresh lime vinaigrette and golden cassava croquettes.",
+    "desc_es": "Embutido picante de cerdo ahumado a la brasa, servido con reducción suave de lima y nuestras croquetas doradas de yuca."
+  },
+  {
+    "id": "dish-dion-057",
+    "name_pt": "Linguicinha do Engenho",
+    "name_en": "Engenho Signature Artisanal Charcoal-Grilled Sausage",
+    "desc_pt": "Deliciosa linguiça de lombo, acompanhada de molho de limão e do nosso bolinho de macaxeira",
+    "desc_en": "House-recipe artisan pork loin sausage flame-grilled on charcoal embers, paired with a zesty citrus dip and golden cassava fritters.",
+    "desc_es": "Embutido artesanal de lomo de cerdo elaborado según receta de la casa, a la brasa, con salsa cítrica y croquetas de yuca."
+  },
+  {
+    "id": "dish-dion-058",
+    "name_pt": "Linguicinha Espiral do Pecado",
+    "name_en": "Spiral Artisanal Pork Sausage na Brasa with Herbs",
+    "desc_pt": "Espiral de linguicinha fresca, altamente picante (cuidado!!!) acompanhada do nosso bolinho de macaxeira",
+    "desc_en": "Curled spiral of artisan fresh sausage loaded with fiery chili peppers (extra hot!), flame-grilled and served with crispy cassava croquettes.",
+    "desc_es": "Espiral de embutido fresco artesanal extra picante (¡muy intenso!), asada a la brasa y acompañada de croquetas crujientes de yuca."
+  },
+  {
+    "id": "dish-dion-059",
+    "name_pt": "Linguicinha Blumenau Defumada",
+    "name_en": "Smoked Blumenau Artisan Sausage na Brasa",
+    "desc_pt": "Linguicinha suína defumada, uma explosão de sabores. Acompanhada do nosso bolinho de macaxeira",
+    "desc_en": "Authentic southern Brazilian Blumenau smoked sausage roasted over charcoal, served with house golden cassava fritters.",
+    "desc_es": "Embutido artesanal ahumado estilo Blumenau a la brasa, lleno de notas ahumadas y acompañado de croquetas doradas de yuca."
+  },
+  {
+    "id": "dish-dion-060",
+    "name_pt": "Grande Calabresa",
+    "name_en": "Large Smoked Calabresa Sausage & Onion Artisanal Pizza",
+    "desc_pt": "Molho de tomate da casa, mussarela e calabresa acebolada, finalizada com orégano",
+    "desc_en": "house tomato reduction, melted mozzarella cheese, artisan calabresa smoked sausage, sweet onions, and aromatic oregano",
+    "desc_es": "salsa de tomate artesanal, queso mozzarella fundido, longaniza calabresa ahumada con cebolla y orégano"
+  },
+  {
+    "id": "dish-dion-061",
+    "name_pt": "Grande Mussarela",
+    "name_en": "Large Classic Mozzarella & Oregano Artisanal Pizza",
+    "desc_pt": "Molho de tomate da casa, mussarela finalizada com orégano",
+    "desc_en": "house slow-cooked tomato sauce, premium melted mozzarella cheese, and fragrant dried oregano",
+    "desc_es": "salsa de tomate cocida lentamente, abundante queso mozzarella fundido y orégano seco aromático"
+  },
+  {
+    "id": "dish-dion-062",
+    "name_pt": "Grande Carne De Sol Grande",
+    "name_en": "Large Sun-Cured Beef na Brasa with Baião & Cassava (Sharing)",
+    "desc_pt": "Molho de tomate da casa, mussarela, carne de sol desfiada e acebolada, finalizada com orégano",
+    "desc_en": "Artisan sun-cured beef roasted over hot coals with clarified butter, accompanied by creamy baião de dois, crispy cassava, and toasted farofa.",
+    "desc_es": "Carne curada artesanalmente asada a las brasas con mantequilla clarificada de botella, acompañada de cremoso baião de dois, yuca frita y farofa."
+  },
+  {
+    "id": "dish-dion-063",
+    "name_pt": "Todos nossos Hamburgueres são feitos artesanalmente pela Boutique de carne VPJ em São Paulo, com carne bovina Black Angus. Todos acompanham batata frita e molho extra",
+    "name_en": "Artisanal VPJ Black Angus Gourmet Burger Platter (with Fries)",
+    "desc_pt": "Burg do Engenho - Hamburguer de pão artesanal feito com carne artesanal, alface americana, tomate, queijo mussarela, fatias de Joelho de Porco defumado e picles de cebola roxa no pão brioche",
+    "desc_en": "200g prime VPJ Black Angus patty on a toasted brioche bun with smoked pork shank slices, melted mozzarella, crisp lettuce, tomato, and pickled red onions; served with fries.",
+    "desc_es": "Hamburguesa gourmet Black Angus VPJ de 200g en pan brioche con lascas de codillo ahumado, queso derretido, lechuga, tomate y encurtido de cebolla morada; servida con papas fritas."
+  },
+  {
+    "id": "dish-dion-064",
+    "name_pt": "Duplo Cheddar",
+    "name_en": "Double Black Angus Burger with Melted Aged Cheddar & Bacon",
+    "desc_pt": "Dois burgers artesanais selados, com cheddar cremoso e geleia de cebola no pão brioche.",
+    "desc_en": "Two seared Black Angus smashed beef patties layered with melted creamy English cheddar and caramelized sweet onion jam on a buttery brioche bun; with fries.",
+    "desc_es": "Doble hamburguesa Black Angus a la plancha con abundante queso cheddar cremoso derretido y mermelada de cebolla caramelizada en pan brioche; con papas."
+  },
+  {
+    "id": "dish-dion-065",
+    "name_pt": "X-Manaós Costela",
+    "name_en": "X-Manaós Pulled Rib Burger with Tucupi Mayo & Coalho Cheese",
+    "desc_pt": "Hambúrguer de costela de 210gr, queijo muçarela, tiras crocantes de bacon, alface fresco, tomate e o nosso molho especial!",
+    "desc_en": "Tender slow-cooked ribs braised to perfection, falling off the bone and finished with rich glaze and golden accompaniments.",
+    "desc_es": "Costillas tiernas cocinadas lentamente hasta desprenderse del hueso, glaseadas en su propio jugo y servidas con guarniciones doradas."
+  },
+  {
+    "id": "dish-dion-066",
+    "name_pt": "Cheeseburguer",
+    "name_en": "Classic Black Angus Brioche Cheeseburger",
+    "desc_pt": "O tradicional, feito da maneira correta que vai te surpreender, Pão Brioche, carne hambúrguer, Queijo americano e nada mais!",
+    "desc_en": "The purist classic: juicy grilled VPJ Black Angus beef patty and melted American cheese on a toasted golden brioche bun; served with fries.",
+    "desc_es": "La clásica hamburguesa pura: carne jugosa Black Angus a la parrilla y queso americano fundido en suave pan brioche tostado; con papas fritas."
+  },
+  {
+    "id": "dish-dion-067",
+    "name_pt": "Salada Coleslaw",
+    "name_en": "Crisp Shaved Cabbage Coleslaw with Creamy Herb Dressing",
+    "desc_pt": "Mix de repolho, rúcula, cenoura e tomates frescos, misturada com uma maionese de alho salsa",
+    "desc_en": "Shaved green and purple cabbage, wild arugula, julienne carrots, and sweet cherry tomatoes tossed in creamy garlic-parsley aioli.",
+    "desc_es": "Col verde y morada finamente cortada con rúcula fresca, zanahoria y tomates cherry, aliñada con mayonesa cremosa de ajo y perejil."
+  },
+  {
+    "id": "dish-dion-068",
+    "name_pt": "Salada Assustada",
+    "name_en": "Flash-Charred Crisp Garden Salad with House Vinaigrette",
+    "desc_pt": "Salada com couve temperada, cebola roxa, bacon, tomates cerejas e finalizada com molho especial de iogurte",
+    "desc_en": "Quick-seared shredded collard greens, crispy smoky bacon lardons, thin red onion rings, and sweet cherry tomatoes, topped with chilled Greek yogurt dressing.",
+    "desc_es": "Hojas tiernas de col salteadas al fuego vivo con tocino crujiente, cebolla morada, tomates cherry y aderezo especial cremoso de yogur."
+  },
+  {
+    "id": "dish-dion-069",
+    "name_pt": "Salada Búfula",
+    "name_en": "Fresh Buffalo Mozzarella & Cherry Tomato Salad",
+    "desc_pt": "Mix de folhas, rúcula, cebola, croûtons, massa farfalle, queijo de búfula, regada com azeite e limão siciliano e cebola caramelizada",
+    "desc_en": "Crisp greens, peppery arugula, bowtie farfalle pasta, and fresh buffalo mozzarella pearls dressed with Sicilian lemon, olive oil, and sweet caramelized onions.",
+    "desc_es": "Hojas verdes frescas, rúcula silvestre, pasta farfalle y perlas de mozzarella de búfala con limón siciliano, aceite de oliva virgen y cebolla caramelizada."
+  },
+  {
+    "id": "dish-dion-070",
+    "name_pt": "Salada Caesar",
+    "name_en": "Classic Caesar Salad with Parmesan & Herb Croutons",
+    "desc_pt": "Alface americana fresca, croutons crocantes, lascas de parmesão e molho caesar tradicional",
+    "desc_en": "Crisp romaine hearts, herb-toasted golden croutons, and aged Grana Padano parmesan ribbons tossed in creamy authentic anchovy-garlic Caesar dressing.",
+    "desc_es": "Lechuga romana fresca, picatostes crujientes con hierbas y finas lascas de parmesano curado con el aderezo César tradicional de la casa."
+  },
+  {
+    "id": "dish-dion-071",
+    "name_pt": "Escolha a proteína e os acompanhamentos que os pequenos mais gostam Escolha até 3 acompanhamentos: Arroz branco, massa Capeline (Cabelo de Anjo), Batata Frita, Purê, Feijão ou Salada",
+    "name_en": "Escolha a proteína e os acompanhamentos que os pequenos mais gostam Escolha até 3 acompanhamentos: Arroz branco, massa Capeline (Cabelo de Anjo), Batata Crispy Fried, Purê, Feijão ou Salada",
+    "desc_pt": "Empanado de Frango - Frango de verdade, processado artesanalmente, temperado e empanado",
+    "desc_en": "Handmade tender chicken breast tenders, lightly seasoned and breaded crispy golden; choose 3 sides (fluffy rice, angel hair pasta, mashed potatoes, fries, or beans).",
+    "desc_es": "Fingers tiernos de pechuga de pollo 100% natural, rebozados y fritos dorados; elige 3 guarniciones (arroz blanco, pasta cabello de ángel, puré, papas fritas o frijoles)."
+  },
+  {
+    "id": "dish-dion-072",
+    "name_pt": "Empanado de Filé Mignon",
+    "name_en": "Golden Breaded de Filé Mignon",
+    "desc_pt": "Filé de verdade, processado artesanalmente, temperado.",
+    "desc_en": "Tender beef tenderloin medallion seared with butter and aromatic herbs, served with delicious house accompaniments.",
+    "desc_es": "Medallón tierno de lomo fino sellado con mantequilla y finas hierbas, servido con deliciosas guarniciones de la casa."
+  },
+  {
+    "id": "dish-dion-073",
+    "name_pt": "Tiras de Filé Mignon",
+    "name_en": "Sautéed Beef Tenderloin Strips with Sweet Onions & Butter",
+    "desc_pt": "Medalhão alto de filé mignon super macio e limpo, grelhado com maestria e textura incomparável.",
+    "desc_en": "Tender beef tenderloin medallion seared with butter and aromatic herbs, served with delicious house accompaniments.",
+    "desc_es": "Medallón tierno de lomo fino sellado con mantequilla y finas hierbas, servido con deliciosas guarniciones de la casa."
+  },
+  {
+    "id": "dish-dion-074",
+    "name_pt": "Bolonhesa",
+    "name_en": "Slow-Cooked Prime Beef Bolognese Ragu",
+    "desc_pt": "Carne moída ao molho de tomate, Ideal pra quem for escolher nossa massa capeline (o famosinho “Cabelo de Anjo”)",
+    "desc_en": "Delicate angel hair pasta topped with rich, slow-simmered prime minced beef and vine-ripened tomato sauce, dusted with parmesan cheese.",
+    "desc_es": "Fina pasta cabello de ángel servida con ragú tradicional de carne vacuna picada y salsa casera de tomates maduros con queso parmesano."
+  },
+  {
+    "id": "dish-dion-075",
+    "name_pt": "Deliciosas combinações “escondidas” no creme de macaxeira com queijo, uma mistura cremosa e uniforme que você já conhece. Porções bem servidas nos nossos caldeirõezinhos de ferro fundido, pra você se deliciar sozinho ou compartilhar – Todos acompanham arroz branco",
+    "name_en": "Artisanal Cast-Iron Gratinated Cassava Shepherd’s Pies (Choice of Fillings)",
+    "desc_pt": "Caldeirão de Carne de Sol - Carne de Sol desfiada, refogada com bacon e cebola, com o toque de molho roti.",
+    "desc_en": "Artisan sun-cured beef roasted over hot coals with clarified butter, accompanied by creamy baião de dois, crispy cassava, and toasted farofa.",
+    "desc_es": "Carne curada artesanalmente asada a las brasas con mantequilla clarificada de botella, acompañada de cremoso baião de dois, yuca frita y farofa."
+  },
+  {
+    "id": "dish-dion-076",
+    "name_pt": "Caldeirão de Charque",
+    "name_en": "Cast-Iron Pot Cassava Shepherd’s Pie with Shredded Jerked Beef",
+    "desc_pt": "Aquela mistura à jardineira do nosso charque especial",
+    "desc_en": "Traditional cast-iron skillet shepherd's pie: savory shredded sun-cured jerked beef braised with garden vegetables under a velvety cassava purée gratin.",
+    "desc_es": "Escondidinho tradicional en caldero de hierro: carne seca desmechada estofada con hortalizas frescas bajo una suave capa gratinada de puré de yuca."
+  },
+  {
+    "id": "dish-dion-077",
+    "name_pt": "Caldeirão de Picanha",
+    "name_en": "Cast-Iron Pot Gratinated Cassava Pie with Grilled Picanha",
+    "desc_pt": "Pedaços de picanha especial, acebolada e refogada",
+    "desc_en": "Prime Brazilian picanha rump cap grilled over natural lump charcoal with rock salt, served with egg farofa, vinaigrette, and rice.",
+    "desc_es": "Corte noble de picanha brasileña con capa de grasa uniforme, asada a la parrilla con sal gruesa al término de su preferencia, con farofa de huevos y vinagreta fresca."
+  },
+  {
+    "id": "dish-dion-078",
+    "name_pt": "Caldeirão de Bacalhau",
+    "name_en": "Cast-Iron Pot Gratin of Codfish & Creamy Cassava",
+    "desc_pt": "Lascas de bacalhau refogado com pimentões e cebola",
+    "desc_en": "Flaked wild Portuguese codfish sautéed with sweet bell peppers, onions, and extra virgin olive oil, baked under a creamy golden cassava crust.",
+    "desc_es": "Lajas de bacalao desalado salteadas con pimientos dulces, cebolla y aceite de oliva, cubiertas de puré de yuca y gratinadas al horno."
+  },
+  {
+    "id": "dish-dion-079",
+    "name_pt": "Caldeirão de Camarão",
+    "name_en": "Cast-Iron Pot Gratin of Shrimps & Creamy Cassava",
+    "desc_pt": "Deliciosos Camarões refogados com cebola e coentro.",
+    "desc_en": "Tender wild shrimps braised with sweet onions, fresh cilantro, and coconut milk, topped with rich cassava purée and gratineed with bubbling mozzarella.",
+    "desc_es": "Camarones tiernos salteados con cebolla fresca, cilantro y un toque de leche de coco, bajo puré cremoso de yuca gratinado al horno."
+  },
+  {
+    "id": "dish-dion-080",
+    "name_pt": "Combo Caldeirão Engenho 2 Unidades",
+    "name_en": "Engenho Duo Cast-Iron Cassava Pies (Choose 2)",
+    "desc_pt": "Combo com caldeirões de escondidinhos artesanais à escolha, servidos quentes com crosta de queijo gratinado na hora.",
+    "desc_en": "Tasting duo of piping-hot cast-iron cassava shepherd’s pies (choose any 2: Jerked Beef, Wild Codfish, or Sautéed Shrimps) with bubbling melted cheese.",
+    "desc_es": "Dúo de calderitos de hierro a elegir (Carne Seca, Bacalao o Camarones), servidos recién gratinados con queso derretido dorado."
+  },
+  {
+    "id": "dish-dion-081",
+    "name_pt": "Prime Rib Suíno - 2P",
+    "name_en": "Prime Pork Ribeye Chop na Brasa with Roasted Sides (Serves 2)",
+    "desc_pt": "Corte especial de porco, servindo até duas pessoas, acompanhado de feijão tropeiro e arroz branco.",
+    "desc_en": "Curated wine selected from our climate-controlled cellar, poured into crystal glassware to highlight its aroma, balance, and body.",
+    "desc_es": "Vino fino seleccionado de nuestra cava climatizada, servido a la temperatura perfecta en copas de cristal."
+  },
+  {
+    "id": "dish-dion-082",
+    "name_pt": "Arroz de rabada com rúcula - 1P",
+    "name_en": "Braised Oxtail Rice with Fresh Wild Arugula (1P)",
+    "desc_pt": "Rabada cozida desfiada, com arroz preparado no próprio molho, agrião e temperos.",
+    "desc_en": "Rich and creamy braised oxtail risotto-style rice simmered in its own decadent wine reduction with shredded tender meat and fresh peppery wild arugula.",
+    "desc_es": "Arroz meloso cocinado en la propia reducción aromática del rabo de toro estofado a fuego lento, con carne desmechada tierna y rúcula fresca."
+  },
+  {
+    "id": "dish-dion-083",
+    "name_pt": "Ragu do Brasil - 2P",
+    "name_en": "Brazilian Braised Meat Ragu with Creamy Polenta (Serves 2)",
+    "desc_pt": "Ragu de linguiça crocante, com espinafre, servida com polenta cremosa, acompanhado de arroz branco.",
+    "desc_en": "Curated wine selected from our climate-controlled cellar, poured into crystal glassware to highlight its aroma, balance, and body.",
+    "desc_es": "Vino fino seleccionado de nuestra cava climatizada, servido a la temperatura perfecta en copas de cristal."
+  },
+  {
+    "id": "dish-dion-084",
+    "name_pt": "Carbonara de Joelho - 1P",
+    "name_en": "Smoked Pork Shank Spaghetti Carbonara (1P)",
+    "desc_pt": "Lascas de joelho crocante com molho tradicional servido com massa longa e o toque do grupo engenho.",
+    "desc_en": "Al dente spaghetti tossed in a velvety egg yolk and parmesan sauce, crowned with crispy bits of slow-smoked crackling pork shank.",
+    "desc_es": "Spaghetti al dente con salsa cremosa tradicional de yemas de huevo y queso curado, enriquecida con trozos crujientes de codillo ahumado."
+  },
+  {
+    "id": "dish-dion-085",
+    "name_pt": "Supreme de Frango - 1P",
+    "name_en": "Pan-Seared Chicken Supreme Breast with Herb Butter (1P)",
+    "desc_pt": "Sobrecoxa desossada, recheada com presunto e queijo, guarnecidas com uma massa Tagliatele Grano duro ao molho branco",
+    "desc_en": "Curated wine selected from our climate-controlled cellar, poured into crystal glassware to highlight its aroma, balance, and body.",
+    "desc_es": "Vino fino seleccionado de nuestra cava climatizada, servido a la temperatura perfecta en copas de cristal."
+  },
+  {
+    "id": "dish-dion-086",
+    "name_pt": "Pirarucu em Crosta de Castanha - 1P",
+    "name_en": "Amazonian Pirarucu in Brazil Nut Crust (Single Portion)",
+    "desc_pt": "Pirarucu suculento na crosta de castanha, acompanhado com risoto de limão siciliano",
+    "desc_en": "Thick sustainable Amazonian pirarucu fillet grilled with a crunchy Brazil nut crust, served with creamy tucupi risotto and wild jambu leaves.",
+    "desc_es": "Tierno lomo de pirarucú amazónico sustentable a la plancha con costra crujiente de castaña de Pará, servido con risotto cremoso de tucupí y hojas silvestres de jambú."
+  },
+  {
+    "id": "dish-dion-087",
+    "name_pt": "Língua Bovina do Engenho - 1P",
+    "name_en": "Slow-Braised Tender Beef Tongue in Red Wine Reduction (1P)",
+    "desc_pt": "Língua bovina cozida lentamente, extremamente macia e saborosa, acompanhada de arroz ferrugem e farofa crocante de cebola",
+    "desc_en": "Melt-in-your-mouth slow-braised beef tongue in a rich brown gravy reduction, served with pan-dripping rice (arroz ferrugem) and crunchy toasted onion farofa.",
+    "desc_es": "Lengua vacuna estofada lentamente hasta quedar tierna como mantequilla en su propia salsa espesa, con arroz tostado al jugo y farofa crujiente de cebolla."
+  },
+  {
+    "id": "dish-dion-088",
+    "name_pt": "Costelão Do Engenho - 2P",
+    "name_en": "Slow-Smoked Prime Beef Ribs na Brasa (Serves 2)",
+    "desc_pt": "Costela sem osso de boi Angus, prensada, assada por 6 horas em baixa temperatura, acompanha arroz com brócolis, batatonese, farofa, queijo em cubos fritos. Serve duas pessoas",
+    "desc_en": "Tender slow-cooked ribs braised to perfection, falling off the bone and finished with rich glaze and golden accompaniments.",
+    "desc_es": "Costillas tiernas cocinadas lentamente hasta desprenderse del hueso, glaseadas en su propio jugo y servidas con guarniciones doradas."
+  },
+  {
+    "id": "dish-dion-089",
+    "name_pt": "Filé Do Engenho - 1P",
+    "name_en": "Beef Tenderloin Fillet do Engenho with Madeira Sauce & Rice (1P)",
+    "desc_pt": "Filé passado na manteiga acompanhado de arroz piemontese, fritas e farofa de ovos.",
+    "desc_en": "Tender beef tenderloin medallion seared with butter and aromatic herbs, served with delicious house accompaniments.",
+    "desc_es": "Medallón tierno de lomo fino sellado con mantequilla y finas hierbas, servido con deliciosas guarniciones de la casa."
+  },
+  {
+    "id": "dish-dion-090",
+    "name_pt": "Frango A Parmegiana - 1P",
+    "name_en": "Crispy Breaded Chicken Breast Parmigiana with Pasta (1P)",
+    "desc_pt": "Filé de frango marinado, empanado, coberto com molho de tomate caseiro e mussarela gratinada, acompanhado com fettuccine ao alho e óleo.",
+    "desc_en": "Tender beef tenderloin medallion seared with butter and aromatic herbs, served with delicious house accompaniments.",
+    "desc_es": "Medallón tierno de lomo fino sellado con mantequilla y finas hierbas, servido con deliciosas guarniciones de la casa."
+  },
+  {
+    "id": "dish-dion-091",
+    "name_pt": "Frango Na Chapa - 2P",
+    "name_en": "Sizzling Flat-Top Grilled Chicken with Sweet Onions (Serves 2)",
+    "desc_pt": "Filé de Frango passado na manteiga e molho shoyu, servido na chapa com cebola, pimentão verde e tomate em pétalas, acompanhado de purê de batatas, arroz branco e farofa.",
+    "desc_en": "Tender beef tenderloin medallion seared with butter and aromatic herbs, served with delicious house accompaniments.",
+    "desc_es": "Medallón tierno de lomo fino sellado con mantequilla y finas hierbas, servido con deliciosas guarniciones de la casa."
+  },
+  {
+    "id": "dish-dion-092",
+    "name_pt": "Carne De Sol Do Engenho - 1P",
+    "name_en": "Sun-Cured Beef do Engenho with Baião de Dois (1P)",
+    "desc_pt": "Nossa tradicional Carne de Sol, preparada artesanalmente com cortes nobres e assada lentamente para máxima maciez e sabor, acompanha arroz com brócolis ou baião de dois cremoso, bolinho de macaxeira, batatonese, queijo coalho grelhado, farofa crocante e vinagrete.",
+    "desc_en": "Artisan sun-cured beef roasted over hot coals with clarified butter, accompanied by creamy baião de dois, crispy cassava, and toasted farofa.",
+    "desc_es": "Carne curada artesanalmente asada a las brasas con mantequilla clarificada de botella, acompañada de cremoso baião de dois, yuca frita y farofa."
+  },
+  {
+    "id": "dish-dion-093",
+    "name_pt": "Carne De Sol Do Engenho - 2P",
+    "name_en": "Sun-Cured Beef do Engenho with Baião de Dois (Serves 2)",
+    "desc_pt": "Nossa tradicional Carne de Sol, preparada artesanalmente com cortes nobres e assada lentamente para máxima maciez e sabor, acompanha arroz com brócolis ou baião de dois cremoso, bolinho de macaxeira, batatonese, queijo coalho grelhado, farofa crocante e vinagrete.",
+    "desc_en": "Artisan sun-cured beef roasted over hot coals with clarified butter, accompanied by creamy baião de dois, crispy cassava, and toasted farofa.",
+    "desc_es": "Carne curada artesanalmente asada a las brasas con mantequilla clarificada de botella, acompañada de cremoso baião de dois, yuca frita y farofa."
+  },
+  {
+    "id": "dish-dion-094",
+    "name_pt": "Carne De Sol Do Engenho - 3P",
+    "name_en": "Sun-Cured Beef do Engenho with Baião de Dois (Serves 3)",
+    "desc_pt": "Nossa tradicional Carne de Sol, preparada artesanalmente com cortes nobres e assada lentamente para máxima maciez e sabor, acompanha arroz com brócolis ou baião de dois cremoso, bolinho de macaxeira, batatonese, queijo coalho grelhado, farofa crocante e vinagrete.",
+    "desc_en": "Artisan sun-cured beef roasted over hot coals with clarified butter, accompanied by creamy baião de dois, crispy cassava, and toasted farofa.",
+    "desc_es": "Carne curada artesanalmente asada a las brasas con mantequilla clarificada de botella, acompañada de cremoso baião de dois, yuca frita y farofa."
+  },
+  {
+    "id": "dish-dion-095",
+    "name_pt": "Tambaqui Manauara - 1P",
+    "name_en": "Manauara Tambaqui Ribs na Brasa (Single Portion)",
+    "desc_pt": "Costela com lombo de tambaqui, arroz com tucupi e jambu, acompanhado de farofa de banana.",
+    "desc_en": "Tender Amazonian tambaqui slow-roasted over natural wood coals, served with crispy Uarini farofa, regional vinaigrette, and fluffy white rice.",
+    "desc_es": "Costillas seleccionadas de tambaquí amazónico criadas en cautiverio, asadas a fuego lento sobre carbón natural, servidas con harina tostada de Uarini crujiente, vinagreta regional y arroz blanco al dente."
+  },
+  {
+    "id": "dish-dion-096",
+    "name_pt": "Filé de Pirarucu - 2P",
+    "name_en": "Tender Fillet of Pirarucu - 2P",
+    "desc_pt": "Filé de pirarucu grelhado e servido na chapa, acompanhado de arroz branco, feijão de praia, vinagrete e farofa.",
+    "desc_en": "Wild Amazonian pirarucu, known as the king of rivers, delicately grilled over charcoal and served with fresh regional sides and herbs.",
+    "desc_es": "Fresco filete del rey de los ríos de la Amazonía, de carne blanca y textura inigualable, asado a la parrilla con hierbas aromáticas y guarniciones regionales."
+  },
+  {
+    "id": "dish-dion-097",
+    "name_pt": "Tambaqui Smoked - 3P",
+    "name_en": "Smoked Amazonian Tambaqui Ribs na Brasa (Serves 3)",
+    "desc_pt": "Um momento amazônico com sabores marcantes, uma deliciosa banda de tambaqui exclusivamente defumada, acompanhado com risoto de castanhas e farofa de camarão tutóia com farinha de uarini torradinha.",
+    "desc_en": "Tender Amazonian tambaqui slow-roasted over natural wood coals, served with crispy Uarini farofa, regional vinaigrette, and fluffy white rice.",
+    "desc_es": "Costillas seleccionadas de tambaquí amazónico criadas en cautiverio, asadas a fuego lento sobre carbón natural, servidas con harina tostada de Uarini crujiente, vinagreta regional y arroz blanco al dente."
+  },
+  {
+    "id": "dish-dion-098",
+    "name_pt": "Joelho De Porco Defumado - 3P",
+    "name_en": "Slow-Smoked Whole Pork Shank with Sauerkraut & Potatoes (Serves 3)",
+    "desc_pt": "Joelho de Porco defumado, assado e pururucado, acompanhado de Arroz branco, Tutu a Mineira, Couve crisp e Polenta frita.",
+    "desc_en": "Curated wine selected from our climate-controlled cellar, poured into crystal glassware to highlight its aroma, balance, and body.",
+    "desc_es": "Vino fino seleccionado de nuestra cava climatizada, servido a la temperatura perfecta en copas de cristal."
+  },
+  {
+    "id": "dish-dion-099",
+    "name_pt": "Costela Barbecue do Engenho - 2P",
+    "name_en": "House Smoked Pork Ribs in Barbecue Glaze with Fries (Serves 2)",
+    "desc_pt": "Costela de porco defumada, cozida em molho barbecue, acompanhada batatas rústicas.",
+    "desc_en": "Tender slow-cooked ribs braised to perfection, falling off the bone and finished with rich glaze and golden accompaniments.",
+    "desc_es": "Costillas tiernas cocinadas lentamente hasta desprenderse del hueso, glaseadas en su propio jugo y servidas con guarniciones doradas."
+  },
+  {
+    "id": "dish-dion-100",
+    "name_pt": "Bacalhau com Natas 1P",
+    "name_en": "Traditional Codfish with Cream (Bacalhau com Natas)",
+    "desc_pt": "Bacalhau desfiado refogado no azeite com cebola e alho, batatas em cubos e molho branco com queijos, finalizado com creme de leite e queijo parmesão gratinado, acompanha arroz branco.",
+    "desc_en": "Curated wine selected from our climate-controlled cellar, poured into crystal glassware to highlight its aroma, balance, and body.",
+    "desc_es": "Vino fino seleccionado de nuestra cava climatizada, servido a la temperatura perfecta en copas de cristal."
+  },
+  {
+    "id": "dish-dion-101",
+    "name_pt": "Bacalhau com Natas e Camarão 1P",
+    "name_en": "Gratinated Codfish & Shrimps in Rich Cream (1P)",
+    "desc_pt": "Bacalhau desfiado e camarões salteados no azeite, cebola, alho guarnecidos com molho branco enriquecido com uma mistura de queijos, finalizado com creme de leite e queijo parmesão gratinado. Acompanha arroz branco.",
+    "desc_en": "Curated wine selected from our climate-controlled cellar, poured into crystal glassware to highlight its aroma, balance, and body.",
+    "desc_es": "Vino fino seleccionado de nuestra cava climatizada, servido a la temperatura perfecta en copas de cristal."
+  },
+  {
+    "id": "dish-dion-102",
+    "name_pt": "Fettuccine De Camarão 1P",
+    "name_en": "Artisanal Fettuccine with Sautéed Shrimps (1P)",
+    "desc_pt": "Fettuccine de camarão flambado ao molho de queijos e filnalizado com parmesão.",
+    "desc_en": "Fresh artisanal fettuccine tossed with skillet-flambéed jumbo shrimps in a luxurious four-cheese cream sauce, finished with aged grated parmesan.",
+    "desc_es": "Fettuccine fresco artesanal con camarones flambeados en coñac, envueltos en cremosa salsa de cuatro quesos y parmesano recién rallado."
+  },
+  {
+    "id": "dish-dion-103",
+    "name_pt": "Camarão Amazônico 1P",
+    "name_en": "Amazonian Shrimps in Tucupi & Jambu Sauce (1P)",
+    "desc_pt": "Camarões fritos no azeite e alho, acompanhado de arroz paraense.",
+    "desc_en": "Succulent wild shrimps flash-sautéed in extra virgin olive oil and fragrant garlic, served over aromatic Pará rice with jambú greens and tucupi.",
+    "desc_es": "Camarones salteados al ajillo en aceite de oliva virgen, servidos con aromático arroz paraense cocinado con hojas de jambú y tucupí."
+  },
+  {
+    "id": "dish-dion-104",
+    "name_pt": "Camarão Amazônico 2P",
+    "name_en": "Amazonian Shrimps in Tucupi & Jambu Sauce (Serves 2)",
+    "desc_pt": "Camarões fritos no azeite e alho, acompanhado de arroz paraense.",
+    "desc_en": "Sharing platter of wild shrimps sautéed with garlic and virgin olive oil, accompanied by fragrant Pará rice with jambú greens and tucupi reduction (serves 2).",
+    "desc_es": "Plato para compartir de camarones al ajillo en aceite de oliva, acompañados de arroz paraense aromático con jambú y tucupí (para 2 personas)."
+  },
+  {
+    "id": "dish-dion-105",
+    "name_pt": "Camarões Vila Verde 1P",
+    "name_en": "Vila Verde Herb Garlic Shrimps with White Rice",
+    "desc_pt": "Camarões salteados com tomate seco rúcula, e um leve toque de molho de tomate, tudo isso envolto na massa Espaguete Grano duro",
+    "desc_en": "Italian durum wheat spaghetti tossed with sautéed sweet shrimps, sun-dried tomatoes, fresh peppery arugula, and a delicate pomodoro touch.",
+    "desc_es": "Espaguetis de trigo duro salteados con camarones, tomates secos, rúcula fresca silvestre y un toque suave de salsa de tomate casera."
+  },
+  {
+    "id": "dish-dion-106",
+    "name_pt": "Bacalhau Manauara 1P",
+    "name_en": "Manauara Codfish Loin with Cassava Puree (1P)",
+    "desc_pt": "Lombo de Bacalhau Gadus Morhua, confitado no azeite e depois grelhado, acompanhado de azeitonas portuguesas, cenouras, batata ao murro, tomate-cereja, cebola, mix de pimentões e finalizado com salsa e alho laminado. Acompanha arroz branco.",
+    "desc_en": "Curated wine selected from our climate-controlled cellar, poured into crystal glassware to highlight its aroma, balance, and body.",
+    "desc_es": "Vino fino seleccionado de nuestra cava climatizada, servido a la temperatura perfecta en copas de cristal."
+  },
+  {
+    "id": "dish-dion-107",
+    "name_pt": "Bacalhau Manauara 2P",
+    "name_en": "Manauara Codfish Loin with Cassava Puree (Serves 2)",
+    "desc_pt": "Lombo de Bacalhau Gadus Morhua, confitado no azeite e depois grelhado, acompanhado de azeitonas portuguesas, cenouras, batata ao murro, tomate-cereja, cebola, mix de pimentões e finalizado com salsa e alho laminado. Acompanha arroz branco.",
+    "desc_en": "Curated wine selected from our climate-controlled cellar, poured into crystal glassware to highlight its aroma, balance, and body.",
+    "desc_es": "Vino fino seleccionado de nuestra cava climatizada, servido a la temperatura perfecta en copas de cristal."
+  },
+  {
+    "id": "dish-dion-108",
+    "name_pt": "Pesos aproximados e in natura (antes do preparo) Não acompanha guarnições",
+    "name_en": "A La Carte Prime Charcoal-Grilled Steaks Selection",
+    "desc_pt": "Baby Beef Black Angus 250g - Corte nobre da alcatra, com textura macia e sabor suave, é uma carne equilibrada, tenra e muito apreciada em casas premium pela delicadeza e suculência.",
+    "desc_en": "250g prime cut of center top sirloin (Baby Beef Black Angus), flame-grilled over natural charcoal embers; exceptionally tender, juicy, and delicate.",
+    "desc_es": "Corte noble de 250g de corazón de cuadril (Baby Beef Black Angus) a las brasas de carbón; de textura sumamente tierna, suave y jugosa."
+  },
+  {
+    "id": "dish-dion-109",
+    "name_pt": "Picanha Angus 1P (Picanha Importada) 200G",
+    "name_en": "Imported Black Angus Picanha Steak na Brasa (200g)",
+    "desc_pt": "Ícone do churrasco brasileiro, corte nobre com capa de gordura uniforme que garante maciez e sabor únicos. Selecionadas as melhores picanhas importadas garantindo marmoreio superior e textura especial.",
+    "desc_en": "Prime Brazilian picanha rump cap grilled over natural lump charcoal with rock salt, served with egg farofa, vinaigrette, and rice.",
+    "desc_es": "Corte noble de picanha brasileña con capa de grasa uniforme, asada a la parrilla con sal gruesa al término de su preferencia, con farofa de huevos y vinagreta fresca."
+  },
+  {
+    "id": "dish-dion-110",
+    "name_pt": "Picanha Angus 2P (Picanha Importada) 400G",
+    "name_en": "Imported Black Angus Picanha Steak na Brasa (400g - Serves 2)",
+    "desc_pt": "Ícone do churrasco brasileiro, corte nobre com capa de gordura uniforme que garante maciez e sabor únicos. Selecionadas as melhores picanhas importadas garantindo marmoreio superior e textura especial.",
+    "desc_en": "Prime Brazilian picanha rump cap grilled over natural lump charcoal with rock salt, served with egg farofa, vinaigrette, and rice.",
+    "desc_es": "Corte noble de picanha brasileña con capa de grasa uniforme, asada a la parrilla con sal gruesa al término de su preferencia, con farofa de huevos y vinagreta fresca."
+  },
+  {
+    "id": "dish-dion-111",
+    "name_pt": "Short Rib Black Angus 500g",
+    "name_en": "Prime Black Angus Short Rib na Brasa (500g)",
+    "desc_pt": "Corte das costelas dianteiras, altamente marmorizado. É considerado um dos cortes mais saborosos do Angus, famoso pela maciez, untuosidade e intensidade de sabor.",
+    "desc_en": "Tender slow-cooked ribs braised to perfection, falling off the bone and finished with rich glaze and golden accompaniments.",
+    "desc_es": "Costillas tiernas cocinadas lentamente hasta desprenderse del hueso, glaseadas en su propio jugo y servidas con guarniciones doradas."
+  },
+  {
+    "id": "dish-dion-112",
+    "name_pt": "Bife Chorizo Black Angus 250g",
+    "name_en": "Prime Black Angus Bife de Chorizo Sirloin Steak (250g)",
+    "desc_pt": "Tradicional das parrillas argentinas, é o contrafilé com sua capa de gordura característica, que derrete durante o preparo, garantindo sabor marcante e suculência extrema.",
+    "desc_en": "Tender beef tenderloin medallion seared with butter and aromatic herbs, served with delicious house accompaniments.",
+    "desc_es": "Medallón tierno de lomo fino sellado con mantequilla y finas hierbas, servido con deliciosas guarniciones de la casa."
+  },
+  {
+    "id": "dish-dion-113",
+    "name_pt": "Fraldinha Black Angus 300g",
+    "name_en": "Prime Black Angus Flank Steak (Fraldinha) na Brasa (300g)",
+    "desc_pt": "Corte retirado da parte traseira, conhecido pelas fibras longas e sabor intenso, na qualidade black angus, ganha ainda mais suculência e maciez, entregando uma carne extremamente saborosa e marcante.",
+    "desc_en": "300g prime Black Angus flank steak (fraldinha) grilled over intense hardwood embers; prized for its long grain, deep beefy flavor, and rich juices.",
+    "desc_es": "Corte de vacío (fraldinha) Black Angus de 300g a la parrilla; apreciado por sus fibras largas, gran infiltración de grasa y sabor intenso e inconfundible."
+  },
+  {
+    "id": "dish-dion-114",
+    "name_pt": "Maminha Black Angus 300g",
+    "name_en": "Prime Black Angus Tri-Tip Steak (Maminha) na Brasa (300g)",
+    "desc_pt": "Corte nobre e muito apreciado por sua maciez, fibras delicadas e sabor marcante. Na versão Black Angus, apresenta marmoreio equilibrado, garantindo suculência e textura extremamente agradável a cada fatia.",
+    "desc_en": "300g Black Angus tri-tip steak (maminha) seared over hot coals; delicate muscle fibers with fine marbling deliver unmatched tenderness in every slice.",
+    "desc_es": "Colita de cuadril (maminha) Black Angus de 300g a la brasa; fibras delicadas con marmoleo equilibrado que garantizan ternura y jugosidad extraordinaria."
+  },
+  {
+    "id": "dish-dion-115",
+    "name_pt": "Cupim especial 300g",
+    "name_en": "Slow-Roasted Beef Hump Steak (Cupim) na Brasa (300g)",
+    "desc_pt": "Corte tradicional de sabor intenso e textura única, reconhecido pelo seu marmoreio entre as fibras, que proporciona maciez e muita suculência no preparo. Quando bem assado, entrega carne extremamente tenra, com sabor marcante e irresistível.",
+    "desc_en": "300g traditional Brazilian humped beef steak (cupim), slow-roasted and finished over natural charcoal; deeply marbled, buttery-soft, and richly flavored.",
+    "desc_es": "Corte tradicional brasileño de joroba vacuna (cupim) de 300g, asado lentamente a la brasa; marmoleo intramuscular denso que se deshace en la boca."
+  },
+  {
+    "id": "dish-dion-116",
+    "name_pt": "T-Bone Black Angus 2P 500g",
+    "name_en": "Prime Black Angus T-Bone Steak na Brasa (500g - Serves 2)",
+    "desc_pt": "Corte imponente que combina filé mignon e contrafilé unidos pelo osso em formato de “t”. entrega duas texturas em um único corte: maciez absoluta e sabor marcante.",
+    "desc_en": "Tender beef tenderloin medallion seared with butter and aromatic herbs, served with delicious house accompaniments.",
+    "desc_es": "Medallón tierno de lomo fino sellado con mantequilla y finas hierbas, servido con deliciosas guarniciones de la casa."
+  },
+  {
+    "id": "dish-dion-117",
+    "name_pt": "Bife americano 300g",
+    "name_en": "American Cut Prime Angus Strip Steak na Brasa (300g)",
+    "desc_pt": "Corte bovino macio e suculento, com fibras curtas e sabor marcante, na versão Black Angus apresenta ótimo marmoreio e suculência, grelhado realçando suas características naturais.",
+    "desc_en": "300g American cut prime Black Angus striploin steak flame-broiled on charcoal; dense marbling, short tender fibers, and a rich caramelized crust.",
+    "desc_es": "Bife de chorizo americano Black Angus de 300g asado a fuego vivo; fibras cortas, veteado perfecto y costra dorada que encierra todos sus jugos."
+  },
+  {
+    "id": "dish-dion-118",
+    "name_pt": "Guarnição Especial do Engenho - 1P",
+    "name_en": "Engenho Specialty Sides: Baião, Farofa & Fried Cassava (1P)",
+    "desc_pt": "Tropeiro, arroz biro biro, batatonese, farofa e vinagrete",
+    "desc_en": "Individual side platter: hearty feijão tropeiro with pork sausage, biro-biro steakhouse rice, homestyle creamy potato salad, cassava farofa, and fresh vinaigrette.",
+    "desc_es": "Guarnición completa individual: frijol tropeiro con embutido, arroz biro-biro con tocino y huevo, ensaladilla cremosa de papas, farofa y vinagreta fresca."
+  },
+  {
+    "id": "dish-dion-119",
+    "name_pt": "Guarnição Especial do Engenho - 2P",
+    "name_en": "Engenho Specialty Sides (Serves 2)",
+    "desc_pt": "Tropeiro, arroz biro biro, batatonese, farofa e vinagrete",
+    "desc_en": "Sharing side platter (serves 2): feijão tropeiro with artisanal sausage, biro-biro rice, creamy potato salad, house farofa, and fresh tomato vinaigrette.",
+    "desc_es": "Guarnición para compartir (para 2): frijol tropeiro con embutidos, arroz biro-biro con huevo y tocino, ensaladilla de papas, farofa y vinagreta fresca."
+  },
+  {
+    "id": "dish-dion-120",
+    "name_pt": "Guarnição Nordestina - 1P",
+    "name_en": "Northeastern Sides: Baião de Dois, Farofa & Fried Cassava (1P)",
+    "desc_pt": "Tradicional baião cremoso preparado com feijão de corda, queijo coalho em cubos, nata fresca e manteiga de garrafa.",
+    "desc_en": "Individual Northeastern platter: creamy baião de dois (rice, cowpeas & coalho cheese in bottle butter), golden crispy fried cassava, farofa, and vinaigrette.",
+    "desc_es": "Guarnición nordestina individual: baião de dois cremoso con frijol de corda y queso coalho, yuca frita dorada crujiente, farofa y vinagreta."
+  },
+  {
+    "id": "dish-dion-121",
+    "name_pt": "Guarnição Nordestina - 2P",
+    "name_en": "Northeastern Sides (Serves 2)",
+    "desc_pt": "Tradicional baião cremoso preparado com feijão de corda, queijo coalho em cubos, nata fresca e manteiga de garrafa.",
+    "desc_en": "Sharing Northeastern platter (serves 2): creamy baião de dois with coalho cheese, golden fried cassava chunks, house farofa, and tomato vinaigrette.",
+    "desc_es": "Guarnición nordestina para compartir (para 2): baião de dois cremoso con queso coalho, trozos de yuca dorada frita, farofa tostada y vinagreta fresca."
+  },
+  {
+    "id": "dish-dion-122",
+    "name_pt": "Guarnição Amazônica – 1P",
+    "name_en": "Amazonian Sides: Pará Rice, Uarini Farofa & Plantain (1P)",
+    "desc_pt": "Baião de dois, farofa de banana com farinha do Uarini e vinagrete",
+    "desc_en": "Individual Amazonian side platter: creamy baião de dois, sweet and crunchy caramelized plantain farofa made with crisp Uarini flour, and fresh vinaigrette.",
+    "desc_es": "Guarnición amazónica individual: baião de dois cremoso, farofa dulce de plátano caramelizado con harina crujiente de Uarini y vinagreta fresca."
+  },
+  {
+    "id": "dish-dion-123",
+    "name_pt": "Guarnição Amazônica – 2P",
+    "name_en": "Amazonian Sides (Serves 2)",
+    "desc_pt": "Baião de dois, farofa de banana com farinha do Uarini e vinagrete",
+    "desc_en": "Sharing Amazonian side platter (serves 2): creamy baião de dois, sweet plantain farofa made with crisp Uarini cassava flour, and tangy tomato vinaigrette.",
+    "desc_es": "Guarnición amazónica para compartir (para 2): baião de dois con queso, farofa de plátano caramelizado con harina de Uarini y vinagreta fresca."
+  },
+  {
+    "id": "dish-dion-124",
+    "name_pt": "Guarnição Mineira – 1P",
+    "name_en": "Minas Sides: Tutu Beans, Sautéed Collard Greens & Rice (1P)",
+    "desc_pt": "Tutu a mineira, polenta frita, arroz com alho, farofa e vinagrete",
+    "desc_en": "Individual Minas Gerais feast: creamy black bean tutu paste with bacon, crispy fried polenta batons, garlic-sautéed white rice, farofa, and vinaigrette.",
+    "desc_es": "Guarnición tradicional de Minas individual: puré tutu de frijoles negros con tocino, polenta dorada frita, arroz al ajillo, farofa y vinagreta."
+  },
+  {
+    "id": "dish-dion-125",
+    "name_pt": "Guarnição Mineira – 2P",
+    "name_en": "Minas Sides (Serves 2)",
+    "desc_pt": "Tutu a mineira, polenta frita, arroz com alho, farofa e vinagrete",
+    "desc_en": "Sharing Minas Gerais platter (serves 2): creamy bean tutu with bacon, golden fried polenta sticks, fragrant garlic rice, house farofa, and vinaigrette.",
+    "desc_es": "Guarnición tradicional de Minas para compartir (para 2): tutu de frijoles negros, bastones crujientes de polenta, arroz con ajo, farofa y vinagreta."
+  },
+  {
+    "id": "dish-dion-126",
+    "name_pt": "Arroz Branco",
+    "name_en": "Portion of Fluffy White Steamed Rice",
+    "desc_pt": "Arroz agulhinha de grão longo selecionado, cozido no ponto certo, levemente temperado com alho e azeite.",
+    "desc_en": "Fluffy Brazilian long-grain white rice steamed to perfection with a hint of garlic and virgin olive oil.",
+    "desc_es": "Porción de arroz blanco suave de grano largo, cocinado al punto perfecto con un toque aromático de ajo y aceite de oliva."
+  },
+  {
+    "id": "dish-dion-127",
+    "name_pt": "Arroz Biro - Biro",
+    "name_en": "Biro-Biro Steakhouse Rice (Scrambled Eggs, Bacon & Crispy Straw Potatoes)",
+    "desc_pt": "Arroz soltinho refogado com cubinhos de bacon dourado, ovos mexidos na manteiga, batata palha fina e cheiro-verde fresco.",
+    "desc_en": "Fluffy steakhouse rice tossed with golden crispy bacon lardons, buttery scrambled eggs, shoestring potatoes, and fresh scallions.",
+    "desc_es": "Arroz salteado estilo asador brasileño con tocino crujiente, huevos revueltos con mantequilla, papas hilo finas y cebollino fresco."
+  },
+  {
+    "id": "dish-dion-128",
+    "name_pt": "Baião De Dois",
+    "name_en": "Traditional Baião de Dois (Rice & Beans with Coalho Cheese)",
+    "desc_pt": "Tradicional baião cremoso preparado com feijão de corda, queijo coalho em cubos, nata fresca e manteiga de garrafa.",
+    "desc_en": "Authentic creamy baião de dois: cowpea beans and white rice braised with melted coalho cheese cubes, clotted cream, and clarified bottle butter.",
+    "desc_es": "Plato tradicional de baião cremoso: arroz y frijoles de corda cocinados con dados de queso coalho fundido, nata fresca y mantequilla clarificada."
+  },
+  {
+    "id": "dish-dion-129",
+    "name_pt": "Banana Frita",
+    "name_en": "Banana Crispy Fried",
+    "desc_pt": "Banana Frita - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira.",
+    "desc_en": "Sweet ripe plantain slices pan-fried until golden brown with caramelized edges, tender and naturally sweet.",
+    "desc_es": "Rodajas de plátano maduro fritas al momento hasta dorar y caramelizar, tiernas, jugosas y naturalmente dulces."
+  },
+  {
+    "id": "dish-dion-130",
+    "name_pt": "Farofa De Ovos",
+    "name_en": "Toasted Cassava Farofa with Scrambled Eggs & Scallions",
+    "desc_pt": "Farofa úmida de farinha selecionada com ovos mexidos na manteiga de garrafa e cebolinha verde.",
+    "desc_en": "Moist and savory toasted cassava farofa tossed with fluffy scrambled farm eggs, clarified bottle butter, and fresh scallions.",
+    "desc_es": "Farofa suave y húmeda de harina de yuca tostada con huevos revueltos en mantequilla clarificada y cebollino picado."
+  },
+  {
+    "id": "dish-dion-131",
+    "name_pt": "Farofa De Banana",
+    "name_en": "Sweet & Savory Golden Plantain Farofa",
+    "desc_pt": "Farinha do Uarini ovinha torrada na manteiga com pedacinhos de banana pacovã caramelizada.",
+    "desc_en": "Toasted pearl-grain Amazonian Uarini cassava flour crisp-fried in butter with caramelized ripe sweet plantain pieces.",
+    "desc_es": "Harina crujiente de yuca de Uarini salteada en mantequilla con trocitos de plátano maduro dulce caramelizado."
+  },
+  {
+    "id": "dish-dion-132",
+    "name_pt": "Farofa",
+    "name_en": "House Seasoned Toasted Cassava Farofa",
+    "desc_pt": "Farofa - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira.",
+    "desc_en": "Golden toasted Brazilian cassava flour sautéed with butter, sweet golden onions, and a touch of house seasonings.",
+    "desc_es": "Farofa dorada tradicional de harina de yuca tostada a la mantequilla con cebolla caramelizada y especias de la casa."
+  },
+  {
+    "id": "dish-dion-133",
+    "name_pt": "Vinagrete",
+    "name_en": "Fresh Diced Tomato, Sweet Onion & Herb Vinaigrette",
+    "desc_pt": "Vinagrete - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira.",
+    "desc_en": "Bright and zesty salsa vinaigrette with hand-diced ripe vine tomatoes, crisp sweet onions, fresh parsley, extra virgin olive oil, and wine vinegar.",
+    "desc_es": "Vinagreta fresca casera con dados de tomate maduro, cebolla dulce finamente picada, aceite de oliva virgen extra y perejil fresco."
+  },
+  {
+    "id": "dish-dion-134",
+    "name_pt": "Batatonese",
+    "name_en": "Homestyle Creamy Potato & Herb Salad (Batatonese)",
+    "desc_pt": "Batatonese - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira.",
+    "desc_en": "Homestyle Brazilian potato salad: tender potato cubes folded into creamy house herb aioli with crisp scallions and subtle mustard notes.",
+    "desc_es": "Ensaladilla casera de papas: dados tiernos de patatas cocidas con mayonesa suave de hierbas, cebollino fresco y un ligero toque de mostaza."
+  },
+  {
+    "id": "dish-dion-135",
+    "name_pt": "Doce A Dois",
+    "name_en": "Sweet Plantain with Coalho Cheese, Cinnamon & Cream",
+    "desc_pt": "Banana pacovã, queijo coalho, canela, redução de creme de leite e leite condensado – pra não perder a companhia e comer “rezando”!",
+    "desc_en": "caramelized pacovã plantain baked with melted coalho cheese, cinnamon, and rich condensed cream reduction",
+    "desc_es": "plátano pacovã horneado con queso coalho, canela aromática y reducción de crema dulce"
+  },
+  {
+    "id": "dish-dion-136",
+    "name_pt": "Taça de Cupuaçu/Amazônica",
+    "name_en": "Cupuaçu Parfait with Dark Chocolate Ganache & Sliced Brazil Nuts",
+    "desc_pt": "Creme de cupuaçu com ganache e castanha do pará laminada. Essa delicia da Amazônia deixa qualquer um de queixo caído!",
+    "desc_en": "layered cupuaçu fruit cream with velvety dark chocolate ganache and sliced toasted Brazil nuts",
+    "desc_es": "crema sedosa de copoazú silvestre con ganache de chocolate semiamargo y láminas de castaña de Pará"
+  },
+  {
+    "id": "dish-dion-137",
+    "name_pt": "Mousse de Maracujá",
+    "name_en": "Tangy Brazilian Passion Fruit Mousse",
+    "desc_pt": "Delicada mousse de maracujá leve e aveludada com acidez marcante finalizada com a redução da propria fruta.",
+    "desc_en": "Silky and refreshing Brazilian passion fruit mousse with a vibrant sweet-tart balance, crowned with freshly reduced seed fruit glaze.",
+    "desc_es": "Mousse ligera y aterciopelada de maracuyá brasileño con un equilibrio ácido-dulce perfecto, coronada con reducción de la propia fruta."
+  },
+  {
+    "id": "dish-dion-138",
+    "name_pt": "Mousse de Cupuaçu com Crocante de Castanha",
+    "name_en": "Amazonian Cupuaçu Mousse with Roasted Brazil Nut Crunch",
+    "desc_pt": "Delicada mousse de cupuaçu de acidez marcante e frescor amazônico, finalizado com crumble de castanha do Pará.",
+    "desc_en": "Creamy wild Amazonian cupuaçu mousse offering a delicate floral tang, layered over a crunchy toasted Brazil nut crumble.",
+    "desc_es": "Mousse sedosa de copoazú silvestre amazónico de acidez aromática y refrescante, decorada con crumble crujiente de castañas de Pará."
+  },
+  {
+    "id": "dish-dion-139",
+    "name_pt": "Petit Gateau Tradicional",
+    "name_en": "Warm Molten Chocolate Lava Cake with Vanilla Gelato",
+    "desc_pt": "Ganache de chocolate e sorvete de creme. Aquela sobremesa gringa, que caiu no gosto do Brasileiro e é deliciosa!",
+    "desc_en": "Warm dark chocolate lava cake with an oozing molten center, paired with a scoop of premium Bourbon vanilla gelato and chocolate drizzle.",
+    "desc_es": "Volcán tibio de chocolate negro con corazón líquido fundente, acompañado de una bola de helado artesanal de vainilla y coulis de cacao."
+  },
+  {
+    "id": "dish-dion-140",
+    "name_pt": "Pudim De Leite",
+    "name_en": "Classic Brazilian Caramel Milk Flan (Pudim)",
+    "desc_pt": "Dispensa qualquer descrição, é pedir e se deleitar!",
+    "desc_en": "The iconic Brazilian milk flan: ultra-smooth, velvety custard without air holes that melts on the tongue under glistening golden caramel sauce.",
+    "desc_es": "El icónico flan brasileño de leche condensada: textura perfectamente lisa y sedosa que se funde en la boca con caramelo dorado brillante."
+  },
+  {
+    "id": "dish-dion-141",
+    "name_pt": "Pudim De Doce De Leite",
+    "name_en": "Rich Dulce de Leche Custard Flan with Amber Caramel",
+    "desc_pt": "Já esse aqui, é uma experiencia única a cada colherada!",
+    "desc_en": "Rich and decadent custard flan crafted from slow-cooked farmstead dulce de leche, drenched in deep amber caramel syrup.",
+    "desc_es": "Flan artesanal suntuoso y denso preparado con dulce de leche de hacienda cocido a fuego lento y bañado en caramelo ámbar."
+  },
+  {
+    "id": "dish-dion-142",
+    "name_pt": "Manjar de Coco com Calda de Ameixa",
+    "name_en": "Silky Coconut Blancmange with Sweet Black Plum Compote",
+    "desc_pt": "Manjar de coco servido com calda de ameixa.",
+    "desc_en": "Silky traditional Brazilian coconut blancmange infused with coconut milk, served chilled under rich black plum and red wine reduction compote.",
+    "desc_es": "Manjar blanco tradicional de leche de coco fresca, servido frío con compota casera espesa de ciruelas negras en almíbar."
+  },
+  {
+    "id": "dish-dion-143",
+    "name_pt": "Romeu e Julieta Desconstruído",
+    "name_en": "Deconstructed Romeo & Juliet (Artisan Coalho Cheese & Guava Jam)",
+    "desc_pt": "Goiabada em pasta com sorvete de queijo especial",
+    "desc_en": "Deconstructed Romeo & Juliet: warm artisanal red guava paste reduction paired with artisanal farmhouse cheese ice cream and crispy wafers.",
+    "desc_es": "Romeo y Julieta deconstruido: dulce artesanal de guayaba roja caliente servido con helado cremoso de queso artesanal y crocante."
+  },
+  {
+    "id": "dish-dion-144",
+    "name_pt": "Torta Gelada De Abacaxi Un",
+    "name_en": "Chilled Coconut & Roasted Pineapple Layer Cake Slice",
+    "desc_pt": "Creme de abacaxi servido no biscuti amanteigado finalizado abacaxi com glaceado.",
+    "desc_en": "Chilled layer cake with roasted pineapple mousse over a buttery biscuit crust, topped with glazed pineapple cubes and toasted coconut.",
+    "desc_es": "Tarta helada de crema de piña asada sobre base de galleta con mantequilla, coronada con dados de piña glaseada y coco rallado."
+  },
+  {
+    "id": "dish-dion-145",
+    "name_pt": "Sanduiche de Pernil",
+    "name_en": "Slow-Braised Pulled Pork Shank Sandwich on Terra & Mar Bread",
+    "desc_pt": "Lascas de Pernil cozinho lentamente em próprio molho, no pão Terra e Mar (se você não experimentou esse pão ainda vai adorar)!",
+    "desc_en": "succulent pulled pork shank slow-braised in its own rich pan juices, served inside crusty artisan Terra & Mar bread",
+    "desc_es": "pernil tierno de cerdo deshebrado en su propio jugo de cocción, servido en pan artesanal crujiente Terra & Mar"
+  },
+  {
+    "id": "dish-dion-146",
+    "name_pt": "Sanduiche de Mortadela Italiana",
+    "name_en": "Thinly Sliced Italian Mortadella Sandwich on Crusty Bread",
+    "desc_pt": "100g de Mortalela italiana fatiada finamente montado no pão Terra e Mar",
+    "desc_en": "100g of thinly shaved premium Italian mortadella piled high inside fresh artisan Terra & Mar bread",
+    "desc_es": "100g de mortadela italiana de alta calidad cortada en finas lonchas sobre pan artesanal Terra & Mar"
+  },
+  {
+    "id": "dish-dion-147",
+    "name_pt": "Choripán",
+    "name_en": "Artisanal Grilled Sausage Choripán with Chimichurri",
+    "desc_pt": "Tradicional Sanduiche Argentino, com linguiça grelhada, servido no pão Terra e Mar crocante com molho Chimichurri",
+    "desc_en": "Charcoal-grilled artisanal pork sausage split on crusty bakery bread, topped with zesty fresh herb and garlic chimichurri vinaigrette.",
+    "desc_es": "Choripán tradicional: embutido artesanal de cerdo dorado a las brasas en pan crujiente recién horneado, aderezado con chimichurri casero."
+  },
+  {
+    "id": "dish-dion-148",
+    "name_pt": "Sanduiche de Conservas (Veg)",
+    "name_en": "Vegetarian Deli Sandwich with Marinated Artisan Pickles",
+    "desc_pt": "Montado no pão Terra e mar – com sortimento de conservas da nossa Charcutaria – se surpreenda",
+    "desc_en": "crusty artisan bread layered with an exquisite assortment of house-marinated charcuterie vegetables and pickles",
+    "desc_es": "pan rústico con un fino surtido de vegetales encurtidos y conservas artesanales de nuestra charcutería"
+  },
+  {
+    "id": "dish-dion-149",
+    "name_pt": "Sanduiche de Rosbife",
+    "name_en": "Artisanal Sandwich with Rosbife",
+    "desc_pt": "70gr de Rosbife, rúcula, pepino em conserva, tomate, queijo coalho fatiado finamente montado no pão Terra e Mar",
+    "desc_en": "70g of thin-sliced tender roast beef, peppery wild arugula, pickled cucumbers, vine tomatoes, and seared coalho cheese on crusty artisanal bread.",
+    "desc_es": "70g de rosbif tierno cortado fino, rúcula fresca, pepinillos encurtidos, tomate y finas láminas de queso coalho a la plancha en pan artesanal crujiente."
+  },
+  {
+    "id": "dish-dion-150",
+    "name_pt": "Sanduiche de Pastrami",
+    "name_en": "Smoked Peppered Beef Pastrami Sandwich on Crusty Bread",
+    "desc_pt": "Pastrami de Peito de boi defumado e temperado, servido no pão Terra e Mar integral",
+    "desc_en": "Generous cuts of peppered and slow-smoked beef brisket pastrami layered with house mustard on wholesome whole-grain artisanal bread.",
+    "desc_es": "Pastrami curado y ahumado lentamente de pecho de res especiado con pimienta, servido con mostaza suave en pan rústico integral."
+  }
+]
