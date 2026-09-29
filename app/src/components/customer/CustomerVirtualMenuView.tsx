@@ -266,7 +266,7 @@ export const CustomerVirtualMenuView: React.FC<CustomerVirtualMenuViewProps> = (
                   Engenho
                 </h1>
                 <span className="text-[10px] uppercase font-bold tracking-widest bg-amber-400/20 text-amber-300 border border-amber-400/30 px-2 py-0.5 rounded-full">
-                  Cardápio Digital
+                  {t.digitalMenuBadge}
                 </span>
               </div>
               <p className="text-[11px] text-slate-400 hidden sm:block">
@@ -443,10 +443,10 @@ export const CustomerVirtualMenuView: React.FC<CustomerVirtualMenuViewProps> = (
                 <div className="bg-slate-800/80 rounded-2xl p-4 text-xs text-slate-400 text-left border border-slate-700 space-y-2">
                   <div className="flex items-center gap-2 text-emerald-300 font-bold">
                     <Sparkles className="w-4 h-4" />
-                    <span>448 Pratos & Bebidas Oficiais</span>
+                    <span>{t.officialCatalogBadge}</span>
                   </div>
                   <p className="text-[11px] text-slate-300">
-                    Fotos em alta definição de todos os pratos, descrição completa dos cortes e ingredientes selecionados da Amazônia.
+                    {t.officialCatalogDesc}
                   </p>
                 </div>
 
@@ -534,10 +534,10 @@ export const CustomerVirtualMenuView: React.FC<CustomerVirtualMenuViewProps> = (
                 <div className="bg-emerald-950/40 border border-emerald-500/30 rounded-2xl p-4 text-xs text-emerald-200 text-left space-y-1">
                   <div className="flex items-center gap-2 font-bold text-emerald-400">
                     <ShieldCheck className="w-4 h-4" />
-                    <span>Tradução Inteligente da Comanda</span>
+                    <span>{t.smartTicketTranslationTitle}</span>
                   </div>
                   <p className="text-[11px] text-slate-300 leading-relaxed">
-                    Você pode escolher em <strong>Inglês</strong> ou <strong>Espanhol</strong>. Ao finalizar, a comanda é gerada automaticamente em <strong>Português</strong> para que o garçom entenda seu pedido instantaneamente!
+                    {t.smartTicketTranslationDesc}
                   </p>
                 </div>
 
@@ -694,7 +694,7 @@ export const CustomerVirtualMenuView: React.FC<CustomerVirtualMenuViewProps> = (
                         </span>
                         {item.isRegionalAmazonico && (
                           <span className="text-[10px] font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-2 py-0.5 rounded-md">
-                            🌿 Amazônico
+                            {t.regionalBadge}
                           </span>
                         )}
                       </div>
@@ -721,7 +721,7 @@ export const CustomerVirtualMenuView: React.FC<CustomerVirtualMenuViewProps> = (
                   {/* Rodapé com Preço e Botão Adicionar */}
                   <div className="flex items-center justify-between pt-3 border-t border-slate-800/80">
                     <div>
-                      <p className="text-[10px] text-slate-400 uppercase font-semibold">Valor</p>
+                      <p className="text-[10px] text-slate-400 uppercase font-semibold">{t.priceLabel}</p>
                       <p className="text-lg font-black text-amber-400">
                         R$ {item.price.toFixed(2)}
                       </p>
@@ -1080,7 +1080,7 @@ export const CustomerVirtualMenuView: React.FC<CustomerVirtualMenuViewProps> = (
             {/* ALERTA DE GARÇOM CHAMADO */}
             {waiterCalledAlert && (
               <div className="bg-emerald-500/20 border border-emerald-500/40 p-3 rounded-xl text-center text-xs text-emerald-300 font-bold animate-fade-in">
-                🔔 O garçom foi chamado para a mesa {finalizedOrder.tableNumber}! Aguarde um instante.
+                {t.waiterCalledAlertPrefix}{finalizedOrder.tableNumber}{t.waiterCalledAlertSuffix}
               </div>
             )}
 
@@ -1156,7 +1156,7 @@ export const CustomerVirtualMenuView: React.FC<CustomerVirtualMenuViewProps> = (
                 className="w-full sm:flex-1 py-3 px-4 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs flex items-center justify-center gap-2 cursor-pointer shadow-md transition-all"
               >
                 <Bell className="w-4 h-4" />
-                <span>Chamar Garçom na Mesa</span>
+                <span>{t.callWaiterAtTable}</span>
               </button>
 
               <button

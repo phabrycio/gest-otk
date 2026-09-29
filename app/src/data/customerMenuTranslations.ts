@@ -55,6 +55,16 @@ export interface UiTranslations {
   portionWeightLabel: string;
   adminReturn: string;
   helpButton: string;
+  digitalMenuBadge: string;
+  officialCatalogBadge: string;
+  officialCatalogDesc: string;
+  smartTicketTranslationTitle: string;
+  smartTicketTranslationDesc: string;
+  priceLabel: string;
+  callWaiterAtTable: string;
+  waiterCalledAlertPrefix: string;
+  waiterCalledAlertSuffix: string;
+  regionalBadge: string;
 }
 
 export const UI_TRANSLATIONS: Record<SupportedLanguage, UiTranslations> = {
@@ -113,6 +123,16 @@ export const UI_TRANSLATIONS: Record<SupportedLanguage, UiTranslations> = {
     portionWeightLabel: 'Porção:',
     adminReturn: 'Voltar ao Painel Gerencial',
     helpButton: 'Como Fazer o Pedido',
+    digitalMenuBadge: 'Cardápio Digital',
+    officialCatalogBadge: '448 Pratos & Bebidas Oficiais',
+    officialCatalogDesc: 'Fotos em alta definição de todos os pratos, descrição completa dos cortes e ingredientes selecionados da Amazônia.',
+    smartTicketTranslationTitle: 'Tradução Inteligente da Comanda',
+    smartTicketTranslationDesc: 'Você pode escolher em Inglês ou Espanhol. Ao finalizar, a comanda é gerada automaticamente em Português para que o garçom entenda seu pedido instantaneamente!',
+    priceLabel: 'Preço',
+    callWaiterAtTable: 'Chamar Garçom na Mesa',
+    waiterCalledAlertPrefix: '🔔 O garçom foi chamado para a mesa ',
+    waiterCalledAlertSuffix: '! Aguarde um instante.',
+    regionalBadge: '🌿 Amazônico',
   },
   en: {
     brandSubtitle: 'Brazilian Culinary • Manauara Shopping, Manaus',
@@ -169,6 +189,16 @@ export const UI_TRANSLATIONS: Record<SupportedLanguage, UiTranslations> = {
     portionWeightLabel: 'Portion:',
     adminReturn: 'Back to Management View',
     helpButton: 'How to Order',
+    digitalMenuBadge: 'Digital Menu',
+    officialCatalogBadge: '448 Official Dishes & Drinks',
+    officialCatalogDesc: 'High-definition photos of all items, detailed cuts descriptions, and select wild Amazonian ingredients.',
+    smartTicketTranslationTitle: 'Smart Waiter Ticket Translation',
+    smartTicketTranslationDesc: 'Browse in English or Spanish. When you finalize, your order ticket is automatically translated into Portuguese for instant, error-free kitchen entry!',
+    priceLabel: 'Price',
+    callWaiterAtTable: 'Call Waiter to Table',
+    waiterCalledAlertPrefix: '🔔 Waiter has been called to table ',
+    waiterCalledAlertSuffix: '! Please wait a moment.',
+    regionalBadge: '🌿 Amazonian',
   },
   es: {
     brandSubtitle: 'Cocina Brasileña • Manauara Shopping, Manaus',
@@ -225,5 +255,15 @@ export const UI_TRANSLATIONS: Record<SupportedLanguage, UiTranslations> = {
     portionWeightLabel: 'Porción:',
     adminReturn: 'Volver al Panel de Gestión',
     helpButton: 'Cómo Ordenar',
+    digitalMenuBadge: 'Menú Digital',
+    officialCatalogBadge: '448 Platos y Bebidas Oficiales',
+    officialCatalogDesc: 'Fotos en alta definición de todos los platos, descripción detallada de cortes e ingredientes seleccionados de la Amazonía.',
+    smartTicketTranslationTitle: 'Traducción Inteligente de la Comanda',
+    smartTicketTranslationDesc: 'Navegue en Español o Inglés. Al finalizar, la comanda se genera automáticamente en Portugués para que el camarero entienda su pedido de inmediato.',
+    priceLabel: 'Precio',
+    callWaiterAtTable: 'Llamar Camarero a la Mesa',
+    waiterCalledAlertPrefix: '🔔 ¡Se ha llamado al camarero a la mesa ',
+    waiterCalledAlertSuffix: '! Espere un momento.',
+    regionalBadge: '🌿 Amazónico',
   },
 };
