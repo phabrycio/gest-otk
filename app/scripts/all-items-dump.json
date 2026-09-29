@@ -1,0 +1,2690 @@
+[
+  {
+    "id": "dish-01",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Costela de Tambaqui na Brasa",
+    "desc": "Costela de tambaqui de cativeiro assada lentamente na brasa de carvão, servida com farofa de Uarini crocante, vinagrete regional e arroz branco."
+  },
+  {
+    "id": "dish-02",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Pirarucu em Crosta de Castanha-do-Brasil",
+    "desc": "Filé alto de pirarucu de manejo grelhado, coberto com crosta crocante de castanha-do-pará ralada e ervas, acompanhado de risoto cremoso de tucupi e folhas de jambu."
+  },
+  {
+    "id": "dish-03",
+    "cat": "CARNES_BRASIL",
+    "name": "Carne de Sol do Engenho com Baião Cremoso",
+    "desc": "Carne de sol maturada artesanalmente, grelhada com manteiga de garrafa, servida com baião de dois cremoso puxado no queijo coalho e macaxeira crocante."
+  },
+  {
+    "id": "dish-04",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Chopp Brahma Barril 50L (Volume Líquido)",
+    "desc": "Chopp servido em caneca congelada a -2°C, serpentina regulada e colarinho cremoso com 2 dedos de espuma."
+  },
+  {
+    "id": "dish-dion-001",
+    "cat": "EXECUTIVO",
+    "name": "Salada Verano",
+    "desc": "Folhas, tomate, cebola, fruta da estação e molho especial"
+  },
+  {
+    "id": "dish-dion-002",
+    "cat": "EXECUTIVO",
+    "name": "Caldinho de Feijão",
+    "desc": "Caldo com charque desfiado, linguiça defumada e bacon crocante"
+  },
+  {
+    "id": "dish-dion-003",
+    "cat": "CARNES_BRASIL",
+    "name": "Bolinho De Carne Seca Executivo",
+    "desc": "Massa de macaxeira com carne seca (charque) desfiada"
+  },
+  {
+    "id": "dish-dion-004",
+    "cat": "CARNES_BRASIL",
+    "name": "Carne De Sol Nordestina",
+    "desc": "Carne de sol assada na brasa, queijo coalho acompanhado de baião cremoso, macaxeira frita e farofa"
+  },
+  {
+    "id": "dish-dion-005",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Costela De Tambaqui Executivo",
+    "desc": "Costela de tambaqui assada na brasa, acompanhado de vinagrete de feijão manteiguinha, farofa de banana e arroz paraense."
+  },
+  {
+    "id": "dish-dion-006",
+    "cat": "EXECUTIVO",
+    "name": "Moqueca De Banana Da Terra",
+    "desc": "Banana pacovã moqueada, molho da casa com dendê finalizada com castanha, acompanhado de arroz branco."
+  },
+  {
+    "id": "dish-dion-007",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Bobó De Camarão Executivo",
+    "desc": "Camarões levemente salteados no azeite, creme de macaxeira azeite de dendê, leite de coco, acompanhado de arroz branco e farofa de coco."
+  },
+  {
+    "id": "dish-dion-008",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Moqueca de Pirarucu",
+    "desc": "Aquela moqueca Amazônica com nosso rei dos rios, servida com arroz e pirão"
+  },
+  {
+    "id": "dish-dion-009",
+    "cat": "CARNES_BRASIL",
+    "name": "Carne de Panela",
+    "desc": "Bife refogado com cebola, tomate, alho, com molho marcante relembrando a boa e velha comida de mãe, guarnecida com arroz no próprio molho e purê de batatas"
+  },
+  {
+    "id": "dish-dion-010",
+    "cat": "SOBREMESAS",
+    "name": "Mini Pudim de Leite",
+    "desc": "Pudim de leite finalizado com um delicioso doce de leite"
+  },
+  {
+    "id": "dish-dion-011",
+    "cat": "SOBREMESAS",
+    "name": "Sorvete com Farofa de Brownie",
+    "desc": "Bola de sorvete empanada com farofa crocante de brownie"
+  },
+  {
+    "id": "dish-dion-012",
+    "cat": "SOBREMESAS",
+    "name": "Pastel de Belém",
+    "desc": "Tradicional doce português, massa folheada crocante recheada com creme à base de ovos."
+  },
+  {
+    "id": "dish-dion-013",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Feijuca ao Som de Samba",
+    "desc": "Nossa tradicional feijoada, com todos os ingredientes separados, vários acompanhamentos, incluindo nosso Joelho de Porco que você se serve a vontade com preço fixo. Ao som de um Samba raiz!"
+  },
+  {
+    "id": "dish-dion-014",
+    "cat": "SOBREMESAS",
+    "name": "Mousse de Cupuaçu",
+    "desc": "Textura aerada e sabor marcante da Amazônia, com dulçor equilibrado e baixo em açucares adicionado. Doce na medida certa. Calorias: 180kcal Valor proteico: 4g Fibras: 1g"
+  },
+  {
+    "id": "dish-dion-015",
+    "cat": "SOBREMESAS",
+    "name": "Abacaxi Braseado",
+    "desc": "Abacaxi grelhado, finalizado com toque de canela, sem adição de açucar. Simples, leve e surpreendente. Calorias: 120kcal Valor proteico: 1g Fibras: 2g"
+  },
+  {
+    "id": "dish-dion-016",
+    "cat": "SOBREMESAS",
+    "name": "Doce de Banana com Castanha",
+    "desc": "Banana caramelizada naturalmente sem adição de açucar, com crocante de castanhas. Sabor brasileiro com leveza. Calorias: 260kcal Valor proteico: 3g Fibras: 3g"
+  },
+  {
+    "id": "dish-dion-017",
+    "cat": "SOBREMESAS",
+    "name": "Chocolate 70% com Castanha",
+    "desc": "Porção equilibrada de chocolate intenso com castanhas selecionadas. Prazer sem exageros. Calorias: 300kcal Valor proteico: 5g Fibras: 3g"
+  },
+  {
+    "id": "dish-dion-018",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Pirarucu Grelhado com Legumes",
+    "desc": "Filé de pirarucu grelhado, acompanhado de legumes selecionados também grelhados, e finalizado com azeite e ervas. Leve, nutritivo e cheio de sabor. Calorias: 420kcal Valor proteico: 42g Fibras: 5g"
+  },
+  {
+    "id": "dish-dion-019",
+    "cat": "CARNES_BRASIL",
+    "name": "Carne Magra na Brasa",
+    "desc": "Corte selecionado grelhado, servido com legumes e salada fresca. Sabor intenso com leveza na medida certa. Calorias: 550kcal Valor proteico: 45g Fibras: 4g"
+  },
+  {
+    "id": "dish-dion-020",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Bowl Brasileiro Proteico",
+    "desc": "Arroz integral 7 grãos, com frango grelhado, legumes da estação e farofa leve de castanhas. Equilíbrio perfeito entre nutrição e sabor. Calorias: 520kcal Valor proteico: 38g Fibras: 9g"
+  },
+  {
+    "id": "dish-dion-021",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Bobó de Camarão",
+    "desc": "Versão equilibrada do clássico nordestino, com redução de gordura e textura mais leve, sem perder a cremosidade. Tradição com novo olhar. Calorias: 480kcal Valor proteico: 28g Fibras: 4g"
+  },
+  {
+    "id": "dish-dion-022",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Salada Amazônica Proteica",
+    "desc": "Mix de folhas frescas, camarões grelhados, manga, castanha-do-pará e vinagrete leve de ervas. Frescor, proteína e o toque amazônico do Engenho. Calorias: 320kcal Valor protéico: 22g Fibras: 6g"
+  },
+  {
+    "id": "dish-dion-023",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Dadinho de Tapioca (de forno)",
+    "desc": "Crocante por fora, macio por dentro, preparado no forno combinado, e servido com geleia de cupuaçu SEM AÇÚCAR. Um clássico com mais leveza. Calorias: 280kcal Valor proteico: 8g Fibras: 1,5g"
+  },
+  {
+    "id": "dish-dion-024",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Carpaccio de Pirarucu",
+    "desc": "Lâminas finas de pirarucu defumado com azeite, limão, ervas frescas e leve toque de pimenta delicado, sofisticado e cheio de identidade regional. Calorias: 189kcal Valor protéico: 26g Fibras: 1g"
+  },
+  {
+    "id": "dish-dion-025",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Couvert do Engenho",
+    "desc": "Pão Terra & Mar com dois sabores de antepasto"
+  },
+  {
+    "id": "dish-dion-026",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Azeitonas Empanadas",
+    "desc": "Azeitonas verdes sem caroço temperadas empanadas na farinha panko e servida com maionese de alho confitado."
+  },
+  {
+    "id": "dish-dion-027",
+    "cat": "CARNES_BRASIL",
+    "name": "Crocante de Costela",
+    "desc": "Costela bovina desfiada e empanada, na mistura com próprio molho, guarnecida com geleia de melancia."
+  },
+  {
+    "id": "dish-dion-028",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Trio do Engenho",
+    "desc": "Combinação de Charque na brasa, Lascas de Joelho e Costela de Tambaqui, sobre um incrível barbecue de cupuaçu."
+  },
+  {
+    "id": "dish-dion-029",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Camarões na Cerveja",
+    "desc": "Camarões embebidos na cerveja, levemente empanados com um refrescante Aioli verde."
+  },
+  {
+    "id": "dish-dion-030",
+    "cat": "CARNES_BRASIL",
+    "name": "Rocambole Suíno",
+    "desc": "Barriga cozida lentamente, enrolada e pururucada, servida com rodelas de abacaxi selado."
+  },
+  {
+    "id": "dish-dion-031",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Coraçãozinho de Galinha",
+    "desc": "21 Deliciosos corações de galinha, grelhados com alho laminado e com cebola crispy, pra comer no palito"
+  },
+  {
+    "id": "dish-dion-032",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Pão De Alho",
+    "desc": "Pão baguete tostado na brasa, recheado com generoso creme artesanal de alho, queijo derretido e ervas finas."
+  },
+  {
+    "id": "dish-dion-033",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Camarão De Montão",
+    "desc": "Camarões salteados no azeite com alho frito, acompanhado de limão e molho de cerveja."
+  },
+  {
+    "id": "dish-dion-034",
+    "cat": "CARNES_BRASIL",
+    "name": "Isca De Carne De Sol Do Engenho",
+    "desc": "Deliciosa carne de sol, sucesso há 15 anos, servida em tiras e acompanhada de bolinho de macaxeira e queijo coalho frito"
+  },
+  {
+    "id": "dish-dion-035",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Macaxeira Frita",
+    "desc": "Porção de macaxeira amarela regional cozida e frita na hora, crocante por fora e macia por dentro, finalizada com manteiga de garrafa e flor de sal."
+  },
+  {
+    "id": "dish-dion-036",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Batata Frita",
+    "desc": "Batatas selecionadas fritas até ficarem douradas e crocantes, sequinhas por fora e macias por dentro, com leve toque de sal."
+  },
+  {
+    "id": "dish-dion-037",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Bolinho De Bacalhau Tradicional",
+    "desc": "6 unidades. Bacalhau Gadus morhua servido como manda a tradição portuguesa"
+  },
+  {
+    "id": "dish-dion-038",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Bolinho De Macaxeira",
+    "desc": "12 unidades. Bolinhos de macaxeira fritos, acompanhados de geleia de cebola feita com melaço de cana"
+  },
+  {
+    "id": "dish-dion-039",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Polenta Frita",
+    "desc": "Deliciosos palitos de polenta frita, sequinha e saborosa"
+  },
+  {
+    "id": "dish-dion-040",
+    "cat": "CARNES_BRASIL",
+    "name": "Joelho Trinchado",
+    "desc": "Lascas de joelho de porco, batata rústica e geleia de cebola, finalização com alecrim"
+  },
+  {
+    "id": "dish-dion-041",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Meladinho De Minas",
+    "desc": "Queijo coalho na chapa com melaço de cana"
+  },
+  {
+    "id": "dish-dion-042",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Completa Do Engenho",
+    "desc": "Tiras de filé fritas na manteiga, linguicinhas e costela de porco defumadas, bolinhos de macaxeira fritos, acompanhado de salame, azeitonas e salada"
+  },
+  {
+    "id": "dish-dion-043",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Pirarucu Ribeirinho",
+    "desc": "Tiras de filé de pirarucu frito com chips de banana acompanhado de geleia de cupuaçu"
+  },
+  {
+    "id": "dish-dion-044",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Costelinha Do Engenho",
+    "desc": "Sucesso a mais de 16 anos. Costelinhas suínas defumadas e fritas, acompanhadas de geleia de cupuaçu"
+  },
+  {
+    "id": "dish-dion-045",
+    "cat": "CARNES_BRASIL",
+    "name": "Filé Com Fritas",
+    "desc": "Tiras de filé passadas na manteiga com cebola em pétalas e azeitonas. Acompanhadas de batata frita e fatias de pão italiano"
+  },
+  {
+    "id": "dish-dion-046",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Deliciosos copinhos que podem ser servidos individuais ou em combos com 3 sabores para compartilhar – Uma verdadeira delícia na sua mesa!",
+    "desc": "Deliciosos copinhos que podem ser servidos individuais ou em combos com 3 sabores para compartilhar – Uma verdadeira delícia na sua mesa! - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-047",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Copinho de Feijão",
+    "desc": "Caldinho de feijão com farofa de bacon – O Tradicional caldinho mudou de “roupa”!"
+  },
+  {
+    "id": "dish-dion-048",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Copinho de Abóbora",
+    "desc": "creme de abóbora com carne seca e crispe de couve – Esse é pra lembrar do sertão!"
+  },
+  {
+    "id": "dish-dion-049",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Copinho Amazônico",
+    "desc": "creme de tacacá com camarão seco e jambú – Nós caboclos adoramos e se você não provou, merece!"
+  },
+  {
+    "id": "dish-dion-050",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Copinho de Strogonoff",
+    "desc": "de frango com chips de batata doce – Aquele Strogonofe que lembra casa da Vovô!"
+  },
+  {
+    "id": "dish-dion-051",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Copinho de Vaca Atolada",
+    "desc": "creme de mandioca com costela bovina – Temperado daquele jeito que vai te levar lá em Minas Gerais sô!"
+  },
+  {
+    "id": "dish-dion-052",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Mini Pastel Queijo Coalho",
+    "desc": "Porção de mini pastéis crocantes de massa artesanal, recheados com queijo coalho nordestino derretido e dourado."
+  },
+  {
+    "id": "dish-dion-053",
+    "cat": "CARNES_BRASIL",
+    "name": "Mini Pastel Carne De Sol",
+    "desc": "Porção de mini pastéis com recheio suculento de carne de sol desfiada, refogada na manteiga de garrafa e cebola roxa."
+  },
+  {
+    "id": "dish-dion-054",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Mini Pasteis de Camarão",
+    "desc": "Camarões selecionados limpos e salteados com azeite, alho e temperos frescos, com textura tenra e sabor marcante."
+  },
+  {
+    "id": "dish-dion-055",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Mini Pastel de Bacalhau",
+    "desc": "Porção de mini pastéis com autêntico recheio de bacalhau desfiado, azeitonas pretas, azeite extravirgem e salsinha."
+  },
+  {
+    "id": "dish-dion-056",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Linguicinha Picante",
+    "desc": "Deliciosa linguiça suína picante, defumada e curada com molho de limão, acompanhada do nosso bolinho de macaxeira"
+  },
+  {
+    "id": "dish-dion-057",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Linguicinha do Engenho",
+    "desc": "Deliciosa linguiça de lombo, acompanhada de molho de limão e do nosso bolinho de macaxeira"
+  },
+  {
+    "id": "dish-dion-058",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Linguicinha Espiral do Pecado",
+    "desc": "Espiral de linguicinha fresca, altamente picante (cuidado!!!) acompanhada do nosso bolinho de macaxeira"
+  },
+  {
+    "id": "dish-dion-059",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Linguicinha Blumenau Defumada",
+    "desc": "Linguicinha suína defumada, uma explosão de sabores. Acompanhada do nosso bolinho de macaxeira"
+  },
+  {
+    "id": "dish-dion-060",
+    "cat": "MASSAS_RISOTOS",
+    "name": "Grande Calabresa",
+    "desc": "Molho de tomate da casa, mussarela e calabresa acebolada, finalizada com orégano"
+  },
+  {
+    "id": "dish-dion-061",
+    "cat": "MASSAS_RISOTOS",
+    "name": "Grande Mussarela",
+    "desc": "Molho de tomate da casa, mussarela finalizada com orégano"
+  },
+  {
+    "id": "dish-dion-062",
+    "cat": "CARNES_BRASIL",
+    "name": "Grande Carne De Sol Grande",
+    "desc": "Molho de tomate da casa, mussarela, carne de sol desfiada e acebolada, finalizada com orégano"
+  },
+  {
+    "id": "dish-dion-063",
+    "cat": "CARNES_BRASIL",
+    "name": "Todos nossos Hamburgueres são feitos artesanalmente pela Boutique de carne VPJ em São Paulo, com carne bovina Black Angus. Todos acompanham batata frita e molho extra",
+    "desc": "Burg do Engenho - Hamburguer de pão artesanal feito com carne artesanal, alface americana, tomate, queijo mussarela, fatias de Joelho de Porco defumado e picles de cebola roxa no pão brioche"
+  },
+  {
+    "id": "dish-dion-064",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Duplo Cheddar",
+    "desc": "Dois burgers artesanais selados, com cheddar cremoso e geleia de cebola no pão brioche."
+  },
+  {
+    "id": "dish-dion-065",
+    "cat": "CARNES_BRASIL",
+    "name": "X-Manaós Costela",
+    "desc": "Hambúrguer de costela de 210gr, queijo muçarela, tiras crocantes de bacon, alface fresco, tomate e o nosso molho especial!"
+  },
+  {
+    "id": "dish-dion-066",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Cheeseburguer",
+    "desc": "O tradicional, feito da maneira correta que vai te surpreender, Pão Brioche, carne hambúrguer, Queijo americano e nada mais!"
+  },
+  {
+    "id": "dish-dion-067",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Salada Coleslaw",
+    "desc": "Mix de repolho, rúcula, cenoura e tomates frescos, misturada com uma maionese de alho salsa"
+  },
+  {
+    "id": "dish-dion-068",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Salada Assustada",
+    "desc": "Salada com couve temperada, cebola roxa, bacon, tomates cerejas e finalizada com molho especial de iogurte"
+  },
+  {
+    "id": "dish-dion-069",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Salada Búfula",
+    "desc": "Mix de folhas, rúcula, cebola, croûtons, massa farfalle, queijo de búfula, regada com azeite e limão siciliano e cebola caramelizada"
+  },
+  {
+    "id": "dish-dion-070",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Salada Caesar",
+    "desc": "Alface americana fresca, croutons crocantes, lascas de parmesão e molho caesar tradicional"
+  },
+  {
+    "id": "dish-dion-071",
+    "cat": "MASSAS_RISOTOS",
+    "name": "Escolha a proteína e os acompanhamentos que os pequenos mais gostam Escolha até 3 acompanhamentos: Arroz branco, massa Capeline (Cabelo de Anjo), Batata Frita, Purê, Feijão ou Salada",
+    "desc": "Empanado de Frango - Frango de verdade, processado artesanalmente, temperado e empanado"
+  },
+  {
+    "id": "dish-dion-072",
+    "cat": "CARNES_BRASIL",
+    "name": "Empanado de Filé Mignon",
+    "desc": "Filé de verdade, processado artesanalmente, temperado."
+  },
+  {
+    "id": "dish-dion-073",
+    "cat": "CARNES_BRASIL",
+    "name": "Tiras de Filé Mignon",
+    "desc": "Medalhão alto de filé mignon super macio e limpo, grelhado com maestria e textura incomparável."
+  },
+  {
+    "id": "dish-dion-074",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Bolonhesa",
+    "desc": "Carne moída ao molho de tomate, Ideal pra quem for escolher nossa massa capeline (o famosinho “Cabelo de Anjo”)"
+  },
+  {
+    "id": "dish-dion-075",
+    "cat": "MASSAS_RISOTOS",
+    "name": "Deliciosas combinações “escondidas” no creme de macaxeira com queijo, uma mistura cremosa e uniforme que você já conhece. Porções bem servidas nos nossos caldeirõezinhos de ferro fundido, pra você se deliciar sozinho ou compartilhar – Todos acompanham arroz branco",
+    "desc": "Caldeirão de Carne de Sol - Carne de Sol desfiada, refogada com bacon e cebola, com o toque de molho roti."
+  },
+  {
+    "id": "dish-dion-076",
+    "cat": "MASSAS_RISOTOS",
+    "name": "Caldeirão de Charque",
+    "desc": "Aquela mistura à jardineira do nosso charque especial"
+  },
+  {
+    "id": "dish-dion-077",
+    "cat": "CARNES_BRASIL",
+    "name": "Caldeirão de Picanha",
+    "desc": "Pedaços de picanha especial, acebolada e refogada"
+  },
+  {
+    "id": "dish-dion-078",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Caldeirão de Bacalhau",
+    "desc": "Lascas de bacalhau refogado com pimentões e cebola"
+  },
+  {
+    "id": "dish-dion-079",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Caldeirão de Camarão",
+    "desc": "Deliciosos Camarões refogados com cebola e coentro."
+  },
+  {
+    "id": "dish-dion-080",
+    "cat": "MASSAS_RISOTOS",
+    "name": "Combo Caldeirão Engenho 2 Unidades",
+    "desc": "Combo com caldeirões de escondidinhos artesanais à escolha, servidos quentes com crosta de queijo gratinado na hora."
+  },
+  {
+    "id": "dish-dion-081",
+    "cat": "CARNES_BRASIL",
+    "name": "Prime Rib Suíno - 2P",
+    "desc": "Corte especial de porco, servindo até duas pessoas, acompanhado de feijão tropeiro e arroz branco."
+  },
+  {
+    "id": "dish-dion-082",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Arroz de rabada com rúcula - 1P",
+    "desc": "Rabada cozida desfiada, com arroz preparado no próprio molho, agrião e temperos."
+  },
+  {
+    "id": "dish-dion-083",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Ragu do Brasil - 2P",
+    "desc": "Ragu de linguiça crocante, com espinafre, servida com polenta cremosa, acompanhado de arroz branco."
+  },
+  {
+    "id": "dish-dion-084",
+    "cat": "CARNES_BRASIL",
+    "name": "Carbonara de Joelho - 1P",
+    "desc": "Lascas de joelho crocante com molho tradicional servido com massa longa e o toque do grupo engenho."
+  },
+  {
+    "id": "dish-dion-085",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Supreme de Frango - 1P",
+    "desc": "Sobrecoxa desossada, recheada com presunto e queijo, guarnecidas com uma massa Tagliatele Grano duro ao molho branco"
+  },
+  {
+    "id": "dish-dion-086",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Pirarucu em Crosta de Castanha - 1P",
+    "desc": "Pirarucu suculento na crosta de castanha, acompanhado com risoto de limão siciliano"
+  },
+  {
+    "id": "dish-dion-087",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Língua Bovina do Engenho - 1P",
+    "desc": "Língua bovina cozida lentamente, extremamente macia e saborosa, acompanhada de arroz ferrugem e farofa crocante de cebola"
+  },
+  {
+    "id": "dish-dion-088",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Costelão Do Engenho - 2P",
+    "desc": "Costela sem osso de boi Angus, prensada, assada por 6 horas em baixa temperatura, acompanha arroz com brócolis, batatonese, farofa, queijo em cubos fritos. Serve duas pessoas"
+  },
+  {
+    "id": "dish-dion-089",
+    "cat": "CARNES_BRASIL",
+    "name": "Filé Do Engenho - 1P",
+    "desc": "Filé passado na manteiga acompanhado de arroz piemontese, fritas e farofa de ovos."
+  },
+  {
+    "id": "dish-dion-090",
+    "cat": "CARNES_BRASIL",
+    "name": "Frango A Parmegiana - 1P",
+    "desc": "Filé de frango marinado, empanado, coberto com molho de tomate caseiro e mussarela gratinada, acompanhado com fettuccine ao alho e óleo."
+  },
+  {
+    "id": "dish-dion-091",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Frango Na Chapa - 2P",
+    "desc": "Filé de Frango passado na manteiga e molho shoyu, servido na chapa com cebola, pimentão verde e tomate em pétalas, acompanhado de purê de batatas, arroz branco e farofa."
+  },
+  {
+    "id": "dish-dion-092",
+    "cat": "CARNES_BRASIL",
+    "name": "Carne De Sol Do Engenho - 1P",
+    "desc": "Nossa tradicional Carne de Sol, preparada artesanalmente com cortes nobres e assada lentamente para máxima maciez e sabor, acompanha arroz com brócolis ou baião de dois cremoso, bolinho de macaxeira, batatonese, queijo coalho grelhado, farofa crocante e vinagrete."
+  },
+  {
+    "id": "dish-dion-093",
+    "cat": "CARNES_BRASIL",
+    "name": "Carne De Sol Do Engenho - 2P",
+    "desc": "Nossa tradicional Carne de Sol, preparada artesanalmente com cortes nobres e assada lentamente para máxima maciez e sabor, acompanha arroz com brócolis ou baião de dois cremoso, bolinho de macaxeira, batatonese, queijo coalho grelhado, farofa crocante e vinagrete."
+  },
+  {
+    "id": "dish-dion-094",
+    "cat": "CARNES_BRASIL",
+    "name": "Carne De Sol Do Engenho - 3P",
+    "desc": "Nossa tradicional Carne de Sol, preparada artesanalmente com cortes nobres e assada lentamente para máxima maciez e sabor, acompanha arroz com brócolis ou baião de dois cremoso, bolinho de macaxeira, batatonese, queijo coalho grelhado, farofa crocante e vinagrete."
+  },
+  {
+    "id": "dish-dion-095",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Tambaqui Manauara - 1P",
+    "desc": "Costela com lombo de tambaqui, arroz com tucupi e jambu, acompanhado de farofa de banana."
+  },
+  {
+    "id": "dish-dion-096",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Filé de Pirarucu - 2P",
+    "desc": "Filé de pirarucu grelhado e servido na chapa, acompanhado de arroz branco, feijão de praia, vinagrete e farofa."
+  },
+  {
+    "id": "dish-dion-097",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Tambaqui Smoked - 3P",
+    "desc": "Um momento amazônico com sabores marcantes, uma deliciosa banda de tambaqui exclusivamente defumada, acompanhado com risoto de castanhas e farofa de camarão tutóia com farinha de uarini torradinha."
+  },
+  {
+    "id": "dish-dion-098",
+    "cat": "CARNES_BRASIL",
+    "name": "Joelho De Porco Defumado - 3P",
+    "desc": "Joelho de Porco defumado, assado e pururucado, acompanhado de Arroz branco, Tutu a Mineira, Couve crisp e Polenta frita."
+  },
+  {
+    "id": "dish-dion-099",
+    "cat": "CARNES_BRASIL",
+    "name": "Costela Barbecue do Engenho - 2P",
+    "desc": "Costela de porco defumada, cozida em molho barbecue, acompanhada batatas rústicas."
+  },
+  {
+    "id": "dish-dion-100",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Bacalhau com Natas 1P",
+    "desc": "Bacalhau desfiado refogado no azeite com cebola e alho, batatas em cubos e molho branco com queijos, finalizado com creme de leite e queijo parmesão gratinado, acompanha arroz branco."
+  },
+  {
+    "id": "dish-dion-101",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Bacalhau com Natas e Camarão 1P",
+    "desc": "Bacalhau desfiado e camarões salteados no azeite, cebola, alho guarnecidos com molho branco enriquecido com uma mistura de queijos, finalizado com creme de leite e queijo parmesão gratinado. Acompanha arroz branco."
+  },
+  {
+    "id": "dish-dion-102",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Fettuccine De Camarão 1P",
+    "desc": "Fettuccine de camarão flambado ao molho de queijos e filnalizado com parmesão."
+  },
+  {
+    "id": "dish-dion-103",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Camarão Amazônico 1P",
+    "desc": "Camarões fritos no azeite e alho, acompanhado de arroz paraense."
+  },
+  {
+    "id": "dish-dion-104",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Camarão Amazônico 2P",
+    "desc": "Camarões fritos no azeite e alho, acompanhado de arroz paraense."
+  },
+  {
+    "id": "dish-dion-105",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Camarões Vila Verde 1P",
+    "desc": "Camarões salteados com tomate seco rúcula, e um leve toque de molho de tomate, tudo isso envolto na massa Espaguete Grano duro"
+  },
+  {
+    "id": "dish-dion-106",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Bacalhau Manauara 1P",
+    "desc": "Lombo de Bacalhau Gadus Morhua, confitado no azeite e depois grelhado, acompanhado de azeitonas portuguesas, cenouras, batata ao murro, tomate-cereja, cebola, mix de pimentões e finalizado com salsa e alho laminado. Acompanha arroz branco."
+  },
+  {
+    "id": "dish-dion-107",
+    "cat": "PESCADOS_AMAZONIA",
+    "name": "Bacalhau Manauara 2P",
+    "desc": "Lombo de Bacalhau Gadus Morhua, confitado no azeite e depois grelhado, acompanhado de azeitonas portuguesas, cenouras, batata ao murro, tomate-cereja, cebola, mix de pimentões e finalizado com salsa e alho laminado. Acompanha arroz branco."
+  },
+  {
+    "id": "dish-dion-108",
+    "cat": "CARNES_BRASIL",
+    "name": "Pesos aproximados e in natura (antes do preparo) Não acompanha guarnições",
+    "desc": "Baby Beef Black Angus 250g - Corte nobre da alcatra, com textura macia e sabor suave, é uma carne equilibrada, tenra e muito apreciada em casas premium pela delicadeza e suculência."
+  },
+  {
+    "id": "dish-dion-109",
+    "cat": "CARNES_BRASIL",
+    "name": "Picanha Angus 1P (Picanha Importada) 200G",
+    "desc": "Ícone do churrasco brasileiro, corte nobre com capa de gordura uniforme que garante maciez e sabor únicos. Selecionadas as melhores picanhas importadas garantindo marmoreio superior e textura especial."
+  },
+  {
+    "id": "dish-dion-110",
+    "cat": "CARNES_BRASIL",
+    "name": "Picanha Angus 2P (Picanha Importada) 400G",
+    "desc": "Ícone do churrasco brasileiro, corte nobre com capa de gordura uniforme que garante maciez e sabor únicos. Selecionadas as melhores picanhas importadas garantindo marmoreio superior e textura especial."
+  },
+  {
+    "id": "dish-dion-111",
+    "cat": "CARNES_BRASIL",
+    "name": "Short Rib Black Angus 500g",
+    "desc": "Corte das costelas dianteiras, altamente marmorizado. É considerado um dos cortes mais saborosos do Angus, famoso pela maciez, untuosidade e intensidade de sabor."
+  },
+  {
+    "id": "dish-dion-112",
+    "cat": "CARNES_BRASIL",
+    "name": "Bife Chorizo Black Angus 250g",
+    "desc": "Tradicional das parrillas argentinas, é o contrafilé com sua capa de gordura característica, que derrete durante o preparo, garantindo sabor marcante e suculência extrema."
+  },
+  {
+    "id": "dish-dion-113",
+    "cat": "CARNES_BRASIL",
+    "name": "Fraldinha Black Angus 300g",
+    "desc": "Corte retirado da parte traseira, conhecido pelas fibras longas e sabor intenso, na qualidade black angus, ganha ainda mais suculência e maciez, entregando uma carne extremamente saborosa e marcante."
+  },
+  {
+    "id": "dish-dion-114",
+    "cat": "CARNES_BRASIL",
+    "name": "Maminha Black Angus 300g",
+    "desc": "Corte nobre e muito apreciado por sua maciez, fibras delicadas e sabor marcante. Na versão Black Angus, apresenta marmoreio equilibrado, garantindo suculência e textura extremamente agradável a cada fatia."
+  },
+  {
+    "id": "dish-dion-115",
+    "cat": "CARNES_BRASIL",
+    "name": "Cupim especial 300g",
+    "desc": "Corte tradicional de sabor intenso e textura única, reconhecido pelo seu marmoreio entre as fibras, que proporciona maciez e muita suculência no preparo. Quando bem assado, entrega carne extremamente tenra, com sabor marcante e irresistível."
+  },
+  {
+    "id": "dish-dion-116",
+    "cat": "CARNES_BRASIL",
+    "name": "T-Bone Black Angus 2P 500g",
+    "desc": "Corte imponente que combina filé mignon e contrafilé unidos pelo osso em formato de “t”. entrega duas texturas em um único corte: maciez absoluta e sabor marcante."
+  },
+  {
+    "id": "dish-dion-117",
+    "cat": "CARNES_BRASIL",
+    "name": "Bife americano 300g",
+    "desc": "Corte bovino macio e suculento, com fibras curtas e sabor marcante, na versão Black Angus apresenta ótimo marmoreio e suculência, grelhado realçando suas características naturais."
+  },
+  {
+    "id": "dish-dion-118",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Guarnição Especial do Engenho - 1P",
+    "desc": "Tropeiro, arroz biro biro, batatonese, farofa e vinagrete"
+  },
+  {
+    "id": "dish-dion-119",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Guarnição Especial do Engenho - 2P",
+    "desc": "Tropeiro, arroz biro biro, batatonese, farofa e vinagrete"
+  },
+  {
+    "id": "dish-dion-120",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Guarnição Nordestina - 1P",
+    "desc": "Tradicional baião cremoso preparado com feijão de corda, queijo coalho em cubos, nata fresca e manteiga de garrafa."
+  },
+  {
+    "id": "dish-dion-121",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Guarnição Nordestina - 2P",
+    "desc": "Tradicional baião cremoso preparado com feijão de corda, queijo coalho em cubos, nata fresca e manteiga de garrafa."
+  },
+  {
+    "id": "dish-dion-122",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Guarnição Amazônica – 1P",
+    "desc": "Baião de dois, farofa de banana com farinha do Uarini e vinagrete"
+  },
+  {
+    "id": "dish-dion-123",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Guarnição Amazônica – 2P",
+    "desc": "Baião de dois, farofa de banana com farinha do Uarini e vinagrete"
+  },
+  {
+    "id": "dish-dion-124",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Guarnição Mineira – 1P",
+    "desc": "Tutu a mineira, polenta frita, arroz com alho, farofa e vinagrete"
+  },
+  {
+    "id": "dish-dion-125",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Guarnição Mineira – 2P",
+    "desc": "Tutu a mineira, polenta frita, arroz com alho, farofa e vinagrete"
+  },
+  {
+    "id": "dish-dion-126",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Arroz Branco",
+    "desc": "Arroz agulhinha de grão longo selecionado, cozido no ponto certo, levemente temperado com alho e azeite."
+  },
+  {
+    "id": "dish-dion-127",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Arroz Biro - Biro",
+    "desc": "Arroz soltinho refogado com cubinhos de bacon dourado, ovos mexidos na manteiga, batata palha fina e cheiro-verde fresco."
+  },
+  {
+    "id": "dish-dion-128",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Baião De Dois",
+    "desc": "Tradicional baião cremoso preparado com feijão de corda, queijo coalho em cubos, nata fresca e manteiga de garrafa."
+  },
+  {
+    "id": "dish-dion-129",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Banana Frita",
+    "desc": "Banana Frita - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-130",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Farofa De Ovos",
+    "desc": "Farofa úmida de farinha selecionada com ovos mexidos na manteiga de garrafa e cebolinha verde."
+  },
+  {
+    "id": "dish-dion-131",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Farofa De Banana",
+    "desc": "Farinha do Uarini ovinha torrada na manteiga com pedacinhos de banana pacovã caramelizada."
+  },
+  {
+    "id": "dish-dion-132",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Farofa",
+    "desc": "Farofa - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-133",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Vinagrete",
+    "desc": "Vinagrete - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-134",
+    "cat": "ENTRADAS_PETISCOS",
+    "name": "Batatonese",
+    "desc": "Batatonese - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-135",
+    "cat": "SOBREMESAS",
+    "name": "Doce A Dois",
+    "desc": "Banana pacovã, queijo coalho, canela, redução de creme de leite e leite condensado – pra não perder a companhia e comer “rezando”!"
+  },
+  {
+    "id": "dish-dion-136",
+    "cat": "SOBREMESAS",
+    "name": "Taça de Cupuaçu/Amazônica",
+    "desc": "Creme de cupuaçu com ganache e castanha do pará laminada. Essa delicia da Amazônia deixa qualquer um de queixo caído!"
+  },
+  {
+    "id": "dish-dion-137",
+    "cat": "SOBREMESAS",
+    "name": "Mousse de Maracujá",
+    "desc": "Delicada mousse de maracujá leve e aveludada com acidez marcante finalizada com a redução da propria fruta."
+  },
+  {
+    "id": "dish-dion-138",
+    "cat": "SOBREMESAS",
+    "name": "Mousse de Cupuaçu com Crocante de Castanha",
+    "desc": "Delicada mousse de cupuaçu de acidez marcante e frescor amazônico, finalizado com crumble de castanha do Pará."
+  },
+  {
+    "id": "dish-dion-139",
+    "cat": "SOBREMESAS",
+    "name": "Petit Gateau Tradicional",
+    "desc": "Ganache de chocolate e sorvete de creme. Aquela sobremesa gringa, que caiu no gosto do Brasileiro e é deliciosa!"
+  },
+  {
+    "id": "dish-dion-140",
+    "cat": "SOBREMESAS",
+    "name": "Pudim De Leite",
+    "desc": "Dispensa qualquer descrição, é pedir e se deleitar!"
+  },
+  {
+    "id": "dish-dion-141",
+    "cat": "SOBREMESAS",
+    "name": "Pudim De Doce De Leite",
+    "desc": "Já esse aqui, é uma experiencia única a cada colherada!"
+  },
+  {
+    "id": "dish-dion-142",
+    "cat": "SOBREMESAS",
+    "name": "Manjar de Coco com Calda de Ameixa",
+    "desc": "Manjar de coco servido com calda de ameixa."
+  },
+  {
+    "id": "dish-dion-143",
+    "cat": "SOBREMESAS",
+    "name": "Romeu e Julieta Desconstruído",
+    "desc": "Goiabada em pasta com sorvete de queijo especial"
+  },
+  {
+    "id": "dish-dion-144",
+    "cat": "SOBREMESAS",
+    "name": "Torta Gelada De Abacaxi Un",
+    "desc": "Creme de abacaxi servido no biscuti amanteigado finalizado abacaxi com glaceado."
+  },
+  {
+    "id": "dish-dion-145",
+    "cat": "CHARCUTARIA",
+    "name": "Sanduiche de Pernil",
+    "desc": "Lascas de Pernil cozinho lentamente em próprio molho, no pão Terra e Mar (se você não experimentou esse pão ainda vai adorar)!"
+  },
+  {
+    "id": "dish-dion-146",
+    "cat": "CHARCUTARIA",
+    "name": "Sanduiche de Mortadela Italiana",
+    "desc": "100g de Mortalela italiana fatiada finamente montado no pão Terra e Mar"
+  },
+  {
+    "id": "dish-dion-147",
+    "cat": "CHARCUTARIA",
+    "name": "Choripán",
+    "desc": "Tradicional Sanduiche Argentino, com linguiça grelhada, servido no pão Terra e Mar crocante com molho Chimichurri"
+  },
+  {
+    "id": "dish-dion-148",
+    "cat": "CHARCUTARIA",
+    "name": "Sanduiche de Conservas (Veg)",
+    "desc": "Montado no pão Terra e mar – com sortimento de conservas da nossa Charcutaria – se surpreenda"
+  },
+  {
+    "id": "dish-dion-149",
+    "cat": "CARNES_BRASIL",
+    "name": "Sanduiche de Rosbife",
+    "desc": "70gr de Rosbife, rúcula, pepino em conserva, tomate, queijo coalho fatiado finamente montado no pão Terra e Mar"
+  },
+  {
+    "id": "dish-dion-150",
+    "cat": "CHARCUTARIA",
+    "name": "Sanduiche de Pastrami",
+    "desc": "Pastrami de Peito de boi defumado e temperado, servido no pão Terra e Mar integral"
+  },
+  {
+    "id": "dish-dion-151",
+    "cat": "CHARCUTARIA",
+    "name": "Misto Especial",
+    "desc": "Presunto e queijo no pão de forma especial alto dourado na manteiga"
+  },
+  {
+    "id": "dish-dion-152",
+    "cat": "CHARCUTARIA",
+    "name": "Sanduiche de Jamon",
+    "desc": "70g de Jamon Espanhol e 70g de queijo reino, tomate, rúcula e alface montado no pão Terra e Mar"
+  },
+  {
+    "id": "dish-dion-153",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Para quem quer beber menos, mas não abre mão de degustar com equilíbrio um excelente drink!",
+    "desc": "Combo Desgutação - Escolha 3 opções de mini drinks"
+  },
+  {
+    "id": "dish-dion-154",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Mini Mimo",
+    "desc": "Deliciosa mistura de Espumante Importada, com suco de laranja"
+  },
+  {
+    "id": "dish-dion-155",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Curto Caipfe",
+    "desc": "A tradicional caipirinha de café só que curta, e com toque do Engenho. Cachaça Manaós Melaço, café expresso, limão e gelo triturado!"
+  },
+  {
+    "id": "dish-dion-156",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Marmelada Inglesa Miúda",
+    "desc": "Uma versão internacional com sabor de Brasil - Geleia de laranja, Gin Campari, limão espremido, xarope de açúcar, bitter de laranja e gelo."
+  },
+  {
+    "id": "dish-dion-157",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Exíguo Vésper Bond",
+    "desc": "O drink oficial do James Bond (e você ai achando q era o Dry Martini né?), uma deliciosa mistura e com a peculiaridade de ser “Batido e não misturado”! Gin, Vodka, Lillet e gelo, você vai se surpreender!"
+  },
+  {
+    "id": "dish-dion-158",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Fitzgerald Diminuto",
+    "desc": "A versão reduzida de um drink q beira a arte. Também leva esse nome em homenagem ao escritor de Grande Gatsby. Uma mistura perfeita de Gin, limão, xarope de açúcar, bitter aromático e gelo."
+  },
+  {
+    "id": "dish-dion-159",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Negroni Rosé baixinho",
+    "desc": "Aquela simplicidade que te surpreende na medida certa. Campari, Gin, Vinho Rose Cadeado e Gelo."
+  },
+  {
+    "id": "dish-dion-160",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Pequeno Rose de Verano",
+    "desc": "Sinta-se no verão europeu ao provar essa delícia de Vinho rose com Refrigerante de limão e uma fatia de laranja!"
+  },
+  {
+    "id": "dish-dion-161",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "LL&B Miúdo",
+    "desc": "Esse drink é praticamente sem álcool, pq leva apenas Limão, refrigerante citrus e bitter aromático, bora provar?"
+  },
+  {
+    "id": "dish-dion-162",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Café Coado P",
+    "desc": "O Café coado 3 Corações é uma deliciosa bebida de grãos 100% Arábica, sabor intenso e gosto suave."
+  },
+  {
+    "id": "dish-dion-163",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Cappuccino Classic - Três Corações",
+    "desc": "O cappuccino Classic 3 Corações é uma deliciosa bebida cremosa composta por café, cacau e canela."
+  },
+  {
+    "id": "dish-dion-164",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Expresso Atento - Três Corações",
+    "desc": "Especialmente elaborado para apreciadores de cafés intensos. De sabor marcante, com notas intensas de caramelo e leve sabor frutado."
+  },
+  {
+    "id": "dish-dion-165",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Expresso Ameno - Três Corações",
+    "desc": "Blend composto de café arábica de variedade Bourbon Amarelo produzido no sul do Estado de Minas Gerais."
+  },
+  {
+    "id": "dish-dion-166",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Expresso Decaf - Três Corações",
+    "desc": "Os melhores grãos, com água para retirar a cafeína, preservando o sabor e o aroma natural do seu café descafeinado."
+  },
+  {
+    "id": "dish-dion-167",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Cappuccino Chocolatto Três Corações",
+    "desc": "Bebida cremosa com o delicioso sabor do chocolate com um toque delicado de leite."
+  },
+  {
+    "id": "dish-dion-168",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Cappuccino Chocolatto Caramel - Três Corações",
+    "desc": "Chocolate quente cremoso com um toque generoso de caramelo. Combinação especial e muito saborosa."
+  },
+  {
+    "id": "dish-dion-169",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Chá De Hortelã - Três Corações",
+    "desc": "Chá de hortelã ( Mentha Piperita L.) Tem sabor marcante e notas mentoladas. Oferece uma gostosa sensação refrescante. Ideal para todos os momentos do seu dia."
+  },
+  {
+    "id": "dish-dion-170",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Chá De Cidreira - Três Corações",
+    "desc": "Sabor e aroma inconfundível de limão. O chá de capim - cidreira ( Cymbopogon Citratus) inspira momentos de simplicidade e leveza."
+  },
+  {
+    "id": "dish-dion-171",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Chá De Hibisco e Maçã - Três Corações",
+    "desc": "O chá de hibisco e maçã sabor frutas vermelhas, possui a delicadeza da maçã e das frutas vermelhas."
+  },
+  {
+    "id": "dish-dion-172",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Standard 300ml",
+    "desc": "Suco natural da fruta preparado na hora com água mineral ou leite, servido bem gelado."
+  },
+  {
+    "id": "dish-dion-173",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Especiais 300ml",
+    "desc": "Suco natural da fruta preparado na hora com água mineral ou leite, servido bem gelado."
+  },
+  {
+    "id": "dish-dion-174",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Premium 300ml",
+    "desc": "Abacaxi com hortelã, Laranja ou Frutas Vermelhas"
+  },
+  {
+    "id": "dish-dion-175",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Standard 700ml",
+    "desc": "Suco natural da fruta preparado na hora com água mineral ou leite, servido bem gelado."
+  },
+  {
+    "id": "dish-dion-176",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Especiais 700ml",
+    "desc": "Suco natural da fruta preparado na hora com água mineral ou leite, servido bem gelado."
+  },
+  {
+    "id": "dish-dion-177",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Premium 700ml",
+    "desc": "Abacaxi com hortelã, Laranja e Frutas Vermelhas"
+  },
+  {
+    "id": "dish-dion-178",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Suco De Uva Integral - Casa Madeira",
+    "desc": "Suco natural da fruta preparado na hora com água mineral ou leite, servido bem gelado."
+  },
+  {
+    "id": "dish-dion-179",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Adicional Leite- Copo",
+    "desc": "Suco natural da fruta preparado na hora com água mineral ou leite, servido bem gelado."
+  },
+  {
+    "id": "dish-dion-180",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Adicional leite - Jarra",
+    "desc": "Suco natural da fruta preparado na hora com água mineral ou leite, servido bem gelado."
+  },
+  {
+    "id": "dish-dion-181",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Refrigerante Lata",
+    "desc": "Coca-Cola, Fanta laranja, Guaraná, Fanta Uva, Tuchaua e Sprite, Coca-Cola sem açúcar, Fanta laranja sem açúcar e Sprite sem açúcar"
+  },
+  {
+    "id": "dish-dion-182",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Refrigerante KS",
+    "desc": "Coca-Cola, Coca-Cola sem açúcar e Fanta laranja"
+  },
+  {
+    "id": "dish-dion-183",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Monster Grenn 269ml",
+    "desc": "Monster Grenn 269ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-184",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Monster Mango Loko 473ml",
+    "desc": "Monster Mango Loko 473ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-185",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Schweppes",
+    "desc": "Schweppes - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-186",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Água Mineral",
+    "desc": "Água mineral límpida e refrescante, com ou sem gás."
+  },
+  {
+    "id": "dish-dion-187",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Caipirinha Do Engenho",
+    "desc": "Clássica caipirinha brasileira preparada com cachaça selecionada, limão fresco macerado e açúcar na medida exata."
+  },
+  {
+    "id": "dish-dion-188",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Chopp Heineken 500ml",
+    "desc": "Chopp Heineken puro malte tirado na hora, super refrescante com 5% de teor alcoólico e colarinho denso na caneca congelada."
+  },
+  {
+    "id": "dish-dion-189",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Heineken 300ml",
+    "desc": "Heineken 300ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-190",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Heineken 500ml",
+    "desc": "Heineken 500ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-191",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Heineken 1L",
+    "desc": "Heineken 1L - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-192",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Heineken Sujo 300ml",
+    "desc": "Heineken Sujo 300ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-193",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Heineken Sujo 500ml",
+    "desc": "Heineken Sujo 500ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-194",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Heineken Sujo 1L",
+    "desc": "Heineken Sujo 1L - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-195",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Chopp Heineken De Menta 300ml",
+    "desc": "Chopp Heineken puro malte tirado na hora, super refrescante com 5% de teor alcoólico e colarinho denso na caneca congelada."
+  },
+  {
+    "id": "dish-dion-196",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Chopp Heineken De Menta 500ml",
+    "desc": "Chopp Heineken puro malte tirado na hora, super refrescante com 5% de teor alcoólico e colarinho denso na caneca congelada."
+  },
+  {
+    "id": "dish-dion-197",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Chopp Heineken De Menta 1L",
+    "desc": "Chopp Heineken puro malte tirado na hora, super refrescante com 5% de teor alcoólico e colarinho denso na caneca congelada."
+  },
+  {
+    "id": "dish-dion-198",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Amstel 300ml",
+    "desc": "Amstel 300ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-199",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Amstel 500ml",
+    "desc": "Amstel 500ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-200",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Amstel 1L",
+    "desc": "Amstel 1L - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-201",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Amstel Sujo 300ml",
+    "desc": "Amstel Sujo 300ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-202",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Amstel Sujo 500ml",
+    "desc": "Amstel Sujo 500ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-203",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Amstel Sujo 1L",
+    "desc": "Amstel Sujo 1L - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-204",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Chopp Amstel de Menta 300ml",
+    "desc": "Chopp lager clássico de receita holandesa, leve, puro malte e muito refrescante, servido a -2°C."
+  },
+  {
+    "id": "dish-dion-205",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Chopp Amstel de Menta 500ml",
+    "desc": "Chopp lager clássico de receita holandesa, leve, puro malte e muito refrescante, servido a -2°C."
+  },
+  {
+    "id": "dish-dion-206",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Chopp Amstel de Menta 1L",
+    "desc": "Chopp lager clássico de receita holandesa, leve, puro malte e muito refrescante, servido a -2°C."
+  },
+  {
+    "id": "dish-dion-207",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Heineken 600ml",
+    "desc": "Cerveja servida trincando de gelada na garrafa, perfeita para compartilhar à mesa."
+  },
+  {
+    "id": "dish-dion-208",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Eisenbahn 600ml",
+    "desc": "Cerveja servida trincando de gelada na garrafa, perfeita para compartilhar à mesa."
+  },
+  {
+    "id": "dish-dion-209",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "AMSTEL 600ml",
+    "desc": "Cerveja servida trincando de gelada na garrafa, perfeita para compartilhar à mesa."
+  },
+  {
+    "id": "dish-dion-210",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Eisenbahn LN",
+    "desc": "Pale Pale, American Ipa, Weisenbier, Session Ipa, Unfiltered."
+  },
+  {
+    "id": "dish-dion-211",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Baden Baden",
+    "desc": "Cerveja servida trincando de gelada na garrafa, perfeita para compartilhar à mesa."
+  },
+  {
+    "id": "dish-dion-212",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Bluemoon",
+    "desc": "Cerveja servida trincando de gelada na garrafa, perfeita para compartilhar à mesa."
+  },
+  {
+    "id": "dish-dion-213",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Lagunitas",
+    "desc": "Cerveja servida trincando de gelada na garrafa, perfeita para compartilhar à mesa."
+  },
+  {
+    "id": "dish-dion-214",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Cerveja Heineken LN",
+    "desc": "Cerveja servida trincando de gelada na garrafa, perfeita para compartilhar à mesa."
+  },
+  {
+    "id": "dish-dion-215",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Cerveja Heineken Zero LN",
+    "desc": "Cerveja servida trincando de gelada na garrafa, perfeita para compartilhar à mesa."
+  },
+  {
+    "id": "dish-dion-216",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Cerveja Eisenbahn Pilsen LN",
+    "desc": "Cerveja servida trincando de gelada na garrafa, perfeita para compartilhar à mesa."
+  },
+  {
+    "id": "dish-dion-217",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Cerveja Sol Premium LN",
+    "desc": "Cerveja servida trincando de gelada na garrafa, perfeita para compartilhar à mesa."
+  },
+  {
+    "id": "dish-dion-218",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Sol Zero",
+    "desc": "Cerveja servida trincando de gelada na garrafa, perfeita para compartilhar à mesa."
+  },
+  {
+    "id": "dish-dion-219",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Jambucana",
+    "desc": "Jambucana - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-220",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Jambucana Banana",
+    "desc": "Jambucana Banana - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-221",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Cachaça Manaos Prata",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-222",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Cachaça Manaos Carvalho",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-223",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Cachaça Manas Amburana",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-224",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Cachaça Manaós Melaço",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-225",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Cachaça Manaos Edição Limitada",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-226",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Cachaca Imperial Manaós",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-227",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Cachaça de Uva 50ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-228",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Licor 43",
+    "desc": "Licor 43 - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-229",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Johnnie Walker Black Label",
+    "desc": "Johnnie Walker Black Label - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-230",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Johnnie Walker Red Label",
+    "desc": "Johnnie Walker Red Label - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-231",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Johnnie Walker Double Black",
+    "desc": "Johnnie Walker Double Black - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-232",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Johnnie Walker Blue Label",
+    "desc": "Johnnie Walker Blue Label - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-233",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Johnnie Walker Gold Reserve",
+    "desc": "Johnnie Walker Gold Reserve - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-234",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Johnnie Walker (Platinum) Old 18y",
+    "desc": "Johnnie Walker (Platinum) Old 18y - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-235",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Johnnie Walker Green 15 Anos",
+    "desc": "Johnnie Walker Green 15 Anos - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-236",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Old Parr 12 Anos",
+    "desc": "Old Parr 12 Anos - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-237",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Tequila Jose Cuervo Ouro",
+    "desc": "Tequila Jose Cuervo Ouro - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-238",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Tequila Jose Curvo Prata",
+    "desc": "Tequila Jose Curvo Prata - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-239",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Jack Daniels Tennessee",
+    "desc": "Jack Daniels Tennessee - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-240",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Jack Daniel Tennessee Honey",
+    "desc": "Jack Daniel Tennessee Honey - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-241",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Jack Daniels Single Barrel",
+    "desc": "Jack Daniels Single Barrel - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-242",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Jack Daniels Gentleman",
+    "desc": "Jack Daniels Gentleman - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-243",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Jack Daniels Tennesse Fire",
+    "desc": "Jack Daniels Tennesse Fire - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-244",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Buchanans 12 Anos",
+    "desc": "Buchanans 12 Anos - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-245",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Licor De Cachaça",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-246",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Licor Cointreau",
+    "desc": "Licor Cointreau - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-247",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Licor De Amarula",
+    "desc": "Licor De Amarula - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-248",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Acayu Aguardente de Caju 50ml",
+    "desc": "Água mineral límpida e refrescante, com ou sem gás."
+  },
+  {
+    "id": "dish-dion-249",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Acuruy 50ml",
+    "desc": "Acuruy 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-250",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Apruma 50ml",
+    "desc": "Apruma 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-251",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Arreda 50ml",
+    "desc": "Arreda 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-252",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Asa Branca 50ml",
+    "desc": "Asa Branca 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-253",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Bem me quer 50ml Prata",
+    "desc": "Bem me quer 50ml Prata - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-254",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Bocaina 50ml",
+    "desc": "Bocaina 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-255",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Cristalina 50ml",
+    "desc": "Cristalina 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-256",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Duvido Cachaça 50ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-257",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Famosinha de Minas 50ml",
+    "desc": "Famosinha de Minas 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-258",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Ladila 50ml",
+    "desc": "Ladila 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-259",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Piragibana Rotulo Novo 50ml",
+    "desc": "Piragibana Rotulo Novo 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-260",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Sagatiba Prata Pura 50ml",
+    "desc": "Sagatiba Prata Pura 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-261",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Buriti 50ml",
+    "desc": "Buriti 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-262",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Caribe 50ml",
+    "desc": "Caribe 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-263",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Cebesta 50ml",
+    "desc": "Cebesta 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-264",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Anisio Santiago 50ml",
+    "desc": "Anisio Santiago 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-265",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Germana Palha 50ml",
+    "desc": "Germana Palha 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-266",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Havana 50ml",
+    "desc": "Havana 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-267",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Leblon 50ml Envelhecida",
+    "desc": "Leblon 50ml Envelhecida - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-268",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Lua Cheia 50ml",
+    "desc": "Lua Cheia 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-269",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Reserva do Gerente Ouro 50ml",
+    "desc": "Reserva do Gerente Ouro 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-270",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Salinas 50ml",
+    "desc": "Salinas 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-271",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Salineira 50ml",
+    "desc": "Salineira 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-272",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Seleta 50ml",
+    "desc": "Seleta 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-273",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Serra Limpa Organica 50ml",
+    "desc": "Serra Limpa Organica 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-274",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Vale Verde 12 Anos 50ml",
+    "desc": "Vale Verde 12 Anos 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-275",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Weber Haus 50ml Organica Amburana",
+    "desc": "Weber Haus 50ml Organica Amburana - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-276",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Weber Haus Extra Premium 6 Anos 50ml",
+    "desc": "Weber Haus Extra Premium 6 Anos 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-277",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Weber Haus 7 Madeiras Premium 50ml",
+    "desc": "Weber Haus 7 Madeiras Premium 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-278",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Santo Grau Cel Xavier Chaves 50ml",
+    "desc": "Santo Grau Cel Xavier Chaves 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-279",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Sg Itirapua Sp 50ml",
+    "desc": "Sg Itirapua Sp 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-280",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Sg Paraty Classica Rj 50ml",
+    "desc": "Sg Paraty Classica Rj 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-281",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Sg Pedro Ximenes Sp 50ml",
+    "desc": "Sg Pedro Ximenes Sp 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-282",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Bananinha do Satu 50ml",
+    "desc": "Bananinha do Satu 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-283",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Canelinha do Satu 50ml",
+    "desc": "Canelinha do Satu 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-284",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Gabi Cravo e Canela 50ml",
+    "desc": "Gabi Cravo e Canela 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-285",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Licor de Cachaça Regis Armmont 50ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-286",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Dose Weber Haus 50ml Ouro Carvalho Cabriuva",
+    "desc": "Dose Weber Haus 50ml Ouro Carvalho Cabriuva - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-287",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Weber Haus Composta C/ Anis 50ml",
+    "desc": "Weber Haus Composta C/ Anis 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-288",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Weber Haus Pessego 50ml",
+    "desc": "Weber Haus Pessego 50ml - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-289",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Steinhaeger",
+    "desc": "Steinhaeger - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-290",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Carajillo",
+    "desc": "Café de grãos 100% arábica extraído na pressão correta, aroma marcante e crema aveludada."
+  },
+  {
+    "id": "dish-dion-291",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Coquetel de Frutas (com Manaós Prata)",
+    "desc": "Acerola, morango, creme de leite, leite condensado, gelo e cachaça prata."
+  },
+  {
+    "id": "dish-dion-292",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Sex On The Beach",
+    "desc": "Vodka nacional, licor de pêssego, suco de laranja e groselha."
+  },
+  {
+    "id": "dish-dion-293",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Penicillin",
+    "desc": "Coquetel feito com whisky, suco de limão siciliano, xarope de mel e gengibre."
+  },
+  {
+    "id": "dish-dion-294",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Groselha Spriz",
+    "desc": "Cachaça Manaós Amburana, xarope de groselha, água com gas e suco de limão – finalizado com Espuma de gengibre e Bitter aromático."
+  },
+  {
+    "id": "dish-dion-295",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Coquetel De Frutas",
+    "desc": "Acerola, morango, creme de leite, leite condensado e gelo"
+  },
+  {
+    "id": "dish-dion-296",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Lemonade Baby",
+    "desc": "Xarope de pink lemonade, polpa de morango, leite condensado e água com gás"
+  },
+  {
+    "id": "dish-dion-297",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Amazonas Tropical",
+    "desc": "Xarope de tangerina, xarope de cranberry e energético tropical"
+  },
+  {
+    "id": "dish-dion-298",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Beijo De Morango",
+    "desc": "Polpa de morango, sorvete de morango leite, leite condensado e chantilly"
+  },
+  {
+    "id": "dish-dion-299",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Velvet Lemonade",
+    "desc": "Xarope de cranberry, xarope de limão siciliano, sprite e espuma de gengibre"
+  },
+  {
+    "id": "dish-dion-300",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Mango Loco Fresh",
+    "desc": "Monster mango loco, vodka, xarope de gengibre, sumo de limão, fatia de manga e alecrim"
+  },
+  {
+    "id": "dish-dion-301",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Manauara Energy",
+    "desc": "Monster energy green, jambucana, maracujá, abacaxi e sumo de limão, rodela de limão e folha de jambu"
+  },
+  {
+    "id": "dish-dion-302",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Mango Sunset Gin",
+    "desc": "Monster mango loco, gin, sumo de limão, grenadine, fatias de laranja e ramo de hortelã."
+  },
+  {
+    "id": "dish-dion-303",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Exa Brasil",
+    "desc": "Monster Rio Punch, gin, suco de limão, grenadine, fatias de laranja e ramo de hortelã."
+  },
+  {
+    "id": "dish-dion-304",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Watermelon Fit Gin",
+    "desc": "Monster ultra watermelon, gin, sumo de limão, sumo de gengibre, borda com chia, ramo de manjericão e rodela de limão siciliano."
+  },
+  {
+    "id": "dish-dion-305",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Apple Paradise Gin",
+    "desc": "Monster ultra paradise, gin, sumo de limão, grenadine, fatias de maçã verde e ramo de hortelã"
+  },
+  {
+    "id": "dish-dion-306",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Tropicana Red",
+    "desc": "Monster energy watermelon, cachaça Prata e sumo de limão, ramo de manjericão roxo e rodela de limão"
+  },
+  {
+    "id": "dish-dion-307",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Margarita Power",
+    "desc": "Monster mango loco, tequila ouro, sumo de limão e cointreau, fatias de manga rosa e borda de sal"
+  },
+  {
+    "id": "dish-dion-308",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Turbine Sua Caipirosca",
+    "desc": "Coquetel refrescante com vodka de alta pureza, frutas frescas maceradas e gelo cristalino."
+  },
+  {
+    "id": "dish-dion-309",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Caipirosca Tradiconal - Vodka nacional",
+    "desc": "Limão, morango, abacaxi, Frutas vermelhas e kiwi"
+  },
+  {
+    "id": "dish-dion-310",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Caipirosca Premium- Vodka importada",
+    "desc": "Limão, morango, abacaxi, Frutas vermelhas e kiwi"
+  },
+  {
+    "id": "dish-dion-311",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Caipirinha Do Engenho- Tradicional",
+    "desc": "Clássica caipirinha brasileira preparada com cachaça selecionada, limão fresco macerado e açúcar na medida exata."
+  },
+  {
+    "id": "dish-dion-312",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Caipirinha Do Engenho- Premium",
+    "desc": "cachaça envelhecida ou carvalho, limão, açúcar e gelo"
+  },
+  {
+    "id": "dish-dion-313",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Da Sicília - Tradicional",
+    "desc": "Limão Siciliano, cachaça Prata, adoçado com licor de cachaça e gelo"
+  },
+  {
+    "id": "dish-dion-314",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Da Sicília - Premium",
+    "desc": "Limão Siciliano, cachaça envelhecida ou carvalho, adoçado com licor de cachaça e gelo"
+  },
+  {
+    "id": "dish-dion-315",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Abacaxi - Tradicional",
+    "desc": "Pedaços de abacaxi com hortelã, cachaça Prata e gelo"
+  },
+  {
+    "id": "dish-dion-316",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Abacaxi - Premium",
+    "desc": "Pedaços de abacaxi com hortelã, cachaça envelhecida, carvalho e gelo"
+  },
+  {
+    "id": "dish-dion-317",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Maracujá - Tradicional",
+    "desc": "Clássica caipirinha brasileira preparada com cachaça selecionada, limão fresco macerado e açúcar na medida exata."
+  },
+  {
+    "id": "dish-dion-318",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Maracujá - Premium",
+    "desc": "Polpa de maracujá, cachaça envelhecida, carvalho e gelo"
+  },
+  {
+    "id": "dish-dion-319",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Morango- Tradiconal",
+    "desc": "Clássica caipirinha brasileira preparada com cachaça selecionada, limão fresco macerado e açúcar na medida exata."
+  },
+  {
+    "id": "dish-dion-320",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Morango- Premium",
+    "desc": "Fatias de morango, cachaça envelhecida ou carvalho e gelo"
+  },
+  {
+    "id": "dish-dion-321",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Cupuaçu - Tradicional",
+    "desc": "Clássica caipirinha brasileira preparada com cachaça selecionada, limão fresco macerado e açúcar na medida exata."
+  },
+  {
+    "id": "dish-dion-322",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Cupuaçu - Premium",
+    "desc": "Polpa de cupuaçu, cachaça envelhecida ou carvalho e gelo"
+  },
+  {
+    "id": "dish-dion-323",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Frutas Vermelhas - Tradicional",
+    "desc": "Clássica caipirinha brasileira preparada com cachaça selecionada, limão fresco macerado e açúcar na medida exata."
+  },
+  {
+    "id": "dish-dion-324",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Frutas Vermelhas - Premium",
+    "desc": "Polpa de cupuaçu, cachaça envelhecida ou carvalho e gelo"
+  },
+  {
+    "id": "dish-dion-325",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Bob Marley",
+    "desc": "Suco de morango (fruta) com rum, suco de laranja e licor de menta"
+  },
+  {
+    "id": "dish-dion-326",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Espanhola De Moranga",
+    "desc": "Vinho tinto suave, morango, sorvete de morango e leite condensado"
+  },
+  {
+    "id": "dish-dion-327",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Piña Colada",
+    "desc": "Rum Carta Ouro, creme de leite, suco de abacaxi, leite de coco e coco ralado"
+  },
+  {
+    "id": "dish-dion-328",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Margarita",
+    "desc": "Tequila Ouro, margarita mix, gelo e borda de sal"
+  },
+  {
+    "id": "dish-dion-329",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Mojito",
+    "desc": "Rum Carta Branca, hortelã, açúcar, limão, água com gás e gelo"
+  },
+  {
+    "id": "dish-dion-330",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Moscow Mule",
+    "desc": "Vodka, suco de limão, gringer beer e espuma de gengibre, servido bem gelado."
+  },
+  {
+    "id": "dish-dion-331",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Turbine Seu Gin",
+    "desc": "Turbine Seu Gin - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-332",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Gin Tônica Abacaxi Beefeater",
+    "desc": "Gin Beefeater, abacaxi, schweppes tônica e gelo"
+  },
+  {
+    "id": "dish-dion-333",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Gin Tônica Abacaxi Tanqueray",
+    "desc": "Gin Tanqueray, abacaxi, schweppes tônica e gelo"
+  },
+  {
+    "id": "dish-dion-334",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Gin Fizz Beefeater",
+    "desc": "Gin Beefeater, xarope de açúcar, suco de limão e gelo"
+  },
+  {
+    "id": "dish-dion-335",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Gin Fizz Tanqueray",
+    "desc": "Gin Tanqueray, xarope de açúcar, suco de limão e gelo"
+  },
+  {
+    "id": "dish-dion-336",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Gin Frozen Beefeater",
+    "desc": "Gin Beefeater, limão, schweppes tônica e gelo moído"
+  },
+  {
+    "id": "dish-dion-337",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Gin Frozen Tanqueray",
+    "desc": "Gin Tanqueray, limão, schweppes tônica e gelo moído"
+  },
+  {
+    "id": "dish-dion-338",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Tonic Coquetel Beefeater",
+    "desc": "Gin Beefeater, limão siciliano e água tônica"
+  },
+  {
+    "id": "dish-dion-339",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Tonic Coquetel Tanqueray",
+    "desc": "Gin Tanqueray, limão siciliano e água tônica."
+  },
+  {
+    "id": "dish-dion-340",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Triple T Beefeater",
+    "desc": "Gin Beefeater, água tônica, mel e tangerina"
+  },
+  {
+    "id": "dish-dion-341",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Triple T Tanqueray",
+    "desc": "Gin Tanqueray, água tônica, mel e tangerina"
+  },
+  {
+    "id": "dish-dion-342",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Negroni Beefeater",
+    "desc": "Negroni Beefeater - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-343",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Negroni Tanqueray",
+    "desc": "Negroni Tanqueray - Preparado com ingredientes selecionados no mais rigoroso padrão de qualidade Engenho Cozinha Brasileira."
+  },
+  {
+    "id": "dish-dion-344",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Gin Wine Beefeater",
+    "desc": "Gin Beefeater, vinho tinto suave, xarope de limão siciliano, xarope de açúcar finalizado com Espuma de gengibre"
+  },
+  {
+    "id": "dish-dion-345",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Gin Wine Tanqueray",
+    "desc": "Gin Tanqueray, vinho tinto suave, xarope de limão siciliano, xarope de açúcar finalizado com Espuma de gengibre"
+  },
+  {
+    "id": "dish-dion-346",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Jambucana 275ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-347",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Jambucana 500ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-348",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Jambucana 750ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-349",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Jambucana Banana 500ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-350",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Jambucana Porcelana 400ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-351",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Anisio Santiago 600ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-352",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Buriti 700ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-353",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Bem me quer 700ml Prata",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-354",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Apruma 700ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-355",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Imperial Manaos 700ml Ed Exclusiva",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-356",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Manaos Carvalho 700ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-357",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Manaos Amburana 700ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-358",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Manaos Amburana 300ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-359",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Manaos Prata 700ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-360",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Cebesta 700ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-361",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Acayu Aguardente de Caju 960ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-362",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Manaos Edição Limitada 700ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-363",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Manaos Prata 300ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-364",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Havana 600ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-365",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Leblon 375ml Envelhecida",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-366",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Lua Cheia 670ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-367",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Salineira 670ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-368",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Santo Grau Cel Xavier Chaves 750ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-369",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Cachaça de Uva 500ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-370",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Gabi Cravo e Canela 670ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-371",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Manaos Carvalho 300ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-372",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Cristalina 670ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-373",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Famosinha de Minas 600ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-374",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Ladila 700ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-375",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Piragibana Rotulo Novo 600ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-376",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Germana Palha 1L",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-377",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Duvido Cachaça 600ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-378",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Caribe 600ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-379",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Manaos Melaço 300ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-380",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Manaos Melaço 500ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-381",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Arreda 700ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-382",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Asa Branca 670ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-383",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Salineira 670ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-384",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Serra Limpa Organica 355ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-385",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Weber Haus 700ml Ouro Carvalho Cabriuva",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-386",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Weber Haus 7 Madeiras Premium 750ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-387",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Sg Itirapua Sp 750ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-388",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Weber Haus Extra Premium 6 Anos 750ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-389",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Bananinha do Satu 700ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-390",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Canelinha do Satu 700ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-391",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Acuruy 670ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-392",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Bocaina 700ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-393",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Sg Pedro Ximenes Sp 750ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-394",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Weber Haus 700ml Organica Amburana",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-395",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Weber Haus Composta C/ Anis 500ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-396",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Weber Haus Pessego 500ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-397",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Vale Verde 12 Anos 700ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-398",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Seleta 600ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-399",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Salinas 700ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-400",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Salinas 600ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-401",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Reserva do Gerente Ouro 700ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-402",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Sagatiba Prata Pura 700ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-403",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Licor de Cachaça Regis Armmont 720ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-404",
+    "cat": "BEBIDAS_DRINKS",
+    "name": "Sp Paraty Classica Rj 750ml",
+    "desc": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas."
+  },
+  {
+    "id": "dish-dion-405",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Mumm Cuvée Reserve Demi-Sec (Argentina)",
+    "desc": "Blend: Perfil mais macio, com leve doçura, notas frutadas e boa cremosidade."
+  },
+  {
+    "id": "dish-dion-406",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Mumm Léger Dulce (Argentina)",
+    "desc": "Blend: Espumante delicadamente adocicado e frutado, ideal para quem prefere estilos suaves."
+  },
+  {
+    "id": "dish-dion-407",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Mumm Cuvée Reserve Brut (Argentina)",
+    "desc": "Blend de uvas brancas e tintas: Fresco e equilibrado, com borbulhas finas e notas cítricas."
+  },
+  {
+    "id": "dish-dion-408",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Mumm Cuvée Reserve Brut Rosé (Argentina)",
+    "desc": "Blend: Delicado e vibrante, com aromas de frutas vermelhas frescas e boa acidez."
+  },
+  {
+    "id": "dish-dion-409",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Vinho Tinto Especial",
+    "desc": "Vinho fino selecionado da nossa adega climatizada, servido na temperatura ideal em taças de cristal."
+  },
+  {
+    "id": "dish-dion-410",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Vinho Branco Especial",
+    "desc": "Vinho branco leve e muito refrescante, aroma floral e cítrico, acidez viva, ideal para pescados e dias quentes."
+  },
+  {
+    "id": "dish-dion-411",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Vinho do Porto Especial (50ml)",
+    "desc": "Vinho licoroso fortificado tradicional de Portugal, dulçor equilibrado com aromas complexos de nozes, passas e madeira."
+  },
+  {
+    "id": "dish-dion-412",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Cadeado Alentejano Branco (Portugal)",
+    "desc": "Blend: Fresco com notas de frutas brancas e boa leveza."
+  },
+  {
+    "id": "dish-dion-413",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Cobos Felino Cabernet Sauvignon 2022 (Argentina)",
+    "desc": "Fresco e equilibrado, com notas de frutas tropicais e sutis toques amanteigados."
+  },
+  {
+    "id": "dish-dion-414",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Nieto Senetiner Benjamín Branco Suave (Argentina)",
+    "desc": "Blend: Leve e aromático, com agradável doçura."
+  },
+  {
+    "id": "dish-dion-415",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Nieto Senetiner Benjamín Chardonnay (Argentina)",
+    "desc": "Notas de maçã, pera e frutas tropicais; leve e equilibrado."
+  },
+  {
+    "id": "dish-dion-416",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Ermelinda Porta Nova Ligeiro (Portugal)",
+    "desc": "Blend: Vinho verde leve, frutado e fácil de beber."
+  },
+  {
+    "id": "dish-dion-417",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Nieto Senetiner Fran Chardonnay 2021 (Argentina)",
+    "desc": "Fresco e leve, ideal para acompanhar saladas e peixes."
+  },
+  {
+    "id": "dish-dion-418",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Cadeado Portugal Branco (Portugal)",
+    "desc": "Blend: Jovem e versátil, com notas cítricas e frutadas."
+  },
+  {
+    "id": "dish-dion-419",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Zuccardi Serie A Torrontés (Argentina)",
+    "desc": "Aromático e expressivo, com marcantes notas florais e cítricas."
+  },
+  {
+    "id": "dish-dion-420",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Cadeado Península de Setúbal Branco (Portugal)",
+    "desc": "Blend: Equilibrado, com acidez agradável e final limpo."
+  },
+  {
+    "id": "dish-dion-421",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Zuccardi Fuzion Chardonnay (Argentina):",
+    "desc": "Vibrante e refrescante, com notas cítricas e final limpo."
+  },
+  {
+    "id": "dish-dion-422",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Nieto Senetiner Benjamín Blend Rosé (Argentina)",
+    "desc": "Jovem e refrescante, com aromas de morango e framboesa."
+  },
+  {
+    "id": "dish-dion-423",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Cadeado Portugal Rosé (Portugal)",
+    "desc": "Blend: Leve, com boa acidez e notas delicadas de frutas vermelhas."
+  },
+  {
+    "id": "dish-dion-424",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Cadão Porto White (Portugal)",
+    "desc": "Aromático, com mel e frutas secas; equilibrado e refrescante."
+  },
+  {
+    "id": "dish-dion-425",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Cadão Porto Tawny (Portugal)",
+    "desc": "Notas de frutas secas, caramelo e toque amadeirado; macio e elegante."
+  },
+  {
+    "id": "dish-dion-426",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Cadão Porto Ruby (Portugal)",
+    "desc": "Jovem e intenso, com notas de frutas vermelhas e negras maduras."
+  },
+  {
+    "id": "dish-dion-427",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Nieto Senetiner Malbec",
+    "desc": "Expressivo, com fruta madura e textura macia."
+  },
+  {
+    "id": "dish-dion-428",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Nieto Senetiner Benjamín Blend Tinto 2022",
+    "desc": "Jovem e descomplicado, com taninos suaves."
+  },
+  {
+    "id": "dish-dion-429",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Zuccardi Serie A Malbec",
+    "desc": "Concentrado e intenso, com fruta negra madura e excelente estrutura."
+  },
+  {
+    "id": "dish-dion-430",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Zuccardi Fuzion Malbec",
+    "desc": "Frutado com notas de cereja e toque especiado."
+  },
+  {
+    "id": "dish-dion-431",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Cobos Felino Malbec",
+    "desc": "Intenso e macio, com notas de ameixa e taninos redondos."
+  },
+  {
+    "id": "dish-dion-432",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Nieto Senetiner Fran Blend Tinto",
+    "desc": "Perfil envolvente com frutas maduras e boa maciez."
+  },
+  {
+    "id": "dish-dion-433",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Nieto Senetiner Benjamín Cabernet Sauvignon",
+    "desc": "Notas de frutas escuras e ervas, com boa estrutura."
+  },
+  {
+    "id": "dish-dion-434",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Nieto Senetiner Benjamín Malbec",
+    "desc": "Frutado, com notas de amora e toque floral; fácil de agradar."
+  },
+  {
+    "id": "dish-dion-435",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Cobos Felino Cabernet Sauvignon 2022",
+    "desc": "Elegante e estruturado, com notas de frutas escuras e especiarias."
+  },
+  {
+    "id": "dish-dion-436",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Cadeado Península de Setúbal",
+    "desc": "Bom corpo, com notas de violetas, chocolate e especiarias."
+  },
+  {
+    "id": "dish-dion-437",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Trinco Grande Reserva",
+    "desc": "Estruturado e complexo, com notas de madeira e final persistente."
+  },
+  {
+    "id": "dish-dion-438",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Private Selection Península de Setúbal",
+    "desc": "Aromas de frutas maduras e paladar equilibrado e persistente."
+  },
+  {
+    "id": "dish-dion-439",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Batente Syrah Reserva Seco",
+    "desc": "Marcante e intenso, com notas de pimenta, especiarias e pimenta."
+  },
+  {
+    "id": "dish-dion-440",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Cadeado Alentejano Tinto",
+    "desc": "Redondo e frutado, com taninos macios e frutas vermelhas."
+  },
+  {
+    "id": "dish-dion-441",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Private Selection Alentejano",
+    "desc": "Macio e gastronômico, com notas de ameixa e especiarias."
+  },
+  {
+    "id": "dish-dion-442",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Cadeado Portugal Tinto",
+    "desc": "Equilibrado e versátil, com notas de frutas maduras."
+  },
+  {
+    "id": "dish-dion-443",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Maturo Montepulciano d'Abruzzo 2020",
+    "desc": "Intenso e gastronômico, com frutas vermelhas e toque terroso."
+  },
+  {
+    "id": "dish-dion-444",
+    "cat": "VINHOS_ESPUMANTES",
+    "name": "Maturo Montepulciano d'Abruzzo 2021",
+    "desc": "Corpo médio e frutado, com notas de cerejas e especiarias suaves"
+  }
+]

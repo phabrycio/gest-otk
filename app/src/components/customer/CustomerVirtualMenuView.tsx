@@ -43,6 +43,54 @@ import { UI_TRANSLATIONS } from '../../data/customerMenuTranslations';
 
 const ALL_MENU_ITEMS = customerMenuJson as CustomerMenuItem[];
 
+// Dicionário de tradução de subcategorias
+const SUBCATEGORY_LABELS: Record<string, { pt: string; en: string; es: string }> = {
+  'ESPECIAL DO MAR': { pt: 'Especial do Mar', en: 'Seafood Specials', es: 'Especialidades del Mar' },
+  'PRATOS PRINCIPAIS - TRADICIONAIS DO ENGENHO': { pt: 'Pratos Tradicionais', en: 'Traditional House Mains', es: 'Platos Tradicionales' },
+  'CHOPPS': { pt: 'Chopps Artesanais', en: 'Draft Beers', es: 'Cervezas de Barril' },
+  'ENTRADAS': { pt: 'Entradas', en: 'Starters', es: 'Entradas' },
+  'PRATOS PRINCIPAIS': { pt: 'Pratos Principais', en: 'Main Courses', es: 'Platos Principales' },
+  'SOBREMESAS': { pt: 'Sobremesas', en: 'Desserts', es: 'Postres' },
+  'BUFFET LIVRE': { pt: 'Buffet Livre', en: 'Open Buffet', es: 'Buffet Libre' },
+  'PETISCOS ESPECIAIS DO ENGENHO': { pt: 'Petiscos Especiais', en: 'House Special Tapas', es: 'Tapas Especiales' },
+  'PETISCOS TRADICIONAIS DO ENGENHO': { pt: 'Petiscos Tradicionais', en: 'Traditional Brazilian Tapas', es: 'Tapas Tradicionales' },
+  'COPINHOS DO ENGENHO': { pt: 'Copinhos Degustação', en: 'Tasting Shots & Soups', es: 'Chupitos de Degustación' },
+  'MINI PASTÉIS': { pt: 'Mini Pastéis', en: 'Crispy Mini Pastries', es: 'Mini Empanadas' },
+  'LINGUICINHAS': { pt: 'Linguicinhas na Brasa', en: 'Charcoal-Grilled Sausages', es: 'Embutidos a la Brasa' },
+  'PIZZAS': { pt: 'Pizzas Artesanais', en: 'Artisanal Pizzas', es: 'Pizzas Artesanales' },
+  'HAMBÚRGUERES': { pt: 'Hambúrgueres Gourmet', en: 'Gourmet Burgers', es: 'Hamburguesas Gourmet' },
+  'SALADAS': { pt: 'Saladas Frescas', en: 'Fresh Salads', es: 'Ensaladas Frescas' },
+  'PRATOS KIDS': { pt: 'Menu Infantil', en: 'Kids Menu', es: 'Menú Infantil' },
+  'ESCONDIDINHOS DO ENGENHO': { pt: 'Escondidinhos Gratinados', en: 'Gratinated Cassava Pies', es: 'Escondidinhos Gratinados' },
+  'PRATOS PRINCIPAIS - ESPECIALIDADES': { pt: 'Especialidades do Chef', en: 'Chef Specialties', es: 'Especialidades del Chef' },
+  'CARNES PREMIUM': { pt: 'Carnes Nobres & Parrilla', en: 'Prime Charcoal Steaks', es: 'Cortes Nobles a la Brasa' },
+  'GUARNIÇÕES': { pt: 'Guarnições & Acompanhamentos', en: 'Side Dishes', es: 'Guarniciones' },
+  'PORÇÕES': { pt: 'Porções Extras', en: 'Extra Portions', es: 'Porciones Extras' },
+  'CHARCUTARIA': { pt: 'Charcutaria & Sanduíches', en: 'Charcuterie & Deli', es: 'Charcutería y Bocadillos' },
+  'CAFÉ E BEBIDAS QUENTES': { pt: 'Cafés & Bebidas Quentes', en: 'Espresso & Hot Drinks', es: 'Café y Bebidas Calientes' },
+  'SUCOS': { pt: 'Sucos Naturais da Fruta', en: 'Natural Fresh Juices', es: 'Jugos Naturales' },
+  'BEBIDAS DIVERSAS': { pt: 'Bebidas & Refrigerantes', en: 'Soft Drinks & Sodas', es: 'Bebidas Variadas' },
+  'PARA BEBER': { pt: 'Bebidas Geladas', en: 'Chilled Beverages', es: 'Bebidas Frías' },
+  'CHOPPS HEINEKEN': { pt: 'Chopps Heineken', en: 'Heineken Draft Beers', es: 'Cerveza Heineken de Barril' },
+  'CHOPPS AMSTEL': { pt: 'Chopps Amstel', en: 'Amstel Draft Beers', es: 'Cerveza Amstel de Barril' },
+  'CERVEJAS': { pt: 'Cervejas Long Neck', en: 'Bottled Beers', es: 'Cervezas Embotelladas' },
+  'DOSES DIVERSAS': { pt: 'Doses & Destilados', en: 'Spirits & Premium Shots', es: 'Destilados y Licores' },
+  'DRINKS SEM ÁLCOOL': { pt: 'Drinks Sem Álcool (Mocktails)', en: 'Mocktails (Non-Alcoholic)', es: 'Cócteles sin Alcohol' },
+  'DRINKS MONSTER': { pt: 'Drinks com Energético', en: 'Energy Cocktails', es: 'Cócteles con Energizante' },
+  'CAIPIROSCAS': { pt: 'Caipiroscas de Vodka', en: 'Vodka Caipiroscas', es: 'Caipiroscas de Vodka' },
+  'CAIPIRINHA': { pt: 'Caipirinhas Tradicionais', en: 'Brazilian Caipirinhas', es: 'Caipirinhas Brasileñas' },
+  'DRINKS TRADICIONAIS': { pt: 'Coquetelaria Clássica', en: 'Classic Cocktails', es: 'Coctelería Clásica' },
+  'GIN': { pt: 'Drinks com Gin', en: 'Gin & Tonic Cocktails', es: 'Cócteles con Ginebra' },
+  'ESPUMANTES': { pt: 'Espumantes', en: 'Sparkling Wines', es: 'Vinos Espumosos' },
+  'TAÇAS': { pt: 'Vinhos em Taça', en: 'Wines by the Glass', es: 'Vinos por Copa' },
+  'VINHOS BRANCO E VERDES': { pt: 'Vinhos Brancos & Verdes', en: 'White & Vinho Verde Wines', es: 'Vinos Blancos y Verdes' },
+  'ROSÉS': { pt: 'Vinhos Rosés', en: 'Rosé Wines', es: 'Vinos Rosados' },
+  'VINHOS DO PORTO': { pt: 'Vinhos do Porto', en: 'Port Dessert Wines', es: 'Vinos de Oporto' },
+  'TINTOS ARGENTINOS': { pt: 'Tintos Argentinos', en: 'Argentine Red Wines', es: 'Vinos Tintos Argentinos' },
+  'TINTOS PORTUGUESES': { pt: 'Tintos Portugueses', en: 'Portuguese Red Wines', es: 'Vinos Tintos Portugueses' },
+  'TINTOS ITALIANOS': { pt: 'Tintos Italianos', en: 'Italian Red Wines', es: 'Vinos Tintos Italianos' }
+};
+
 interface CustomerVirtualMenuViewProps {
   onExitToApp?: () => void;
 }
@@ -80,19 +128,109 @@ export const CustomerVirtualMenuView: React.FC<CustomerVirtualMenuViewProps> = (
 
   const t = UI_TRANSLATIONS[selectedLanguage];
 
-  // Categorias disponíveis traduzidas
+  // Categorias disponíveis organizadas na ordem real gastronômica com descrições
   const categories = useMemo(() => {
     return [
-      { id: 'ALL', label: { pt: 'Todos os Itens', en: 'All Items', es: 'Todos los Platos' }, icon: UtensilsCrossed },
-      { id: 'EXECUTIVO', label: { pt: 'Menu Executivo', en: 'Executive Lunch', es: 'Menú Ejecutivo' }, icon: Clock },
-      { id: 'PESCADOS_AMAZONIA', label: { pt: 'Pescados Nobres', en: 'Amazonian Fish', es: 'Pescados Amazónicos' }, icon: Fish },
-      { id: 'CARNES_BRASIL', label: { pt: 'Carnes & Brasa', en: 'Prime Meats & Grill', es: 'Carnes y Parrilla' }, icon: Flame },
-      { id: 'ENTRADAS_PETISCOS', label: { pt: 'Petiscos & Boteco', en: 'Appetizers & Tapas', es: 'Tapas y Entradas' }, icon: CircleDot },
-      { id: 'MASSAS_RISOTOS', label: { pt: 'Massas & Pizzas', en: 'Pastas & Pizzas', es: 'Pastas y Pizzas' }, icon: ChefHat },
-      { id: 'SOBREMESAS', label: { pt: 'Sobremesas', en: 'Desserts', es: 'Postres' }, icon: IceCream },
-      { id: 'BEBIDAS_DRINKS', label: { pt: 'Chopp & Drinks', en: 'Draft Beer & Drinks', es: 'Cerveza y Cócteles' }, icon: Wine },
-      { id: 'VINHOS_ESPUMANTES', label: { pt: 'Carta de Vinhos', en: 'Wine List', es: 'Carta de Vinos' }, icon: Sparkles },
-      { id: 'CHARCUTARIA', label: { pt: 'Charcutaria', en: 'Charcuterie', es: 'Charcutería' }, icon: Layers },
+      {
+        id: 'ALL',
+        label: { pt: 'Todos os Pratos', en: 'All Categories', es: 'Todas las Secciones' },
+        description: {
+          pt: 'Explore nosso cardápio gastronômico completo dividido por categorias, com cortes nobres, peixes amazônicos e alta coquetelaria.',
+          en: 'Explore our complete menu divided by categories, featuring prime steaks, wild Amazonian fish, and signature drinks.',
+          es: 'Explore nuestra carta gastronómica dividida por secciones con cortes nobles, pescados amazónicos y coctelería.'
+        },
+        icon: UtensilsCrossed
+      },
+      {
+        id: 'ENTRADAS_PETISCOS',
+        label: { pt: 'Entradas & Petiscos', en: 'Starters & Brazilian Tapas', es: 'Entradas y Tapas Brasileñas' },
+        description: {
+          pt: 'Dadinhos de tapioca crocantes, pastéis de feira, caldinhos reconfortantes e petiscos perfeitos para compartilhar.',
+          en: 'Golden crispy tapioca bites, artisan pastries, comforting broths, and sharing platters to start your meal.',
+          es: 'Dados crujientes de tapioca, empanaditas de feria, caldos y tapas tradicionales para compartir.'
+        },
+        icon: CircleDot
+      },
+      {
+        id: 'PESCADOS_AMAZONIA',
+        label: { pt: 'Pescados da Amazônia', en: 'Wild Amazonian Fish', es: 'Pescados de la Amazonía' },
+        description: {
+          pt: 'Costela de tambaqui na brasa de carvão, lombo de pirarucu sustentável em crosta de castanha e moquecas aromáticas.',
+          en: 'Charcoal-roasted tambaqui ribs, wild sustainable pirarucu in Brazil nut crust, and fragrant clay-pot stews.',
+          es: 'Costillas de tambaquí a la brasa, lomo de pirarucú en costra de castañas y tradicionales moquecas.'
+        },
+        icon: Fish
+      },
+      {
+        id: 'CARNES_BRASIL',
+        label: { pt: 'Carnes Nobres & Parrilla', en: 'Prime Steaks & Charcoal Grill', es: 'Carnes Nobles a la Brasa' },
+        description: {
+          pt: 'Picanha Angus maturada com capa de gordura perfeita, bife ancho, bife de chorizo e carne de sol tradicional.',
+          en: 'Prime Black Angus picanha rump cap, ribeye ancho, sirloin chorizo, and traditional artisan sun-cured beef.',
+          es: 'Picanha Angus con grasa dorada, bife ancho, chorizo argentino y carne de sol artesanal a la parrilla.'
+        },
+        icon: Flame
+      },
+      {
+        id: 'MASSAS_RISOTOS',
+        label: { pt: 'Massas, Risotos & Pizzas', en: 'Pastas, Risottos & Pizzas', es: 'Pastas, Risottos y Pizzas' },
+        description: {
+          pt: 'Escondidinhos gratinados na panela de ferro com purê de macaxeira, massas caseiras e pizzas artesanais.',
+          en: 'Gratinated cassava shepherd’s pies in cast-iron pots, homestyle comforting pastas, and artisan pizzas.',
+          es: 'Escondidinhos gratinados de yuca en cazuela de hierro fundido, pastas caseras y pizzas al horno.'
+        },
+        icon: ChefHat
+      },
+      {
+        id: 'EXECUTIVO',
+        label: { pt: 'Menu Executivo', en: 'Executive Lunch Specials', es: 'Menú Ejecutivo' },
+        description: {
+          pt: 'Pratos executivos balanceados servidos com entrada, proteína nobre e acompanhamentos da casa.',
+          en: 'Balanced business lunch courses featuring fresh starters, premium proteins, and classic Brazilian sides.',
+          es: 'Menús ejecutivos equilibrados con entrada fresca, plato fuerte noble y guarniciones de la casa.'
+        },
+        icon: Clock
+      },
+      {
+        id: 'CHARCUTARIA',
+        label: { pt: 'Charcutaria & Sanduíches', en: 'Charcuterie & Deli Sandwiches', es: 'Charcutería y Bocadillos' },
+        description: {
+          pt: 'Sanduíches artesanais no pão Terra & Mar com pernil desfiado, pastrami curado, mortadela e conservas.',
+          en: 'Artisan sandwiches on crusty Terra & Mar bread with slow-braised pulled pork, smoked pastrami, and fine deli meats.',
+          es: 'Bocadillos gourmet en pan artesanal con pernil deshebrado, pastrami ahumado y fina charcutería.'
+        },
+        icon: Layers
+      },
+      {
+        id: 'SOBREMESAS',
+        label: { pt: 'Sobremesas Artesanais', en: 'Artisanal Desserts', es: 'Postres Artesanales' },
+        description: {
+          pt: 'Pudim clássico de leite condensado com doce de leite, mousses amazônicas de cupuaçu e doces regionais.',
+          en: 'Velvety caramel milk flan with dulce de leche, tropical Amazonian cupuaçu mousse, and warm Brazilian sweets.',
+          es: 'Flan clásico de leche condensada con dulce de leche, mousse de copoazú y dulces típicos brasileños.'
+        },
+        icon: IceCream
+      },
+      {
+        id: 'BEBIDAS_DRINKS',
+        label: { pt: 'Chopps, Cervejas & Drinks', en: 'Draft Beer & Handcrafted Cocktails', es: 'Cervezas de Barril y Cócteles' },
+        description: {
+          pt: 'Chopp tirado em caneca congelada a -2°C, caipirinhas com cachaças nobres de alambique e drinks autorais.',
+          en: 'Ice-cold draft beer in frosted mugs at -2°C, national cachaça caipirinhas, and signature mixology.',
+          es: 'Cerveza de barril en tarro congelado a -2°C, caipirinhas con cachaça de alambique y coctelería de autor.'
+        },
+        icon: Wine
+      },
+      {
+        id: 'VINHOS_ESPUMANTES',
+        label: { pt: 'Carta de Vinhos & Espumantes', en: 'Wine Cellar & Sparkling Collection', es: 'Carta de Vinos y Espumosos' },
+        description: {
+          pt: 'Rótulos internacionais selecionados da Argentina, Portugal e Itália, além de espumantes brut e demi-sec.',
+          en: 'Curated international red, white, rosé, and sparkling bottles from Argentina, Portugal, and Italy.',
+          es: 'Selección de vinos tintos, blancos, rosados y espumosos de Argentina, Portugal e Italia.'
+        },
+        icon: Sparkles
+      }
     ];
   }, []);
 
@@ -111,6 +249,26 @@ export const CustomerVirtualMenuView: React.FC<CustomerVirtualMenuViewProps> = (
       return matchesCat && matchesRegional && matchesSearch;
     });
   }, [selectedCategory, onlyRegional, searchQuery, selectedLanguage]);
+
+  // Seções organizadas do cardápio real (divididas por categoria)
+  const sectionsToRender = useMemo(() => {
+    const validCats = categories.filter((c) => c.id !== 'ALL');
+
+    if (selectedCategory !== 'ALL') {
+      const active = validCats.find((c) => c.id === selectedCategory);
+      if (!active) return [];
+      const itemsInCat = filteredItems.filter((item) => item.category === active.id);
+      return itemsInCat.length > 0 ? [{ ...active, items: itemsInCat }] : [];
+    }
+
+    // Em modo "ALL", renderiza as categorias em ordem que possuem itens correspondentes
+    return validCats
+      .map((cat) => ({
+        ...cat,
+        items: filteredItems.filter((item) => item.category === cat.id)
+      }))
+      .filter((section) => section.items.length > 0);
+  }, [categories, selectedCategory, filteredItems]);
 
   // Abertura de modal de item
   const handleOpenItem = (item: CustomerMenuItem) => {
@@ -632,15 +790,23 @@ export const CustomerVirtualMenuView: React.FC<CustomerVirtualMenuViewProps> = (
           })}
         </div>
 
-        {/* Grade de Produtos */}
-        <div className="space-y-3">
+        {/* Divisão por Categorias do Cardápio Real */}
+        <div className="space-y-10">
           <div className="flex items-center justify-between text-xs text-slate-400 px-1">
             <span>
               {filteredItems.length} {selectedLanguage === 'pt' ? 'pratos encontrados' : selectedLanguage === 'en' ? 'dishes found' : 'platos encontrados'}
             </span>
+            {selectedCategory !== 'ALL' && (
+              <button
+                onClick={() => setSelectedCategory('ALL')}
+                className="text-xs text-amber-400 hover:underline font-semibold cursor-pointer"
+              >
+                {selectedLanguage === 'pt' ? '← Ver cardápio completo dividido' : selectedLanguage === 'en' ? '← View full categorized menu' : '← Ver carta completa dividida'}
+              </button>
+            )}
           </div>
 
-          {filteredItems.length === 0 ? (
+          {sectionsToRender.length === 0 ? (
             <div className="text-center py-16 bg-slate-900/60 rounded-3xl border border-dashed border-slate-800 space-y-3">
               <UtensilsCrossed className="w-10 h-10 text-slate-600 mx-auto" />
               <p className="text-sm font-bold text-slate-300">
@@ -654,90 +820,141 @@ export const CustomerVirtualMenuView: React.FC<CustomerVirtualMenuViewProps> = (
                   setSelectedCategory('ALL');
                   setOnlyRegional(false);
                 }}
-                className="text-xs text-amber-400 hover:underline font-semibold"
+                className="text-xs text-amber-400 hover:underline font-semibold cursor-pointer"
               >
                 {selectedLanguage === 'pt' ? 'Limpar filtros' : selectedLanguage === 'en' ? 'Clear filters' : 'Limpiar filtros'}
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {filteredItems.map((item) => (
-                <div
-                  key={item.id}
-                  className="bg-slate-900/90 rounded-3xl border border-slate-800 p-4 sm:p-5 flex flex-col justify-between gap-4 hover:border-slate-700 hover:shadow-xl transition-all group"
+            sectionsToRender.map((section) => {
+              const SectionIcon = section.icon;
+              return (
+                <section
+                  key={section.id}
+                  id={`cat-section-${section.id}`}
+                  className="space-y-4 pt-2 scroll-mt-24"
                 >
-                  <div className="flex gap-4 items-start">
-                    {/* Imagem do Prato */}
-                    <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-slate-800 border border-slate-700 overflow-hidden shrink-0 relative shadow-inner">
-                      {item.imageUrl ? (
-                        <img
-                          src={item.imageUrl}
-                          alt={item.name[selectedLanguage]}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          loading="lazy"
-                          onError={(e) => {
-                            (e.currentTarget as HTMLElement).style.display = 'none';
-                          }}
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center text-slate-500 bg-slate-800">
-                          <UtensilsCrossed className="w-8 h-8 text-slate-600" />
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Informações */}
-                    <div className="space-y-1.5 flex-1 min-w-0">
-                      <div className="flex flex-wrap items-center gap-1.5">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 bg-slate-800 px-2 py-0.5 rounded-md border border-slate-700">
-                          {item.subcategory}
-                        </span>
-                        {item.isRegionalAmazonico && (
-                          <span className="text-[10px] font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-2 py-0.5 rounded-md">
-                            {t.regionalBadge}
+                  {/* Cabeçalho da Seção do Cardápio Real */}
+                  <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-slate-900 via-slate-850 to-slate-900 border border-slate-800 p-5 sm:p-6 shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div className="flex items-start sm:items-center gap-4">
+                      <div className="w-12 h-12 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shadow-inner shrink-0">
+                        <SectionIcon className="w-6 h-6" />
+                      </div>
+                      <div className="space-y-1">
+                        <div className="flex items-center gap-2.5">
+                          <h2 className="text-lg sm:text-xl font-serif font-black text-white tracking-tight">
+                            {section.label[selectedLanguage]}
+                          </h2>
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-amber-300 bg-amber-400/20 border border-amber-400/30 px-2.5 py-0.5 rounded-full">
+                            {section.items.length} {selectedLanguage === 'pt' ? 'itens' : selectedLanguage === 'en' ? 'dishes' : 'platos'}
                           </span>
-                        )}
-                      </div>
-
-                      <h3 className="text-base font-bold font-serif text-white tracking-tight leading-snug">
-                        {item.name[selectedLanguage]}
-                      </h3>
-
-                      <p className="text-xs text-slate-400 leading-relaxed line-clamp-3">
-                        {item.description[selectedLanguage]}
-                      </p>
-
-                      <div className="flex items-center gap-3 text-[11px] text-slate-500 pt-1">
-                        <span className="flex items-center gap-1">
-                          <Clock className="w-3 h-3 text-slate-500" /> {item.prepTimeMinutes} min
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <Scale className="w-3 h-3 text-slate-500" /> {item.portionWeightGrams}g
-                        </span>
+                        </div>
+                        <p className="text-xs text-slate-400 leading-relaxed max-w-2xl">
+                          {section.description[selectedLanguage]}
+                        </p>
                       </div>
                     </div>
+
+                    {selectedCategory === 'ALL' ? (
+                      <button
+                        onClick={() => setSelectedCategory(section.id)}
+                        className="text-[11px] font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1.5 self-start sm:self-auto cursor-pointer bg-slate-800/80 px-3 py-1.5 rounded-xl border border-slate-700/80 hover:bg-slate-750 transition-colors shrink-0"
+                      >
+                        <span>{selectedLanguage === 'pt' ? 'Ver apenas esta categoria' : selectedLanguage === 'en' ? 'Filter this category' : 'Ver solo esta categoría'}</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => setSelectedCategory('ALL')}
+                        className="text-[11px] font-bold text-slate-300 hover:text-white flex items-center gap-1.5 self-start sm:self-auto cursor-pointer bg-slate-800/80 px-3 py-1.5 rounded-xl border border-slate-700/80 hover:bg-slate-750 transition-colors shrink-0"
+                      >
+                        <span>{selectedLanguage === 'pt' ? 'Ver todas as categorias' : selectedLanguage === 'en' ? 'View all categories' : 'Ver todas las categorías'}</span>
+                      </button>
+                    )}
                   </div>
 
-                  {/* Rodapé com Preço e Botão Adicionar */}
-                  <div className="flex items-center justify-between pt-3 border-t border-slate-800/80">
-                    <div>
-                      <p className="text-[10px] text-slate-400 uppercase font-semibold">{t.priceLabel}</p>
-                      <p className="text-lg font-black text-amber-400">
-                        R$ {item.price.toFixed(2)}
-                      </p>
-                    </div>
+                  {/* Grade de Pratos da Seção */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {section.items.map((item) => (
+                      <div
+                        key={item.id}
+                        className="bg-slate-900/90 rounded-3xl border border-slate-800 p-4 sm:p-5 flex flex-col justify-between gap-4 hover:border-slate-700 hover:shadow-xl transition-all group"
+                      >
+                        <div className="flex gap-4 items-start">
+                          {/* Imagem do Prato */}
+                          <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-slate-800 border border-slate-700 overflow-hidden shrink-0 relative shadow-inner">
+                            {item.imageUrl ? (
+                              <img
+                                src={item.imageUrl}
+                                alt={item.name[selectedLanguage]}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                loading="lazy"
+                                onError={(e) => {
+                                  (e.currentTarget as HTMLElement).style.display = 'none';
+                                }}
+                              />
+                            ) : (
+                              <div className="w-full h-full flex items-center justify-center text-slate-500 bg-slate-800">
+                                <UtensilsCrossed className="w-8 h-8 text-slate-600" />
+                              </div>
+                            )}
+                          </div>
 
-                    <button
-                      onClick={() => handleOpenItem(item)}
-                      className="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs flex items-center gap-1.5 shadow-md cursor-pointer transition-all active:scale-95"
-                    >
-                      <Plus className="w-4 h-4" />
-                      <span>{t.addToOrder}</span>
-                    </button>
+                          {/* Informações */}
+                          <div className="space-y-1.5 flex-1 min-w-0">
+                            <div className="flex flex-wrap items-center gap-1.5">
+                              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 bg-slate-800 px-2 py-0.5 rounded-md border border-slate-700">
+                                {SUBCATEGORY_LABELS[item.subcategory]?.[selectedLanguage] || item.subcategory}
+                              </span>
+                              {item.isRegionalAmazonico && (
+                                <span className="text-[10px] font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-2 py-0.5 rounded-md">
+                                  {t.regionalBadge}
+                                </span>
+                              )}
+                            </div>
+
+                            <h3 className="text-base font-bold font-serif text-white tracking-tight leading-snug">
+                              {item.name[selectedLanguage]}
+                            </h3>
+
+                            <p className="text-xs text-slate-400 leading-relaxed line-clamp-3">
+                              {item.description[selectedLanguage]}
+                            </p>
+
+                            <div className="flex items-center gap-3 text-[11px] text-slate-500 pt-1">
+                              <span className="flex items-center gap-1">
+                                <Clock className="w-3 h-3 text-slate-500" /> {item.prepTimeMinutes} min
+                              </span>
+                              <span className="flex items-center gap-1">
+                                <Scale className="w-3 h-3 text-slate-500" /> {item.portionWeightGrams}g
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Rodapé com Preço e Botão Adicionar */}
+                        <div className="flex items-center justify-between pt-3 border-t border-slate-800/80">
+                          <div>
+                            <p className="text-[10px] text-slate-400 uppercase font-semibold">{t.priceLabel}</p>
+                            <p className="text-lg font-black text-amber-400">
+                              R$ {item.price.toFixed(2)}
+                            </p>
+                          </div>
+
+                          <button
+                            onClick={() => handleOpenItem(item)}
+                            className="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs flex items-center gap-1.5 shadow-md cursor-pointer transition-all active:scale-95"
+                          >
+                            <Plus className="w-4 h-4" />
+                            <span>{t.addToOrder}</span>
+                          </button>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                </div>
-              ))}
-            </div>
+                </section>
+              );
+            })
           )}
         </div>
       </main>
@@ -766,7 +983,7 @@ export const CustomerVirtualMenuView: React.FC<CustomerVirtualMenuViewProps> = (
               )}
               <div className="space-y-1">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/20 border border-amber-400/30 px-2 py-0.5 rounded-md inline-block">
-                  {customizingItem.subcategory}
+                  {SUBCATEGORY_LABELS[customizingItem.subcategory]?.[selectedLanguage] || customizingItem.subcategory}
                 </span>
                 <h3 className="text-lg font-serif font-black text-white">
                   {customizingItem.name[selectedLanguage]}
