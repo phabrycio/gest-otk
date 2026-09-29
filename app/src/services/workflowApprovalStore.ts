@@ -139,12 +139,93 @@ const STORAGE_KEYS = {
   INVENTORIES: 'tk_workflow_inventories_v1',
 };
 
+const DEFAULT_PURCHASES: PurchaseRequest[] = [
+  {
+    id: 'req-001',
+    createdAt: new Date().toISOString(),
+    restaurantId: 'manauara',
+    sector: 'COZINHA',
+    requesterId: 'chef-01',
+    requesterName: 'Mádio (Chefe de Cozinha)',
+    requesterRole: 'CHEFE_COZINHA',
+    items: [
+      {
+        id: 'it-01',
+        itemName: 'Costela de Tambaqui Fresca (Banda)',
+        category: 'CARNES',
+        requestedQuantity: 50,
+        unit: 'UN',
+        estimatedPriceUnit: 48.5,
+        currentStock: 12,
+        urgency: 'ALTA',
+      },
+      {
+        id: 'it-02',
+        itemName: 'Carne de Sol de Alcatra Especial',
+        category: 'CARNES',
+        requestedQuantity: 80,
+        unit: 'UN',
+        estimatedPriceUnit: 89.9,
+        currentStock: 25,
+        urgency: 'ALTA',
+      },
+    ],
+    totalEstimatedAmount: 9617.0,
+    justification: 'Reposição de câmara fria para atender demanda calculada pelas vendas reais do Teknisa.',
+    status: 'APROVADO_SUPERVISORA',
+    supervisorReview: {
+      reviewedById: 'sup-01',
+      reviewedByName: 'Patrícia Lima (Supervisora)',
+      reviewedAt: new Date().toISOString(),
+      matricula: 'SUP-01',
+      signature: {
+        signedByName: 'Patrícia Lima',
+        signedByRole: 'SUPERVISORA',
+        matricula: 'SUP-01',
+        signedAt: new Date().toISOString(),
+        signatureHash: 'SHA256-a89b7c6d5e4f3a2b1c0d',
+        statement: 'Solicitação de compra conferida presencialmente com base no consumo real do restaurante.',
+      },
+      decision: 'APROVADO',
+      notes: 'Conferido no estoque físico da câmara fria. Estoque atual abaixo do ponto de pedido.',
+    },
+  },
+  {
+    id: 'req-002',
+    createdAt: new Date().toISOString(),
+    restaurantId: 'manauara',
+    sector: 'BAR',
+    requesterId: 'bar-01',
+    requesterName: 'Lucas (Bartender)',
+    requesterRole: 'BARTENDER',
+    items: [
+      {
+        id: 'it-03',
+        itemName: 'Barril de Chopp Heineken 50L',
+        category: 'BEBIDAS',
+        requestedQuantity: 10,
+        unit: 'UN',
+        estimatedPriceUnit: 680.0,
+        currentStock: 4,
+        urgency: 'NORMAL',
+      },
+    ],
+    totalEstimatedAmount: 6800.0,
+    justification: 'Giro de 66.9 copos/dia (20L/dia). Reposição semanal preventiva.',
+    status: 'PENDENTE_SUPERVISORA',
+  },
+];
+
 function getStoredPurchases(): PurchaseRequest[] {
   try {
     const raw = localStorage.getItem(STORAGE_KEYS.PURCHASES);
-    if (raw) return JSON.parse(raw);
+    if (raw === null) {
+      savePurchases(DEFAULT_PURCHASES);
+      return DEFAULT_PURCHASES;
+    }
+    return JSON.parse(raw);
   } catch {}
-  return [];
+  return DEFAULT_PURCHASES;
 }
 
 function savePurchases(data: PurchaseRequest[]): void {

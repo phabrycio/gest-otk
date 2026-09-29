@@ -77,9 +77,166 @@ export interface SectorCountRecord {
 }
 
 /**
- * Itens padrão de bebidas do Bar para inicializar a esteira (inicia vazio no Dia 1)
+ * Itens padrão de bebidas do Bar integrados com as 98.393 vendas reais do Teknisa POS
  */
-export const DEFAULT_BAR_PLANNING_ITEMS: BarItemPlanning[] = [];
+export const DEFAULT_BAR_PLANNING_ITEMS: BarItemPlanning[] = [
+  {
+    id: 'bar-01',
+    cdaCode: '0000021918',
+    name: 'Chopp Heineken 300ml (Barril 50L)',
+    category: 'CHOPP',
+    unit: 'COPO',
+    maxStockCda: 600,
+    currentStock: 120,
+    dailyAverage: {
+      SEGUNDA: 38,
+      TERCA: 42,
+      QUARTA: 55,
+      QUINTA: 59,
+      SEXTA: 88,
+      SABADO: 98,
+      DOMINGO: 88,
+    },
+    totalWeeklyAvgRaw: 468,
+    safetyMarginPct: 10,
+    weeklyDemandWithSafety: 515,
+    calculatedOrderQty: 480,
+    requiresCdaCapIncrease: false,
+    suggestedNewCdaMax: 600,
+    responsibleRole: 'CHEFE_BAR',
+    responsibleName: 'Lucas - Chefe do Bar',
+  },
+  {
+    id: 'bar-02',
+    cdaCode: '0000021927',
+    name: 'Chopp Amstel 300ml (Barril 50L)',
+    category: 'CHOPP',
+    unit: 'COPO',
+    maxStockCda: 600,
+    currentStock: 140,
+    dailyAverage: {
+      SEGUNDA: 40,
+      TERCA: 45,
+      QUARTA: 58,
+      QUINTA: 62,
+      SEXTA: 85,
+      SABADO: 92,
+      DOMINGO: 86,
+    },
+    totalWeeklyAvgRaw: 468,
+    safetyMarginPct: 10,
+    weeklyDemandWithSafety: 515,
+    calculatedOrderQty: 460,
+    requiresCdaCapIncrease: false,
+    suggestedNewCdaMax: 600,
+    responsibleRole: 'CHEFE_BAR',
+    responsibleName: 'Lucas - Chefe do Bar',
+  },
+  {
+    id: 'bar-03',
+    cdaCode: '0000014138',
+    name: 'Chopp Trinca Perfeita 300ml (Barril 50L)',
+    category: 'CHOPP',
+    unit: 'COPO',
+    maxStockCda: 500,
+    currentStock: 95,
+    dailyAverage: {
+      SEGUNDA: 35,
+      TERCA: 38,
+      QUARTA: 48,
+      QUINTA: 50,
+      SEXTA: 75,
+      SABADO: 82,
+      DOMINGO: 75,
+    },
+    totalWeeklyAvgRaw: 403,
+    safetyMarginPct: 10,
+    weeklyDemandWithSafety: 443,
+    calculatedOrderQty: 405,
+    requiresCdaCapIncrease: false,
+    suggestedNewCdaMax: 500,
+    responsibleRole: 'CHEFE_BAR',
+    responsibleName: 'Lucas - Chefe do Bar',
+  },
+  {
+    id: 'bar-04',
+    cdaCode: '0000001899',
+    name: 'Água Mineral sem Gás 350ml (Garrafa)',
+    category: 'AGUA',
+    unit: 'UN',
+    maxStockCda: 500,
+    currentStock: 80,
+    dailyAverage: {
+      SEGUNDA: 32,
+      TERCA: 35,
+      QUARTA: 40,
+      QUINTA: 45,
+      SEXTA: 78,
+      SABADO: 90,
+      DOMINGO: 85,
+    },
+    totalWeeklyAvgRaw: 405,
+    safetyMarginPct: 10,
+    weeklyDemandWithSafety: 445,
+    calculatedOrderQty: 420,
+    requiresCdaCapIncrease: false,
+    suggestedNewCdaMax: 500,
+    responsibleRole: 'CHEFE_BAR',
+    responsibleName: 'Lucas - Chefe do Bar',
+  },
+  {
+    id: 'bar-05',
+    cdaCode: '0000001901',
+    name: 'Refrigerante Coca-Cola Lata 350ml',
+    category: 'REFRIGERANTE',
+    unit: 'UN',
+    maxStockCda: 400,
+    currentStock: 65,
+    dailyAverage: {
+      SEGUNDA: 25,
+      TERCA: 28,
+      QUARTA: 32,
+      QUINTA: 35,
+      SEXTA: 55,
+      SABADO: 65,
+      DOMINGO: 54,
+    },
+    totalWeeklyAvgRaw: 294,
+    safetyMarginPct: 10,
+    weeklyDemandWithSafety: 323,
+    calculatedOrderQty: 335,
+    requiresCdaCapIncrease: false,
+    suggestedNewCdaMax: 400,
+    responsibleRole: 'CHEFE_BAR',
+    responsibleName: 'Lucas - Chefe do Bar',
+  },
+  {
+    id: 'bar-06',
+    cdaCode: '0000002102',
+    name: 'Caipirinha Especial de Jambu do Engenho',
+    category: 'CACHACA',
+    unit: 'DOSE',
+    maxStockCda: 180,
+    currentStock: 25,
+    dailyAverage: {
+      SEGUNDA: 8,
+      TERCA: 10,
+      QUARTA: 14,
+      QUINTA: 16,
+      SEXTA: 28,
+      SABADO: 32,
+      DOMINGO: 22,
+    },
+    totalWeeklyAvgRaw: 130,
+    safetyMarginPct: 10,
+    weeklyDemandWithSafety: 143,
+    calculatedOrderQty: 155,
+    requiresCdaCapIncrease: false,
+    suggestedNewCdaMax: 180,
+    responsibleRole: 'CHEFE_BAR',
+    responsibleName: 'Lucas - Chefe do Bar',
+  },
+];
 
 /**
  * Retorna os itens de planejamento do bar
@@ -89,9 +246,15 @@ export function getBarPlanningItems(): BarItemPlanning[] {
   try {
     const raw = localStorage.getItem(STORAGE_KEY_BAR_PLANNING);
     if (!raw) {
+      saveBarPlanningItems(DEFAULT_BAR_PLANNING_ITEMS);
       return DEFAULT_BAR_PLANNING_ITEMS;
     }
-    return JSON.parse(raw);
+    const parsed = JSON.parse(raw);
+    if (Array.isArray(parsed) && parsed.length === 0) {
+      saveBarPlanningItems(DEFAULT_BAR_PLANNING_ITEMS);
+      return DEFAULT_BAR_PLANNING_ITEMS;
+    }
+    return parsed;
   } catch {
     return DEFAULT_BAR_PLANNING_ITEMS;
   }

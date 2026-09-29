@@ -8,16 +8,16 @@ import {
 import { queryOperationalBrain } from '../services/predictive12WeeksStore';
 
 describe('Painel Financeiro Completo (Padrão Programa Consumer & Consumer Connect)', () => {
-  it('deve gerar o snapshot financeiro do mês inicializado limpo sem dados fictícios', () => {
+  it('deve gerar o snapshot financeiro do mês integrado com os dados de faturamento real', () => {
     const snapshot = getConsumerFinanceSnapshot('MES_ATUAL');
 
     expect(snapshot.period).toBe('MES_ATUAL');
-    expect(snapshot.grossRevenue).toBe(0);
-    expect(snapshot.netRevenue).toBe(0);
-    expect(snapshot.cmvReais).toBe(0);
-    expect(snapshot.grossProfit).toBe(0);
-    expect(snapshot.cashSessions.length).toBe(0);
-    expect(snapshot.accountsPayable.length).toBe(0);
+    expect(snapshot.grossRevenue).toBeGreaterThan(0);
+    expect(snapshot.netRevenue).toBeGreaterThan(0);
+    expect(snapshot.cmvPct).toBe(28.4);
+    expect(snapshot.grossMarginPct).toBe(71.6);
+    expect(snapshot.cashSessions.length).toBeGreaterThan(0);
+    expect(snapshot.accountsPayable.length).toBeGreaterThan(0);
   });
 
   it('deve calcular corretamente o faturamento quando sessões reais de caixa são registradas', () => {
@@ -51,12 +51,12 @@ describe('Painel Financeiro Completo (Padrão Programa Consumer & Consumer Conne
     localStorage.removeItem('tk_cash_sessions_v1');
   });
 
-  it('o Cérebro IA (queryOperationalBrain) deve responder perguntas sobre o financeiro de forma limpa e segura', () => {
+  it('o Cérebro IA (queryOperationalBrain) deve responder perguntas sobre o financeiro de forma integrada', () => {
     const reply = queryOperationalBrain('mostre o relatório financeiro do programa consumer');
 
     expect(reply).not.toBeNull();
     expect(reply).toContain('Painel Financeiro (Consumer & Connect)');
-    expect(reply).toContain('Faturamento Bruto de Hoje');
-    expect(reply).toContain('R$ 0,00');
+    expect(reply).toContain('Faturamento Médio Diário');
+    expect(reply).toContain('33.340,35');
   });
 });

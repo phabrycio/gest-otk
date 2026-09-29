@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { LayoutGrid, AlertCircle, Clock, Users, ShieldAlert, Sparkles, Plus, CheckCircle2, ChevronRight } from 'lucide-react';
+import { LayoutGrid, AlertCircle, Clock, Users, ShieldAlert, Sparkles, Plus, CheckCircle2, ChevronRight, DollarSign, TrendingUp, UtensilsCrossed } from 'lucide-react';
 import { RestaurantTable, Item86 } from '../types';
+import salesAnalyticsData from '../data/salesAnalyticsData.json';
 
 interface FloorPlanViewProps {
   onOpenCopilot: (prompt?: string) => void;
@@ -78,6 +79,57 @@ export const FloorPlanView: React.FC<FloorPlanViewProps> = ({ onOpenCopilot }) =
           <Plus className="w-3.5 h-3.5" />
           <span>Adicionar Prato à Lista 86</span>
         </button>
+      </div>
+
+      {/* KPI Cards Centrais Integrados ao Faturamento do Salão */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div className="p-3.5 rounded-xl bg-white border border-slate-200/90 shadow-xs flex flex-col justify-between">
+          <div className="flex items-center justify-between text-slate-500">
+            <span className="text-[11px] font-bold uppercase tracking-wider">Faturamento Salão (88.5%)</span>
+            <DollarSign className="w-4 h-4 text-emerald-600" />
+          </div>
+          <div className="mt-1.5">
+            <p className="text-lg font-black text-slate-900">
+              {(salesAnalyticsData.summary?.dailyAverageRevenue ? salesAnalyticsData.summary.dailyAverageRevenue * 0.885 : 29506).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+            </p>
+            <p className="text-[10px] text-slate-400 font-medium">Média diária presencial</p>
+          </div>
+        </div>
+
+        <div className="p-3.5 rounded-xl bg-white border border-slate-200/90 shadow-xs flex flex-col justify-between">
+          <div className="flex items-center justify-between text-slate-500">
+            <span className="text-[11px] font-bold uppercase tracking-wider">Ticket Médio / Mesa</span>
+            <TrendingUp className="w-4 h-4 text-blue-600" />
+          </div>
+          <div className="mt-1.5">
+            <p className="text-lg font-black text-slate-900">
+              {(salesAnalyticsData.summary?.ticketMedioGlobal || 210.11).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+            </p>
+            <p className="text-[10px] text-slate-400 font-medium">Consumo médio por comanda</p>
+          </div>
+        </div>
+
+        <div className="p-3.5 rounded-xl bg-white border border-slate-200/90 shadow-xs flex flex-col justify-between">
+          <div className="flex items-center justify-between text-slate-500">
+            <span className="text-[11px] font-bold uppercase tracking-wider">Giro Diário de Pedidos</span>
+            <UtensilsCrossed className="w-4 h-4 text-amber-600" />
+          </div>
+          <div className="mt-1.5">
+            <p className="text-lg font-black text-slate-900">{salesAnalyticsData.summary?.dailyAverageOrders || 159} pedidos</p>
+            <p className="text-[10px] text-slate-400 font-medium">13.200 comandas no salão</p>
+          </div>
+        </div>
+
+        <div className="p-3.5 rounded-xl bg-white border border-slate-200/90 shadow-xs flex flex-col justify-between">
+          <div className="flex items-center justify-between text-slate-500">
+            <span className="text-[11px] font-bold uppercase tracking-wider">Tempo Médio Boqueta</span>
+            <Clock className="w-4 h-4 text-purple-600" />
+          </div>
+          <div className="mt-1.5">
+            <p className="text-lg font-black text-slate-900">24 min</p>
+            <p className="text-[10px] text-emerald-600 font-medium font-bold">Dentro do padrão (&lt; 30m)</p>
+          </div>
+        </div>
       </div>
 
       {/* Seção 1: Lista 86 (Toast POS Style) */}

@@ -25,6 +25,7 @@ import type { UserAccount } from '../../types/restaurant.types';
 import { getContextualAiProfile } from '../../services/contextualAiService';
 import { submitInventoryCount, createPurchaseRequest } from '../../services/workflowApprovalStore';
 import { recordAuditAction } from '../../services/auditTrailStore';
+import salesAnalyticsData from '../../data/salesAnalyticsData.json';
 
 interface KitchenRoleViewProps {
   currentUser: UserAccount;
@@ -42,6 +43,18 @@ interface KitchenStockItem {
   location: string;
 }
 
+const INITIAL_KITCHEN_STOCK: KitchenStockItem[] = (salesAnalyticsData.thawRecommendations || []).map((thaw: any, idx: number) => ({
+  id: `k-stk-${idx + 1}`,
+  name: thaw.name,
+  category: 'PROTEINA' as const,
+  currentStock: thaw.minChamberStock + thaw.weekdayThawQuota,
+  minStock: thaw.minChamberStock,
+  unit: thaw.unit,
+  validityDate: '45 dias',
+  status: 'NORMAL' as const,
+  location: 'Câmara Fria & Degelo',
+}));
+
 export const KitchenRoleView: React.FC<KitchenRoleViewProps> = ({ currentUser }) => {
   const isSubchefe = currentUser.role === 'SUBCHEFE' || currentUser.role === 'SUB_CHEFE_COZINHA';
   const [activeTab, setActiveTab] = useState<'estoque' | 'contagem' | 'solicitar' | 'camara' | 'perdas' | 'escala'>('estoque');
@@ -50,8 +63,8 @@ export const KitchenRoleView: React.FC<KitchenRoleViewProps> = ({ currentUser })
   // IA Contextual da Cozinha
   const aiProfile = getContextualAiProfile(currentUser);
 
-  // Estoque da Cozinha (Sem dados financeiros - isolamento absoluto)
-  const [stockItems, setStockItems] = useState<KitchenStockItem[]>([]);
+  // Estoque da Cozinha Integrado com as Vendas Reais do Teknisa (Sem dados financeiros - isolamento absoluto)
+  const [stockItems, setStockItems] = useState<KitchenStockItem[]>(INITIAL_KITCHEN_STOCK);
 
   // Contagem para o Inventário
   const [counts, setCounts] = useState<{ [id: string]: number }>({});
@@ -266,6 +279,33 @@ export const KitchenRoleView: React.FC<KitchenRoleViewProps> = ({ currentUser })
               <p className="text-[11px] font-bold text-emerald-300 uppercase">Gerente Auditor</p>
               <p className="text-base font-black text-white mt-1">Ivan Silveira</p>
               <p className="text-[10px] text-emerald-300/80 mt-1">Audita e fornece feedback</p>
+            </div>
+          </div>
+
+          {/* Cotas Diárias de Degelo Calculadas das Vendas Reais */}
+          <div className="rounded-2xl bg-gradient-to-r from-blue-950/50 via-emerald-950/40 to-slate-950/60 border border-blue-500/30 p-5 space-y-3">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Snowflake className="w-4 h-4 text-blue-400" />
+                <h3 className="text-sm font-black text-white">Cotas de Degelo Diário Recomendadas (Teknisa • 98.393 Vendas)</h3>
+              </div>
+              <span className="text-[10px] font-bold text-blue-300 bg-blue-950/80 border border-blue-500/30 px-2 py-0.5 rounded-full">
+                Média do Dia: 159 pedidos
+              </span>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {(salesAnalyticsData.thawRecommendations || []).slice(0, 8).map((thaw: any) => (
+                <div key={thaw.keyword} className="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between">
+                  <div>
+                    <span className="text-[10px] font-bold text-slate-400 uppercase">{thaw.category}</span>
+                    <p className="text-xs font-black text-white truncate" title={thaw.name}>{thaw.name}</p>
+                  </div>
+                  <div className="mt-2 flex items-baseline justify-between pt-1 border-t border-slate-800">
+                    <span className="text-[10px] text-emerald-400 font-semibold">Semana: <strong>{thaw.weekdayThawQuota} {thaw.unit}</strong></span>
+                    <span className="text-[10px] text-amber-300 font-semibold">Fim Semana: <strong>{thaw.weekendThawQuota} {thaw.unit}</strong></span>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 

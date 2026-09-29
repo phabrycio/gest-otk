@@ -90,13 +90,13 @@ export function getDailyThawRecommendations() {
 export function getFreezerItems(): FreezerTrackedItem[] {
   try {
     const raw = localStorage.getItem(STORAGE_KEY_ITEMS);
-    if (!raw) {
-      saveFreezerItems(INITIAL_ITEMS);
-      return INITIAL_ITEMS;
+    if (raw === null) {
+      saveFreezerItems(REAL_FREEZER_ITEMS);
+      return REAL_FREEZER_ITEMS;
     }
     return JSON.parse(raw);
   } catch {
-    return INITIAL_ITEMS;
+    return REAL_FREEZER_ITEMS;
   }
 }
 
