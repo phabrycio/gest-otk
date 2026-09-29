@@ -31,6 +31,11 @@ import {
   TeknisaScheduleConfig,
 } from '../../services/teknisaNightlySyncService';
 
+import {
+  parseAndApplyCsvSpreadsheet,
+  getCentralOperationalData,
+} from '../../services/centralDataStore';
+
 interface TeknisaFeedModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -74,6 +79,7 @@ export const TeknisaFeedModal: React.FC<TeknisaFeedModalProps> = ({
     { name: `Teknisa_Fechamento_${periodDate}.xlsx`, size: '2.4 MB' },
     { name: `Teknisa_Cancelamentos_${periodDate}.xlsx`, size: '380 KB' },
   ]);
+  const [uploadedFileContents, setUploadedFileContents] = useState<Array<{ name: string; content: string }>>([]);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -107,36 +113,62 @@ export const TeknisaFeedModal: React.FC<TeknisaFeedModalProps> = ({
   const handleSimulateImport = () => {
     setIsProcessing(true);
     setTimeout(() => {
+      let salesCount = 98393;
+      let revenue = 3000631.16;
+
+      // Se arquivos reais foram carregados pelo usuário, analisa e sincroniza com o motor central
+      if (uploadedFileContents.length > 0) {
+        for (const item of uploadedFileContents) {
+          const res = parseAndApplyCsvSpreadsheet(item.content, item.name);
+          salesCount = res.totalSalesRows;
+          revenue = res.totalRevenue;
+        }
+      } else {
+        const current = getCentralOperationalData();
+        salesCount = current.summary.totalItemsSold;
+        revenue = current.summary.totalRevenue;
+      }
+
       const updated = recordTeknisaFeedUpdate({
         updatedBy: responsibleName,
         userRole: responsibleName === 'Pabricio' ? 'Gerente em Treinamento' : 'Gerente Geral',
         periodCompetence: `Fechamento ${periodDate.split('-').reverse().join('/')} (D-1)`,
-        salesCount: Math.floor(1400 + Math.random() * 200),
-        cancellationsCount: Math.floor(15 + Math.random() * 15),
-        stockDeductionsCount: Math.floor(280 + Math.random() * 50),
+        salesCount,
+        cancellationsCount: 15,
+        stockDeductionsCount: 280,
         commissionersCount: 18,
         filesProcessed: uploadedFiles.map((f) => f.name),
-        notes: `Carga oficial Teknisa consolidada com sucesso por ${responsibleName}.`,
+        notes: `Carga oficial Teknisa consolidada com sucesso por ${responsibleName}. Todas as telas sincronizadas em tempo real.`,
       });
 
       setFeedStatus(updated);
       setIsProcessing(false);
-      setSuccessToast('Base de dados diária do Teknisa atualizada com sucesso!');
+      setSuccessToast(`Base central do Teknisa atualizada! R$ ${revenue.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} sincronizados em todas as telas.`);
       setTimeout(() => {
         setSuccessToast(null);
         setIsMinimized(false);
         onClose();
       }, 1400);
-    }, 1100);
+    }, 800);
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
-      const newFiles = Array.from(e.target.files).map((file) => ({
+      const files = Array.from(e.target.files);
+      const newFiles = files.map((file) => ({
         name: file.name,
         size: `${(file.size / (1024 * 1024)).toFixed(1)} MB`,
       }));
       setUploadedFiles((prev) => [...prev, ...newFiles]);
+
+      files.forEach((file) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+          const content = reader.result as string;
+          setUploadedFileContents((prev) => [...prev, { name: file.name, content }]);
+        };
+        reader.readAsText(file, 'ISO-8859-1');
+      });
     }
   };
 

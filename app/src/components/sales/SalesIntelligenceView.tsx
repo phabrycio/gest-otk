@@ -21,6 +21,7 @@ import {
   RefreshCw,
   Sparkles,
 } from 'lucide-react';
+import { useOperationalData } from '../../services/centralDataStore';
 import salesAnalyticsData from '../../data/salesAnalyticsData.json';
 
 interface SalesIntelligenceViewProps {
@@ -35,13 +36,15 @@ export const SalesIntelligenceView: React.FC<SalesIntelligenceViewProps> = ({ on
   const [syncingCloud, setSyncingCloud] = useState(false);
   const [syncSuccessMessage, setSyncSuccessMessage] = useState<string | null>(null);
 
+  const operationalData = useOperationalData();
+  const summary = operationalData.summary;
+  const thawRecommendations = operationalData.thawRecommendations?.length ? operationalData.thawRecommendations : salesAnalyticsData.thawRecommendations;
+  const paymentsSummary = operationalData.paymentsSummary?.length ? operationalData.paymentsSummary : salesAnalyticsData.paymentsSummary;
+
   const {
-    summary,
-    thawRecommendations,
     weeklyPurchasingList,
     topProductsByRevenue,
     brandsSummary,
-    paymentsSummary,
     hourlyDistribution,
     dayOfWeekDistribution,
   } = salesAnalyticsData;

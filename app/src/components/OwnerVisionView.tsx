@@ -36,6 +36,7 @@ import {
 import { getSystemFeedStatus, SystemFeedStatus } from '../services/dataFreshnessStore';
 import { CollaboratorAuditFeedView } from './audit/CollaboratorAuditFeedView';
 import { TeknisaFeedModal } from './teknisa/TeknisaFeedModal';
+import { useOperationalData } from '../services/centralDataStore';
 import salesAnalyticsData from '../data/salesAnalyticsData.json';
 
 export const OwnerVisionView: React.FC = () => {
@@ -45,15 +46,17 @@ export const OwnerVisionView: React.FC = () => {
   const [showFeedModal, setShowFeedModal] = useState(false);
   const [dreTimeframe, setDreTimeframe] = useState<'DIARIO' | 'TRIMESTRAL'>('DIARIO');
 
+  const operationalData = useOperationalData();
+
   // Estados do Simulador de Sensibilidade / What-If
   const [fishPriceVariationPct, setFishPriceVariationPct] = useState<number>(0);
   const [trafficVolumeVariationPct, setTrafficVolumeVariationPct] = useState<number>(15);
   const [promoDiscountPct, setPromoDiscountPct] = useState<number>(5);
 
-  // DRE Operacional da Loja alimentado 100% pelas 98.393 vendas reais do Teknisa
+  // DRE Operacional da Loja alimentado 100% pelas 98.393 vendas reais do Teknisa e sincronizado em tempo real
   const grossRevenue = dreTimeframe === 'DIARIO'
-    ? salesAnalyticsData.summary.dailyAverageRevenue
-    : salesAnalyticsData.summary.totalRevenue;
+    ? operationalData.summary.dailyAverageRevenue
+    : operationalData.summary.totalRevenue;
 
   const cmvCost = Math.round(grossRevenue * 0.284 * 100) / 100;
   const grossProfit = Math.round((grossRevenue - cmvCost) * 100) / 100;

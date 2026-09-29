@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { LayoutGrid, AlertCircle, Clock, Users, ShieldAlert, Sparkles, Plus, CheckCircle2, ChevronRight, DollarSign, TrendingUp, UtensilsCrossed } from 'lucide-react';
 import { RestaurantTable, Item86 } from '../types';
+import { useOperationalData } from '../services/centralDataStore';
 import salesAnalyticsData from '../data/salesAnalyticsData.json';
 
 interface FloorPlanViewProps {
@@ -22,6 +23,7 @@ const INITIAL_TABLES: RestaurantTable[] = [
 const INITIAL_86_ITEMS: Item86[] = [];
 
 export const FloorPlanView: React.FC<FloorPlanViewProps> = ({ onOpenCopilot }) => {
+  const operationalData = useOperationalData();
   const [tables, setTables] = useState<RestaurantTable[]>(INITIAL_TABLES);
   const [items86, setItems86] = useState<Item86[]>(INITIAL_86_ITEMS);
   const [selectedArea, setSelectedArea] = useState<string>('TODOS');
@@ -90,7 +92,7 @@ export const FloorPlanView: React.FC<FloorPlanViewProps> = ({ onOpenCopilot }) =
           </div>
           <div className="mt-1.5">
             <p className="text-lg font-black text-slate-900">
-              {(salesAnalyticsData.summary?.dailyAverageRevenue ? salesAnalyticsData.summary.dailyAverageRevenue * 0.885 : 29506).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+              {(operationalData.summary.dailyAverageRevenue ? operationalData.summary.dailyAverageRevenue * 0.885 : 29506).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
             </p>
             <p className="text-[10px] text-slate-400 font-medium">Média diária presencial</p>
           </div>
@@ -103,7 +105,7 @@ export const FloorPlanView: React.FC<FloorPlanViewProps> = ({ onOpenCopilot }) =
           </div>
           <div className="mt-1.5">
             <p className="text-lg font-black text-slate-900">
-              {(salesAnalyticsData.summary?.ticketMedioGlobal || 210.11).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+              {(operationalData.summary.ticketMedioGlobal || 210.11).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
             </p>
             <p className="text-[10px] text-slate-400 font-medium">Consumo médio por comanda</p>
           </div>
@@ -115,7 +117,7 @@ export const FloorPlanView: React.FC<FloorPlanViewProps> = ({ onOpenCopilot }) =
             <UtensilsCrossed className="w-4 h-4 text-amber-600" />
           </div>
           <div className="mt-1.5">
-            <p className="text-lg font-black text-slate-900">{salesAnalyticsData.summary?.dailyAverageOrders || 159} pedidos</p>
+            <p className="text-lg font-black text-slate-900">{operationalData.summary.dailyAverageOrders || 159} pedidos</p>
             <p className="text-[10px] text-slate-400 font-medium">13.200 comandas no salão</p>
           </div>
         </div>

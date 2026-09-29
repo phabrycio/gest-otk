@@ -35,13 +35,23 @@ import {
 } from '../../services/choppAuditService';
 import BottleOcrModal from './BottleOcrModal';
 import { BarSalesOrderPlanningView } from './BarSalesOrderPlanningView';
+import { useOperationalData } from '../../services/centralDataStore';
 
 export default function ChoppBarView() {
-  const [taps, setTaps] = useState<ChoppTap[]>(INITIAL_CHOPP_TAPS);
-  const [bottles, setBottles] = useState<SpiritBottle[]>(INITIAL_SPIRIT_BOTTLES);
+  const operationalData = useOperationalData();
+  const [taps, setTaps] = useState<ChoppTap[]>(() => operationalData.barChopp?.taps || INITIAL_CHOPP_TAPS);
+  const [bottles, setBottles] = useState<SpiritBottle[]>(() => operationalData.barChopp?.bottles || INITIAL_SPIRIT_BOTTLES);
   const [coldRoomKegs, setColdRoomKegs] = useState<ColdRoomKeg[]>(INITIAL_COLD_ROOM_KEGS);
-  const [barSummary, setBarSummary] = useState<BarAuditSummary>(INITIAL_BAR_SUMMARY);
+  const [barSummary, setBarSummary] = useState<BarAuditSummary>(() => operationalData.barChopp?.summary || INITIAL_BAR_SUMMARY);
   const [activeSubTab, setActiveSubTab] = useState<'PEDIDOS_CDA' | 'TORNEIRAS' | 'DESTILADOS' | 'CAMARA_FRIA' | 'DIAGNOSTICO_IA'>('PEDIDOS_CDA');
+
+  React.useEffect(() => {
+    if (operationalData.barChopp) {
+      setTaps(operationalData.barChopp.taps);
+      setBottles(operationalData.barChopp.bottles);
+      setBarSummary(operationalData.barChopp.summary);
+    }
+  }, [operationalData]);
 
   // Modal para Auditoria de Garrafas por OCR
   const [showBottleOcrModal, setShowBottleOcrModal] = useState(false);

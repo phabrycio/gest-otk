@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   DollarSign,
   TrendingUp,
@@ -34,6 +34,7 @@ import {
   AccountPayable,
   CashMovement,
 } from '../../services/consumerFinanceStore';
+import { useOperationalData } from '../../services/centralDataStore';
 
 interface ConsumerFinanceDashboardViewProps {
   onOpenCopilot?: (prompt?: string) => void;
@@ -47,6 +48,8 @@ export const ConsumerFinanceDashboardView: React.FC<ConsumerFinanceDashboardView
   const [payableFilter, setPayableFilter] = useState<'TODOS' | 'VENCE_HOJE' | 'PENDENTE' | 'PAGO' | 'ATRASADO'>('TODOS');
   const [copiedSuccess, setCopiedSuccess] = useState(false);
 
+  const operationalData = useOperationalData();
+
   // Estados locais para simular operações interativas no caixa e contas a pagar
   const [snapshot, setSnapshot] = useState(() => getConsumerFinanceSnapshot(period));
   const [showSangriaModal, setShowSangriaModal] = useState(false);
@@ -54,7 +57,11 @@ export const ConsumerFinanceDashboardView: React.FC<ConsumerFinanceDashboardView
   const [sangriaReason, setSangriaReason] = useState('');
   const [sangriaSuccess, setSangriaSuccess] = useState<string | null>(null);
 
-  // Recarrega snapshot ao trocar o período
+  // Recarrega snapshot automaticamente ao trocar o período ou quando o store central for atualizado
+  useEffect(() => {
+    setSnapshot(getConsumerFinanceSnapshot(period));
+  }, [period, operationalData]);
+
   const handlePeriodChange = (newPeriod: FinancePeriod) => {
     setPeriod(newPeriod);
     setSnapshot(getConsumerFinanceSnapshot(newPeriod));
@@ -243,7 +250,7 @@ export const ConsumerFinanceDashboardView: React.FC<ConsumerFinanceDashboardView
             </div>
           </div>
           <div className="text-2xl font-black text-slate-900 mt-2">
-            R$ {snapshot.grossRevenue.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+            R$ {snapshot.grossRevenue.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
           </div>
           <div className="flex items-center gap-1.5 mt-2 text-xs font-semibold text-emerald-600">
             <TrendingUp className="w-3.5 h-3.5" />
@@ -260,7 +267,7 @@ export const ConsumerFinanceDashboardView: React.FC<ConsumerFinanceDashboardView
             </div>
           </div>
           <div className="text-2xl font-black text-emerald-700 mt-2">
-            R$ {snapshot.netRevenue.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+            R$ {snapshot.netRevenue.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
           </div>
           <p className="text-[11px] text-slate-400 mt-2">
             Livre de taxas de maquininhas e estornos
@@ -278,7 +285,7 @@ export const ConsumerFinanceDashboardView: React.FC<ConsumerFinanceDashboardView
           <div className="text-2xl font-black text-slate-900 mt-2 flex items-baseline gap-2">
             <span>{snapshot.cmvPct}%</span>
             <span className="text-xs font-normal text-slate-500">
-              (R$ {snapshot.cmvReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })})
+              (R$ {snapshot.cmvReais.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })})
             </span>
           </div>
           <div className="flex items-center gap-1.5 mt-2 text-xs font-semibold text-emerald-600">
@@ -296,10 +303,10 @@ export const ConsumerFinanceDashboardView: React.FC<ConsumerFinanceDashboardView
             </div>
           </div>
           <div className="text-2xl font-black text-indigo-700 mt-2">
-            R$ {snapshot.netOperatingProfit.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+            R$ {snapshot.netOperatingProfit.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
           </div>
           <p className="text-[11px] text-indigo-600 font-semibold mt-2">
-            Margem Líquida da Loja: {snapshot.netMarginPct}%
+            Margem Líquida da Loja: {snapshot.netMarginPct.toFixed(1)}%
           </p>
         </div>
       </div>

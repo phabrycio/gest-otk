@@ -35,6 +35,7 @@ import {
 } from '../../services/workflowApprovalStore';
 import { getContextualAiProfile } from '../../services/contextualAiService';
 import { getAuditTrail, AuditRecord } from '../../services/auditTrailStore';
+import { useOperationalData } from '../../services/centralDataStore';
 import salesAnalyticsData from '../../data/salesAnalyticsData.json';
 
 interface ManagerAuditDashboardViewProps {
@@ -46,6 +47,7 @@ export const ManagerAuditDashboardView: React.FC<ManagerAuditDashboardViewProps>
   currentUser,
   onNavigateTab,
 }) => {
+  const operationalData = useOperationalData();
   const [activeTab, setActiveTab] = useState<'inventarios' | 'compras' | 'indicadores' | 'auditoria_imutavel'>('inventarios');
   const [inventories, setInventories] = useState<InventoryAuditDocument[]>([]);
   const [purchases, setPurchases] = useState<PurchaseRequest[]>([]);
@@ -555,21 +557,25 @@ export const ManagerAuditDashboardView: React.FC<ManagerAuditDashboardViewProps>
             <div className="p-4 rounded-xl bg-blue-950/40 border border-blue-800/30">
               <p className="text-[11px] font-bold text-blue-300 uppercase">Faturamento Diário (D-1)</p>
               <p className="text-2xl font-black text-white mt-1">
-                {(salesAnalyticsData.summary?.dailyAverageRevenue || 33340.35).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                {(operationalData.summary?.dailyAverageRevenue || 33340.35).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
               </p>
-              <p className="text-[10px] text-blue-300/80 mt-1">Total 90D: R$ 3.000.631,16</p>
+              <p className="text-[10px] text-blue-300/80 mt-1">
+                Total {operationalData.summary.totalDays}D: R$ {operationalData.summary.totalRevenue.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+              </p>
             </div>
             <div className="p-4 rounded-xl bg-blue-950/40 border border-blue-800/30">
               <p className="text-[11px] font-bold text-blue-300 uppercase">Ticket Médio & Giro</p>
               <p className="text-2xl font-black text-white mt-1">
-                {(salesAnalyticsData.summary?.ticketMedioGlobal || 210.11).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                {(operationalData.summary?.ticketMedioGlobal || 210.11).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
               </p>
-              <p className="text-[10px] text-blue-300/80 mt-1">{salesAnalyticsData.summary?.dailyAverageOrders || 159} pedidos faturados/dia</p>
+              <p className="text-[10px] text-blue-300/80 mt-1">{operationalData.summary?.dailyAverageOrders || 159} pedidos faturados/dia</p>
             </div>
             <div className="p-4 rounded-xl bg-blue-950/40 border border-blue-800/30">
               <p className="text-[11px] font-bold text-blue-300 uppercase">Volume Auditado</p>
-              <p className="text-2xl font-black text-white mt-1">104.296</p>
-              <p className="text-[10px] text-blue-300/80 mt-1">Itens faturados em 98.393 vendas</p>
+              <p className="text-2xl font-black text-white mt-1">
+                {operationalData.summary?.totalItemsSold?.toLocaleString('pt-BR') || '104.296'}
+              </p>
+              <p className="text-[10px] text-blue-300/80 mt-1">Itens faturados em vendas reais</p>
             </div>
           </div>
         </div>

@@ -24,7 +24,8 @@ import {
 import type { UserAccount } from '../../types/restaurant.types';
 import { getContextualAiProfile } from '../../services/contextualAiService';
 import { submitInventoryCount, createPurchaseRequest } from '../../services/workflowApprovalStore';
-import { recordAuditAction } from '../../services/auditTrailStore';
+import { getAuditTrail, recordAuditAction } from '../../services/auditTrailStore';
+import { useOperationalData } from '../../services/centralDataStore';
 import salesAnalyticsData from '../../data/salesAnalyticsData.json';
 
 interface KitchenRoleViewProps {
@@ -43,28 +44,47 @@ interface KitchenStockItem {
   location: string;
 }
 
-const INITIAL_KITCHEN_STOCK: KitchenStockItem[] = (salesAnalyticsData.thawRecommendations || []).map((thaw: any, idx: number) => ({
-  id: `k-stk-${idx + 1}`,
-  name: thaw.name,
-  category: 'PROTEINA' as const,
-  currentStock: thaw.minChamberStock + thaw.weekdayThawQuota,
-  minStock: thaw.minChamberStock,
-  unit: thaw.unit,
-  validityDate: '45 dias',
-  status: 'NORMAL' as const,
-  location: 'Câmara Fria & Degelo',
-}));
-
 export const KitchenRoleView: React.FC<KitchenRoleViewProps> = ({ currentUser }) => {
   const isSubchefe = currentUser.role === 'SUBCHEFE' || currentUser.role === 'SUB_CHEFE_COZINHA';
+  const operationalData = useOperationalData();
+
   const [activeTab, setActiveTab] = useState<'estoque' | 'contagem' | 'solicitar' | 'camara' | 'perdas' | 'escala'>('estoque');
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
+  const [stockItems, setStockItems] = useState<KitchenStockItem[]>(() => {
+    return (operationalData.thawRecommendations || salesAnalyticsData.thawRecommendations || []).map((thaw: any, idx: number) => ({
+      id: `k-stk-${idx + 1}`,
+      name: thaw.name,
+      category: 'PROTEINA' as const,
+      currentStock: thaw.minChamberStock + thaw.weekdayThawQuota,
+      minStock: thaw.minChamberStock,
+      unit: thaw.unit,
+      validityDate: '45 dias',
+      status: 'NORMAL' as const,
+      location: 'Câmara Fria & Degelo',
+    }));
+  });
+
+  React.useEffect(() => {
+    if (operationalData.thawRecommendations?.length) {
+      setStockItems(
+        operationalData.thawRecommendations.map((thaw: any, idx: number) => ({
+          id: `k-stk-${idx + 1}`,
+          name: thaw.name,
+          category: 'PROTEINA' as const,
+          currentStock: thaw.minChamberStock + thaw.weekdayThawQuota,
+          minStock: thaw.minChamberStock,
+          unit: thaw.unit,
+          validityDate: '45 dias',
+          status: 'NORMAL' as const,
+          location: 'Câmara Fria & Degelo',
+        }))
+      );
+    }
+  }, [operationalData]);
+
   // IA Contextual da Cozinha
   const aiProfile = getContextualAiProfile(currentUser);
-
-  // Estoque da Cozinha Integrado com as Vendas Reais do Teknisa (Sem dados financeiros - isolamento absoluto)
-  const [stockItems, setStockItems] = useState<KitchenStockItem[]>(INITIAL_KITCHEN_STOCK);
 
   // Contagem para o Inventário
   const [counts, setCounts] = useState<{ [id: string]: number }>({});

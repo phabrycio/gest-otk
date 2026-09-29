@@ -16,6 +16,7 @@ import {
 } from '../../services/dionisioParser';
 import type { CancellationRecord, SalesImport } from '../../types/stock.types';
 import type { DionisioReservation, DionisioNpsReview } from '../../types/auditAndOperations.types';
+import { parseAndApplyCsvSpreadsheet } from '../../services/centralDataStore';
 
 interface SalesImportModalProps {
   onClose: () => void;
@@ -171,8 +172,14 @@ export default function SalesImportModal({ onClose, onImportApplied }: SalesImpo
   };
 
   const handleApply = () => {
-    if (parseResult?.data && onImportApplied) {
-      onImportApplied(parseResult.data);
+    if (parseResult?.data) {
+      if (onImportApplied) {
+        onImportApplied(parseResult.data);
+      }
+      const syntheticCsv = parseResult.data.lines
+        .map((l) => `"${l.productCode || '001'}";"${l.dishName}";${l.qtyOrdered || 1};${l.totalRevenue || 0}`)
+        .join('\n');
+      parseAndApplyCsvSpreadsheet(syntheticCsv, fileName || 'Teknisa_Importado.csv');
     }
     setState('DONE');
   };

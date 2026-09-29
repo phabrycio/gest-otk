@@ -385,21 +385,45 @@ export function getConsumerFinanceSnapshot(period: FinancePeriod = 'MES_ATUAL'):
   if (typeof window !== 'undefined') {
     try {
       const rawSessions = localStorage.getItem('tk_cash_sessions_v1');
-      if (rawSessions) cashSessions = JSON.parse(rawSessions);
+      if (rawSessions) {
+        const parsed = JSON.parse(rawSessions);
+        if (Array.isArray(parsed) && parsed.length > 0) cashSessions = parsed;
+      }
       const rawPayables = localStorage.getItem('tk_accounts_payable_v1');
-      if (rawPayables) accountsPayable = JSON.parse(rawPayables);
+      if (rawPayables) {
+        const parsed = JSON.parse(rawPayables);
+        if (Array.isArray(parsed) && parsed.length > 0) accountsPayable = parsed;
+      }
       const rawReceivables = localStorage.getItem('tk_accounts_receivable_v1');
-      if (rawReceivables) accountsReceivable = JSON.parse(rawReceivables);
+      if (rawReceivables) {
+        const parsed = JSON.parse(rawReceivables);
+        if (Array.isArray(parsed) && parsed.length > 0) accountsReceivable = parsed;
+      }
     } catch {
       /* ignore */
     }
   }
 
-  // Fator proporcional ao período selecionado
-  const dailyAvg = salesAnalyticsData.summary.dailyAverageRevenue || 33340.35;
-  const total90d = salesAnalyticsData.summary.totalRevenue || 3000631.16;
-  const ticketMedio = salesAnalyticsData.summary.ticketMedioGlobal || 210.11;
-  const dailyOrders = salesAnalyticsData.summary.dailyAverageOrders || 159;
+  // Fator proporcional ao período selecionado integrado com centralDataStore
+  let dailyAvg = salesAnalyticsData.summary?.dailyAverageRevenue || 33340.35;
+  let total90d = salesAnalyticsData.summary?.totalRevenue || 3000631.16;
+  let ticketMedio = salesAnalyticsData.summary?.ticketMedioGlobal || 210.11;
+  let dailyOrders = salesAnalyticsData.summary?.dailyAverageOrders || 159;
+
+  if (typeof window !== 'undefined') {
+    try {
+      const centralRaw = localStorage.getItem('tk_central_operational_dataset_v3');
+      if (centralRaw) {
+        const cData = JSON.parse(centralRaw);
+        if (cData?.summary?.dailyAverageRevenue) {
+          dailyAvg = cData.summary.dailyAverageRevenue;
+          total90d = cData.summary.totalRevenue;
+          ticketMedio = cData.summary.ticketMedioGlobal;
+          dailyOrders = cData.summary.dailyAverageOrders;
+        }
+      }
+    } catch {}
+  }
 
   let grossRevenue = 0;
   let totalOrders = 0;
@@ -428,10 +452,10 @@ export function getConsumerFinanceSnapshot(period: FinancePeriod = 'MES_ATUAL'):
       break;
   }
 
-  // Se houver sessões salvas manualmente no localStorage, prioriza a soma real
+  // Se houver sessões salvas no localStorage e com faturamento positivo, prioriza a soma real das sessões
   const hasCustomSessions = typeof window !== 'undefined' && localStorage.getItem('tk_cash_sessions_v1') !== null;
   const sessionRevenue = cashSessions.reduce((acc, s) => acc + s.cashSales + s.pixSales + s.cardSales + s.voucherSales, 0);
-  if (hasCustomSessions) {
+  if (hasCustomSessions && sessionRevenue > 0) {
     grossRevenue = sessionRevenue;
   }
 

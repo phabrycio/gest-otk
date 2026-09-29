@@ -38,6 +38,7 @@ import {
   getCdaMaterialTransfers,
   recordNfOrAfEntry,
   recordSalesDeduction,
+  loadRealSalesStockItems,
 } from '../services/virtualStockStore';
 import { OFFICIAL_ENGENHO_MENU } from '../data/menuRecipesData';
 
@@ -121,7 +122,13 @@ export default function VirtualStockView() {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   // Estados persistentes do estoque virtual inteligente
-  const [stockItems, setStockItems] = useState<VirtualStockItem[]>(() => getVirtualStockItems());
+  const [stockItems, setStockItems] = useState<VirtualStockItem[]>(() => {
+    const current = getVirtualStockItems();
+    if (current.length === 0) {
+      return loadRealSalesStockItems();
+    }
+    return current;
+  });
   const [movements, setMovements] = useState(() => getStockMovements());
   const [alerts, setAlerts] = useState(MOCK_STOCK_ALERTS);
   const [order] = useState<ForecastedOrder>(MOCK_FORECASTED_ORDER);
