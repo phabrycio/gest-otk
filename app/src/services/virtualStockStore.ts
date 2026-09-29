@@ -58,81 +58,25 @@ export interface CdaMaterialTransfer {
  * Por padrão, inicia com quantidade 0 (zerado) para operação real, aguardando notas ou transferências.
  */
 export function buildInitialStockCatalog(): VirtualStockItem[] {
-  const itemMap = new Map<string, VirtualStockItem>();
-
-  OFFICIAL_ENGENHO_MENU.forEach((dish) => {
-    dish.ingredients.forEach((ing) => {
-      const normalizedName = ing.name.trim();
-      if (!itemMap.has(normalizedName)) {
-        let category: StockCategory = 'SECOS_ESPECIARIAS';
-        const nameLower = normalizedName.toLowerCase();
-
-        if (nameLower.includes('tambaqui') || nameLower.includes('pirarucu') || nameLower.includes('peixe') || nameLower.includes('matrinxã') || nameLower.includes('surubim')) {
-          category = 'PESCADOS_REGIONAIS';
-        } else if (nameLower.includes('picanha') || nameLower.includes('carne') || nameLower.includes('cupim') || nameLower.includes('mignon') || nameLower.includes('costela')) {
-          category = 'CARNES_NOBRES';
-        } else if (nameLower.includes('camarão') || nameLower.includes('lagosta') || nameLower.includes('lula')) {
-          category = 'FRUTOS_DO_MAR';
-        } else if (nameLower.includes('chopp') || nameLower.includes('cerveja') || nameLower.includes('refrigerante') || nameLower.includes('água') || nameLower.includes('suco')) {
-          category = 'BEBIDAS_NAOALCOOLICAS';
-        } else if (nameLower.includes('cachaça') || nameLower.includes('gin') || nameLower.includes('vodka') || nameLower.includes('whisky')) {
-          category = 'BEBIDAS_DESTILADOS';
-        } else if (nameLower.includes('vinho')) {
-          category = 'BEBIDAS_VINHOS';
-        } else if (nameLower.includes('tomate') || nameLower.includes('cebola') || nameLower.includes('limão') || nameLower.includes('cheiro-verde') || nameLower.includes('banana')) {
-          category = 'HORTIFRUTI_REGIONAL';
-        } else if (nameLower.includes('queijo') || nameLower.includes('manteiga') || nameLower.includes('creme')) {
-          category = 'QUEIJOS_LATICINIOS';
-        }
-
-        const unit: StockUnit = (ing.unit === 'g' || ing.unit === 'kg') ? 'kg' : (ing.unit === 'ml' || ing.unit === 'L') ? 'L' : 'un';
-
-        itemMap.set(normalizedName, {
-          id: `item-${ing.id || normalizedName.toLowerCase().replace(/[^a-z0-9]/g, '-')}`,
-          cdaCode: `CDA-${Math.floor(1000 + Math.random() * 9000)}`,
-          name: normalizedName,
-          category,
-          unit,
-          minStock: 10,
-          safetyStock: 15,
-          idealStock: 30,
-          maxStock: 80,
-          virtualQty: 0, // Inicia limpo para operação real
-          reservedQty: 0,
-          availableQty: 0,
-          averageCost: ing.unitCost || 10,
-          lastCost: ing.unitCost || 10,
-          primarySupplier: ing.supplierOrigin === 'CDA_MATRIZ' ? 'CDA' : ing.supplierOrigin === 'FEIRA_PANAIR' ? 'PANAIR' : 'COMPRA_DIRETA',
-          orderLeadTimeDays: ing.supplierOrigin === 'CDA_MATRIZ' ? 2 : 1,
-          minOrderQty: 5,
-          orderQtyMultiple: 1,
-          status: 'RUPTURA', // Quantidade 0 aguardando primeira nota/transferência
-          daysUntilRuptura: 0,
-          lastMovementAt: new Date().toISOString(),
-          errorMarginPct: 5,
-        });
-      }
-    });
-  });
-
-  return Array.from(itemMap.values());
+  // Dia 1 de operação real: estoque inicia completamente vazio (sem itens mockados em ruptura).
+  // Os itens entram no estoque conforme são registradas Notas Fiscais (AF), transferências do CDA ou contagens físicas.
+  return [];
 }
 
 /**
  * Retorna os itens de estoque virtual salvos no storage ou inicializa o catálogo base
  */
 export function getVirtualStockItems(): VirtualStockItem[] {
-  if (typeof window === 'undefined') return buildInitialStockCatalog();
+  if (typeof window === 'undefined') return [];
   try {
     const raw = localStorage.getItem(STORAGE_KEY_VIRTUAL_STOCK);
     if (!raw) {
-      const initial = buildInitialStockCatalog();
-      localStorage.setItem(STORAGE_KEY_VIRTUAL_STOCK, JSON.stringify(initial));
-      return initial;
+      localStorage.setItem(STORAGE_KEY_VIRTUAL_STOCK, JSON.stringify([]));
+      return [];
     }
     return JSON.parse(raw);
   } catch {
-    return buildInitialStockCatalog();
+    return [];
   }
 }
 

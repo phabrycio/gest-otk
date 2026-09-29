@@ -197,7 +197,7 @@ export const MENU_RECIPES: Record<string, MenuItemRecipe> = {
 // HISTÓRICO DE 12 SEMANAS POR DIA DA SEMANA
 // -------------------------------------------------------------
 // Gera dados representativos reais das 12 semanas passadas
-function generate12WeeksForDay(
+export function generate12WeeksForDay(
   dayName: WeekDaySalesHistory['dayName'],
   dayLabel: string,
   baseRevenue: number,
@@ -205,7 +205,6 @@ function generate12WeeksForDay(
   baseDishes: Record<string, number>
 ): WeekDaySalesHistory {
   const weeks = [];
-  // Variações aleatórias controladas para cada uma das 12 semanas
   const multipliers = [0.92, 1.05, 0.98, 1.12, 0.88, 1.02, 1.15, 0.95, 1.08, 0.90, 1.04, 0.97];
 
   for (let i = 0; i < 12; i++) {
@@ -234,92 +233,39 @@ function generate12WeeksForDay(
   };
 }
 
-export const WEEKLY_SALES_HISTORY: Record<string, WeekDaySalesHistory> = {
-  SEGUNDA: generate12WeeksForDay('SEGUNDA', 'Segunda-feira', 14200, 195, {
-    tambaqui: 32,
-    pirarucu: 28,
-    picanha: 18,
-    moqueca: 12,
-    dadinho: 40,
-    pasteis: 26,
-    casquinha: 15,
-    chopp: 160,
-    caipirinha: 35,
-    cartola: 22,
-  }),
-  TERCA: generate12WeeksForDay('TERCA', 'Terça-feira', 15800, 210, {
-    tambaqui: 36,
-    pirarucu: 30,
-    picanha: 22,
-    moqueca: 14,
-    dadinho: 45,
-    pasteis: 30,
-    casquinha: 18,
-    chopp: 180,
-    caipirinha: 40,
-    cartola: 25,
-  }),
-  QUARTA: generate12WeeksForDay('QUARTA', 'Quarta-feira (Noite de Chopp)', 18500, 260, {
-    tambaqui: 42,
-    pirarucu: 34,
-    picanha: 28,
-    moqueca: 18,
-    dadinho: 65,
-    pasteis: 48,
-    casquinha: 24,
-    chopp: 320,
-    caipirinha: 55,
-    cartola: 30,
-  }),
-  QUINTA: generate12WeeksForDay('QUINTA', 'Quinta-feira', 19800, 275, {
-    tambaqui: 48,
-    pirarucu: 38,
-    picanha: 32,
-    moqueca: 20,
-    dadinho: 70,
-    pasteis: 52,
-    casquinha: 28,
-    chopp: 340,
-    caipirinha: 60,
-    cartola: 35,
-  }),
-  SEXTA: generate12WeeksForDay('SEXTA', 'Sexta-feira (Pico Noturno)', 31500, 420, {
-    tambaqui: 72,
-    pirarucu: 58,
-    picanha: 52,
-    moqueca: 34,
-    dadinho: 110,
-    pasteis: 85,
-    casquinha: 45,
-    chopp: 580,
-    caipirinha: 110,
-    cartola: 60,
-  }),
-  SABADO: generate12WeeksForDay('SABADO', 'Sábado (Almoço & Jantar Máximo)', 39200, 530, {
-    tambaqui: 98,
-    pirarucu: 78,
-    picanha: 68,
-    moqueca: 48,
-    dadinho: 140,
-    pasteis: 115,
-    casquinha: 65,
-    chopp: 750,
-    caipirinha: 150,
-    cartola: 85,
-  }),
-  DOMINGO: generate12WeeksForDay('DOMINGO', 'Domingo Familiar (Almoço Nobre)', 34800, 480, {
-    tambaqui: 92,
-    pirarucu: 74,
-    picanha: 60,
-    moqueca: 42,
-    dadinho: 125,
-    pasteis: 95,
-    casquinha: 50,
-    chopp: 620,
-    caipirinha: 125,
-    cartola: 95,
-  }),
+export const DEFAULT_CLEAN_SALES_HISTORY: Record<string, WeekDaySalesHistory> = {
+  SEGUNDA: { dayName: 'SEGUNDA', dayLabel: 'Segunda-feira', historical12WeeksSales: [] },
+  TERCA: { dayName: 'TERCA', dayLabel: 'Terça-feira', historical12WeeksSales: [] },
+  QUARTA: { dayName: 'QUARTA', dayLabel: 'Quarta-feira (Noite de Chopp)', historical12WeeksSales: [] },
+  QUINTA: { dayName: 'QUINTA', dayLabel: 'Quinta-feira', historical12WeeksSales: [] },
+  SEXTA: { dayName: 'SEXTA', dayLabel: 'Sexta-feira (Pico Noturno)', historical12WeeksSales: [] },
+  SABADO: { dayName: 'SABADO', dayLabel: 'Sábado (Almoço & Jantar Máximo)', historical12WeeksSales: [] },
+  DOMINGO: { dayName: 'DOMINGO', dayLabel: 'Domingo Familiar (Almoço Nobre)', historical12WeeksSales: [] },
 };
+
+const STORAGE_KEY_12WEEKS_SALES = 'tk_12weeks_sales_history_v1';
+
+export function get12WeeksSalesHistory(): Record<string, WeekDaySalesHistory> {
+  if (typeof window === 'undefined') return DEFAULT_CLEAN_SALES_HISTORY;
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY_12WEEKS_SALES);
+    if (!raw) return DEFAULT_CLEAN_SALES_HISTORY;
+    return JSON.parse(raw);
+  } catch {
+    return DEFAULT_CLEAN_SALES_HISTORY;
+  }
+}
+
+export function save12WeeksSalesHistory(history: Record<string, WeekDaySalesHistory>): void {
+  if (typeof window === 'undefined') return;
+  try {
+    localStorage.setItem(STORAGE_KEY_12WEEKS_SALES, JSON.stringify(history));
+  } catch (err) {
+    console.error('Falha ao salvar histórico de 12 semanas', err);
+  }
+}
+
+export const WEEKLY_SALES_HISTORY: Record<string, WeekDaySalesHistory> = DEFAULT_CLEAN_SALES_HISTORY;
 
 // -------------------------------------------------------------
 // FUNÇÃO MATEMÁTICA PARA CÁLCULO DA MEDIANA
@@ -338,8 +284,30 @@ export function calculateMedian(numbers: number[]): number {
 // GERAÇÃO DOS RELATÓRIOS DO DIA DA SEMANA BASEADO NAS 12 SEMANAS
 // -------------------------------------------------------------
 export function getPredictionForDay(dayKey: string) {
-  const history = WEEKLY_SALES_HISTORY[dayKey] || WEEKLY_SALES_HISTORY['SEGUNDA'];
-  const weeks = history.historical12WeeksSales;
+  const allHistory = get12WeeksSalesHistory();
+  const history = allHistory[dayKey] || DEFAULT_CLEAN_SALES_HISTORY[dayKey] || DEFAULT_CLEAN_SALES_HISTORY['SEGUNDA'];
+  const weeks = history.historical12WeeksSales || [];
+
+  if (weeks.length === 0) {
+    return {
+      dayName: history.dayName,
+      dayLabel: history.dayLabel,
+      medianRevenue: 0,
+      medianPax: 0,
+      projectedWithBufferRevenue: 0,
+      historicalWeeks: [],
+      thawList: [],
+      miseEnPlaceList: [],
+      barPreparation: {
+        choppBrahmaLitersSoldMedian: 0,
+        choppBrahmaLitersWithBuffer: 0,
+        recommendedKegs: 0,
+        caipirinhasMedianWithBuffer: 0,
+        cachaçaJambuBottles: 0,
+        limePortionsCut: 0,
+      },
+    };
+  }
 
   // Calcula faturamento e pax médios/medianos
   const revenues = weeks.map(w => w.totalRevenue);
@@ -365,6 +333,7 @@ export function getPredictionForDay(dayKey: string) {
   }> = {};
 
   for (const [dishId, medianQty] of Object.entries(dishesMedian)) {
+    if (medianQty <= 0) continue;
     const recipe = MENU_RECIPES[dishId];
     if (!recipe) continue;
     const withBufferQty = Math.ceil(medianQty * 1.20); // +20% Margem de segurança
@@ -400,8 +369,10 @@ export function getPredictionForDay(dayKey: string) {
   }));
 
   // 2. Mise en Place de Entradas e Pratos com +20%
-  const miseEnPlaceList: CalculatedMiseEnPlaceItem[] = Object.entries(dishesMedian).map(([dishId, medianQty]) => {
-    const recipe = MENU_RECIPES[dishId];
+  const miseEnPlaceList: CalculatedMiseEnPlaceItem[] = Object.entries(dishesMedian)
+    .filter(([_, medianQty]) => medianQty > 0)
+    .map(([dishId, medianQty]) => {
+      const recipe = MENU_RECIPES[dishId];
     return {
       dishName: recipe ? recipe.name : dishId,
       category: recipe ? recipe.category : 'OUTROS',
@@ -411,15 +382,15 @@ export function getPredictionForDay(dayKey: string) {
     };
   });
 
-  const choppMedianLitros = thawMap['Chopp Brahma Barril 50L']?.totalKg || 67.2;
-  const caipirinhasBuffer = thawMap['Limão Tahiti & Cachaça Jambu']?.withBufferQty || 42;
+  const choppMedianLitros = thawMap['Chopp Brahma Barril 50L']?.totalKg || 0;
+  const caipirinhasBuffer = thawMap['Limão Tahiti & Cachaça Jambu']?.withBufferQty || 0;
 
   const barPreparation = {
     choppBrahmaLitersSoldMedian: +choppMedianLitros.toFixed(1),
     choppBrahmaLitersWithBuffer: +(choppMedianLitros * 1.20).toFixed(1),
     recommendedKegs: Math.ceil((choppMedianLitros * 1.20) / 50),
     caipirinhasMedianWithBuffer: caipirinhasBuffer,
-    cachaçaJambuBottles: Math.max(1, Math.ceil((caipirinhasBuffer * 0.05) / 0.7)),
+    cachaçaJambuBottles: caipirinhasBuffer > 0 ? Math.max(1, Math.ceil((caipirinhasBuffer * 0.05) / 0.7)) : 0,
     limePortionsCut: caipirinhasBuffer,
   };
 

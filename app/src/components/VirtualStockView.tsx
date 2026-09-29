@@ -581,41 +581,34 @@ export default function VirtualStockView() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3">
-                <div className="bg-white/10 rounded-xl p-2.5 flex items-center justify-between">
-                  <div>
-                    <p className="text-xs font-bold text-white">Balas Tic Tac (Menta/Frutas)</p>
-                    <p className="text-[10px] text-amber-300 font-semibold">Validade: 05/10/2026 (Restam 8 dias!)</p>
-                  </div>
-                  <button
-                    onClick={() => setAmandaCheckedExpiry((prev) => ({ ...prev, 'tictac': true }))}
-                    className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all ${
-                      amandaCheckedExpiry['tictac']
-                        ? 'bg-emerald-500 text-white'
-                        : 'bg-amber-400 text-slate-900 hover:bg-amber-300'
-                    }`}
-                  >
-                    {amandaCheckedExpiry['tictac'] ? '✓ Aferido' : 'Verificar'}
-                  </button>
+              {stockItems.filter((i) => i.category === 'DOCES_CAIXA').length === 0 ? (
+                <div className="bg-white/10 rounded-xl p-3 text-center text-xs text-blue-200 mt-3">
+                  Nenhum lote de balas ou bombons cadastrado no balcão no momento.
                 </div>
-
-                <div className="bg-white/10 rounded-xl p-2.5 flex items-center justify-between">
-                  <div>
-                    <p className="text-xs font-bold text-white">Bombons Sonho de Valsa / Ouro Branco</p>
-                    <p className="text-[10px] text-emerald-300 font-semibold">Validade: 15/12/2026 (Lote OK)</p>
-                  </div>
-                  <button
-                    onClick={() => setAmandaCheckedExpiry((prev) => ({ ...prev, 'bombons': true }))}
-                    className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all ${
-                      amandaCheckedExpiry['bombons']
-                        ? 'bg-emerald-500 text-white'
-                        : 'bg-white/20 text-white hover:bg-white/30'
-                    }`}
-                  >
-                    {amandaCheckedExpiry['bombons'] ? '✓ Aferido' : 'Verificar'}
-                  </button>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3">
+                  {stockItems
+                    .filter((i) => i.category === 'DOCES_CAIXA')
+                    .map((it) => (
+                      <div key={it.id} className="bg-white/10 rounded-xl p-2.5 flex items-center justify-between">
+                        <div>
+                          <p className="text-xs font-bold text-white">{it.name}</p>
+                          <p className="text-[10px] text-emerald-300 font-semibold">Estoque: {it.availableQty} {it.unit}</p>
+                        </div>
+                        <button
+                          onClick={() => setAmandaCheckedExpiry((prev) => ({ ...prev, [it.id]: true }))}
+                          className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all ${
+                            amandaCheckedExpiry[it.id]
+                              ? 'bg-emerald-500 text-white'
+                              : 'bg-amber-400 text-slate-900 hover:bg-amber-300'
+                          }`}
+                        >
+                          {amandaCheckedExpiry[it.id] ? '✓ Aferido' : 'Verificar'}
+                        </button>
+                      </div>
+                    ))}
                 </div>
-              </div>
+              )}
             </div>
           )}
 

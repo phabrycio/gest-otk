@@ -318,37 +318,49 @@ export const WeeklySalesPredictionView: React.FC<WeeklySalesPredictionViewProps>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
-                {prediction.thawList.map((item, index) => (
-                  <tr key={index} className="hover:bg-slate-50/80 transition-colors">
-                    <td className="py-3 px-4 font-bold text-slate-900 flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-sky-500" />
-                      {item.ingredientName}
-                    </td>
-                    <td className="py-3 px-4 text-center text-slate-600 font-medium">
-                      {item.medianDishQuantity} porções
-                    </td>
-                    <td className="py-3 px-4 text-center font-bold text-emerald-700 bg-emerald-50/30">
-                      {item.safetyBufferQuantity} porções
-                    </td>
-                    <td className="py-3 px-4 text-right">
-                      <span className="inline-block py-1 px-2.5 rounded-lg bg-sky-100 text-sky-900 font-extrabold text-sm">
-                        {item.totalKgToThaw} {item.unit}
-                      </span>
-                    </td>
-                    <td className="py-3 px-4 text-slate-600">
-                      <div className="flex flex-wrap gap-1">
-                        {item.associatedDishes.map((d, dIdx) => (
-                          <span key={dIdx} className="px-2 py-0.5 bg-slate-100 border border-slate-200 rounded text-[11px]">
-                            {d}
-                          </span>
-                        ))}
-                      </div>
-                    </td>
-                    <td className="py-3 px-4 text-slate-500 text-[11px] italic">
-                      {item.instructions}
+                {prediction.thawList.length === 0 ? (
+                  <tr>
+                    <td colSpan={6} className="py-12 text-center text-slate-400">
+                      <Snowflake className="w-8 h-8 text-sky-500/40 mx-auto mb-2" />
+                      <p className="font-bold text-slate-700 text-sm">Nenhum insumo em degelo previsto para {prediction.dayLabel}</p>
+                      <p className="text-xs text-slate-400 mt-1 max-w-md mx-auto">
+                        Dia 1 de operação iniciado. A inteligência de 12 semanas calculará o degelo e a margem de segurança (+20%) conforme as primeiras vendas reais forem consolidadas.
+                      </p>
                     </td>
                   </tr>
-                ))}
+                ) : (
+                  prediction.thawList.map((item, index) => (
+                    <tr key={index} className="hover:bg-slate-50/80 transition-colors">
+                      <td className="py-3 px-4 font-bold text-slate-900 flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-sky-500" />
+                        {item.ingredientName}
+                      </td>
+                      <td className="py-3 px-4 text-center text-slate-600 font-medium">
+                        {item.medianDishQuantity} porções
+                      </td>
+                      <td className="py-3 px-4 text-center font-bold text-emerald-700 bg-emerald-50/30">
+                        {item.safetyBufferQuantity} porções
+                      </td>
+                      <td className="py-3 px-4 text-right">
+                        <span className="inline-block py-1 px-2.5 rounded-lg bg-sky-100 text-sky-900 font-extrabold text-sm">
+                          {item.totalKgToThaw} {item.unit}
+                        </span>
+                      </td>
+                      <td className="py-3 px-4 text-slate-600">
+                        <div className="flex flex-wrap gap-1">
+                          {item.associatedDishes.map((d, dIdx) => (
+                            <span key={dIdx} className="px-2 py-0.5 bg-slate-100 border border-slate-200 rounded text-[11px]">
+                              {d}
+                            </span>
+                          ))}
+                        </div>
+                      </td>
+                      <td className="py-3 px-4 text-slate-500 text-[11px] italic">
+                        {item.instructions}
+                      </td>
+                    </tr>
+                  ))
+                )}
               </tbody>
             </table>
           </div>
@@ -393,31 +405,43 @@ export const WeeklySalesPredictionView: React.FC<WeeklySalesPredictionViewProps>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
-                {prediction.miseEnPlaceList.map((item, index) => (
-                  <tr key={index} className="hover:bg-slate-50/80 transition-colors">
-                    <td className="py-3 px-4 font-bold text-slate-900">
-                      {item.dishName}
-                    </td>
-                    <td className="py-3 px-4 text-slate-600">
-                      <span className="px-2 py-0.5 bg-slate-100 rounded text-[11px] font-medium">
-                        {item.category}
-                      </span>
-                    </td>
-                    <td className="py-3 px-4 text-center text-slate-500 font-semibold">
-                      {item.medianSales12Weeks} porções
-                    </td>
-                    <td className="py-3 px-4 text-center font-black text-orange-950 bg-orange-50/30">
-                      <span className="inline-block py-1 px-3 rounded-lg bg-orange-100 text-orange-900 text-sm font-black">
-                        {item.recommendedPortionsWith20Pct} porções
-                      </span>
-                    </td>
-                    <td className="py-3 px-4">
-                      <span className="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-md font-semibold text-slate-700 text-[11px]">
-                        {item.prepStation.replace('_', ' ')}
-                      </span>
+                {prediction.miseEnPlaceList.length === 0 ? (
+                  <tr>
+                    <td colSpan={5} className="py-12 text-center text-slate-400">
+                      <UtensilsCrossed className="w-8 h-8 text-orange-500/40 mx-auto mb-2" />
+                      <p className="font-bold text-slate-700 text-sm">Nenhum item de mise en place calculado para {prediction.dayLabel}</p>
+                      <p className="text-xs text-slate-400 mt-1 max-w-md mx-auto">
+                        Aguardando primeiras vendas do cardápio para gerar as metas de pré-porcionamento diário.
+                      </p>
                     </td>
                   </tr>
-                ))}
+                ) : (
+                  prediction.miseEnPlaceList.map((item, index) => (
+                    <tr key={index} className="hover:bg-slate-50/80 transition-colors">
+                      <td className="py-3 px-4 font-bold text-slate-900">
+                        {item.dishName}
+                      </td>
+                      <td className="py-3 px-4 text-slate-600">
+                        <span className="px-2 py-0.5 bg-slate-100 rounded text-[11px] font-medium">
+                          {item.category}
+                        </span>
+                      </td>
+                      <td className="py-3 px-4 text-center text-slate-500 font-semibold">
+                        {item.medianSales12Weeks} porções
+                      </td>
+                      <td className="py-3 px-4 text-center font-black text-orange-950 bg-orange-50/30">
+                        <span className="inline-block py-1 px-3 rounded-lg bg-orange-100 text-orange-900 text-sm font-black">
+                          {item.recommendedPortionsWith20Pct} porções
+                        </span>
+                      </td>
+                      <td className="py-3 px-4">
+                        <span className="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-md font-semibold text-slate-700 text-[11px]">
+                          {item.prepStation.replace('_', ' ')}
+                        </span>
+                      </td>
+                    </tr>
+                  ))
+                )}
               </tbody>
             </table>
           </div>

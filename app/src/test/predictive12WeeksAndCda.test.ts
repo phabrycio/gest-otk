@@ -2,6 +2,8 @@ import { describe, it, expect } from 'vitest';
 import {
   calculateMedian,
   getPredictionForDay,
+  generate12WeeksForDay,
+  save12WeeksSalesHistory,
   INITIAL_CDA_MAX_STOCK_ITEMS,
   COMMISSIONER_AUDIT_DATA,
   queryOperationalBrain,
@@ -19,7 +21,24 @@ describe('Inteligência Preditiva de 12 Semanas & Gestão de Pedidos CDA', () =>
     expect(calculateMedian(sample12Weeks)).toBe(18.5);
   });
 
-  it('deve calcular a previsão para Segunda-Feira aplicando rigorosamente a margem de +20% de segurança', () => {
+  it('deve retornar zero no Dia 1 de operação sem histórico de vendas', () => {
+    const mondayPrediction = getPredictionForDay('SEGUNDA');
+    expect(mondayPrediction.dayName).toBe('SEGUNDA');
+    expect(mondayPrediction.thawList.length).toBe(0);
+    expect(mondayPrediction.miseEnPlaceList.length).toBe(0);
+    expect(mondayPrediction.medianRevenue).toBe(0);
+    expect(mondayPrediction.medianPax).toBe(0);
+  });
+
+  it('deve calcular a previsão para Segunda-Feira aplicando rigorosamente a margem de +20% de segurança quando houver histórico', () => {
+    // Insere fixture temporária para validação do algoritmo de +20%
+    const sampleMonday = generate12WeeksForDay('SEGUNDA', 'Segunda-feira', 14200, 195, {
+      tambaqui: 32,
+      pirarucu: 28,
+      picanha: 18,
+    });
+    save12WeeksSalesHistory({ SEGUNDA: sampleMonday });
+
     const mondayPrediction = getPredictionForDay('SEGUNDA');
 
     expect(mondayPrediction.dayName).toBe('SEGUNDA');
@@ -37,6 +56,9 @@ describe('Inteligência Preditiva de 12 Semanas & Gestão de Pedidos CDA', () =>
       const expectedPortions = Math.ceil(dish.medianSales12Weeks * 1.2);
       expect(dish.recommendedPortionsWith20Pct).toBe(expectedPortions);
     });
+
+    // Limpa a fixture de teste para manter a loja 100% zerada
+    save12WeeksSalesHistory({});
   });
 
   it('deve aplicar a regra de Pedido ao CDA: Pedido = Math.max(0, Estoque Máximo - Estoque Atual)', () => {

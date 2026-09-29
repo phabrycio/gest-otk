@@ -3,7 +3,7 @@
 // Tk Gestão e Tecnologia • Unidade Engenho Manauara
 // ============================================================
 
-export const CLEAN_MODE_FLAG = 'tk_clean_mode_v6_day1_prod';
+export const CLEAN_MODE_FLAG = 'tk_clean_mode_v7_total_zero';
 
 /**
  * Zera todos os dados fictícios e mocks do armazenamento local (localStorage),
@@ -104,11 +104,12 @@ export function resetAllAppDataToZero(): void {
       ])
     );
 
-    // 13. Estoque Virtual: limpa movimentações e NFs, deixa itens com quantidade zero
-    localStorage.removeItem('tk_virtual_stock_items_v2');
+    // 13. Estoque Virtual & Preditivo 12 Semanas: zero insumos e zero histórico simulado
+    localStorage.setItem('tk_virtual_stock_items_v2', JSON.stringify([]));
     localStorage.setItem('tk_virtual_stock_movements_v2', JSON.stringify([]));
     localStorage.setItem('tk_virtual_stock_nfs_v2', JSON.stringify([]));
     localStorage.setItem('tk_virtual_stock_cda_transfers_v2', JSON.stringify([]));
+    localStorage.setItem('tk_12weeks_sales_history_v1', JSON.stringify({}));
 
     // 14. Calendário Gerencial: zero prazos
     localStorage.setItem('tk_manager_calendar_v1', JSON.stringify([]));

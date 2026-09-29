@@ -23,14 +23,9 @@ describe('Virtual Stock & 03:00 AM Nightly Sync Tests', () => {
     clearVirtualStockDataToClean();
   });
 
-  it('builds initial stock catalog based on official Engenho recipes with 0 quantity (clean slate)', () => {
+  it('builds initial stock catalog as empty on Day 1 (clean slate, no mock ruptures)', () => {
     const catalog = buildInitialStockCatalog();
-    expect(catalog.length).toBeGreaterThan(10);
-
-    const tambaqui = catalog.find((i) => i.name.toLowerCase().includes('tambaqui'));
-    expect(tambaqui).toBeDefined();
-    expect(tambaqui?.virtualQty).toBe(0);
-    expect(tambaqui?.status).toBe('RUPTURA');
+    expect(catalog.length).toBe(0);
   });
 
   it('adds items and updates cost upon receiving an AF / NF purchase invoice', () => {
