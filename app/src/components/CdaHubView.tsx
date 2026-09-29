@@ -10,13 +10,15 @@ import {
   ShieldCheck, 
   FileCheck,
   TrendingUp,
-  Calculator,
   Sparkles,
   BarChart3,
-  ArrowUpRight,
-  Info,
+  Copy,
+  Check,
+  Search,
+  ChevronDown,
   Layers,
-  Calendar
+  Calendar,
+  AlertTriangle
 } from 'lucide-react';
 import { CdaRequisition, CorporateTicket } from '../types';
 import { 
@@ -28,7 +30,7 @@ import {
 interface CdaHubViewProps {
   requisition: CdaRequisition;
   tickets: CorporateTicket[];
-  onOpenCopilot: (prompt?: string) => void;
+  onOpenCopilot?: (prompt?: string) => void;
 }
 
 export const CdaHubView: React.FC<CdaHubViewProps> = ({ requisition, tickets, onOpenCopilot }) => {
@@ -36,58 +38,103 @@ export const CdaHubView: React.FC<CdaHubViewProps> = ({ requisition, tickets, on
   const [dockTemp, setDockTemp] = useState('-19.4');
   const [dockConfirmed, setDockConfirmed] = useState(false);
   
-  // Margem de segurança fixa em 10% por padrão conforme diretriz da diretoria
+  // Margem de segurança padrão de 10%
   const [bufferPct, setBufferPct] = useState<number>(10);
-  const [isAnalyticalMode, setIsAnalyticalMode] = useState<boolean>(true);
+  const [searchQuery, setSearchQuery] = useState('');
   const [selectedItemDetail, setSelectedItemDetail] = useState<string | null>(null);
+  const [copiedSuccess, setCopiedSuccess] = useState(false);
+  const [transmittedSuccess, setTransmittedSuccess] = useState(false);
 
-  // Calcula todos os itens preditivos com base nos últimos meses + 10% de buffer
+  // Calcula todos os itens preditivos com base nos últimos meses + margem de buffer
   const calculatedItems = useMemo(() => {
     return INITIAL_PREDICTIVE_ITEMS.map((item: PredictiveOrderItem) => 
       calculatePredictiveItem(item, bufferPct)
     );
   }, [bufferPct]);
 
+  // Filtra por termo de busca
+  const filteredItems = useMemo(() => {
+    if (!searchQuery.trim()) return calculatedItems;
+    const q = searchQuery.toLowerCase();
+    return calculatedItems.filter(item => 
+      item.name.toLowerCase().includes(q) || 
+      item.code.toLowerCase().includes(q) ||
+      item.category.toLowerCase().includes(q)
+    );
+  }, [calculatedItems, searchQuery]);
+
   const totalSuggested = useMemo(() => {
     return calculatedItems.reduce((acc, curr) => acc + curr.subtotal, 0);
   }, [calculatedItems]);
 
+  const totalItemsToOrder = useMemo(() => {
+    return calculatedItems.filter(item => item.suggestedQuantity > 0).length;
+  }, [calculatedItems]);
+
+  const handleCopyOrder = () => {
+    let text = `📋 PEDIDO DE REPOSIÇÃO SEMANAL - CDA GRUPO ENGENHO\n`;
+    text += `Unidade: Engenho Manauara • Shopping Ponta Negra\n`;
+    text += `Data: ${new Date().toLocaleDateString('pt-BR')} • Margem de Segurança: +${bufferPct}%\n`;
+    text += `--------------------------------------------------\n\n`;
+
+    calculatedItems
+      .filter(i => i.suggestedQuantity > 0)
+      .forEach((item, index) => {
+        text += `${index + 1}. [${item.code}] ${item.name}\n`;
+        text += `   Estoque Atual: ${item.currentStock} ${item.unit} | Média Semanal: ${item.weeklyAverage.toFixed(1)} ${item.unit}\n`;
+        text += `   ➡️ PEDIR: ${item.suggestedQuantity} ${item.unit} (R$ ${item.subtotal.toFixed(2)})\n\n`;
+      });
+
+    text += `--------------------------------------------------\n`;
+    text += `TOTAL ESTIMADO DO PEDIDO: R$ ${totalSuggested.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}\n`;
+    text += `Horário de Corte: Hoje às 15:00 • Entrega Prevista: Sexta às 08h30 (Doca 2)\n`;
+
+    navigator.clipboard.writeText(text);
+    setCopiedSuccess(true);
+    setTimeout(() => setCopiedSuccess(false), 3000);
+  };
+
+  const handleTransmit = () => {
+    setTransmittedSuccess(true);
+    setTimeout(() => setTransmittedSuccess(false), 4000);
+  };
+
   return (
     <div className="space-y-4">
-      {/* Topo do Hub CDA */}
-      <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+      {/* Topo do Hub CDA com Abas Diretas */}
+      <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
         <div>
           <div className="flex items-center gap-2">
             <Truck className="w-5 h-5 text-[#0a2e23]" />
             <h2 className="text-base font-bold text-slate-900 font-serif">Hub CDA & Abastecimento da Matriz</h2>
           </div>
           <p className="text-xs text-slate-500 mt-0.5">
-            Logística preditiva centralizada com o Centro de Distribuição e setores corporativos do Grupo Engenho.
+            Logística preditiva centralizada com o Centro de Distribuição do Grupo Engenho.
           </p>
         </div>
 
-        {/* Sub-abas */}
-        <div className="flex items-center gap-1 p-1 bg-slate-100 rounded-xl">
+        {/* Sub-abas Limpas */}
+        <div className="flex items-center gap-1 p-1 bg-slate-100 rounded-xl w-full md:w-auto">
           <button
             onClick={() => setActiveTab('PEDIDOS')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-              activeTab === 'PEDIDOS' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-500 hover:text-slate-800'
+            className={`flex-1 md:flex-none px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+              activeTab === 'PEDIDOS' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Pedidos CDA (IA Preditiva)
           </button>
           <button
             onClick={() => setActiveTab('DOCA')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-              activeTab === 'DOCA' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-500 hover:text-slate-800'
+            className={`flex-1 md:flex-none px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+              activeTab === 'DOCA' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Recebimento Doca
           </button>
           <button
             onClick={() => setActiveTab('CHAMADOS')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-              activeTab === 'CHAMADOS' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-500 hover:text-slate-800'
+            className={`flex-1 md:flex-none px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+              activeTab === 'CHAMADOS' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Chamados Matriz
@@ -97,241 +144,236 @@ export const CdaHubView: React.FC<CdaHubViewProps> = ({ requisition, tickets, on
 
       {activeTab === 'PEDIDOS' && (
         <div className="space-y-4">
-          {/* Card de Alerta de Janela de Corte & Regra dos 10% */}
-          <div className="bg-gradient-to-r from-amber-500/15 via-amber-400/10 to-emerald-500/10 border border-amber-300 rounded-2xl p-4 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3">
-            <div className="flex items-start gap-3">
-              <div className="p-2 rounded-xl bg-amber-500/20 text-amber-800 shrink-0">
-                <Clock className="w-5 h-5 text-amber-700" />
+          {/* Feedback de Transmissão */}
+          {transmittedSuccess && (
+            <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-900 flex items-center justify-between text-xs font-bold animate-fadeIn">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+                <span>Requisição transmitida com sucesso para o Centro de Distribuição! Protocolo: CDA-2026-ENG-0891</span>
               </div>
-              <div className="space-y-0.5">
-                <div className="flex flex-wrap items-center gap-2">
-                  <h3 className="text-xs sm:text-sm font-bold text-amber-950">
-                    Horário de Corte do CDA: Hoje às 15:00
-                  </h3>
-                  <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center gap-1">
-                    <TrendingUp className="w-3 h-3" /> Regra +10% de Segurança Ativa
-                  </span>
-                </div>
-                <p className="text-xs text-amber-900/90 leading-relaxed">
-                  Garante entrega na sexta-feira às 08h30 (Doca 2) para suprir a demanda da <strong>Feijoada de Sábado</strong> e do <strong>Almoço de Domingo</strong> sem ruptura.
-                </p>
+              <span className="text-[11px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-md font-mono">
+                R$ {totalSuggested.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+              </span>
+            </div>
+          )}
+
+          {/* Cards Executivos de Resumo (Menos é Mais - Substitui os banners poluídos) */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+            <div className="bg-white p-3.5 rounded-xl border border-slate-200/80 shadow-2xs">
+              <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide block">
+                Total Sugerido CDA
+              </span>
+              <div className="text-xl sm:text-2xl font-black text-[#0a2e23] font-mono mt-0.5">
+                R$ {totalSuggested.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </div>
+              <span className="text-[10px] text-emerald-700 font-semibold flex items-center gap-1 mt-1">
+                <Check className="w-3 h-3 text-emerald-600" /> {totalItemsToOrder} insumos para reposição
+              </span>
             </div>
 
-            <div className="flex items-center gap-2 w-full sm:w-auto self-end lg:self-center">
-              <button
-                onClick={() => onOpenCopilot('Explique como o cálculo preditivo analisou os últimos 3 meses para sugerir o pedido com 10% a mais e quais os riscos de desabastecimento.')}
-                className="px-3.5 py-2 rounded-xl bg-[#0a2e23] hover:bg-[#123e30] text-white text-xs font-bold shadow-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
-              >
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                <span>Auditar com Copiloto IA</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Banner Didático da Fórmula de Cálculo */}
-          <div className="bg-emerald-950 text-white rounded-2xl p-4 border border-emerald-800 shadow-md">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
-              <div className="flex items-start gap-2.5">
-                <Calculator className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                <div className="space-y-1">
-                  <p className="text-xs font-bold text-emerald-100 flex items-center gap-2">
-                    <span>Fórmula Preditiva Homologada do Grupo Engenho:</span>
-                    <span className="px-2 py-0.2 rounded-md bg-amber-400/20 text-amber-300 text-[10px] font-mono font-bold">
-                      Demanda = (Média Semanal dos Últimos 3 Meses) × 1,10 (+10%)
-                    </span>
-                  </p>
-                  <p className="text-[11px] text-emerald-300/80 leading-relaxed">
-                    O sistema consolida as vendas dos últimos 3 meses (Junho, Julho e Agosto), extrai o consumo médio semanal de cada insumo e adiciona <strong>10% de margem contra picos de salão</strong> antes de abater o estoque em loja.
-                  </p>
-                </div>
+            <div className="bg-white p-3.5 rounded-xl border border-slate-200/80 shadow-2xs">
+              <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide block">
+                Horário de Corte
+              </span>
+              <div className="text-lg sm:text-xl font-bold text-amber-900 mt-0.5 flex items-center gap-1.5">
+                <Clock className="w-4 h-4 text-amber-600 shrink-0" />
+                <span>Hoje às 15:00</span>
               </div>
+              <span className="text-[10px] text-slate-500 block mt-1">
+                Entrega: Sexta às 08h30 (Doca 2)
+              </span>
+            </div>
 
-              {/* Controles: Seletor de Margem e Modo Analítico */}
-              <div className="flex items-center gap-2 shrink-0 self-end md:self-auto">
-                <div className="flex items-center gap-1 bg-white/10 p-1 rounded-xl border border-white/10 text-xs">
-                  <span className="text-[10px] text-emerald-200 px-1.5 font-medium">Margem:</span>
-                  <button
-                    onClick={() => setBufferPct(10)}
-                    className={`px-2 py-0.5 rounded-lg text-[11px] font-bold transition-all cursor-pointer ${
-                      bufferPct === 10 ? 'bg-amber-400 text-slate-950 shadow-xs' : 'text-emerald-100 hover:text-white'
-                    }`}
-                  >
-                    +10% (Padrão)
-                  </button>
-                  <button
-                    onClick={() => setBufferPct(15)}
-                    className={`px-2 py-0.5 rounded-lg text-[11px] font-bold transition-all cursor-pointer ${
-                      bufferPct === 15 ? 'bg-amber-400 text-slate-950 shadow-xs' : 'text-emerald-100 hover:text-white'
-                    }`}
-                    title="Recomendado em fins de semana de chuva forte ou feriado prolongado"
-                  >
-                    +15% (Pico)
-                  </button>
-                  <button
-                    onClick={() => setBufferPct(5)}
-                    className={`px-2 py-0.5 rounded-lg text-[11px] font-bold transition-all cursor-pointer ${
-                      bufferPct === 5 ? 'bg-amber-400 text-slate-950 shadow-xs' : 'text-emerald-100 hover:text-white'
-                    }`}
-                  >
-                    +5%
-                  </button>
-                </div>
+            <div className="bg-white p-3.5 rounded-xl border border-slate-200/80 shadow-2xs">
+              <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide block">
+                Margem de Proteção
+              </span>
+              <div className="text-lg sm:text-xl font-bold text-slate-900 mt-0.5 flex items-center gap-1">
+                <TrendingUp className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>+{bufferPct}% Anti-Ruptura</span>
+              </div>
+              <span className="text-[10px] text-emerald-700 font-semibold block mt-1">
+                Cobre o pico do fim de semana
+              </span>
+            </div>
+
+            <div className="bg-white p-3.5 rounded-xl border border-slate-200/80 shadow-2xs flex flex-col justify-between">
+              <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide block">
+                Ações Rápidas
+              </span>
+              <div className="flex items-center gap-1.5 mt-1">
+                <button
+                  onClick={handleCopyOrder}
+                  className={`flex-1 py-1.5 px-2.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                    copiedSuccess 
+                      ? 'bg-emerald-600 text-white shadow-xs' 
+                      : 'bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200'
+                  }`}
+                  title="Copiar lista de compras para WhatsApp do comprador"
+                >
+                  {copiedSuccess ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                  <span>{copiedSuccess ? 'Copiado!' : 'Copiar'}</span>
+                </button>
 
                 <button
-                  onClick={() => setIsAnalyticalMode(!isAnalyticalMode)}
-                  className="px-3 py-1.5 rounded-xl bg-white/15 hover:bg-white/20 text-white text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer border border-white/10"
+                  onClick={handleTransmit}
+                  className="flex-1 py-1.5 px-2.5 rounded-lg text-xs font-bold bg-[#0a2e23] hover:bg-[#123e30] text-amber-300 shadow-xs transition-all flex items-center justify-center gap-1 cursor-pointer"
+                  title="Transmitir requisição para a Matriz"
                 >
-                  <BarChart3 className="w-3.5 h-3.5 text-amber-300" />
-                  <span>{isAnalyticalMode ? 'Visão Simples' : 'Ver Vendas 3 Meses'}</span>
+                  <Send className="w-3 h-3" />
+                  <span>Enviar</span>
                 </button>
               </div>
             </div>
           </div>
 
-          {/* Tabela de Sugestão Preditiva */}
-          <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
-            <div className="p-4 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <div>
-                <h3 className="text-sm font-bold text-slate-900 font-serif flex items-center gap-2">
-                  <span>Sugestão Preditiva de Reposição Semanal</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-md font-sans font-bold bg-blue-50 text-blue-700 border border-blue-200">
-                    Base: Trimestre Passado (12 semanas)
-                  </span>
-                </h3>
-                <p className="text-xs text-slate-500 mt-0.5">
-                  Análise preditiva por insumo com <strong>+{bufferPct}%</strong> de margem de proteção contra rupturas no Shopping Ponta Negra.
-                </p>
-              </div>
-
-              <div className="text-right">
-                <span className="text-sm font-bold text-[#0a2e23]">
-                  Total do Pedido: R$ {totalSuggested.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
-                </span>
-                <span className="text-[10px] text-slate-400 block">{calculatedItems.length} insumos críticos do cardápio</span>
-              </div>
+          {/* Barra de Filtros e Margem Sem Poluição */}
+          <div className="bg-white p-3 rounded-xl border border-slate-200/80 shadow-2xs flex flex-col sm:flex-row items-center justify-between gap-2.5">
+            <div className="relative w-full sm:w-72">
+              <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Buscar insumo ou código..."
+                className="w-full pl-9 pr-3 py-1.5 rounded-lg border border-slate-200 text-xs text-slate-800 focus:outline-hidden focus:border-emerald-600"
+              />
             </div>
 
-            <div className="overflow-x-auto">
+            <div className="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-end">
+              <div className="flex items-center gap-1 text-xs">
+                <span className="text-[11px] text-slate-500 font-medium">Margem:</span>
+                <button
+                  onClick={() => setBufferPct(10)}
+                  className={`px-2 py-1 rounded-md text-xs font-bold transition-all cursor-pointer ${
+                    bufferPct === 10 ? 'bg-[#0a2e23] text-amber-300' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                  }`}
+                >
+                  +10% (Padrão)
+                </button>
+                <button
+                  onClick={() => setBufferPct(15)}
+                  className={`px-2 py-1 rounded-md text-xs font-bold transition-all cursor-pointer ${
+                    bufferPct === 15 ? 'bg-[#0a2e23] text-amber-300' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                  }`}
+                  title="Para fins de semana de pico ou feriados"
+                >
+                  +15% (Pico)
+                </button>
+              </div>
+
+              {onOpenCopilot && (
+                <button
+                  onClick={() => onOpenCopilot('Explique as sugestões de compra do CDA com base no consumo das últimas semanas e os riscos de ruptura de estoque.')}
+                  className="px-2.5 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold flex items-center gap-1 cursor-pointer"
+                  title="Auditoria com IA"
+                >
+                  <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                  <span className="hidden sm:inline">Copilot IA</span>
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Tabela de Insumos - 100% Responsiva e Limpa */}
+          <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
+            {/* Desktop Table View */}
+            <div className="hidden md:block overflow-x-auto">
               <table className="w-full text-left text-xs">
-                <thead className="bg-slate-50 text-slate-600 font-semibold border-b border-slate-200 text-[10px] uppercase tracking-wider">
+                <thead className="bg-slate-50 text-slate-600 font-semibold border-b border-slate-200 text-[11px] uppercase tracking-wider">
                   <tr>
-                    <th className="py-3 px-4">Item / Código CDA</th>
-                    {isAnalyticalMode && (
-                      <th className="py-3 px-3">Vendas Últimos 3 Meses (Jun / Jul / Ago)</th>
-                    )}
-                    <th className="py-3 px-3 text-right">Média Semanal</th>
-                    <th className="py-3 px-3 text-right bg-emerald-50/50 text-emerald-900 font-bold">
-                      Previsto (+{bufferPct}%)
-                    </th>
+                    <th className="py-3 px-4">Insumo / Código</th>
+                    <th className="py-3 px-3 text-right">Giro Semanal Médio</th>
                     <th className="py-3 px-3 text-right">Estoque Loja</th>
-                    <th className="py-3 px-3 text-right">Pedido Sugerido</th>
+                    <th className="py-3 px-3 text-right bg-emerald-50/70 text-emerald-900 font-bold">
+                      Pedido Sugerido (+{bufferPct}%)
+                    </th>
                     <th className="py-3 px-4 text-right">Subtotal</th>
+                    <th className="py-3 px-3 text-center">Status</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 text-slate-700">
-                  {calculatedItems.map((item) => {
+                  {filteredItems.map((item) => {
                     const isSelected = selectedItemDetail === item.id;
                     return (
                       <React.Fragment key={item.id}>
                         <tr 
                           onClick={() => setSelectedItemDetail(isSelected ? null : item.id)}
-                          className={`hover:bg-slate-50/80 transition-colors cursor-pointer ${
+                          className={`hover:bg-slate-50 transition-colors cursor-pointer ${
                             isSelected ? 'bg-amber-50/40' : ''
                           }`}
                         >
                           <td className="py-3 px-4">
                             <div className="flex items-center gap-2">
-                              <span className={`w-2 h-2 rounded-full ${
+                              <span className={`w-2 h-2 rounded-full shrink-0 ${
                                 item.urgency === 'CRITICA' ? 'bg-rose-500 animate-pulse' :
                                 item.urgency === 'ALTA' ? 'bg-amber-500' : 'bg-emerald-500'
                               }`} />
                               <div>
                                 <span className="font-bold text-slate-900 block">{item.name}</span>
-                                <span className="text-[10px] text-slate-400 font-mono flex items-center gap-2">
-                                  <span>{item.code}</span>
-                                  <span>&bull; Lote mín: {item.minimumPackQuantity} {item.unit}</span>
+                                <span className="text-[10px] text-slate-400 font-mono">
+                                  {item.code} &bull; Lote mín: {item.minimumPackQuantity} {item.unit}
                                 </span>
                               </div>
                             </div>
                           </td>
-
-                          {isAnalyticalMode && (
-                            <td className="py-3 px-3">
-                              <div className="flex items-center gap-1 text-[11px] font-mono">
-                                {item.monthlySales.map((m, mIdx) => (
-                                  <span key={mIdx} className="px-1.5 py-0.5 rounded-sm bg-slate-100 text-slate-600 border border-slate-200">
-                                    {m.salesQuantity.toFixed(0)}
-                                  </span>
-                                ))}
-                                <span className="text-[10px] text-slate-400 ml-1">
-                                  ({item.totalQuarterSales.toFixed(0)} {item.unit})
-                                </span>
-                              </div>
-                            </td>
-                          )}
 
                           <td className="py-3 px-3 text-right font-mono text-slate-600">
                             {item.weeklyAverage.toFixed(1)} {item.unit}
-                          </td>
-
-                          <td className="py-3 px-3 text-right font-mono font-bold text-emerald-800 bg-emerald-50/50">
-                            <div className="flex items-center justify-end gap-1">
-                              <span>{item.projectedWeeklyDemand.toFixed(1)} {item.unit}</span>
-                              <span className="text-[9px] px-1 py-0.2 rounded-sm bg-emerald-200 text-emerald-900 font-semibold">
-                                +{item.bufferQuantity.toFixed(1)}
-                              </span>
-                            </div>
                           </td>
 
                           <td className="py-3 px-3 text-right font-mono text-slate-500">
                             {item.currentStock.toFixed(1)} {item.unit}
                           </td>
 
-                          <td className="py-3 px-3 text-right">
-                            <span className="font-bold text-emerald-800 font-mono text-sm">
-                              + {item.suggestedQuantity.toFixed(1)} {item.unit}
-                            </span>
+                          <td className="py-3 px-3 text-right bg-emerald-50/70 font-mono font-bold text-emerald-900">
+                            <div className="flex items-center justify-end gap-1">
+                              <span className="text-sm">+{item.suggestedQuantity.toFixed(1)} {item.unit}</span>
+                            </div>
                           </td>
 
                           <td className="py-3 px-4 text-right font-mono font-bold text-slate-900">
                             R$ {item.subtotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                           </td>
+
+                          <td className="py-3 px-3 text-center">
+                            <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                              item.urgency === 'CRITICA' ? 'bg-rose-100 text-rose-800' :
+                              item.urgency === 'ALTA' ? 'bg-amber-100 text-amber-800' : 'bg-emerald-100 text-emerald-800'
+                            }`}>
+                              {item.urgency}
+                            </span>
+                          </td>
                         </tr>
 
-                        {/* Detalhe Expandido de Cada Item */}
+                        {/* Rationale Expansível */}
                         {isSelected && (
-                          <tr className="bg-slate-50/90 text-xs">
-                            <td colSpan={isAnalyticalMode ? 7 : 6} className="p-4 border-y border-slate-200">
-                              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 bg-white p-3 rounded-xl border border-slate-200 shadow-2xs">
-                                <div className="space-y-1 max-w-xl">
-                                  <div className="flex items-center gap-2">
+                          <tr className="bg-slate-50 text-xs">
+                            <td colSpan={6} className="p-3.5 border-y border-slate-200">
+                              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-white p-3 rounded-xl border border-slate-200">
+                                <div className="space-y-1">
+                                  <p className="text-slate-800 font-semibold text-xs flex items-center gap-1.5">
                                     <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-                                    <strong className="text-slate-800">Justificativa Operacional do Algoritmo:</strong>
-                                    <span className={`text-[10px] font-bold px-1.5 py-0.2 rounded-sm ${
-                                      item.urgency === 'CRITICA' ? 'bg-rose-100 text-rose-800' : 'bg-amber-100 text-amber-800'
-                                    }`}>
-                                      Urgência {item.urgency}
-                                    </span>
-                                  </div>
+                                    <span>Justificativa do Algoritmo de Reposição:</span>
+                                  </p>
                                   <p className="text-slate-600 text-[11px] leading-relaxed">
                                     {item.rationale}
                                   </p>
                                   <p className="text-[10px] text-slate-400 font-mono">
-                                    Memória: Média Semanal ({item.weeklyAverage.toFixed(1)}) + {bufferPct}% ({item.bufferQuantity.toFixed(1)}) = {item.projectedWeeklyDemand.toFixed(1)} - Estoque ({item.currentStock.toFixed(1)}) = Necessidade Bruta ({item.rawNeeded.toFixed(1)}) ➔ Lote Fechado: {item.suggestedQuantity.toFixed(1)} {item.unit}.
+                                    Cálculo: Média semanal ({item.weeklyAverage.toFixed(1)}) + {bufferPct}% = {item.projectedWeeklyDemand.toFixed(1)} - Estoque ({item.currentStock.toFixed(1)}) = Lote de compra: {item.suggestedQuantity.toFixed(1)} {item.unit}.
                                   </p>
                                 </div>
-
-                                <button
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    onOpenCopilot(`Analise o insumo ${item.name} (${item.code}) do Engenho Ponta Negra. Consumo semanal de ${item.weeklyAverage.toFixed(1)} ${item.unit} e estoque atual de ${item.currentStock.toFixed(1)} ${item.unit}. Vale a pena pedir mais que ${item.suggestedQuantity.toFixed(1)} ${item.unit}?`);
-                                  }}
-                                  className="px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-semibold flex items-center gap-1.5 cursor-pointer shrink-0"
-                                >
-                                  <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-                                  <span>Simular com IA</span>
-                                </button>
+                                {onOpenCopilot && (
+                                  <button
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      onOpenCopilot(`Analise o insumo ${item.name} (${item.code}). Consumo semanal de ${item.weeklyAverage.toFixed(1)} ${item.unit} e estoque atual de ${item.currentStock.toFixed(1)} ${item.unit}.`);
+                                    }}
+                                    className="px-2.5 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-semibold shrink-0 cursor-pointer"
+                                  >
+                                    Simular com IA
+                                  </button>
+                                )}
                               </div>
                             </td>
                           </tr>
@@ -340,10 +382,10 @@ export const CdaHubView: React.FC<CdaHubViewProps> = ({ requisition, tickets, on
                     );
                   })}
                 </tbody>
-                <tfoot className="bg-slate-100/90 font-bold border-t border-slate-200 text-slate-900">
+                <tfoot className="bg-slate-50 font-bold border-t border-slate-200 text-slate-900">
                   <tr>
-                    <td colSpan={isAnalyticalMode ? 5 : 4} className="py-3 px-4 text-right text-xs">
-                      Valor Total da Requisição ao CDA (com +{bufferPct}% de segurança):
+                    <td colSpan={4} className="py-3 px-4 text-right text-xs">
+                      Valor Total da Requisição ao CDA:
                     </td>
                     <td colSpan={2} className="py-3 px-4 text-right font-mono text-base text-[#0a2e23]">
                       R$ {totalSuggested.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
@@ -353,17 +395,66 @@ export const CdaHubView: React.FC<CdaHubViewProps> = ({ requisition, tickets, on
               </table>
             </div>
 
-            {/* Rodapé com Transmissão e SLA */}
-            <div className="p-4 bg-slate-50/70 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+            {/* Mobile View: Cards Verticais Compactos (Perfeito para Celulares e Tablets) */}
+            <div className="md:hidden divide-y divide-slate-100 p-2">
+              {filteredItems.map((item) => (
+                <div key={item.id} className="p-3 bg-white hover:bg-slate-50/50 rounded-xl transition-colors space-y-2">
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <span className="font-bold text-slate-900 text-xs block">{item.name}</span>
+                      <span className="text-[10px] text-slate-400 font-mono">{item.code} &bull; Lote mín: {item.minimumPackQuantity} {item.unit}</span>
+                    </div>
+                    <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full ${
+                      item.urgency === 'CRITICA' ? 'bg-rose-100 text-rose-800' :
+                      item.urgency === 'ALTA' ? 'bg-amber-100 text-amber-800' : 'bg-emerald-100 text-emerald-800'
+                    }`}>
+                      {item.urgency}
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-1.5 text-center bg-slate-50 p-2 rounded-lg text-xs font-mono">
+                    <div>
+                      <span className="text-[10px] text-slate-400 block font-sans">Estoque</span>
+                      <span className="font-bold text-slate-700">{item.currentStock} {item.unit}</span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-slate-400 block font-sans">Consumo</span>
+                      <span className="font-bold text-slate-700">{item.weeklyAverage.toFixed(1)}</span>
+                    </div>
+                    <div className="bg-emerald-100/60 rounded py-0.5">
+                      <span className="text-[10px] text-emerald-800 font-bold block font-sans">Pedir</span>
+                      <span className="font-black text-emerald-900">+{item.suggestedQuantity} {item.unit}</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between text-xs pt-0.5">
+                    <span className="text-[11px] text-slate-500">Custo estimado:</span>
+                    <span className="font-bold font-mono text-slate-900">
+                      R$ {item.subtotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                    </span>
+                  </div>
+                </div>
+              ))}
+
+              <div className="p-3 bg-slate-100 rounded-xl mt-2 flex items-center justify-between text-xs font-bold">
+                <span>Total Estimado do Pedido:</span>
+                <span className="text-base text-[#0a2e23] font-mono">
+                  R$ {totalSuggested.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                </span>
+              </div>
+            </div>
+
+            {/* Rodapé com Botão de Transmissão */}
+            <div className="p-4 bg-slate-50 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
               <div className="text-xs text-slate-600 flex items-center gap-1.5">
-                <Truck className="w-4 h-4 text-emerald-700" />
-                <span>Previsão de entrega confirmada: <strong>Sexta-feira às 08h30 (Doca 2 - Shopping Ponta Negra)</strong></span>
+                <Truck className="w-4 h-4 text-emerald-700 shrink-0" />
+                <span>Previsão de entrega confirmada: <strong>Sexta-feira às 08h30 (Doca 2)</strong></span>
               </div>
               <button
-                onClick={() => alert(`Requisição CDA transmitida com sucesso para o Centro de Distribuição! Valor total: R$ ${totalSuggested.toFixed(2)}. Protocolo gerado: CDA-REQ-20260911-01.`)}
-                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#0a2e23] hover:bg-[#123e30] text-white text-xs font-bold shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
+                onClick={handleTransmit}
+                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#0a2e23] hover:bg-[#123e30] text-amber-300 text-xs font-bold shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95"
               >
-                <CheckCircle2 className="w-4 h-4 text-amber-400" />
+                <CheckCircle2 className="w-4 h-4" />
                 <span>Transmitir Requisição ao CDA</span>
               </button>
             </div>
@@ -373,7 +464,7 @@ export const CdaHubView: React.FC<CdaHubViewProps> = ({ requisition, tickets, on
 
       {activeTab === 'DOCA' && (
         <div className="space-y-4">
-          <div className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm space-y-4">
+          <div className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs space-y-4">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div>
                 <h3 className="text-sm font-bold text-slate-900">
@@ -419,7 +510,7 @@ export const CdaHubView: React.FC<CdaHubViewProps> = ({ requisition, tickets, on
             <div className="pt-2">
               <button
                 onClick={() => setDockConfirmed(true)}
-                className={`w-full py-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-md transition-all ${
+                className={`w-full py-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer ${
                   dockConfirmed
                     ? 'bg-emerald-800 text-white'
                     : 'bg-emerald-700 hover:bg-emerald-800 text-white'
@@ -438,7 +529,7 @@ export const CdaHubView: React.FC<CdaHubViewProps> = ({ requisition, tickets, on
       )}
 
       {activeTab === 'CHAMADOS' && (
-        <div className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm space-y-4">
+        <div className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs space-y-4">
           <div className="flex items-center justify-between border-b border-slate-100 pb-3">
             <div>
               <h3 className="text-sm font-bold text-slate-900">Chamados para a Matriz & Manutenção</h3>
@@ -446,7 +537,7 @@ export const CdaHubView: React.FC<CdaHubViewProps> = ({ requisition, tickets, on
             </div>
             <button
               onClick={() => alert('Novo chamado registrado para a equipe corporativa da matriz!')}
-              className="px-3 py-1.5 rounded-xl bg-[#0f392b] text-white text-xs font-bold shadow-sm"
+              className="px-3 py-1.5 rounded-xl bg-[#0a2e23] text-white text-xs font-bold shadow-xs cursor-pointer"
             >
               + Novo Chamado
             </button>

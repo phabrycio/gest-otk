@@ -116,62 +116,66 @@ export const AppTopBar: React.FC<AppTopBarProps> = ({
           </div>
         </div>
 
-        {/* LADO DIREITO: Ações Rápidas & Status */}
-        <div className="flex items-center gap-2 shrink-0">
-          {/* Status Teknisa */}
+        {/* LADO DIREITO: Ações Rápidas & Status - Limpo e Responsivo */}
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          {/* Status Teknisa - Compacto e Elegante */}
           <button
             onClick={() => setShowTeknisaModal(true)}
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold border border-slate-200/80 transition-colors shadow-2xs cursor-pointer"
-            title="Clique para importar ou verificar carga Teknisa"
+            className="flex items-center gap-1.5 px-2 py-1.5 sm:px-2.5 sm:py-1.5 rounded-xl text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold border border-slate-200/80 transition-colors shadow-2xs cursor-pointer"
+            title="Status de Carga Teknisa (Clique para detalhes/importação)"
+            aria-label="Status Teknisa"
           >
             <span
               className={`w-2 h-2 rounded-full shrink-0 ${
                 feedStatus.totalSalesRows === 0 ? 'bg-amber-500' : 'bg-emerald-500 animate-pulse'
               }`}
             />
-            <span className="hidden lg:inline text-[11px] text-slate-500">Teknisa:</span>
-            <span className="text-[11px] font-bold text-slate-800">
-              {feedStatus.totalSalesRows === 0 ? 'Aguardando Carga' : 'Carga Ativa'}
+            <span className="hidden xl:inline text-[11px] text-slate-500">Teknisa:</span>
+            <span className="hidden sm:inline text-[11px] font-bold text-slate-800">
+              {feedStatus.totalSalesRows === 0 ? 'Aguardando' : 'Ativo'}
             </span>
           </button>
 
-          {/* Dossiê ANVISA (Desktop) */}
+          {/* Dossiê ANVISA (Desktop/Tablet) */}
           <button
             onClick={onOpenAnvisa}
-            className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs bg-blue-50 hover:bg-blue-100 text-blue-800 font-bold border border-blue-200/80 transition-colors cursor-pointer"
+            className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs bg-blue-50 hover:bg-blue-100 text-blue-800 font-bold border border-blue-200/80 transition-colors cursor-pointer"
             title="Dossiê de Boas Práticas Sanitárias ANVISA"
+            aria-label="Dossiê ANVISA"
           >
             <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
-            <span className="text-[11px] hidden xl:inline">ANVISA</span>
+            <span className="text-[11px] hidden lg:inline">ANVISA</span>
           </button>
 
           {/* Cardápio Digital do Cliente (Mesa / QR Code) */}
           {onOpenCustomerMenu && (
             <button
               onClick={onOpenCustomerMenu}
-              className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs bg-[#0a2e23] hover:bg-[#124b3a] text-amber-300 font-bold border border-emerald-700/60 transition-all shadow-xs cursor-pointer active:scale-95"
+              className="flex items-center gap-1.5 px-2 py-1.5 sm:px-3 sm:py-1.5 rounded-xl text-xs bg-[#0a2e23] hover:bg-[#124b3a] text-amber-300 font-bold border border-emerald-700/60 transition-all shadow-xs cursor-pointer active:scale-95"
               title="Abrir Cardápio Digital do Cliente (Mesa / QR Code)"
+              aria-label="Cardápio Digital do Cliente"
             >
               <QrCode className="w-3.5 h-3.5 text-amber-400" />
-              <span className="text-[11px] hidden md:inline">Menu Cliente (QR)</span>
+              <span className="text-[11px] hidden sm:inline">Menu Cliente</span>
             </button>
           )}
 
           {/* Alternador de Turno */}
           <button
             onClick={onToggleShift}
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-800 font-bold transition-all cursor-pointer active:scale-95"
+            className="flex items-center gap-1 px-2 py-1.5 sm:px-2.5 sm:py-1.5 rounded-xl text-xs bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-800 font-bold transition-all cursor-pointer active:scale-95"
             title="Alternar entre Turno de Almoço e Jantar"
+            aria-label="Alternar Turno da Loja"
           >
             {isAlmoco ? (
               <>
                 <Sun className="w-3.5 h-3.5 text-amber-500" />
-                <span className="text-[11px]">Almoço</span>
+                <span className="text-[11px] hidden sm:inline">Almoço</span>
               </>
             ) : (
               <>
                 <Moon className="w-3.5 h-3.5 text-blue-500" />
-                <span className="text-[11px]">Jantar</span>
+                <span className="text-[11px] hidden sm:inline">Jantar</span>
               </>
             )}
           </button>
@@ -181,13 +185,14 @@ export const AppTopBar: React.FC<AppTopBarProps> = ({
             onClick={onOpenPinModal}
             className="flex items-center gap-1.5 p-1 sm:px-2.5 sm:py-1 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-800 transition-colors cursor-pointer"
             title="Trocar operador por PIN"
+            aria-label="Trocar Operador"
           >
             <div
               className={`w-6 h-6 rounded-lg flex items-center justify-center text-[10px] font-black shrink-0 ${currentOperator.badgeColor}`}
             >
               {currentOperator.name.charAt(0)}
             </div>
-            <span className="hidden sm:inline text-xs font-bold text-slate-800 truncate max-w-[80px]">
+            <span className="hidden sm:inline text-xs font-bold text-slate-800 truncate max-w-[70px]">
               {currentOperator.name}
             </span>
             <Lock className="w-3 h-3 text-slate-400 hidden sm:inline" />

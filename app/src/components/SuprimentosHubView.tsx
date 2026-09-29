@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Package, Truck, UtensilsCrossed, Cpu, Beer } from 'lucide-react';
+import { Package, Truck, UtensilsCrossed, Cpu } from 'lucide-react';
 import { InventoryView } from './InventoryView';
 import { CdaHubView } from './CdaHubView';
 import { TechnicalRecipesView } from './TechnicalRecipesView';
 import VirtualStockView from './VirtualStockView';
-import ChoppBarView from './bar/ChoppBarView';
 import { WeeklySalesPredictionView } from './WeeklySalesPredictionView';
 import { InventoryItem, StockLoss, CdaRequisition, CorporateTicket } from '../types';
 
@@ -13,7 +12,7 @@ interface SuprimentosHubViewProps {
   losses: StockLoss[];
   requisition: CdaRequisition;
   tickets: CorporateTicket[];
-  initialSubView?: 'VIRTUAL' | 'PEDIDO_MAXIMO_CDA' | 'CHOPP_BAR' | 'ESTOQUE' | 'CDA' | 'FICHAS';
+  initialSubView?: 'CDA' | 'ESTOQUE' | 'VIRTUAL' | 'PEDIDO_MAXIMO_CDA' | 'FICHAS';
   onAddLoss: (loss: Omit<StockLoss, 'id' | 'time'>) => void;
   onUpdateStock: (id: string, newStock: number) => void;
   onOpenCopilot: (prompt?: string) => void;
@@ -24,12 +23,12 @@ export const SuprimentosHubView: React.FC<SuprimentosHubViewProps> = ({
   losses,
   requisition,
   tickets,
-  initialSubView = 'VIRTUAL',
+  initialSubView = 'CDA',
   onAddLoss,
   onUpdateStock,
   onOpenCopilot,
 }) => {
-  const [subView, setSubView] = useState<'VIRTUAL' | 'PEDIDO_MAXIMO_CDA' | 'CHOPP_BAR' | 'ESTOQUE' | 'CDA' | 'FICHAS'>(initialSubView);
+  const [subView, setSubView] = useState<'CDA' | 'ESTOQUE' | 'VIRTUAL' | 'PEDIDO_MAXIMO_CDA' | 'FICHAS'>(initialSubView);
 
   React.useEffect(() => {
     if (initialSubView) {
@@ -39,92 +38,81 @@ export const SuprimentosHubView: React.FC<SuprimentosHubViewProps> = ({
 
   return (
     <div className="space-y-4">
-      {/* Seletor Segmentado de Suprimentos & Bar */}
-      <div className="bg-slate-100 p-1 rounded-xl border border-slate-200 shadow-xs flex items-center justify-center max-w-3xl mx-auto overflow-x-auto gap-1">
+      {/* Seletor Segmentado Limpo, Focado e Totalmente Responsivo */}
+      <div className="bg-slate-100 p-1.5 rounded-2xl border border-slate-200/80 shadow-2xs flex items-center justify-start sm:justify-center overflow-x-auto gap-1.5 scrollbar-none">
+        <button
+          onClick={() => setSubView('CDA')}
+          className={`py-2 px-3.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap shrink-0 ${
+            subView === 'CDA'
+              ? 'bg-[#0a2e23] text-amber-300 shadow-xs'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+          }`}
+          aria-label="Hub CDA & Doca"
+        >
+          <Truck className="w-3.5 h-3.5" />
+          <span>Hub CDA & Doca</span>
+        </button>
+
+        <button
+          onClick={() => setSubView('ESTOQUE')}
+          className={`py-2 px-3.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap shrink-0 ${
+            subView === 'ESTOQUE'
+              ? 'bg-[#0a2e23] text-amber-300 shadow-xs'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+          }`}
+          aria-label="Estoque Curva A & Perdas"
+        >
+          <Package className="w-3.5 h-3.5" />
+          <span>Estoque Curva A & Perdas</span>
+        </button>
+
+        <button
+          onClick={() => setSubView('FICHAS')}
+          className={`py-2 px-3.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap shrink-0 ${
+            subView === 'FICHAS'
+              ? 'bg-[#0a2e23] text-amber-300 shadow-xs'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+          }`}
+          aria-label="Fichas Técnicas & Cardápio"
+        >
+          <UtensilsCrossed className="w-3.5 h-3.5" />
+          <span>Fichas Técnicas & Cardápio</span>
+        </button>
+
         <button
           onClick={() => setSubView('VIRTUAL')}
-          className={`flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap ${
+          className={`py-2 px-3.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap shrink-0 ${
             subView === 'VIRTUAL'
-              ? 'bg-white text-slate-900 shadow-xs'
-              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50/50'
+              ? 'bg-[#0a2e23] text-amber-300 shadow-xs'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
           }`}
+          aria-label="Estoque Teórico"
         >
-          <Cpu className="w-3.5 h-3.5 text-slate-700" />
+          <Cpu className="w-3.5 h-3.5" />
           <span>Estoque Teórico</span>
         </button>
 
         <button
           onClick={() => setSubView('PEDIDO_MAXIMO_CDA')}
-          className={`flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap ${
+          className={`py-2 px-3.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap shrink-0 ${
             subView === 'PEDIDO_MAXIMO_CDA'
-              ? 'bg-white text-slate-900 shadow-xs ring-1 ring-slate-300'
-              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50/50'
+              ? 'bg-[#0a2e23] text-amber-300 shadow-xs'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
           }`}
-          title="Regra: Pedido ao CDA = Estoque Máximo (-) Estoque Atual"
+          aria-label="Pedido Máximo CDA (12 Sem.)"
         >
-          <Package className="w-3.5 h-3.5 text-indigo-600" />
-          <span>Pedido Máximo CDA (12 Sem.)</span>
-        </button>
-
-        <button
-          onClick={() => setSubView('CHOPP_BAR')}
-          className={`flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap ${
-            subView === 'CHOPP_BAR'
-              ? 'bg-white text-slate-900 shadow-xs'
-              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50/50'
-          }`}
-        >
-          <Beer className="w-3.5 h-3.5 text-amber-600" />
-          <span>Bar & Chopeiras</span>
-        </button>
-
-        <button
-          onClick={() => setSubView('ESTOQUE')}
-          className={`flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap ${
-            subView === 'ESTOQUE'
-              ? 'bg-white text-slate-900 shadow-xs'
-              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50/50'
-          }`}
-        >
-          <Package className="w-3.5 h-3.5 text-slate-700" />
-          <span>Estoque Curva A & Perdas</span>
-        </button>
-
-        <button
-          onClick={() => setSubView('CDA')}
-          className={`flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap ${
-            subView === 'CDA'
-              ? 'bg-white text-slate-900 shadow-xs'
-              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50/50'
-          }`}
-        >
-          <Truck className="w-3.5 h-3.5 text-slate-700" />
-          <span>Hub CDA & Doca</span>
-        </button>
-
-        <button
-          onClick={() => setSubView('FICHAS')}
-          className={`flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap ${
-            subView === 'FICHAS'
-              ? 'bg-white text-slate-900 shadow-xs'
-              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50/50'
-          }`}
-        >
-          <UtensilsCrossed className="w-3.5 h-3.5 text-slate-700" />
-          <span>Fichas Técnicas & Cardápio</span>
+          <Package className="w-3.5 h-3.5" />
+          <span>Pedido Máximo (12 Sem.)</span>
         </button>
       </div>
 
-      {subView === 'VIRTUAL' && (
-        <VirtualStockView />
-      )}
-
-      {subView === 'PEDIDO_MAXIMO_CDA' && (
-        <WeeklySalesPredictionView onOpenCopilot={onOpenCopilot} />
-      )}
-
-      {subView === 'CHOPP_BAR' && (
-        <ChoppBarView />
+      {/* Conteúdo Dinâmico Limpo */}
+      {subView === 'CDA' && (
+        <CdaHubView
+          requisition={requisition}
+          tickets={tickets}
+          onOpenCopilot={onOpenCopilot}
+        />
       )}
 
       {subView === 'ESTOQUE' && (
@@ -137,18 +125,18 @@ export const SuprimentosHubView: React.FC<SuprimentosHubViewProps> = ({
         />
       )}
 
-      {subView === 'CDA' && (
-        <CdaHubView
-          requisition={requisition}
-          tickets={tickets}
-          onOpenCopilot={onOpenCopilot}
-        />
-      )}
-
       {subView === 'FICHAS' && (
         <TechnicalRecipesView
           onOpenCopilot={onOpenCopilot}
         />
+      )}
+
+      {subView === 'VIRTUAL' && (
+        <VirtualStockView />
+      )}
+
+      {subView === 'PEDIDO_MAXIMO_CDA' && (
+        <WeeklySalesPredictionView onOpenCopilot={onOpenCopilot} />
       )}
     </div>
   );
