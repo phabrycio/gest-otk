@@ -150,13 +150,14 @@ export function getAllowedTabsForUser(user: UserAccount | null): string[] {
 
   // Chefe de Cozinha / Subchefe
   if (role === 'CHEFE_COZINHA' || role === 'SUB_CHEFE_COZINHA' || role === 'SUBCHEFE') {
-    return ['cozinha_dashboard', 'suprimentos', 'camara', 'operacao', 'cardapio_cliente'];
+    return ['cozinha_dashboard', 'inteligencia_vendas', 'suprimentos', 'camara', 'operacao', 'cardapio_cliente'];
   }
 
   // Supervisora de Loja (Acesso 75)
   if (role === 'SUPERVISOR' || role === 'SUPERVISORA') {
     return [
       'supervisor_dashboard',
+      'inteligencia_vendas',
       'fila_espera',
       'operacao',
       'suprimentos',
@@ -172,6 +173,7 @@ export function getAllowedTabsForUser(user: UserAccount | null): string[] {
   if (role === 'GERENTE') {
     return [
       'gestao',
+      'inteligencia_vendas',
       'financeiro',
       'gerente_auditoria',
       'calendario',
@@ -192,6 +194,7 @@ export function getAllowedTabsForUser(user: UserAccount | null): string[] {
   // Donos & Criador Master (Acesso 100)
   return [
     'gestao',
+    'inteligencia_vendas',
     'financeiro',
     'gerente_auditoria',
     'supervisor_dashboard',

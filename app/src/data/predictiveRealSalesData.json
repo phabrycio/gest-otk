@@ -1,0 +1,1895 @@
+{
+  "weeklyHistory": {
+    "SEGUNDA": {
+      "dayName": "SEGUNDA",
+      "dayLabel": "Segunda-feira",
+      "historical12WeeksSales": [
+        {
+          "weekNumber": 1,
+          "date": "13/07/2026",
+          "totalRevenue": 15926,
+          "pax": 189,
+          "dishSales": {
+            "chopp_heineken": 68,
+            "camarao": 10,
+            "carne_de_sol": 29,
+            "cartola": 6,
+            "chopp_amstel": 43,
+            "costela_tambaqui": 4,
+            "joelho": 1,
+            "caipirinha": 27,
+            "pasteis": 11,
+            "picanha": 2,
+            "pirarucu": 7
+          }
+        },
+        {
+          "weekNumber": 2,
+          "date": "20/07/2026",
+          "totalRevenue": 21144,
+          "pax": 246,
+          "dishSales": {
+            "camarao": 13,
+            "picanha": 6,
+            "chopp_amstel": 82,
+            "caipirinha": 34,
+            "pasteis": 8,
+            "chopp_heineken": 106,
+            "carne_de_sol": 37,
+            "joelho": 5,
+            "pirarucu": 12,
+            "cartola": 10,
+            "costela_tambaqui": 9,
+            "dadinho": 1
+          }
+        },
+        {
+          "weekNumber": 3,
+          "date": "27/07/2026",
+          "totalRevenue": 16335,
+          "pax": 202,
+          "dishSales": {
+            "pasteis": 9,
+            "carne_de_sol": 36,
+            "chopp_amstel": 70,
+            "picanha": 5,
+            "camarao": 6,
+            "pirarucu": 3,
+            "chopp_heineken": 75,
+            "costela_tambaqui": 5,
+            "caipirinha": 14,
+            "cartola": 7,
+            "joelho": 2,
+            "dadinho": 1
+          }
+        },
+        {
+          "weekNumber": 4,
+          "date": "03/08/2026",
+          "totalRevenue": 26491,
+          "pax": 299,
+          "dishSales": {
+            "camarao": 13,
+            "pirarucu": 11,
+            "chopp_heineken": 374,
+            "chopp_amstel": 5,
+            "caipirinha": 40,
+            "pasteis": 13,
+            "carne_de_sol": 50,
+            "joelho": 8,
+            "cartola": 16,
+            "costela_tambaqui": 8,
+            "picanha": 2
+          }
+        },
+        {
+          "weekNumber": 5,
+          "date": "10/08/2026",
+          "totalRevenue": 17619,
+          "pax": 202,
+          "dishSales": {
+            "chopp_amstel": 59,
+            "carne_de_sol": 35,
+            "caipirinha": 26,
+            "chopp_heineken": 81,
+            "pirarucu": 6,
+            "costela_tambaqui": 7,
+            "pasteis": 7,
+            "camarao": 6,
+            "picanha": 7,
+            "joelho": 2,
+            "cartola": 10
+          }
+        },
+        {
+          "weekNumber": 6,
+          "date": "17/08/2026",
+          "totalRevenue": 16030,
+          "pax": 218,
+          "dishSales": {
+            "pasteis": 9,
+            "cartola": 5,
+            "carne_de_sol": 36,
+            "chopp_heineken": 92,
+            "joelho": 6,
+            "chopp_amstel": 60,
+            "caipirinha": 34,
+            "pirarucu": 3,
+            "camarao": 8,
+            "costela_tambaqui": 3
+          }
+        },
+        {
+          "weekNumber": 7,
+          "date": "24/08/2026",
+          "totalRevenue": 21958,
+          "pax": 216,
+          "dishSales": {
+            "cartola": 5,
+            "carne_de_sol": 34,
+            "caipirinha": 17,
+            "pasteis": 11,
+            "chopp_amstel": 116,
+            "chopp_heineken": 96,
+            "camarao": 5,
+            "costela_tambaqui": 6,
+            "joelho": 5,
+            "pirarucu": 7,
+            "picanha": 8
+          }
+        },
+        {
+          "weekNumber": 8,
+          "date": "31/08/2026",
+          "totalRevenue": 18307,
+          "pax": 233,
+          "dishSales": {
+            "carne_de_sol": 44,
+            "cartola": 12,
+            "camarao": 15,
+            "chopp_amstel": 132,
+            "pirarucu": 9,
+            "chopp_heineken": 50,
+            "caipirinha": 21,
+            "pasteis": 4,
+            "picanha": 4,
+            "costela_tambaqui": 3,
+            "joelho": 4
+          }
+        },
+        {
+          "weekNumber": 9,
+          "date": "07/09/2026",
+          "totalRevenue": 39734,
+          "pax": 444,
+          "dishSales": {
+            "chopp_heineken": 198,
+            "carne_de_sol": 67,
+            "joelho": 8,
+            "chopp_amstel": 121,
+            "caipirinha": 28,
+            "costela_tambaqui": 9,
+            "camarao": 23,
+            "pirarucu": 7,
+            "pasteis": 7,
+            "picanha": 11
+          }
+        },
+        {
+          "weekNumber": 10,
+          "date": "14/09/2026",
+          "totalRevenue": 20746,
+          "pax": 246,
+          "dishSales": {
+            "chopp_amstel": 121,
+            "chopp_heineken": 82,
+            "carne_de_sol": 35,
+            "caipirinha": 23,
+            "pasteis": 7,
+            "camarao": 9,
+            "joelho": 6,
+            "cartola": 3,
+            "dadinho": 1,
+            "pirarucu": 5,
+            "picanha": 3,
+            "costela_tambaqui": 1
+          }
+        },
+        {
+          "weekNumber": 11,
+          "date": "21/09/2026",
+          "totalRevenue": 16734,
+          "pax": 209,
+          "dishSales": {
+            "pasteis": 20,
+            "cartola": 9,
+            "chopp_heineken": 63,
+            "carne_de_sol": 38,
+            "chopp_amstel": 106,
+            "caipirinha": 14,
+            "camarao": 9,
+            "costela_tambaqui": 6,
+            "joelho": 5,
+            "picanha": 2,
+            "pirarucu": 1
+          }
+        },
+        {
+          "weekNumber": 12,
+          "date": "28/09/2026",
+          "totalRevenue": 16113,
+          "pax": 198,
+          "dishSales": {
+            "carne_de_sol": 42,
+            "chopp_heineken": 66,
+            "cartola": 19,
+            "pasteis": 6,
+            "caipirinha": 18,
+            "chopp_amstel": 47,
+            "pirarucu": 10,
+            "costela_tambaqui": 6,
+            "camarao": 14,
+            "joelho": 1,
+            "picanha": 3
+          }
+        }
+      ]
+    },
+    "TERCA": {
+      "dayName": "TERCA",
+      "dayLabel": "Terça-feira",
+      "historical12WeeksSales": [
+        {
+          "weekNumber": 1,
+          "date": "07/07/2026",
+          "totalRevenue": 22396,
+          "pax": 255,
+          "dishSales": {
+            "cartola": 15,
+            "chopp_amstel": 111,
+            "carne_de_sol": 41,
+            "costela_tambaqui": 11,
+            "caipirinha": 25,
+            "chopp_heineken": 94,
+            "camarao": 16,
+            "joelho": 6,
+            "pirarucu": 5,
+            "pasteis": 10,
+            "picanha": 6
+          }
+        },
+        {
+          "weekNumber": 2,
+          "date": "14/07/2026",
+          "totalRevenue": 17576,
+          "pax": 196,
+          "dishSales": {
+            "carne_de_sol": 33,
+            "cartola": 14,
+            "camarao": 14,
+            "chopp_heineken": 75,
+            "caipirinha": 14,
+            "pasteis": 11,
+            "chopp_amstel": 77,
+            "joelho": 5,
+            "pirarucu": 6,
+            "picanha": 2,
+            "costela_tambaqui": 3
+          }
+        },
+        {
+          "weekNumber": 3,
+          "date": "21/07/2026",
+          "totalRevenue": 15098,
+          "pax": 227,
+          "dishSales": {
+            "cartola": 12,
+            "carne_de_sol": 43,
+            "chopp_amstel": 64,
+            "pasteis": 7,
+            "dadinho": 1,
+            "pirarucu": 5,
+            "chopp_heineken": 89,
+            "joelho": 3,
+            "caipirinha": 13,
+            "costela_tambaqui": 7,
+            "camarao": 5,
+            "picanha": 2
+          }
+        },
+        {
+          "weekNumber": 4,
+          "date": "28/07/2026",
+          "totalRevenue": 22245,
+          "pax": 238,
+          "dishSales": {
+            "cartola": 6,
+            "carne_de_sol": 44,
+            "chopp_heineken": 78,
+            "chopp_amstel": 80,
+            "picanha": 11,
+            "camarao": 12,
+            "joelho": 11,
+            "pasteis": 14,
+            "caipirinha": 19,
+            "pirarucu": 5,
+            "costela_tambaqui": 6,
+            "dadinho": 1
+          }
+        },
+        {
+          "weekNumber": 5,
+          "date": "04/08/2026",
+          "totalRevenue": 18654,
+          "pax": 249,
+          "dishSales": {
+            "cartola": 23,
+            "carne_de_sol": 51,
+            "pasteis": 20,
+            "caipirinha": 16,
+            "costela_tambaqui": 5,
+            "chopp_heineken": 49,
+            "chopp_amstel": 67,
+            "camarao": 15,
+            "pirarucu": 4,
+            "joelho": 5,
+            "picanha": 4
+          }
+        },
+        {
+          "weekNumber": 6,
+          "date": "11/08/2026",
+          "totalRevenue": 29257,
+          "pax": 315,
+          "dishSales": {
+            "chopp_heineken": 138,
+            "pasteis": 29,
+            "cartola": 27,
+            "pirarucu": 15,
+            "costela_tambaqui": 11,
+            "camarao": 21,
+            "carne_de_sol": 73,
+            "picanha": 9,
+            "chopp_amstel": 82,
+            "caipirinha": 12,
+            "joelho": 9
+          }
+        },
+        {
+          "weekNumber": 7,
+          "date": "18/08/2026",
+          "totalRevenue": 19418,
+          "pax": 227,
+          "dishSales": {
+            "pirarucu": 10,
+            "chopp_amstel": 106,
+            "carne_de_sol": 41,
+            "joelho": 4,
+            "caipirinha": 23,
+            "chopp_heineken": 65,
+            "picanha": 5,
+            "costela_tambaqui": 5,
+            "pasteis": 10,
+            "camarao": 5,
+            "cartola": 14
+          }
+        },
+        {
+          "weekNumber": 8,
+          "date": "25/08/2026",
+          "totalRevenue": 17613,
+          "pax": 266,
+          "dishSales": {
+            "chopp_amstel": 76,
+            "camarao": 7,
+            "carne_de_sol": 49,
+            "pasteis": 15,
+            "caipirinha": 11,
+            "chopp_heineken": 129,
+            "pirarucu": 6,
+            "costela_tambaqui": 8,
+            "cartola": 14,
+            "joelho": 6,
+            "picanha": 1
+          }
+        },
+        {
+          "weekNumber": 9,
+          "date": "01/09/2026",
+          "totalRevenue": 19620,
+          "pax": 222,
+          "dishSales": {
+            "carne_de_sol": 39,
+            "pirarucu": 5,
+            "cartola": 14,
+            "costela_tambaqui": 7,
+            "chopp_amstel": 58,
+            "chopp_heineken": 129,
+            "joelho": 11,
+            "caipirinha": 10,
+            "pasteis": 4,
+            "camarao": 7,
+            "picanha": 3
+          }
+        },
+        {
+          "weekNumber": 10,
+          "date": "08/09/2026",
+          "totalRevenue": 17813,
+          "pax": 231,
+          "dishSales": {
+            "carne_de_sol": 44,
+            "camarao": 6,
+            "chopp_heineken": 97,
+            "pirarucu": 6,
+            "caipirinha": 19,
+            "chopp_amstel": 116,
+            "joelho": 4,
+            "cartola": 8,
+            "picanha": 2,
+            "pasteis": 7,
+            "costela_tambaqui": 1
+          }
+        },
+        {
+          "weekNumber": 11,
+          "date": "15/09/2026",
+          "totalRevenue": 24822,
+          "pax": 286,
+          "dishSales": {
+            "carne_de_sol": 41,
+            "pasteis": 11,
+            "pirarucu": 7,
+            "chopp_heineken": 119,
+            "camarao": 15,
+            "costela_tambaqui": 5,
+            "chopp_amstel": 145,
+            "caipirinha": 42,
+            "cartola": 9,
+            "picanha": 5,
+            "joelho": 9
+          }
+        },
+        {
+          "weekNumber": 12,
+          "date": "22/09/2026",
+          "totalRevenue": 23656,
+          "pax": 323,
+          "dishSales": {
+            "camarao": 8,
+            "pasteis": 14,
+            "carne_de_sol": 47,
+            "picanha": 6,
+            "chopp_heineken": 123,
+            "costela_tambaqui": 7,
+            "chopp_amstel": 92,
+            "caipirinha": 33,
+            "joelho": 6,
+            "pirarucu": 5,
+            "cartola": 11
+          }
+        }
+      ]
+    },
+    "QUARTA": {
+      "dayName": "QUARTA",
+      "dayLabel": "Quarta-feira (Noite de Chopp)",
+      "historical12WeeksSales": [
+        {
+          "weekNumber": 1,
+          "date": "08/07/2026",
+          "totalRevenue": 20962,
+          "pax": 229,
+          "dishSales": {
+            "pirarucu": 7,
+            "chopp_heineken": 131,
+            "pasteis": 11,
+            "cartola": 10,
+            "camarao": 12,
+            "carne_de_sol": 48,
+            "chopp_amstel": 67,
+            "joelho": 8,
+            "costela_tambaqui": 3,
+            "caipirinha": 33
+          }
+        },
+        {
+          "weekNumber": 2,
+          "date": "15/07/2026",
+          "totalRevenue": 22674,
+          "pax": 297,
+          "dishSales": {
+            "carne_de_sol": 38,
+            "camarao": 5,
+            "chopp_amstel": 148,
+            "chopp_heineken": 127,
+            "caipirinha": 24,
+            "joelho": 7,
+            "cartola": 4,
+            "costela_tambaqui": 2,
+            "pasteis": 12,
+            "picanha": 5,
+            "pirarucu": 4
+          }
+        },
+        {
+          "weekNumber": 3,
+          "date": "22/07/2026",
+          "totalRevenue": 19712,
+          "pax": 196,
+          "dishSales": {
+            "carne_de_sol": 34,
+            "chopp_amstel": 120,
+            "camarao": 8,
+            "chopp_heineken": 87,
+            "joelho": 7,
+            "caipirinha": 28,
+            "costela_tambaqui": 3,
+            "pasteis": 13,
+            "picanha": 3,
+            "cartola": 1,
+            "pirarucu": 4
+          }
+        },
+        {
+          "weekNumber": 4,
+          "date": "29/07/2026",
+          "totalRevenue": 26891,
+          "pax": 361,
+          "dishSales": {
+            "chopp_heineken": 105,
+            "pirarucu": 12,
+            "carne_de_sol": 56,
+            "costela_tambaqui": 6,
+            "chopp_amstel": 128,
+            "caipirinha": 69,
+            "pasteis": 27,
+            "camarao": 17,
+            "picanha": 4,
+            "cartola": 4,
+            "joelho": 8
+          }
+        },
+        {
+          "weekNumber": 5,
+          "date": "05/08/2026",
+          "totalRevenue": 25809,
+          "pax": 332,
+          "dishSales": {
+            "cartola": 14,
+            "carne_de_sol": 42,
+            "costela_tambaqui": 9,
+            "caipirinha": 22,
+            "pasteis": 23,
+            "chopp_amstel": 83,
+            "chopp_heineken": 146,
+            "pirarucu": 4,
+            "camarao": 10,
+            "joelho": 4,
+            "picanha": 2
+          }
+        },
+        {
+          "weekNumber": 6,
+          "date": "12/08/2026",
+          "totalRevenue": 24665,
+          "pax": 249,
+          "dishSales": {
+            "cartola": 22,
+            "chopp_heineken": 107,
+            "carne_de_sol": 56,
+            "costela_tambaqui": 11,
+            "pirarucu": 2,
+            "joelho": 5,
+            "camarao": 13,
+            "chopp_amstel": 94,
+            "caipirinha": 11,
+            "pasteis": 10,
+            "picanha": 5
+          }
+        },
+        {
+          "weekNumber": 7,
+          "date": "19/08/2026",
+          "totalRevenue": 20307,
+          "pax": 222,
+          "dishSales": {
+            "carne_de_sol": 40,
+            "pirarucu": 9,
+            "cartola": 10,
+            "camarao": 14,
+            "chopp_heineken": 158,
+            "chopp_amstel": 76,
+            "joelho": 6,
+            "caipirinha": 32,
+            "picanha": 8,
+            "costela_tambaqui": 6,
+            "pasteis": 12
+          }
+        },
+        {
+          "weekNumber": 8,
+          "date": "26/08/2026",
+          "totalRevenue": 23947,
+          "pax": 251,
+          "dishSales": {
+            "camarao": 18,
+            "carne_de_sol": 48,
+            "caipirinha": 33,
+            "chopp_amstel": 142,
+            "chopp_heineken": 89,
+            "pasteis": 18,
+            "joelho": 9,
+            "pirarucu": 10,
+            "costela_tambaqui": 3,
+            "cartola": 16,
+            "picanha": 1
+          }
+        },
+        {
+          "weekNumber": 9,
+          "date": "02/09/2026",
+          "totalRevenue": 22294,
+          "pax": 246,
+          "dishSales": {
+            "carne_de_sol": 44,
+            "chopp_amstel": 88,
+            "chopp_heineken": 107,
+            "costela_tambaqui": 12,
+            "picanha": 5,
+            "camarao": 16,
+            "pasteis": 21,
+            "joelho": 7,
+            "caipirinha": 13,
+            "cartola": 11,
+            "pirarucu": 2
+          }
+        },
+        {
+          "weekNumber": 10,
+          "date": "09/09/2026",
+          "totalRevenue": 24293,
+          "pax": 264,
+          "dishSales": {
+            "cartola": 21,
+            "chopp_heineken": 141,
+            "costela_tambaqui": 5,
+            "carne_de_sol": 59,
+            "chopp_amstel": 113,
+            "picanha": 7,
+            "camarao": 11,
+            "pasteis": 11,
+            "pirarucu": 11,
+            "joelho": 9,
+            "caipirinha": 11
+          }
+        },
+        {
+          "weekNumber": 11,
+          "date": "16/09/2026",
+          "totalRevenue": 37879,
+          "pax": 367,
+          "dishSales": {
+            "pasteis": 21,
+            "cartola": 17,
+            "carne_de_sol": 65,
+            "costela_tambaqui": 6,
+            "chopp_heineken": 206,
+            "joelho": 25,
+            "chopp_amstel": 140,
+            "caipirinha": 53,
+            "camarao": 14,
+            "pirarucu": 12,
+            "picanha": 7,
+            "dadinho": 2
+          }
+        },
+        {
+          "weekNumber": 12,
+          "date": "23/09/2026",
+          "totalRevenue": 21160,
+          "pax": 251,
+          "dishSales": {
+            "cartola": 11,
+            "carne_de_sol": 36,
+            "chopp_amstel": 73,
+            "pasteis": 9,
+            "camarao": 13,
+            "caipirinha": 15,
+            "chopp_heineken": 79,
+            "pirarucu": 5,
+            "picanha": 3,
+            "costela_tambaqui": 6,
+            "joelho": 6
+          }
+        }
+      ]
+    },
+    "QUINTA": {
+      "dayName": "QUINTA",
+      "dayLabel": "Quinta-feira",
+      "historical12WeeksSales": [
+        {
+          "weekNumber": 1,
+          "date": "09/07/2026",
+          "totalRevenue": 27067,
+          "pax": 330,
+          "dishSales": {
+            "chopp_heineken": 165,
+            "camarao": 18,
+            "costela_tambaqui": 7,
+            "carne_de_sol": 58,
+            "pasteis": 20,
+            "joelho": 10,
+            "chopp_amstel": 78,
+            "caipirinha": 42,
+            "picanha": 5,
+            "pirarucu": 8,
+            "cartola": 9
+          }
+        },
+        {
+          "weekNumber": 2,
+          "date": "16/07/2026",
+          "totalRevenue": 25916,
+          "pax": 275,
+          "dishSales": {
+            "chopp_amstel": 64,
+            "pasteis": 7,
+            "carne_de_sol": 53,
+            "chopp_heineken": 157,
+            "camarao": 13,
+            "cartola": 21,
+            "pirarucu": 11,
+            "joelho": 11,
+            "caipirinha": 40,
+            "costela_tambaqui": 4,
+            "picanha": 2
+          }
+        },
+        {
+          "weekNumber": 3,
+          "date": "23/07/2026",
+          "totalRevenue": 22085,
+          "pax": 262,
+          "dishSales": {
+            "pasteis": 17,
+            "cartola": 11,
+            "chopp_amstel": 103,
+            "carne_de_sol": 52,
+            "camarao": 10,
+            "pirarucu": 5,
+            "caipirinha": 37,
+            "joelho": 5,
+            "chopp_heineken": 119,
+            "dadinho": 2,
+            "picanha": 2,
+            "costela_tambaqui": 3
+          }
+        },
+        {
+          "weekNumber": 4,
+          "date": "30/07/2026",
+          "totalRevenue": 29287,
+          "pax": 334,
+          "dishSales": {
+            "carne_de_sol": 62,
+            "cartola": 17,
+            "chopp_heineken": 133,
+            "pirarucu": 7,
+            "pasteis": 19,
+            "chopp_amstel": 132,
+            "costela_tambaqui": 8,
+            "camarao": 26,
+            "caipirinha": 29,
+            "picanha": 3,
+            "joelho": 10,
+            "dadinho": 2
+          }
+        },
+        {
+          "weekNumber": 5,
+          "date": "06/08/2026",
+          "totalRevenue": 31103,
+          "pax": 374,
+          "dishSales": {
+            "cartola": 21,
+            "carne_de_sol": 63,
+            "chopp_amstel": 169,
+            "picanha": 4,
+            "chopp_heineken": 154,
+            "joelho": 9,
+            "pasteis": 15,
+            "caipirinha": 41,
+            "camarao": 12,
+            "costela_tambaqui": 10,
+            "pirarucu": 12
+          }
+        },
+        {
+          "weekNumber": 6,
+          "date": "13/08/2026",
+          "totalRevenue": 24615,
+          "pax": 288,
+          "dishSales": {
+            "chopp_amstel": 137,
+            "pasteis": 12,
+            "cartola": 12,
+            "carne_de_sol": 50,
+            "picanha": 6,
+            "chopp_heineken": 100,
+            "joelho": 7,
+            "caipirinha": 30,
+            "camarao": 14,
+            "costela_tambaqui": 4,
+            "pirarucu": 9
+          }
+        },
+        {
+          "weekNumber": 7,
+          "date": "20/08/2026",
+          "totalRevenue": 26497,
+          "pax": 308,
+          "dishSales": {
+            "chopp_amstel": 169,
+            "carne_de_sol": 53,
+            "pirarucu": 11,
+            "cartola": 5,
+            "costela_tambaqui": 2,
+            "chopp_heineken": 141,
+            "caipirinha": 20,
+            "pasteis": 14,
+            "picanha": 6,
+            "camarao": 15,
+            "joelho": 6
+          }
+        },
+        {
+          "weekNumber": 8,
+          "date": "27/08/2026",
+          "totalRevenue": 22667,
+          "pax": 238,
+          "dishSales": {
+            "carne_de_sol": 48,
+            "chopp_heineken": 113,
+            "caipirinha": 25,
+            "joelho": 12,
+            "chopp_amstel": 97,
+            "cartola": 11,
+            "pasteis": 6,
+            "camarao": 14,
+            "pirarucu": 2,
+            "picanha": 2,
+            "costela_tambaqui": 6
+          }
+        },
+        {
+          "weekNumber": 9,
+          "date": "03/09/2026",
+          "totalRevenue": 35612,
+          "pax": 363,
+          "dishSales": {
+            "chopp_amstel": 202,
+            "carne_de_sol": 55,
+            "chopp_heineken": 272,
+            "camarao": 15,
+            "costela_tambaqui": 10,
+            "caipirinha": 50,
+            "joelho": 11,
+            "cartola": 16,
+            "pasteis": 15,
+            "picanha": 9,
+            "pirarucu": 3
+          }
+        },
+        {
+          "weekNumber": 10,
+          "date": "10/09/2026",
+          "totalRevenue": 32788,
+          "pax": 299,
+          "dishSales": {
+            "pasteis": 15,
+            "chopp_amstel": 104,
+            "carne_de_sol": 65,
+            "costela_tambaqui": 10,
+            "joelho": 16,
+            "chopp_heineken": 242,
+            "pirarucu": 10,
+            "picanha": 6,
+            "cartola": 18,
+            "caipirinha": 50,
+            "camarao": 14
+          }
+        },
+        {
+          "weekNumber": 11,
+          "date": "17/09/2026",
+          "totalRevenue": 43787,
+          "pax": 414,
+          "dishSales": {
+            "cartola": 23,
+            "camarao": 24,
+            "pirarucu": 10,
+            "chopp_amstel": 147,
+            "costela_tambaqui": 10,
+            "chopp_heineken": 256,
+            "joelho": 19,
+            "pasteis": 13,
+            "caipirinha": 59,
+            "carne_de_sol": 67,
+            "picanha": 6,
+            "dadinho": 1
+          }
+        },
+        {
+          "weekNumber": 12,
+          "date": "24/09/2026",
+          "totalRevenue": 36070,
+          "pax": 330,
+          "dishSales": {
+            "carne_de_sol": 55,
+            "cartola": 9,
+            "picanha": 7,
+            "pirarucu": 10,
+            "chopp_amstel": 182,
+            "chopp_heineken": 221,
+            "costela_tambaqui": 9,
+            "camarao": 14,
+            "joelho": 13,
+            "pasteis": 10,
+            "caipirinha": 26
+          }
+        }
+      ]
+    },
+    "SEXTA": {
+      "dayName": "SEXTA",
+      "dayLabel": "Sexta-feira (Pico Noturno)",
+      "historical12WeeksSales": [
+        {
+          "weekNumber": 1,
+          "date": "10/07/2026",
+          "totalRevenue": 39725,
+          "pax": 389,
+          "dishSales": {
+            "chopp_amstel": 161,
+            "carne_de_sol": 71,
+            "pirarucu": 12,
+            "camarao": 29,
+            "costela_tambaqui": 9,
+            "pasteis": 27,
+            "joelho": 21,
+            "chopp_heineken": 118,
+            "caipirinha": 74,
+            "cartola": 26,
+            "picanha": 7
+          }
+        },
+        {
+          "weekNumber": 2,
+          "date": "17/07/2026",
+          "totalRevenue": 33144,
+          "pax": 378,
+          "dishSales": {
+            "carne_de_sol": 73,
+            "cartola": 17,
+            "camarao": 19,
+            "chopp_amstel": 160,
+            "chopp_heineken": 120,
+            "caipirinha": 51,
+            "costela_tambaqui": 7,
+            "pirarucu": 8,
+            "picanha": 4,
+            "pasteis": 22,
+            "joelho": 9
+          }
+        },
+        {
+          "weekNumber": 3,
+          "date": "24/07/2026",
+          "totalRevenue": 43555,
+          "pax": 464,
+          "dishSales": {
+            "pasteis": 23,
+            "costela_tambaqui": 12,
+            "camarao": 24,
+            "carne_de_sol": 71,
+            "chopp_amstel": 197,
+            "dadinho": 4,
+            "chopp_heineken": 200,
+            "pirarucu": 9,
+            "joelho": 10,
+            "picanha": 4,
+            "caipirinha": 40,
+            "cartola": 11
+          }
+        },
+        {
+          "weekNumber": 4,
+          "date": "31/07/2026",
+          "totalRevenue": 42102,
+          "pax": 493,
+          "dishSales": {
+            "chopp_amstel": 161,
+            "carne_de_sol": 116,
+            "chopp_heineken": 180,
+            "camarao": 19,
+            "cartola": 30,
+            "pasteis": 9,
+            "joelho": 14,
+            "dadinho": 3,
+            "picanha": 6,
+            "caipirinha": 45,
+            "pirarucu": 8,
+            "costela_tambaqui": 7
+          }
+        },
+        {
+          "weekNumber": 5,
+          "date": "07/08/2026",
+          "totalRevenue": 43511,
+          "pax": 482,
+          "dishSales": {
+            "carne_de_sol": 92,
+            "chopp_heineken": 200,
+            "pasteis": 28,
+            "cartola": 24,
+            "camarao": 23,
+            "chopp_amstel": 228,
+            "joelho": 15,
+            "caipirinha": 53,
+            "pirarucu": 12,
+            "costela_tambaqui": 9,
+            "picanha": 3
+          }
+        },
+        {
+          "weekNumber": 6,
+          "date": "14/08/2026",
+          "totalRevenue": 38194,
+          "pax": 438,
+          "dishSales": {
+            "pasteis": 23,
+            "cartola": 20,
+            "pirarucu": 11,
+            "camarao": 23,
+            "carne_de_sol": 84,
+            "costela_tambaqui": 8,
+            "chopp_heineken": 183,
+            "chopp_amstel": 153,
+            "caipirinha": 71,
+            "joelho": 10
+          }
+        },
+        {
+          "weekNumber": 7,
+          "date": "21/08/2026",
+          "totalRevenue": 47471,
+          "pax": 504,
+          "dishSales": {
+            "carne_de_sol": 103,
+            "cartola": 22,
+            "pirarucu": 11,
+            "chopp_heineken": 353,
+            "caipirinha": 50,
+            "costela_tambaqui": 10,
+            "chopp_amstel": 278,
+            "pasteis": 22,
+            "joelho": 9,
+            "camarao": 25,
+            "picanha": 2
+          }
+        },
+        {
+          "weekNumber": 8,
+          "date": "28/08/2026",
+          "totalRevenue": 36275,
+          "pax": 376,
+          "dishSales": {
+            "chopp_amstel": 215,
+            "caipirinha": 27,
+            "carne_de_sol": 63,
+            "chopp_heineken": 191,
+            "cartola": 15,
+            "costela_tambaqui": 18,
+            "pasteis": 25,
+            "camarao": 18,
+            "picanha": 4,
+            "joelho": 9,
+            "pirarucu": 12
+          }
+        },
+        {
+          "weekNumber": 9,
+          "date": "04/09/2026",
+          "totalRevenue": 51760,
+          "pax": 548,
+          "dishSales": {
+            "chopp_heineken": 264,
+            "carne_de_sol": 110,
+            "cartola": 32,
+            "pasteis": 30,
+            "chopp_amstel": 242,
+            "caipirinha": 66,
+            "joelho": 22,
+            "costela_tambaqui": 18,
+            "camarao": 29,
+            "picanha": 9,
+            "pirarucu": 1
+          }
+        },
+        {
+          "weekNumber": 10,
+          "date": "11/09/2026",
+          "totalRevenue": 42881,
+          "pax": 488,
+          "dishSales": {
+            "chopp_amstel": 194,
+            "caipirinha": 88,
+            "cartola": 27,
+            "pasteis": 20,
+            "carne_de_sol": 89,
+            "picanha": 10,
+            "pirarucu": 6,
+            "chopp_heineken": 218,
+            "camarao": 24,
+            "joelho": 13,
+            "dadinho": 4,
+            "costela_tambaqui": 2
+          }
+        },
+        {
+          "weekNumber": 11,
+          "date": "18/09/2026",
+          "totalRevenue": 58592,
+          "pax": 530,
+          "dishSales": {
+            "joelho": 11,
+            "chopp_amstel": 323,
+            "carne_de_sol": 116,
+            "cartola": 24,
+            "pasteis": 25,
+            "camarao": 25,
+            "chopp_heineken": 342,
+            "pirarucu": 10,
+            "picanha": 13,
+            "caipirinha": 70,
+            "costela_tambaqui": 9,
+            "dadinho": 2
+          }
+        },
+        {
+          "weekNumber": 12,
+          "date": "25/09/2026",
+          "totalRevenue": 62010,
+          "pax": 508,
+          "dishSales": {
+            "caipirinha": 100,
+            "camarao": 21,
+            "carne_de_sol": 83,
+            "pirarucu": 11,
+            "cartola": 25,
+            "chopp_amstel": 369,
+            "chopp_heineken": 421,
+            "costela_tambaqui": 10,
+            "joelho": 38,
+            "pasteis": 16,
+            "picanha": 2
+          }
+        }
+      ]
+    },
+    "SABADO": {
+      "dayName": "SABADO",
+      "dayLabel": "Sábado (Almoço & Jantar Máximo)",
+      "historical12WeeksSales": [
+        {
+          "weekNumber": 1,
+          "date": "11/07/2026",
+          "totalRevenue": 51094,
+          "pax": 502,
+          "dishSales": {
+            "chopp_heineken": 220,
+            "feijoada": 50,
+            "carne_de_sol": 77,
+            "pirarucu": 8,
+            "caipirinha": 27,
+            "chopp_amstel": 187,
+            "camarao": 19,
+            "pasteis": 4,
+            "costela_tambaqui": 3,
+            "joelho": 16,
+            "cartola": 1,
+            "picanha": 3
+          }
+        },
+        {
+          "weekNumber": 2,
+          "date": "18/07/2026",
+          "totalRevenue": 37883,
+          "pax": 370,
+          "dishSales": {
+            "carne_de_sol": 64,
+            "feijoada": 68,
+            "chopp_heineken": 244,
+            "chopp_amstel": 115,
+            "caipirinha": 45,
+            "pasteis": 8,
+            "camarao": 14,
+            "costela_tambaqui": 2,
+            "picanha": 2,
+            "pirarucu": 6,
+            "dadinho": 2,
+            "joelho": 6,
+            "cartola": 1
+          }
+        },
+        {
+          "weekNumber": 3,
+          "date": "25/07/2026",
+          "totalRevenue": 39041,
+          "pax": 403,
+          "dishSales": {
+            "joelho": 5,
+            "chopp_amstel": 180,
+            "feijoada": 59,
+            "chopp_heineken": 137,
+            "carne_de_sol": 62,
+            "camarao": 19,
+            "caipirinha": 31,
+            "picanha": 5,
+            "pirarucu": 8,
+            "pasteis": 9,
+            "costela_tambaqui": 5,
+            "cartola": 2
+          }
+        },
+        {
+          "weekNumber": 4,
+          "date": "01/08/2026",
+          "totalRevenue": 49044,
+          "pax": 499,
+          "dishSales": {
+            "feijoada": 63,
+            "carne_de_sol": 59,
+            "chopp_amstel": 54,
+            "chopp_heineken": 345,
+            "pirarucu": 6,
+            "pasteis": 9,
+            "caipirinha": 40,
+            "joelho": 10,
+            "camarao": 19,
+            "cartola": 6,
+            "picanha": 6,
+            "costela_tambaqui": 3,
+            "dadinho": 1
+          }
+        },
+        {
+          "weekNumber": 5,
+          "date": "08/08/2026",
+          "totalRevenue": 62945,
+          "pax": 552,
+          "dishSales": {
+            "feijoada": 76,
+            "chopp_amstel": 304,
+            "chopp_heineken": 231,
+            "pasteis": 23,
+            "picanha": 9,
+            "carne_de_sol": 92,
+            "joelho": 12,
+            "camarao": 28,
+            "caipirinha": 44,
+            "cartola": 4,
+            "pirarucu": 7,
+            "costela_tambaqui": 4
+          }
+        },
+        {
+          "weekNumber": 6,
+          "date": "15/08/2026",
+          "totalRevenue": 50325,
+          "pax": 517,
+          "dishSales": {
+            "carne_de_sol": 64,
+            "chopp_heineken": 204,
+            "feijoada": 99,
+            "caipirinha": 49,
+            "chopp_amstel": 171,
+            "camarao": 20,
+            "picanha": 8,
+            "joelho": 9,
+            "pirarucu": 5,
+            "pasteis": 11,
+            "costela_tambaqui": 5,
+            "cartola": 2
+          }
+        },
+        {
+          "weekNumber": 7,
+          "date": "22/08/2026",
+          "totalRevenue": 59501,
+          "pax": 592,
+          "dishSales": {
+            "feijoada": 88,
+            "pasteis": 17,
+            "pirarucu": 9,
+            "costela_tambaqui": 4,
+            "caipirinha": 67,
+            "chopp_heineken": 341,
+            "chopp_amstel": 277,
+            "carne_de_sol": 63,
+            "joelho": 16,
+            "camarao": 25,
+            "picanha": 7,
+            "cartola": 1
+          }
+        },
+        {
+          "weekNumber": 8,
+          "date": "29/08/2026",
+          "totalRevenue": 51179,
+          "pax": 504,
+          "dishSales": {
+            "feijoada": 63,
+            "camarao": 17,
+            "chopp_amstel": 153,
+            "cartola": 2,
+            "pasteis": 15,
+            "pirarucu": 13,
+            "chopp_heineken": 249,
+            "carne_de_sol": 68,
+            "caipirinha": 35,
+            "picanha": 14,
+            "joelho": 17,
+            "costela_tambaqui": 4
+          }
+        },
+        {
+          "weekNumber": 9,
+          "date": "05/09/2026",
+          "totalRevenue": 68004,
+          "pax": 638,
+          "dishSales": {
+            "chopp_heineken": 292,
+            "feijoada": 70,
+            "joelho": 15,
+            "pirarucu": 4,
+            "carne_de_sol": 96,
+            "caipirinha": 70,
+            "chopp_amstel": 275,
+            "picanha": 12,
+            "cartola": 6,
+            "costela_tambaqui": 5,
+            "pasteis": 15,
+            "camarao": 28
+          }
+        },
+        {
+          "weekNumber": 10,
+          "date": "12/09/2026",
+          "totalRevenue": 65073,
+          "pax": 568,
+          "dishSales": {
+            "chopp_amstel": 293,
+            "carne_de_sol": 76,
+            "feijoada": 84,
+            "chopp_heineken": 353,
+            "caipirinha": 60,
+            "costela_tambaqui": 9,
+            "camarao": 24,
+            "pirarucu": 6,
+            "picanha": 8,
+            "joelho": 10,
+            "pasteis": 22,
+            "dadinho": 3,
+            "cartola": 3
+          }
+        },
+        {
+          "weekNumber": 11,
+          "date": "19/09/2026",
+          "totalRevenue": 73049,
+          "pax": 645,
+          "dishSales": {
+            "chopp_amstel": 288,
+            "feijoada": 81,
+            "carne_de_sol": 97,
+            "chopp_heineken": 493,
+            "caipirinha": 112,
+            "camarao": 25,
+            "costela_tambaqui": 9,
+            "pasteis": 11,
+            "joelho": 21,
+            "cartola": 1,
+            "picanha": 7,
+            "dadinho": 2
+          }
+        },
+        {
+          "weekNumber": 12,
+          "date": "26/09/2026",
+          "totalRevenue": 72874,
+          "pax": 640,
+          "dishSales": {
+            "chopp_amstel": 286,
+            "feijoada": 86,
+            "carne_de_sol": 66,
+            "caipirinha": 58,
+            "chopp_heineken": 347,
+            "pirarucu": 19,
+            "camarao": 29,
+            "picanha": 10,
+            "pasteis": 29,
+            "joelho": 21,
+            "costela_tambaqui": 9,
+            "cartola": 4
+          }
+        }
+      ]
+    },
+    "DOMINGO": {
+      "dayName": "DOMINGO",
+      "dayLabel": "Domingo Familiar (Almoço Nobre)",
+      "historical12WeeksSales": [
+        {
+          "weekNumber": 1,
+          "date": "12/07/2026",
+          "totalRevenue": 38339,
+          "pax": 367,
+          "dishSales": {
+            "chopp_heineken": 126,
+            "carne_de_sol": 60,
+            "joelho": 9,
+            "chopp_amstel": 128,
+            "caipirinha": 34,
+            "pasteis": 20,
+            "picanha": 14,
+            "camarao": 24,
+            "cartola": 4,
+            "costela_tambaqui": 6,
+            "pirarucu": 8
+          }
+        },
+        {
+          "weekNumber": 2,
+          "date": "19/07/2026",
+          "totalRevenue": 35130,
+          "pax": 343,
+          "dishSales": {
+            "camarao": 23,
+            "caipirinha": 46,
+            "carne_de_sol": 45,
+            "chopp_amstel": 123,
+            "chopp_heineken": 189,
+            "pasteis": 18,
+            "picanha": 6,
+            "joelho": 3,
+            "cartola": 3,
+            "pirarucu": 9,
+            "dadinho": 2,
+            "costela_tambaqui": 1
+          }
+        },
+        {
+          "weekNumber": 3,
+          "date": "26/07/2026",
+          "totalRevenue": 44726,
+          "pax": 429,
+          "dishSales": {
+            "camarao": 22,
+            "carne_de_sol": 66,
+            "chopp_amstel": 155,
+            "dadinho": 5,
+            "pirarucu": 12,
+            "chopp_heineken": 176,
+            "caipirinha": 31,
+            "picanha": 9,
+            "pasteis": 12,
+            "costela_tambaqui": 10,
+            "joelho": 8,
+            "cartola": 5
+          }
+        },
+        {
+          "weekNumber": 4,
+          "date": "02/08/2026",
+          "totalRevenue": 35480,
+          "pax": 405,
+          "dishSales": {
+            "carne_de_sol": 51,
+            "caipirinha": 59,
+            "chopp_heineken": 258,
+            "camarao": 19,
+            "cartola": 4,
+            "pasteis": 18,
+            "picanha": 4,
+            "chopp_amstel": 74,
+            "costela_tambaqui": 4,
+            "joelho": 5,
+            "pirarucu": 6
+          }
+        },
+        {
+          "weekNumber": 5,
+          "date": "09/08/2026",
+          "totalRevenue": 55227,
+          "pax": 477,
+          "dishSales": {
+            "picanha": 13,
+            "carne_de_sol": 94,
+            "joelho": 8,
+            "chopp_heineken": 145,
+            "chopp_amstel": 146,
+            "camarao": 23,
+            "caipirinha": 33,
+            "cartola": 16,
+            "pirarucu": 9,
+            "pasteis": 19,
+            "costela_tambaqui": 14
+          }
+        },
+        {
+          "weekNumber": 6,
+          "date": "16/08/2026",
+          "totalRevenue": 29901,
+          "pax": 328,
+          "dishSales": {
+            "carne_de_sol": 44,
+            "chopp_heineken": 170,
+            "chopp_amstel": 139,
+            "caipirinha": 36,
+            "pasteis": 15,
+            "cartola": 5,
+            "camarao": 15,
+            "picanha": 7,
+            "joelho": 6,
+            "pirarucu": 4,
+            "costela_tambaqui": 3
+          }
+        },
+        {
+          "weekNumber": 7,
+          "date": "23/08/2026",
+          "totalRevenue": 33762,
+          "pax": 310,
+          "dishSales": {
+            "chopp_heineken": 160,
+            "chopp_amstel": 172,
+            "picanha": 6,
+            "camarao": 11,
+            "pasteis": 13,
+            "carne_de_sol": 57,
+            "caipirinha": 24,
+            "costela_tambaqui": 3,
+            "pirarucu": 4,
+            "joelho": 7,
+            "cartola": 1,
+            "feijoada": 2
+          }
+        },
+        {
+          "weekNumber": 8,
+          "date": "30/08/2026",
+          "totalRevenue": 33533,
+          "pax": 317,
+          "dishSales": {
+            "chopp_amstel": 144,
+            "caipirinha": 36,
+            "joelho": 9,
+            "chopp_heineken": 168,
+            "camarao": 19,
+            "carne_de_sol": 50,
+            "pasteis": 10,
+            "picanha": 5,
+            "pirarucu": 8,
+            "cartola": 1,
+            "costela_tambaqui": 6
+          }
+        },
+        {
+          "weekNumber": 9,
+          "date": "06/09/2026",
+          "totalRevenue": 40715,
+          "pax": 442,
+          "dishSales": {
+            "cartola": 4,
+            "carne_de_sol": 64,
+            "chopp_amstel": 220,
+            "picanha": 5,
+            "camarao": 19,
+            "chopp_heineken": 162,
+            "joelho": 15,
+            "costela_tambaqui": 7,
+            "pasteis": 18,
+            "pirarucu": 9,
+            "caipirinha": 24
+          }
+        },
+        {
+          "weekNumber": 10,
+          "date": "13/09/2026",
+          "totalRevenue": 42219,
+          "pax": 442,
+          "dishSales": {
+            "chopp_amstel": 230,
+            "camarao": 20,
+            "carne_de_sol": 58,
+            "joelho": 12,
+            "caipirinha": 42,
+            "chopp_heineken": 170,
+            "pasteis": 18,
+            "cartola": 1,
+            "picanha": 8,
+            "dadinho": 1,
+            "pirarucu": 12,
+            "costela_tambaqui": 5
+          }
+        },
+        {
+          "weekNumber": 11,
+          "date": "20/09/2026",
+          "totalRevenue": 41159,
+          "pax": 420,
+          "dishSales": {
+            "chopp_heineken": 157,
+            "carne_de_sol": 64,
+            "chopp_amstel": 171,
+            "joelho": 8,
+            "camarao": 22,
+            "costela_tambaqui": 16,
+            "caipirinha": 24,
+            "pasteis": 7,
+            "cartola": 2,
+            "picanha": 15
+          }
+        },
+        {
+          "weekNumber": 12,
+          "date": "27/09/2026",
+          "totalRevenue": 36090,
+          "pax": 363,
+          "dishSales": {
+            "pirarucu": 10,
+            "camarao": 14,
+            "picanha": 9,
+            "carne_de_sol": 39,
+            "chopp_amstel": 96,
+            "chopp_heineken": 164,
+            "joelho": 19,
+            "costela_tambaqui": 6,
+            "caipirinha": 53,
+            "pasteis": 15,
+            "cartola": 2
+          }
+        }
+      ]
+    }
+  },
+  "commissionerAudits": [
+    {
+      "id": "comm-1",
+      "name": "0573  /",
+      "role": "Atendente / Comissário",
+      "tablesServedCount": 1249,
+      "totalGrossSales": 281684.96,
+      "serviceFee10PctGenerated": 25888.57,
+      "serviceFee10PctCancelled": 2279.93,
+      "cancellationRatePct": 8.1,
+      "brigadeAverageRatePct": 1,
+      "riskStatus": "NORMAL",
+      "isAnomaly": false,
+      "auditReason": "Operação dentro do desvio padrão seguro do restaurante."
+    },
+    {
+      "id": "comm-2",
+      "name": "0196  /",
+      "role": "Atendente / Comissário",
+      "tablesServedCount": 1148,
+      "totalGrossSales": 265369.18,
+      "serviceFee10PctGenerated": 24328.81,
+      "serviceFee10PctCancelled": 2208.11,
+      "cancellationRatePct": 8.3,
+      "brigadeAverageRatePct": 1,
+      "riskStatus": "NORMAL",
+      "isAnomaly": false,
+      "auditReason": "Operação dentro do desvio padrão seguro do restaurante."
+    },
+    {
+      "id": "comm-3",
+      "name": "0384  /",
+      "role": "Atendente / Comissário",
+      "tablesServedCount": 1130,
+      "totalGrossSales": 260870.27,
+      "serviceFee10PctGenerated": 23565.03,
+      "serviceFee10PctCancelled": 2522,
+      "cancellationRatePct": 9.7,
+      "brigadeAverageRatePct": 1,
+      "riskStatus": "NORMAL",
+      "isAnomaly": false,
+      "auditReason": "Operação dentro do desvio padrão seguro do restaurante."
+    },
+    {
+      "id": "comm-4",
+      "name": "0500  /",
+      "role": "Atendente / Comissário",
+      "tablesServedCount": 1142,
+      "totalGrossSales": 241007.89,
+      "serviceFee10PctGenerated": 21793.06,
+      "serviceFee10PctCancelled": 2307.73,
+      "cancellationRatePct": 9.6,
+      "brigadeAverageRatePct": 1,
+      "riskStatus": "NORMAL",
+      "isAnomaly": false,
+      "auditReason": "Operação dentro do desvio padrão seguro do restaurante."
+    },
+    {
+      "id": "comm-5",
+      "name": "0441  /",
+      "role": "Atendente / Comissário",
+      "tablesServedCount": 990,
+      "totalGrossSales": 240129.47,
+      "serviceFee10PctGenerated": 22102.22,
+      "serviceFee10PctCancelled": 1910.73,
+      "cancellationRatePct": 8,
+      "brigadeAverageRatePct": 1,
+      "riskStatus": "NORMAL",
+      "isAnomaly": false,
+      "auditReason": "Operação dentro do desvio padrão seguro do restaurante."
+    },
+    {
+      "id": "comm-6",
+      "name": "0550  /",
+      "role": "Atendente / Comissário",
+      "tablesServedCount": 1074,
+      "totalGrossSales": 238657.29,
+      "serviceFee10PctGenerated": 21668.62,
+      "serviceFee10PctCancelled": 2197.11,
+      "cancellationRatePct": 9.2,
+      "brigadeAverageRatePct": 1,
+      "riskStatus": "NORMAL",
+      "isAnomaly": false,
+      "auditReason": "Operação dentro do desvio padrão seguro do restaurante."
+    },
+    {
+      "id": "comm-7",
+      "name": "0757  /",
+      "role": "Atendente / Comissário",
+      "tablesServedCount": 1147,
+      "totalGrossSales": 235356.32,
+      "serviceFee10PctGenerated": 20934.76,
+      "serviceFee10PctCancelled": 2600.87,
+      "cancellationRatePct": 11.1,
+      "brigadeAverageRatePct": 1,
+      "riskStatus": "ATENCAO",
+      "isAnomaly": false,
+      "auditReason": "Operação dentro do desvio padrão seguro do restaurante."
+    },
+    {
+      "id": "comm-8",
+      "name": "0394  /",
+      "role": "Atendente / Comissário",
+      "tablesServedCount": 1028,
+      "totalGrossSales": 231940.54,
+      "serviceFee10PctGenerated": 21583.13,
+      "serviceFee10PctCancelled": 1610.92,
+      "cancellationRatePct": 6.9,
+      "brigadeAverageRatePct": 1,
+      "riskStatus": "NORMAL",
+      "isAnomaly": false,
+      "auditReason": "Operação dentro do desvio padrão seguro do restaurante."
+    },
+    {
+      "id": "comm-9",
+      "name": "0536  /",
+      "role": "Atendente / Comissário",
+      "tablesServedCount": 976,
+      "totalGrossSales": 201981.86,
+      "serviceFee10PctGenerated": 18354.23,
+      "serviceFee10PctCancelled": 1843.96,
+      "cancellationRatePct": 9.1,
+      "brigadeAverageRatePct": 1,
+      "riskStatus": "NORMAL",
+      "isAnomaly": false,
+      "auditReason": "Operação dentro do desvio padrão seguro do restaurante."
+    },
+    {
+      "id": "comm-10",
+      "name": "0621  /",
+      "role": "Atendente / Comissário",
+      "tablesServedCount": 763,
+      "totalGrossSales": 180685.1,
+      "serviceFee10PctGenerated": 16549.99,
+      "serviceFee10PctCancelled": 1518.52,
+      "cancellationRatePct": 8.4,
+      "brigadeAverageRatePct": 1,
+      "riskStatus": "NORMAL",
+      "isAnomaly": false,
+      "auditReason": "Operação dentro do desvio padrão seguro do restaurante."
+    },
+    {
+      "id": "comm-11",
+      "name": "0291  /",
+      "role": "Atendente / Comissário",
+      "tablesServedCount": 770,
+      "totalGrossSales": 170401.85,
+      "serviceFee10PctGenerated": 14998.51,
+      "serviceFee10PctCancelled": 2041.67,
+      "cancellationRatePct": 12,
+      "brigadeAverageRatePct": 1,
+      "riskStatus": "ATENCAO",
+      "isAnomaly": false,
+      "auditReason": "Operação dentro do desvio padrão seguro do restaurante."
+    },
+    {
+      "id": "comm-12",
+      "name": "0740  /",
+      "role": "Atendente / Comissário",
+      "tablesServedCount": 741,
+      "totalGrossSales": 148251.27,
+      "serviceFee10PctGenerated": 12994.81,
+      "serviceFee10PctCancelled": 1830.32,
+      "cancellationRatePct": 12.3,
+      "brigadeAverageRatePct": 1,
+      "riskStatus": "ATENCAO",
+      "isAnomaly": false,
+      "auditReason": "Operação dentro do desvio padrão seguro do restaurante."
+    },
+    {
+      "id": "comm-13",
+      "name": "0801  /",
+      "role": "Atendente / Comissário",
+      "tablesServedCount": 265,
+      "totalGrossSales": 18957.4,
+      "serviceFee10PctGenerated": 136.03,
+      "serviceFee10PctCancelled": 1759.71,
+      "cancellationRatePct": 92.8,
+      "brigadeAverageRatePct": 1,
+      "riskStatus": "ALERTA_DISCIPLINAR",
+      "isAnomaly": true,
+      "auditReason": "Taxa de cancelamento de serviço de 92.8% está acima do padrão da brigada."
+    },
+    {
+      "id": "comm-14",
+      "name": "0046  /",
+      "role": "Atendente / Comissário",
+      "tablesServedCount": 62,
+      "totalGrossSales": 11643.49,
+      "serviceFee10PctGenerated": 1061.65,
+      "serviceFee10PctCancelled": 102.7,
+      "cancellationRatePct": 8.8,
+      "brigadeAverageRatePct": 1,
+      "riskStatus": "NORMAL",
+      "isAnomaly": false,
+      "auditReason": "Operação dentro do desvio padrão seguro do restaurante."
+    },
+    {
+      "id": "comm-15",
+      "name": "0423  /",
+      "role": "Atendente / Comissário",
+      "tablesServedCount": 37,
+      "totalGrossSales": 9490.77,
+      "serviceFee10PctGenerated": 911.57,
+      "serviceFee10PctCancelled": 37.51,
+      "cancellationRatePct": 4,
+      "brigadeAverageRatePct": 1,
+      "riskStatus": "NORMAL",
+      "isAnomaly": false,
+      "auditReason": "Operação dentro do desvio padrão seguro do restaurante."
+    },
+    {
+      "id": "comm-16",
+      "name": "0627  /",
+      "role": "Atendente / Comissário",
+      "tablesServedCount": 58,
+      "totalGrossSales": 7050.5,
+      "serviceFee10PctGenerated": 262.4,
+      "serviceFee10PctCancelled": 442.65,
+      "cancellationRatePct": 62.8,
+      "brigadeAverageRatePct": 1,
+      "riskStatus": "ALERTA_DISCIPLINAR",
+      "isAnomaly": true,
+      "auditReason": "Taxa de cancelamento de serviço de 62.8% está acima do padrão da brigada."
+    }
+  ]
+}

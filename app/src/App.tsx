@@ -20,6 +20,7 @@ import UnitSelectView from './components/auth/UnitSelectView';
 import LoginView from './components/auth/LoginView';
 import AdminPanelView from './components/auth/AdminPanelView';
 import CustomerVirtualMenuView from './components/customer/CustomerVirtualMenuView';
+import { SalesIntelligenceView } from './components/sales/SalesIntelligenceView';
 import { SupervisorDashboardView } from './components/roles/SupervisorDashboardView';
 import { ManagerAuditDashboardView } from './components/roles/ManagerAuditDashboardView';
 import { BartenderDashboardView } from './components/roles/BartenderDashboardView';
@@ -497,6 +498,11 @@ export function App({ initialAuthenticated }: AppProps = {}) {
                 onGoBack={() => setActiveTab('operacao')}
               />
             )
+          )}
+
+          {/* PAINEL DE INTELIGÊNCIA DE VENDAS, DEGELO & ESTOQUE (TEKNISA POS) */}
+          {activeTab === 'inteligencia_vendas' && (
+            <SalesIntelligenceView onOpenCopilot={handleOpenCopilot} />
           )}
 
           {/* CALENDÁRIO & PRAZOS DO GERENTE */}

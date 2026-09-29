@@ -27,6 +27,7 @@ import {
   QrCode,
   FileCheck2,
   Timer,
+  BarChart3,
 } from 'lucide-react';
 import { ShiftType } from '../types';
 import { OperatorProfile } from './QuickPinModal';
@@ -36,6 +37,7 @@ import { getAllowedTabsForUser } from '../services/rbacSecurity';
 
 export type SidebarTabId =
   | 'gestao'
+  | 'inteligencia_vendas'
   | 'financeiro'
   | 'gerente_auditoria'
   | 'supervisor_dashboard'
@@ -144,6 +146,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
       title: 'GESTÃO & RESULTADOS',
       items: [
         { id: 'gestao', label: 'Visão do Dono & DRE', icon: Crown },
+        { id: 'inteligencia_vendas', label: 'Inteligência de Vendas', icon: BarChart3, badge: 'Teknisa' },
         { id: 'financeiro', label: 'Painel Financeiro', icon: TrendingUp },
         { id: 'calendario', label: 'Calendário & Prazos', icon: Calendar },
       ],

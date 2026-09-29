@@ -11,6 +11,7 @@ import { ManagerReceiptAlertBanner } from './receipts/ManagerReceiptAlertBanner'
 import { ReceiptArchiveManagerModal } from './receipts/ReceiptArchiveManagerModal';
 import { WeeklySalesPredictionView } from './WeeklySalesPredictionView';
 import { ConsumerFinanceDashboardView } from './finance/ConsumerFinanceDashboardView';
+import { SalesIntelligenceView } from './sales/SalesIntelligenceView';
 
 interface GestaoHubViewProps {
   currentShift: ShiftType;
@@ -18,7 +19,7 @@ interface GestaoHubViewProps {
   staff: Employee[];
   bonus: ManagerBonus;
   restaurantName?: string;
-  initialSubView?: 'DONO_DRE' | 'PAINEL_FINANCEIRO_CONSUMER' | 'PREVISAO_12_SEMANAS' | 'RELATORIOS_DASHBOARD' | 'METAS_BONUS' | 'AUDITORIAS' | 'LOG_COLABORADORES';
+  initialSubView?: 'DONO_DRE' | 'INTELIGENCIA_VENDAS' | 'PAINEL_FINANCEIRO_CONSUMER' | 'PREVISAO_12_SEMANAS' | 'RELATORIOS_DASHBOARD' | 'METAS_BONUS' | 'AUDITORIAS' | 'LOG_COLABORADORES';
   onNavigateToTab: (tab: any) => void;
   onOpenCopilot: (prompt?: string) => void;
 }
@@ -33,7 +34,7 @@ export const GestaoHubView: React.FC<GestaoHubViewProps> = ({
   onNavigateToTab,
   onOpenCopilot,
 }) => {
-  const [subView, setSubView] = useState<'DONO_DRE' | 'PAINEL_FINANCEIRO_CONSUMER' | 'PREVISAO_12_SEMANAS' | 'RELATORIOS_DASHBOARD' | 'METAS_BONUS' | 'AUDITORIAS' | 'LOG_COLABORADORES'>(initialSubView);
+  const [subView, setSubView] = useState<'DONO_DRE' | 'INTELIGENCIA_VENDAS' | 'PAINEL_FINANCEIRO_CONSUMER' | 'PREVISAO_12_SEMANAS' | 'RELATORIOS_DASHBOARD' | 'METAS_BONUS' | 'AUDITORIAS' | 'LOG_COLABORADORES'>(initialSubView);
   const [showReceiptModal, setShowReceiptModal] = useState(false);
   const [targetReceiptMonth, setTargetReceiptMonth] = useState<string | undefined>();
 
@@ -77,6 +78,19 @@ export const GestaoHubView: React.FC<GestaoHubViewProps> = ({
         >
           <Crown className="w-3.5 h-3.5 text-amber-500" />
           <span>Visão de Dono & DRE</span>
+        </button>
+
+        <button
+          onClick={() => setSubView('INTELIGENCIA_VENDAS')}
+          className={`flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 whitespace-nowrap cursor-pointer ${
+            subView === 'INTELIGENCIA_VENDAS'
+              ? 'bg-amber-600 text-white shadow-xs'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50/50'
+          }`}
+          title="Inteligência de Vendas, Degelo, Marcas e Compras Semanais do Teknisa POS"
+        >
+          <TrendingUp className="w-3.5 h-3.5 text-amber-500" />
+          <span>Inteligência de Vendas (Teknisa)</span>
         </button>
 
         <button
@@ -166,6 +180,8 @@ export const GestaoHubView: React.FC<GestaoHubViewProps> = ({
 
       {subView === 'DONO_DRE' ? (
         <OwnerVisionView />
+      ) : subView === 'INTELIGENCIA_VENDAS' ? (
+        <SalesIntelligenceView onOpenCopilot={onOpenCopilot} />
       ) : subView === 'PAINEL_FINANCEIRO_CONSUMER' ? (
         <ConsumerFinanceDashboardView onOpenCopilot={onOpenCopilot} />
       ) : subView === 'PREVISAO_12_SEMANAS' ? (

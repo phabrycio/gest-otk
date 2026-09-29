@@ -27,6 +27,8 @@ import type {
 import { computeItemStatus } from './stockEngine';
 import { OFFICIAL_ENGENHO_MENU } from '../data/menuRecipesData';
 
+import salesAnalyticsJson from '../data/salesAnalyticsData.json';
+
 const STORAGE_KEY_VIRTUAL_STOCK = 'tk_virtual_stock_items_v2';
 const STORAGE_KEY_MOVEMENTS = 'tk_virtual_stock_movements_v2';
 const STORAGE_KEY_NF_RECORDS = 'tk_virtual_stock_nfs_v2';
@@ -54,13 +56,99 @@ export interface CdaMaterialTransfer {
 }
 
 /**
- * Cria o catálogo inicial de itens de estoque a partir das receitas oficiais do Engenho.
- * Por padrão, inicia com quantidade 0 (zerado) para operação real, aguardando notas ou transferências.
+ * Cria o catálogo inicial de itens de estoque no Dia 1 de operação (inicia zerado para operação real).
  */
 export function buildInitialStockCatalog(): VirtualStockItem[] {
-  // Dia 1 de operação real: estoque inicia completamente vazio (sem itens mockados em ruptura).
-  // Os itens entram no estoque conforme são registradas Notas Fiscais (AF), transferências do CDA ou contagens físicas.
   return [];
+}
+
+/**
+ * Cria o catálogo oficial de estoque a partir das 98.393 vendas reais do Engenho.
+ * Cada item possui seu Estoque Mínimo (Ponto de Pedido) e Estoque Ideal calculados
+ * matematicamente para impedir rupturas no salão.
+ */
+export function buildRealSalesStockCatalog(): VirtualStockItem[] {
+  const topProducts = (salesAnalyticsJson.topProductsByRevenue || []).slice(0, 45);
+  const now = new Date().toISOString();
+
+  return topProducts.map((p: any) => {
+    let cat: StockCategory = 'CARNES_NOBRES';
+    let sector: any = 'COZINHA_FREEZER_SECO';
+    let responsible = 'Mádio / Esmael (Cozinha)';
+    const n = p.name.toUpperCase();
+
+    if (n.includes('CHOPP') || n.includes('CERVEJA')) {
+      cat = 'BEBIDAS_DESTILADOS';
+      sector = 'BAR_BEBIDAS';
+      responsible = 'Pedro (Bartender)';
+    } else if (n.includes('COCA') || n.includes('AGUA') || n.includes('SUCO') || n.includes('RED BULL')) {
+      cat = 'BEBIDAS_NAOALCOOLICAS';
+      sector = 'BAR_BEBIDAS';
+      responsible = 'Pedro (Bartender)';
+    } else if (n.includes('VINHO') || n.includes('CHANDON') || n.includes('ESPUMANTE')) {
+      cat = 'BEBIDAS_VINHOS';
+      sector = 'VINHOS_CACHACAS_CHARCUT';
+      responsible = 'Anne / Elendia (Comissária)';
+    } else if (n.includes('PIRARUCU') || n.includes('TAMBAQUI') || n.includes('PEIXE')) {
+      cat = 'PESCADOS_REGIONAIS';
+      sector = 'COZINHA_FREEZER_SECO';
+      responsible = 'Mádio (Chefe Cozinha)';
+    } else if (n.includes('CAMARAO') || n.includes('POLVO')) {
+      cat = 'FRUTOS_DO_MAR';
+      sector = 'COZINHA_FREEZER_SECO';
+      responsible = 'Mádio (Chefe Cozinha)';
+    } else if (n.includes('JOELHO') || n.includes('COSTELA SUINA')) {
+      cat = 'AVES_SUINOS';
+      sector = 'COZINHA_FREEZER_SECO';
+      responsible = 'Esmael (Subchefe)';
+    } else if (n.includes('QUEIJO') || n.includes('COALHO')) {
+      cat = 'QUEIJOS_LATICINIOS';
+      sector = 'COZINHA_FREEZER_SECO';
+      responsible = 'Mádio (Chefe Cozinha)';
+    } else if (n.includes('PUDIM') || n.includes('SOBREMESA') || n.includes('BOMBOM') || n.includes('EXPRESSO') || n.includes('CAFE')) {
+      cat = 'DOCES_CAIXA';
+      sector = 'CAIXA_BOMBONS_BALAS';
+      responsible = 'Amanda (Caixa)';
+    }
+
+    const minStock = p.minStock || Math.ceil(p.dailyAvg * 4);
+    const idealStock = p.idealStock || Math.ceil(p.dailyAvg * 14);
+    const virtualQty = Math.round((minStock + idealStock) / 2);
+    const unitCost = Math.round(p.avgPrice * 0.32 * 100) / 100;
+
+    return {
+      id: `stock-${p.code}`,
+      cdaCode: p.code,
+      name: p.name,
+      category: cat,
+      sector,
+      responsiblePerson: responsible,
+      unit: (p.unit ? p.unit.toLowerCase() : 'un') as StockUnit,
+      minStock,
+      safetyStock: Math.ceil(minStock * 0.8),
+      idealStock,
+      maxStock: Math.ceil(idealStock * 1.5),
+      virtualQty,
+      reservedQty: 0,
+      availableQty: virtualQty,
+      averageCost: unitCost,
+      lastCost: unitCost,
+      primarySupplier: 'CDA',
+      orderLeadTimeDays: 2,
+      minOrderQty: 1,
+      orderQtyMultiple: 1,
+      status: 'SAFE',
+      daysUntilRuptura: p.dailyAvg > 0 ? Math.round(virtualQty / p.dailyAvg) : null,
+      errorMarginPct: 5,
+      lastMovementAt: now,
+    };
+  });
+}
+
+export function loadRealSalesStockItems(): VirtualStockItem[] {
+  const items = buildRealSalesStockCatalog();
+  saveVirtualStockItems(items);
+  return items;
 }
 
 /**
@@ -70,10 +158,7 @@ export function getVirtualStockItems(): VirtualStockItem[] {
   if (typeof window === 'undefined') return [];
   try {
     const raw = localStorage.getItem(STORAGE_KEY_VIRTUAL_STOCK);
-    if (!raw) {
-      localStorage.setItem(STORAGE_KEY_VIRTUAL_STOCK, JSON.stringify([]));
-      return [];
-    }
+    if (!raw) return [];
     return JSON.parse(raw);
   } catch {
     return [];

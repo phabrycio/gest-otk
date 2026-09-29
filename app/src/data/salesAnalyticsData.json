@@ -1,0 +1,4283 @@
+{
+  "generatedAt": "2026-09-29T05:24:50.741Z",
+  "sourceFile": "C:\\Users\\phabr\\OneDrive\\Desktop\\Vendas-Realizadas-Por-Caixa (2).csv",
+  "summary": {
+    "totalRevenue": 3000631.16,
+    "totalItemsSold": 104296,
+    "totalDays": 90,
+    "dateRange": {
+      "firstDay": "01/07/2026",
+      "lastDay": "28/09/2026"
+    },
+    "dailyAverageRevenue": 33340.35,
+    "dailyAverageOrders": 159,
+    "ticketMedioGlobal": 210.11
+  },
+  "thawRecommendations": [
+    {
+      "keyword": "TAMBAQUI",
+      "name": "Costela / Filé de Tambaqui",
+      "category": "Peixes Regionais",
+      "defrostHours": 18,
+      "prepDaysLead": 1,
+      "unit": "UN",
+      "totalQtySold": 587,
+      "totalRevenue": 58809.3,
+      "avgDailyThaw": 8,
+      "weekdayThawQuota": 7,
+      "weekendThawQuota": 9,
+      "minChamberStock": 22,
+      "matchedProducts": [
+        {
+          "code": "0000002568",
+          "name": "TAMBAQUI SMOKED 3P",
+          "dailyAvg": 1.4
+        },
+        {
+          "code": "0000002565",
+          "name": "TAMBAQUI MANAUARA 1P",
+          "dailyAvg": 2.8
+        },
+        {
+          "code": "0000016696",
+          "name": "COSTELA DE TAMBAQUI EXECUTIVO",
+          "dailyAvg": 2.32
+        }
+      ]
+    },
+    {
+      "keyword": "PIRARUCU",
+      "name": "Filé / Lombo de Pirarucu",
+      "category": "Peixes Regionais",
+      "defrostHours": 20,
+      "prepDaysLead": 1,
+      "unit": "UN",
+      "totalQtySold": 670,
+      "totalRevenue": 44575.64,
+      "avgDailyThaw": 9,
+      "weekdayThawQuota": 8,
+      "weekendThawQuota": 10,
+      "minChamberStock": 25,
+      "matchedProducts": [
+        {
+          "code": "0000002577",
+          "name": "FILE DE PIRARUCU 2P",
+          "dailyAvg": 1.47
+        },
+        {
+          "code": "0000022657",
+          "name": "PIRARUCU EM CROSTA DE CASTANHA",
+          "dailyAvg": 1.63
+        },
+        {
+          "code": "0000022613",
+          "name": "PIRARUCU GRELHADO COM LEGUMES",
+          "dailyAvg": 2
+        },
+        {
+          "code": "0000022599",
+          "name": "MOQUECA DE PIRARUCU EXECUTIVO",
+          "dailyAvg": 1.26
+        },
+        {
+          "code": "0000002413",
+          "name": "PIRARUCU RIBEIRINHO",
+          "dailyAvg": 0.67
+        },
+        {
+          "code": "0000022611",
+          "name": "CARPACCIO DE PIRARUCU DEFUMADO",
+          "dailyAvg": 0.42
+        }
+      ]
+    },
+    {
+      "keyword": "PICANHA",
+      "name": "Picanha Bovina",
+      "category": "Carnes Nobres",
+      "defrostHours": 24,
+      "prepDaysLead": 1,
+      "unit": "UN",
+      "totalQtySold": 501,
+      "totalRevenue": 62903.66,
+      "avgDailyThaw": 7,
+      "weekdayThawQuota": 5,
+      "weekendThawQuota": 9,
+      "minChamberStock": 22,
+      "matchedProducts": [
+        {
+          "code": "0000002553",
+          "name": "PICANHA ANGUS 1P",
+          "dailyAvg": 3.02
+        },
+        {
+          "code": "0000005565",
+          "name": "PICANHA ANGUS 2P",
+          "dailyAvg": 1.87
+        },
+        {
+          "code": "0000022629",
+          "name": "CALDEIRAO DE PICANHA",
+          "dailyAvg": 0.68
+        }
+      ]
+    },
+    {
+      "keyword": "CARNE DE SOL",
+      "name": "Carne de Sol de Alcatra",
+      "category": "Carnes Nobres",
+      "defrostHours": 16,
+      "prepDaysLead": 1,
+      "unit": "UN",
+      "totalQtySold": 5009,
+      "totalRevenue": 447901.06,
+      "avgDailyThaw": 62,
+      "weekdayThawQuota": 46,
+      "weekendThawQuota": 83,
+      "minChamberStock": 215,
+      "matchedProducts": [
+        {
+          "code": "0000002549",
+          "name": "CARNE DE SOL DO ENGENHO 2P",
+          "dailyAvg": 11.78
+        },
+        {
+          "code": "0000002550",
+          "name": "CARNE DE SOL  DO ENGENHO 3P",
+          "dailyAvg": 4.63
+        },
+        {
+          "code": "0000004180",
+          "name": "CARNE DE SOL NORDESTINA 200G EXECUTIVO",
+          "dailyAvg": 12.49
+        },
+        {
+          "code": "0000002548",
+          "name": "CARNE DE SOL DO ENGENHO 1P",
+          "dailyAvg": 6.48
+        },
+        {
+          "code": "0000002514",
+          "name": "MINI PASTEL CARNE DE SOL",
+          "dailyAvg": 13.99
+        },
+        {
+          "code": "0000002425",
+          "name": "ISCA CARNE DE SOL DO ENGENHO",
+          "dailyAvg": 3.03
+        },
+        {
+          "code": "0000022627",
+          "name": "CALDEIRAO DE CARNE DE SOL",
+          "dailyAvg": 1.92
+        },
+        {
+          "code": "0000002690",
+          "name": "PIZZA CARNE DE SOL GRANDE",
+          "dailyAvg": 1.33
+        }
+      ]
+    },
+    {
+      "keyword": "COSTELA",
+      "name": "Costela Suína / Bovina",
+      "category": "Carnes Nobres",
+      "defrostHours": 20,
+      "prepDaysLead": 1,
+      "unit": "UN",
+      "totalQtySold": 862,
+      "totalRevenue": 70162.29,
+      "avgDailyThaw": 11,
+      "weekdayThawQuota": 9,
+      "weekendThawQuota": 14,
+      "minChamberStock": 37,
+      "matchedProducts": [
+        {
+          "code": "0000005486",
+          "name": "COSTELAO DO ENGENHO 2P",
+          "dailyAvg": 2.26
+        },
+        {
+          "code": "0000022608",
+          "name": "X MANAOS COSTELA",
+          "dailyAvg": 3.68
+        },
+        {
+          "code": "0000016696",
+          "name": "COSTELA DE TAMBAQUI EXECUTIVO",
+          "dailyAvg": 2.32
+        },
+        {
+          "code": "0000002556",
+          "name": "COSTELA BARBECUE 2P",
+          "dailyAvg": 0.89
+        },
+        {
+          "code": "0000022632",
+          "name": "CROCANTE DE COSTELA UN",
+          "dailyAvg": 0.43
+        }
+      ]
+    },
+    {
+      "keyword": "JOELHO",
+      "name": "Joelho de Porco (Eisbein)",
+      "category": "Carnes Nobres",
+      "defrostHours": 24,
+      "prepDaysLead": 2,
+      "unit": "UN",
+      "totalQtySold": 849,
+      "totalRevenue": 107476.02,
+      "avgDailyThaw": 11,
+      "weekdayThawQuota": 8,
+      "weekendThawQuota": 15,
+      "minChamberStock": 38,
+      "matchedProducts": [
+        {
+          "code": "0000002519",
+          "name": "JOELHO PORCO DEFUMADO 3P",
+          "dailyAvg": 4.29
+        },
+        {
+          "code": "0000002437",
+          "name": "JOELHO TRINCHADO",
+          "dailyAvg": 4.1
+        },
+        {
+          "code": "0000022663",
+          "name": "CARBONARA DE JOELHO",
+          "dailyAvg": 0.67
+        },
+        {
+          "code": "0000004415",
+          "name": "JOELHO PORCO DEF. FATIADO 3P",
+          "dailyAvg": 0.22
+        },
+        {
+          "code": "0000002822",
+          "name": "JOELHO SUINO DEF. EMPORIO UN",
+          "dailyAvg": 0.14
+        },
+        {
+          "code": "0000002432",
+          "name": "JOELHO BANDADO",
+          "dailyAvg": 0.01
+        }
+      ]
+    },
+    {
+      "keyword": "FILE MIGNON",
+      "name": "Filé Mignon Bovino",
+      "category": "Carnes Nobres",
+      "defrostHours": 16,
+      "prepDaysLead": 1,
+      "unit": "UN",
+      "totalQtySold": 382,
+      "totalRevenue": 18153.61,
+      "avgDailyThaw": 5,
+      "weekdayThawQuota": 3,
+      "weekendThawQuota": 8,
+      "minChamberStock": 21,
+      "matchedProducts": [
+        {
+          "code": "0000022658",
+          "name": "TIRAS DE FILE MIGNON KIDS UN",
+          "dailyAvg": 3.67
+        },
+        {
+          "code": "0000022656",
+          "name": "EMPANADO DE FILE MIGNON UN",
+          "dailyAvg": 0.58
+        }
+      ]
+    },
+    {
+      "keyword": "FILE",
+      "name": "Filé Bovino",
+      "category": "Carnes Nobres",
+      "defrostHours": 16,
+      "prepDaysLead": 1,
+      "unit": "UN",
+      "totalQtySold": 1054,
+      "totalRevenue": 79312.92,
+      "avgDailyThaw": 13,
+      "weekdayThawQuota": 9,
+      "weekendThawQuota": 20,
+      "minChamberStock": 52,
+      "matchedProducts": [
+        {
+          "code": "0000002543",
+          "name": "FILE DO ENGENHO 1P",
+          "dailyAvg": 3.99
+        },
+        {
+          "code": "0000022658",
+          "name": "TIRAS DE FILE MIGNON KIDS UN",
+          "dailyAvg": 3.67
+        },
+        {
+          "code": "0000002577",
+          "name": "FILE DE PIRARUCU 2P",
+          "dailyAvg": 1.47
+        },
+        {
+          "code": "0000002424",
+          "name": "FILE COM FRITAS",
+          "dailyAvg": 1.06
+        },
+        {
+          "code": "0000002558",
+          "name": "FILE DE FRANGO 2P",
+          "dailyAvg": 0.93
+        },
+        {
+          "code": "0000022656",
+          "name": "EMPANADO DE FILE MIGNON UN",
+          "dailyAvg": 0.58
+        },
+        {
+          "code": "0000002547",
+          "name": "FILE A PARMEGIANA 1P",
+          "dailyAvg": 0.02
+        }
+      ]
+    },
+    {
+      "keyword": "CAMARAO",
+      "name": "Camarão Rosa / Cinza",
+      "category": "Frutos do Mar",
+      "defrostHours": 12,
+      "prepDaysLead": 1,
+      "unit": "UN",
+      "totalQtySold": 1440,
+      "totalRevenue": 97795.35,
+      "avgDailyThaw": 18,
+      "weekdayThawQuota": 13,
+      "weekendThawQuota": 25,
+      "minChamberStock": 64,
+      "matchedProducts": [
+        {
+          "code": "0000015433",
+          "name": "FETTUCCINE DE CAMARAO AO MOLHO DE QUEIJOS",
+          "dailyAvg": 2.77
+        },
+        {
+          "code": "0000015432",
+          "name": "BOBO DE CAMARAO EXECUTIVO",
+          "dailyAvg": 2.72
+        },
+        {
+          "code": "0000022631",
+          "name": "CALDEIRAO DE CAMARAO",
+          "dailyAvg": 1.72
+        },
+        {
+          "code": "0000002420",
+          "name": "CAMARAO DE MONTAO",
+          "dailyAvg": 0.83
+        },
+        {
+          "code": "0000022609",
+          "name": "CAMARAO NA CERVEJA",
+          "dailyAvg": 1.83
+        },
+        {
+          "code": "0000002498",
+          "name": "MINI PASTEIS DE CAMARAO",
+          "dailyAvg": 2.39
+        },
+        {
+          "code": "0000011107",
+          "name": "BACALHAU COM NATAS E CAMARAO 1P",
+          "dailyAvg": 1.03
+        },
+        {
+          "code": "0000022616",
+          "name": "BOBO DE CAMARAO LEVE",
+          "dailyAvg": 1.26
+        },
+        {
+          "code": "0000002595",
+          "name": "CAMARAO AMAZONICO 1P",
+          "dailyAvg": 0.7
+        },
+        {
+          "code": "0000002597",
+          "name": "CAMARAO AMAZONICO 2P",
+          "dailyAvg": 0.29
+        },
+        {
+          "code": "0000022660",
+          "name": "CAMARAO VILA VERDE 1P",
+          "dailyAvg": 0.43
+        },
+        {
+          "code": "0000002614",
+          "name": "ESCONDIDINHO DE CAMARAO",
+          "dailyAvg": 0.01
+        },
+        {
+          "code": "0000002515",
+          "name": "MINI PASTEIS CAMARAO UN",
+          "dailyAvg": 0.01
+        }
+      ]
+    },
+    {
+      "keyword": "CORACAO",
+      "name": "Coração de Galinha",
+      "category": "Aves",
+      "defrostHours": 12,
+      "prepDaysLead": 1,
+      "unit": "UN",
+      "totalQtySold": 190,
+      "totalRevenue": 7581,
+      "avgDailyThaw": 3,
+      "weekdayThawQuota": 2,
+      "weekendThawQuota": 4,
+      "minChamberStock": 9,
+      "matchedProducts": [
+        {
+          "code": "0000022635",
+          "name": "CORACAOZINHO DE GALINHA UN",
+          "dailyAvg": 2.11
+        }
+      ]
+    },
+    {
+      "keyword": "FRANGO",
+      "name": "Frango / Sobrecoxa",
+      "category": "Aves",
+      "defrostHours": 14,
+      "prepDaysLead": 1,
+      "unit": "UN",
+      "totalQtySold": 432,
+      "totalRevenue": 26417.79,
+      "avgDailyThaw": 6,
+      "weekdayThawQuota": 4,
+      "weekendThawQuota": 9,
+      "minChamberStock": 22,
+      "matchedProducts": [
+        {
+          "code": "0000002559",
+          "name": "FRANGO A PARMEGIANA 1P",
+          "dailyAvg": 1.83
+        },
+        {
+          "code": "0000002558",
+          "name": "FILE DE FRANGO 2P",
+          "dailyAvg": 0.93
+        },
+        {
+          "code": "0000022644",
+          "name": "EMPANADO DE FRANGO",
+          "dailyAvg": 1.41
+        },
+        {
+          "code": "0000022648",
+          "name": "SUPREME DE FRANGO",
+          "dailyAvg": 0.62
+        }
+      ]
+    },
+    {
+      "keyword": "QUEIJO COALHO",
+      "name": "Queijo Coalho Grelhado",
+      "category": "Laticínios",
+      "defrostHours": 8,
+      "prepDaysLead": 1,
+      "unit": "UN",
+      "totalQtySold": 983.8,
+      "totalRevenue": 24808.95,
+      "avgDailyThaw": 13,
+      "weekdayThawQuota": 9,
+      "weekendThawQuota": 17,
+      "minChamberStock": 45,
+      "matchedProducts": [
+        {
+          "code": "0000002507",
+          "name": "MINI PASTEL QUEIJO COALHO",
+          "dailyAvg": 10.79
+        },
+        {
+          "code": "0000022976",
+          "name": "QUEIJO COALHO C/ TUCUMA KG",
+          "dailyAvg": 0.04
+        },
+        {
+          "code": "0000013496",
+          "name": "QUEIJO COALHO DE BUFALA KG",
+          "dailyAvg": 0.04
+        },
+        {
+          "code": "0000022972",
+          "name": "QUEIJO COALHO C/ OREGANO KG",
+          "dailyAvg": 0.03
+        },
+        {
+          "code": "0000022980",
+          "name": "QUEIJO COALHO C/ CALABRESA E PIMENTA",
+          "dailyAvg": 0.02
+        },
+        {
+          "code": "0000022974",
+          "name": "QUEIJO COALHO C/ CASTANHA KG",
+          "dailyAvg": 0.01
+        },
+        {
+          "code": "0000022978",
+          "name": "QUEIJO COALHO MATURADO C/ CAFÉ",
+          "dailyAvg": 0
+        },
+        {
+          "code": "0000000315",
+          "name": "QUEIJO COALHO KG",
+          "dailyAvg": 0
+        }
+      ]
+    },
+    {
+      "keyword": "DADINHO",
+      "name": "Dadinho de Tapioca",
+      "category": "Petiscos",
+      "defrostHours": 6,
+      "prepDaysLead": 1,
+      "unit": "UN",
+      "totalQtySold": 41,
+      "totalRevenue": 971.6,
+      "avgDailyThaw": 1,
+      "weekdayThawQuota": 1,
+      "weekendThawQuota": 1,
+      "minChamberStock": 3,
+      "matchedProducts": [
+        {
+          "code": "0000019160",
+          "name": "DADINHO DE TAPIOCA",
+          "dailyAvg": 0.46
+        }
+      ]
+    }
+  ],
+  "weeklyPurchasingList": [
+    {
+      "code": "0000002549",
+      "name": "CARNE DE SOL DO ENGENHO 2P",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 11.78,
+      "currentSafetyStock": 63,
+      "recommendedOrderQty": 83,
+      "estimatedWeeklyCost": 13135.58,
+      "avgPrice": 158.26
+    },
+    {
+      "code": "0000002742",
+      "name": "COUVERT PROJETO SOM E SABOR UN",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 128.84,
+      "currentSafetyStock": 691,
+      "recommendedOrderQty": 902,
+      "estimatedWeeklyCost": 10246.72,
+      "avgPrice": 11.36
+    },
+    {
+      "code": "0000002550",
+      "name": "CARNE DE SOL  DO ENGENHO 3P",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 4.63,
+      "currentSafetyStock": 25,
+      "recommendedOrderQty": 33,
+      "estimatedWeeklyCost": 7373.52,
+      "avgPrice": 223.44
+    },
+    {
+      "code": "0000014138",
+      "name": "CHOPP TRINCA PERFEITA",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 57.5,
+      "currentSafetyStock": 289,
+      "recommendedOrderQty": 403,
+      "estimatedWeeklyCost": 6806.67,
+      "avgPrice": 16.89
+    },
+    {
+      "code": "0000021918",
+      "name": "CHOPP HEINEKEN 300ML",
+      "brand": "HEINEKEN",
+      "unit": "UN",
+      "dailyAvg": 66.9,
+      "currentSafetyStock": 338,
+      "recommendedOrderQty": 469,
+      "estimatedWeeklyCost": 6669.18,
+      "avgPrice": 14.22
+    },
+    {
+      "code": "0000002519",
+      "name": "JOELHO PORCO DEFUMADO 3P",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 4.29,
+      "currentSafetyStock": 22,
+      "recommendedOrderQty": 31,
+      "estimatedWeeklyCost": 6071.04,
+      "avgPrice": 195.84
+    },
+    {
+      "code": "0000021919",
+      "name": "CHOPP HEINEKEN 500ML",
+      "brand": "HEINEKEN",
+      "unit": "UN",
+      "dailyAvg": 37.5,
+      "currentSafetyStock": 187,
+      "recommendedOrderQty": 263,
+      "estimatedWeeklyCost": 5680.8,
+      "avgPrice": 21.6
+    },
+    {
+      "code": "0000021927",
+      "name": "CHOPP AMSTEL 300ML",
+      "brand": "AMSTEL",
+      "unit": "UN",
+      "dailyAvg": 66.92,
+      "currentSafetyStock": 333,
+      "recommendedOrderQty": 469,
+      "estimatedWeeklyCost": 5665.52,
+      "avgPrice": 12.08
+    },
+    {
+      "code": "0000014126",
+      "name": "FEIJOADA UN",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 10.61,
+      "currentSafetyStock": 69,
+      "recommendedOrderQty": 75,
+      "estimatedWeeklyCost": 5207.25,
+      "avgPrice": 69.43
+    },
+    {
+      "code": "0000004180",
+      "name": "CARNE DE SOL NORDESTINA 200G EXECUTIVO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 12.49,
+      "currentSafetyStock": 52,
+      "recommendedOrderQty": 88,
+      "estimatedWeeklyCost": 4804.8,
+      "avgPrice": 54.6
+    },
+    {
+      "code": "0000002434",
+      "name": "COMPLETA DO ENGENHO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 7.46,
+      "currentSafetyStock": 38,
+      "recommendedOrderQty": 53,
+      "estimatedWeeklyCost": 4756.75,
+      "avgPrice": 89.75
+    },
+    {
+      "code": "0000002548",
+      "name": "CARNE DE SOL DO ENGENHO 1P",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 6.48,
+      "currentSafetyStock": 33,
+      "recommendedOrderQty": 46,
+      "estimatedWeeklyCost": 3657.46,
+      "avgPrice": 79.51
+    },
+    {
+      "code": "0000001899",
+      "name": "AGUA MINERAL S/GAS 350ML",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 57.83,
+      "currentSafetyStock": 303,
+      "recommendedOrderQty": 405,
+      "estimatedWeeklyCost": 3568.05,
+      "avgPrice": 8.81
+    },
+    {
+      "code": "0000002553",
+      "name": "PICANHA ANGUS 1P",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 3.02,
+      "currentSafetyStock": 15,
+      "recommendedOrderQty": 22,
+      "estimatedWeeklyCost": 3362.7,
+      "avgPrice": 152.85
+    },
+    {
+      "code": "0000021930",
+      "name": "CHOPP SUJO AMSTEL 300ML",
+      "brand": "AMSTEL",
+      "unit": "UN",
+      "dailyAvg": 31.4,
+      "currentSafetyStock": 161,
+      "recommendedOrderQty": 220,
+      "estimatedWeeklyCost": 3227.4,
+      "avgPrice": 14.67
+    },
+    {
+      "code": "0000021921",
+      "name": "CHOPP SUJO HEINEKEN 300ML",
+      "brand": "HEINEKEN",
+      "unit": "UN",
+      "dailyAvg": 25.48,
+      "currentSafetyStock": 127,
+      "recommendedOrderQty": 179,
+      "estimatedWeeklyCost": 2955.29,
+      "avgPrice": 16.51
+    },
+    {
+      "code": "0000001835",
+      "name": "CERVEJA HEINEKEN 600ML",
+      "brand": "HEINEKEN",
+      "unit": "UN",
+      "dailyAvg": 16.96,
+      "currentSafetyStock": 90,
+      "recommendedOrderQty": 119,
+      "estimatedWeeklyCost": 2835.77,
+      "avgPrice": 23.83
+    },
+    {
+      "code": "0000002543",
+      "name": "FILE DO ENGENHO 1P",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 3.99,
+      "currentSafetyStock": 21,
+      "recommendedOrderQty": 28,
+      "estimatedWeeklyCost": 2498.16,
+      "avgPrice": 89.22
+    },
+    {
+      "code": "0000002514",
+      "name": "MINI PASTEL CARNE DE SOL",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 13.99,
+      "currentSafetyStock": 72,
+      "recommendedOrderQty": 98,
+      "estimatedWeeklyCost": 2389.24,
+      "avgPrice": 24.38
+    },
+    {
+      "code": "0000005486",
+      "name": "COSTELAO DO ENGENHO 2P",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 2.26,
+      "currentSafetyStock": 13,
+      "recommendedOrderQty": 16,
+      "estimatedWeeklyCost": 2385.6,
+      "avgPrice": 149.1
+    },
+    {
+      "code": "0000001655",
+      "name": "CAIPIRINHA DO ENGENHO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 27.1,
+      "currentSafetyStock": 135,
+      "recommendedOrderQty": 190,
+      "estimatedWeeklyCost": 2319.9,
+      "avgPrice": 12.21
+    },
+    {
+      "code": "0000021928",
+      "name": "CHOPP AMSTEL 500ML",
+      "brand": "AMSTEL",
+      "unit": "UN",
+      "dailyAvg": 16.68,
+      "currentSafetyStock": 86,
+      "recommendedOrderQty": 117,
+      "estimatedWeeklyCost": 2300.22,
+      "avgPrice": 19.66
+    },
+    {
+      "code": "0000021922",
+      "name": "CHOPP SUJO HEINEKEN 500ML",
+      "brand": "HEINEKEN",
+      "unit": "UN",
+      "dailyAvg": 13.42,
+      "currentSafetyStock": 65,
+      "recommendedOrderQty": 94,
+      "estimatedWeeklyCost": 2268.22,
+      "avgPrice": 24.13
+    },
+    {
+      "code": "0000002464",
+      "name": "BATATA FRITA",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 8.27,
+      "currentSafetyStock": 45,
+      "recommendedOrderQty": 58,
+      "estimatedWeeklyCost": 1999.26,
+      "avgPrice": 34.47
+    },
+    {
+      "code": "0000002412",
+      "name": "COSTELINHA DO ENGENHO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 4.46,
+      "currentSafetyStock": 22,
+      "recommendedOrderQty": 32,
+      "estimatedWeeklyCost": 2036.16,
+      "avgPrice": 63.63
+    },
+    {
+      "code": "0000002425",
+      "name": "ISCA CARNE DE SOL DO ENGENHO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 3.03,
+      "currentSafetyStock": 15,
+      "recommendedOrderQty": 22,
+      "estimatedWeeklyCost": 2036.54,
+      "avgPrice": 92.57
+    },
+    {
+      "code": "0000002568",
+      "name": "TAMBAQUI SMOKED 3P",
+      "brand": "TAMBAQUI",
+      "unit": "UN",
+      "dailyAvg": 1.4,
+      "currentSafetyStock": 8,
+      "recommendedOrderQty": 10,
+      "estimatedWeeklyCost": 1983.3,
+      "avgPrice": 198.33
+    },
+    {
+      "code": "0000002507",
+      "name": "MINI PASTEL QUEIJO COALHO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 10.79,
+      "currentSafetyStock": 55,
+      "recommendedOrderQty": 76,
+      "estimatedWeeklyCost": 1859.72,
+      "avgPrice": 24.47
+    },
+    {
+      "code": "0000001836",
+      "name": "CERVEJA AMSTEL 600ML",
+      "brand": "AMSTEL",
+      "unit": "UN",
+      "dailyAvg": 14.92,
+      "currentSafetyStock": 82,
+      "recommendedOrderQty": 105,
+      "estimatedWeeklyCost": 1827,
+      "avgPrice": 17.4
+    },
+    {
+      "code": "0000002437",
+      "name": "JOELHO TRINCHADO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 4.1,
+      "currentSafetyStock": 20,
+      "recommendedOrderQty": 29,
+      "estimatedWeeklyCost": 1756.53,
+      "avgPrice": 60.57
+    },
+    {
+      "code": "0000001938",
+      "name": "COCA COLA ZERO LATA 350ML UN",
+      "brand": "COCA COLA",
+      "unit": "UN",
+      "dailyAvg": 25.12,
+      "currentSafetyStock": 131,
+      "recommendedOrderQty": 176,
+      "estimatedWeeklyCost": 1726.56,
+      "avgPrice": 9.81
+    },
+    {
+      "code": "0000015433",
+      "name": "FETTUCCINE DE CAMARAO AO MOLHO DE QUEIJOS",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 2.77,
+      "currentSafetyStock": 15,
+      "recommendedOrderQty": 20,
+      "estimatedWeeklyCost": 1765.4,
+      "avgPrice": 88.27
+    },
+    {
+      "code": "0000021931",
+      "name": "CHOPP SUJO AMSTEL 500ML",
+      "brand": "AMSTEL",
+      "unit": "UN",
+      "dailyAvg": 10.52,
+      "currentSafetyStock": 52,
+      "recommendedOrderQty": 74,
+      "estimatedWeeklyCost": 1590.26,
+      "avgPrice": 21.49
+    },
+    {
+      "code": "0000002853",
+      "name": "COCA COLA ZERO 290ML KS UN",
+      "brand": "COCA COLA",
+      "unit": "UN",
+      "dailyAvg": 22.61,
+      "currentSafetyStock": 115,
+      "recommendedOrderQty": 159,
+      "estimatedWeeklyCost": 1562.97,
+      "avgPrice": 9.83
+    },
+    {
+      "code": "0000022785",
+      "name": "COMBO CALDEIRAO ENGENHO 2 UN",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 1.82,
+      "currentSafetyStock": 10,
+      "recommendedOrderQty": 13,
+      "estimatedWeeklyCost": 1554.02,
+      "avgPrice": 119.54
+    },
+    {
+      "code": "0000001905",
+      "name": "AGUA MINERAL C/ GAS 350ML",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 24.97,
+      "currentSafetyStock": 126,
+      "recommendedOrderQty": 175,
+      "estimatedWeeklyCost": 1524.25,
+      "avgPrice": 8.71
+    },
+    {
+      "code": "0000002565",
+      "name": "TAMBAQUI MANAUARA 1P",
+      "brand": "TAMBAQUI",
+      "unit": "UN",
+      "dailyAvg": 2.8,
+      "currentSafetyStock": 14,
+      "recommendedOrderQty": 20,
+      "estimatedWeeklyCost": 1539.6,
+      "avgPrice": 76.98
+    },
+    {
+      "code": "0000002414",
+      "name": "BOLINHO DE BACALHAU TRADICIONAL",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 3.68,
+      "currentSafetyStock": 19,
+      "recommendedOrderQty": 26,
+      "estimatedWeeklyCost": 1407.9,
+      "avgPrice": 54.15
+    },
+    {
+      "code": "0000022654",
+      "name": "GUARNIÇÃO ESPECIAL DO ENGENHO P2",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 3.31,
+      "currentSafetyStock": 18,
+      "recommendedOrderQty": 24,
+      "estimatedWeeklyCost": 1432.8,
+      "avgPrice": 59.7
+    },
+    {
+      "code": "0000005565",
+      "name": "PICANHA ANGUS 2P",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 1.87,
+      "currentSafetyStock": 10,
+      "recommendedOrderQty": 14,
+      "estimatedWeeklyCost": 1421.98,
+      "avgPrice": 101.57
+    },
+    {
+      "code": "0000022662",
+      "name": "ARROZ DE RABADA COM RUCULA",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 3.02,
+      "currentSafetyStock": 16,
+      "recommendedOrderQty": 22,
+      "estimatedWeeklyCost": 1373.46,
+      "avgPrice": 62.43
+    },
+    {
+      "code": "0000017508",
+      "name": "FRALDINHA BLACK ANGUS",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 1.42,
+      "currentSafetyStock": 7,
+      "recommendedOrderQty": 10,
+      "estimatedWeeklyCost": 1271.6,
+      "avgPrice": 127.16
+    },
+    {
+      "code": "0000022608",
+      "name": "X MANAOS COSTELA",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 3.68,
+      "currentSafetyStock": 18,
+      "recommendedOrderQty": 26,
+      "estimatedWeeklyCost": 1254.24,
+      "avgPrice": 48.24
+    },
+    {
+      "code": "0000022658",
+      "name": "TIRAS DE FILE MIGNON KIDS UN",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 3.67,
+      "currentSafetyStock": 20,
+      "recommendedOrderQty": 26,
+      "estimatedWeeklyCost": 1249.56,
+      "avgPrice": 48.06
+    },
+    {
+      "code": "0000001934",
+      "name": "COCA COLA LT 350ML",
+      "brand": "COCA COLA",
+      "unit": "UN",
+      "dailyAvg": 17.28,
+      "currentSafetyStock": 90,
+      "recommendedOrderQty": 121,
+      "estimatedWeeklyCost": 1194.27,
+      "avgPrice": 9.87
+    },
+    {
+      "code": "0000001957",
+      "name": "COCA COLA 290ML KS UN",
+      "brand": "COCA COLA",
+      "unit": "UN",
+      "dailyAvg": 17.11,
+      "currentSafetyStock": 89,
+      "recommendedOrderQty": 120,
+      "estimatedWeeklyCost": 1183.2,
+      "avgPrice": 9.86
+    },
+    {
+      "code": "0000016696",
+      "name": "COSTELA DE TAMBAQUI EXECUTIVO",
+      "brand": "TAMBAQUI",
+      "unit": "UN",
+      "dailyAvg": 2.32,
+      "currentSafetyStock": 10,
+      "recommendedOrderQty": 17,
+      "estimatedWeeklyCost": 1173,
+      "avgPrice": 69
+    },
+    {
+      "code": "0000022600",
+      "name": "CARNE ASSADA DE PANELA EXECUTIVO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 2.87,
+      "currentSafetyStock": 12,
+      "recommendedOrderQty": 21,
+      "estimatedWeeklyCost": 1131.9,
+      "avgPrice": 53.9
+    },
+    {
+      "code": "0000002691",
+      "name": "PIZZA CALABRESA GRANDE",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 2.24,
+      "currentSafetyStock": 12,
+      "recommendedOrderQty": 16,
+      "estimatedWeeklyCost": 1097.44,
+      "avgPrice": 68.59
+    },
+    {
+      "code": "0000015432",
+      "name": "BOBO DE CAMARAO EXECUTIVO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 2.72,
+      "currentSafetyStock": 12,
+      "recommendedOrderQty": 20,
+      "estimatedWeeklyCost": 1080.6,
+      "avgPrice": 54.03
+    },
+    {
+      "code": "0000022627",
+      "name": "CALDEIRAO DE CARNE DE SOL",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 1.92,
+      "currentSafetyStock": 10,
+      "recommendedOrderQty": 14,
+      "estimatedWeeklyCost": 1019.2,
+      "avgPrice": 72.8
+    },
+    {
+      "code": "0000002577",
+      "name": "FILE DE PIRARUCU 2P",
+      "brand": "PIRARUCU",
+      "unit": "UN",
+      "dailyAvg": 1.47,
+      "currentSafetyStock": 8,
+      "recommendedOrderQty": 11,
+      "estimatedWeeklyCost": 1036.75,
+      "avgPrice": 94.25
+    },
+    {
+      "code": "0000022631",
+      "name": "CALDEIRAO DE CAMARAO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 1.72,
+      "currentSafetyStock": 9,
+      "recommendedOrderQty": 13,
+      "estimatedWeeklyCost": 967.46,
+      "avgPrice": 74.42
+    },
+    {
+      "code": "0000002702",
+      "name": "PETIT GATEAU TRADICIONAL",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 5.17,
+      "currentSafetyStock": 27,
+      "recommendedOrderQty": 37,
+      "estimatedWeeklyCost": 896.51,
+      "avgPrice": 24.23
+    },
+    {
+      "code": "0000002559",
+      "name": "FRANGO A PARMEGIANA 1P",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 1.83,
+      "currentSafetyStock": 10,
+      "recommendedOrderQty": 13,
+      "estimatedWeeklyCost": 877.89,
+      "avgPrice": 67.53
+    },
+    {
+      "code": "0000022607",
+      "name": "CHEESEBURGUER",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 2.61,
+      "currentSafetyStock": 14,
+      "recommendedOrderQty": 19,
+      "estimatedWeeklyCost": 896.23,
+      "avgPrice": 47.17
+    },
+    {
+      "code": "0000022657",
+      "name": "PIRARUCU EM CROSTA DE CASTANHA",
+      "brand": "PIRARUCU",
+      "unit": "UN",
+      "dailyAvg": 1.63,
+      "currentSafetyStock": 8,
+      "recommendedOrderQty": 12,
+      "estimatedWeeklyCost": 893.88,
+      "avgPrice": 74.49
+    },
+    {
+      "code": "0000002690",
+      "name": "PIZZA CARNE DE SOL GRANDE",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 1.33,
+      "currentSafetyStock": 7,
+      "recommendedOrderQty": 10,
+      "estimatedWeeklyCost": 890.8,
+      "avgPrice": 89.08
+    },
+    {
+      "code": "0000002449",
+      "name": "CALDINHO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 6.08,
+      "currentSafetyStock": 32,
+      "recommendedOrderQty": 43,
+      "estimatedWeeklyCost": 831.62,
+      "avgPrice": 19.34
+    },
+    {
+      "code": "0000022614",
+      "name": "BOWL BRASILEIRO PROTEICO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "dailyAvg": 3.18,
+      "currentSafetyStock": 16,
+      "recommendedOrderQty": 23,
+      "estimatedWeeklyCost": 834.21,
+      "avgPrice": 36.27
+    }
+  ],
+  "topProductsByRevenue": [
+    {
+      "code": "0000002549",
+      "name": "CARNE DE SOL DO ENGENHO 2P",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 1060,
+      "totalRevenue": 167751.11,
+      "avgPrice": 158.26,
+      "dailyAvg": 11.78,
+      "weekdayAvg": 7.21,
+      "weekendAvg": 17.86,
+      "minStock": 63,
+      "idealStock": 165,
+      "weeklyOrderNeed": 83,
+      "activeDaysCount": 90
+    },
+    {
+      "code": "0000002742",
+      "name": "COUVERT PROJETO SOM E SABOR UN",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 11596,
+      "totalRevenue": 131780.74,
+      "avgPrice": 11.36,
+      "dailyAvg": 128.84,
+      "weekdayAvg": 73.54,
+      "weekendAvg": 202.59,
+      "minStock": 691,
+      "idealStock": 1804,
+      "weeklyOrderNeed": 902,
+      "activeDaysCount": 90
+    },
+    {
+      "code": "0000002550",
+      "name": "CARNE DE SOL  DO ENGENHO 3P",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 417,
+      "totalRevenue": 93176.07,
+      "avgPrice": 223.44,
+      "dailyAvg": 4.63,
+      "weekdayAvg": 2.94,
+      "weekendAvg": 6.9,
+      "minStock": 25,
+      "idealStock": 65,
+      "weeklyOrderNeed": 33,
+      "activeDaysCount": 87
+    },
+    {
+      "code": "0000014138",
+      "name": "CHOPP TRINCA PERFEITA",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 5175,
+      "totalRevenue": 87421.39,
+      "avgPrice": 16.89,
+      "dailyAvg": 57.5,
+      "weekdayAvg": 42.49,
+      "weekendAvg": 77.52,
+      "minStock": 289,
+      "idealStock": 805,
+      "weeklyOrderNeed": 403,
+      "activeDaysCount": 88
+    },
+    {
+      "code": "0000021918",
+      "name": "CHOPP HEINEKEN 300ML",
+      "brand": "HEINEKEN",
+      "unit": "UN",
+      "totalQty": 6021,
+      "totalRevenue": 85606.4,
+      "avgPrice": 14.22,
+      "dailyAvg": 66.9,
+      "weekdayAvg": 48.63,
+      "weekendAvg": 91.26,
+      "minStock": 338,
+      "idealStock": 937,
+      "weeklyOrderNeed": 469,
+      "activeDaysCount": 90
+    },
+    {
+      "code": "0000002519",
+      "name": "JOELHO PORCO DEFUMADO 3P",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 386,
+      "totalRevenue": 75595.75,
+      "avgPrice": 195.84,
+      "dailyAvg": 4.29,
+      "weekdayAvg": 3.34,
+      "weekendAvg": 5.55,
+      "minStock": 22,
+      "idealStock": 61,
+      "weeklyOrderNeed": 31,
+      "activeDaysCount": 86
+    },
+    {
+      "code": "0000021919",
+      "name": "CHOPP HEINEKEN 500ML",
+      "brand": "HEINEKEN",
+      "unit": "UN",
+      "totalQty": 3375,
+      "totalRevenue": 72888.31,
+      "avgPrice": 21.6,
+      "dailyAvg": 37.5,
+      "weekdayAvg": 28.41,
+      "weekendAvg": 49.62,
+      "minStock": 187,
+      "idealStock": 525,
+      "weeklyOrderNeed": 263,
+      "activeDaysCount": 90
+    },
+    {
+      "code": "0000021927",
+      "name": "CHOPP AMSTEL 300ML",
+      "brand": "AMSTEL",
+      "unit": "UN",
+      "totalQty": 6023,
+      "totalRevenue": 72755.28,
+      "avgPrice": 12.08,
+      "dailyAvg": 66.92,
+      "weekdayAvg": 51.22,
+      "weekendAvg": 87.86,
+      "minStock": 333,
+      "idealStock": 937,
+      "weeklyOrderNeed": 469,
+      "activeDaysCount": 88
+    },
+    {
+      "code": "0000014126",
+      "name": "FEIJOADA UN",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 955,
+      "totalRevenue": 66307.84,
+      "avgPrice": 69.43,
+      "dailyAvg": 10.61,
+      "weekdayAvg": 0,
+      "weekendAvg": 24.76,
+      "minStock": 69,
+      "idealStock": 149,
+      "weeklyOrderNeed": 75,
+      "activeDaysCount": 14
+    },
+    {
+      "code": "0000004180",
+      "name": "CARNE DE SOL NORDESTINA 200G EXECUTIVO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 1124,
+      "totalRevenue": 61372.71,
+      "avgPrice": 54.6,
+      "dailyAvg": 12.49,
+      "weekdayAvg": 14.6,
+      "weekendAvg": 9.67,
+      "minStock": 52,
+      "idealStock": 175,
+      "weeklyOrderNeed": 88,
+      "activeDaysCount": 63
+    },
+    {
+      "code": "0000002434",
+      "name": "COMPLETA DO ENGENHO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 671,
+      "totalRevenue": 60223.99,
+      "avgPrice": 89.75,
+      "dailyAvg": 7.46,
+      "weekdayAvg": 5.64,
+      "weekendAvg": 9.88,
+      "minStock": 38,
+      "idealStock": 105,
+      "weeklyOrderNeed": 53,
+      "activeDaysCount": 89
+    },
+    {
+      "code": "0000002548",
+      "name": "CARNE DE SOL DO ENGENHO 1P",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 583,
+      "totalRevenue": 46354.79,
+      "avgPrice": 79.51,
+      "dailyAvg": 6.48,
+      "weekdayAvg": 4.59,
+      "weekendAvg": 9,
+      "minStock": 33,
+      "idealStock": 91,
+      "weeklyOrderNeed": 46,
+      "activeDaysCount": 89
+    },
+    {
+      "code": "0000001899",
+      "name": "AGUA MINERAL S/GAS 350ML",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 5205,
+      "totalRevenue": 45839.45,
+      "avgPrice": 8.81,
+      "dailyAvg": 57.83,
+      "weekdayAvg": 36.54,
+      "weekendAvg": 86.23,
+      "minStock": 303,
+      "idealStock": 810,
+      "weeklyOrderNeed": 405,
+      "activeDaysCount": 90
+    },
+    {
+      "code": "0000002553",
+      "name": "PICANHA ANGUS 1P",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 272,
+      "totalRevenue": 41576.2,
+      "avgPrice": 152.85,
+      "dailyAvg": 3.02,
+      "weekdayAvg": 2.35,
+      "weekendAvg": 3.91,
+      "minStock": 15,
+      "idealStock": 43,
+      "weeklyOrderNeed": 22,
+      "activeDaysCount": 82
+    },
+    {
+      "code": "0000021930",
+      "name": "CHOPP SUJO AMSTEL 300ML",
+      "brand": "AMSTEL",
+      "unit": "UN",
+      "totalQty": 2826,
+      "totalRevenue": 41465.69,
+      "avgPrice": 14.67,
+      "dailyAvg": 31.4,
+      "weekdayAvg": 21.64,
+      "weekendAvg": 44.41,
+      "minStock": 161,
+      "idealStock": 440,
+      "weeklyOrderNeed": 220,
+      "activeDaysCount": 88
+    },
+    {
+      "code": "0000021921",
+      "name": "CHOPP SUJO HEINEKEN 300ML",
+      "brand": "HEINEKEN",
+      "unit": "UN",
+      "totalQty": 2293,
+      "totalRevenue": 37863.79,
+      "avgPrice": 16.51,
+      "dailyAvg": 25.48,
+      "weekdayAvg": 19.37,
+      "weekendAvg": 33.63,
+      "minStock": 127,
+      "idealStock": 357,
+      "weeklyOrderNeed": 179,
+      "activeDaysCount": 90
+    },
+    {
+      "code": "0000001835",
+      "name": "CERVEJA HEINEKEN 600ML",
+      "brand": "HEINEKEN",
+      "unit": "UN",
+      "totalQty": 1526,
+      "totalRevenue": 36357.64,
+      "avgPrice": 23.83,
+      "dailyAvg": 16.96,
+      "weekdayAvg": 10.5,
+      "weekendAvg": 25.56,
+      "minStock": 90,
+      "idealStock": 238,
+      "weeklyOrderNeed": 119,
+      "activeDaysCount": 85
+    },
+    {
+      "code": "0000002543",
+      "name": "FILE DO ENGENHO 1P",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 359,
+      "totalRevenue": 32031.35,
+      "avgPrice": 89.22,
+      "dailyAvg": 3.99,
+      "weekdayAvg": 2.86,
+      "weekendAvg": 5.5,
+      "minStock": 21,
+      "idealStock": 56,
+      "weeklyOrderNeed": 28,
+      "activeDaysCount": 86
+    },
+    {
+      "code": "0000002514",
+      "name": "MINI PASTEL CARNE DE SOL",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 1259,
+      "totalRevenue": 30691.78,
+      "avgPrice": 24.38,
+      "dailyAvg": 13.99,
+      "weekdayAvg": 9.72,
+      "weekendAvg": 19.68,
+      "minStock": 72,
+      "idealStock": 196,
+      "weeklyOrderNeed": 98,
+      "activeDaysCount": 88
+    },
+    {
+      "code": "0000005486",
+      "name": "COSTELAO DO ENGENHO 2P",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 203,
+      "totalRevenue": 30266.31,
+      "avgPrice": 149.1,
+      "dailyAvg": 2.26,
+      "weekdayAvg": 1.19,
+      "weekendAvg": 3.68,
+      "minStock": 13,
+      "idealStock": 32,
+      "weeklyOrderNeed": 16,
+      "activeDaysCount": 67
+    },
+    {
+      "code": "0000001655",
+      "name": "CAIPIRINHA DO ENGENHO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 2439,
+      "totalRevenue": 29776.5,
+      "avgPrice": 12.21,
+      "dailyAvg": 27.1,
+      "weekdayAvg": 20.61,
+      "weekendAvg": 35.75,
+      "minStock": 135,
+      "idealStock": 380,
+      "weeklyOrderNeed": 190,
+      "activeDaysCount": 90
+    },
+    {
+      "code": "0000021928",
+      "name": "CHOPP AMSTEL 500ML",
+      "brand": "AMSTEL",
+      "unit": "UN",
+      "totalQty": 1501,
+      "totalRevenue": 29503.39,
+      "avgPrice": 19.66,
+      "dailyAvg": 16.68,
+      "weekdayAvg": 11.57,
+      "weekendAvg": 23.49,
+      "minStock": 86,
+      "idealStock": 234,
+      "weeklyOrderNeed": 117,
+      "activeDaysCount": 87
+    },
+    {
+      "code": "0000021922",
+      "name": "CHOPP SUJO HEINEKEN 500ML",
+      "brand": "HEINEKEN",
+      "unit": "UN",
+      "totalQty": 1208,
+      "totalRevenue": 29147.2,
+      "avgPrice": 24.13,
+      "dailyAvg": 13.42,
+      "weekdayAvg": 11.3,
+      "weekendAvg": 16.26,
+      "minStock": 65,
+      "idealStock": 188,
+      "weeklyOrderNeed": 94,
+      "activeDaysCount": 86
+    },
+    {
+      "code": "0000002464",
+      "name": "BATATA FRITA",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 744,
+      "totalRevenue": 25642.78,
+      "avgPrice": 34.47,
+      "dailyAvg": 8.27,
+      "weekdayAvg": 4.82,
+      "weekendAvg": 12.86,
+      "minStock": 45,
+      "idealStock": 116,
+      "weeklyOrderNeed": 58,
+      "activeDaysCount": 89
+    },
+    {
+      "code": "0000002412",
+      "name": "COSTELINHA DO ENGENHO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 401,
+      "totalRevenue": 25516.3,
+      "avgPrice": 63.63,
+      "dailyAvg": 4.46,
+      "weekdayAvg": 3.54,
+      "weekendAvg": 5.68,
+      "minStock": 22,
+      "idealStock": 63,
+      "weeklyOrderNeed": 32,
+      "activeDaysCount": 78
+    },
+    {
+      "code": "0000002425",
+      "name": "ISCA CARNE DE SOL DO ENGENHO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 273,
+      "totalRevenue": 25271.16,
+      "avgPrice": 92.57,
+      "dailyAvg": 3.03,
+      "weekdayAvg": 2.47,
+      "weekendAvg": 3.79,
+      "minStock": 15,
+      "idealStock": 43,
+      "weeklyOrderNeed": 22,
+      "activeDaysCount": 77
+    },
+    {
+      "code": "0000002568",
+      "name": "TAMBAQUI SMOKED 3P",
+      "brand": "TAMBAQUI",
+      "unit": "UN",
+      "totalQty": 126,
+      "totalRevenue": 24989.5,
+      "avgPrice": 198.33,
+      "dailyAvg": 1.4,
+      "weekdayAvg": 1.03,
+      "weekendAvg": 1.89,
+      "minStock": 8,
+      "idealStock": 20,
+      "weeklyOrderNeed": 10,
+      "activeDaysCount": 65
+    },
+    {
+      "code": "0000002507",
+      "name": "MINI PASTEL QUEIJO COALHO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 971,
+      "totalRevenue": 23756.11,
+      "avgPrice": 24.47,
+      "dailyAvg": 10.79,
+      "weekdayAvg": 8.03,
+      "weekendAvg": 14.47,
+      "minStock": 55,
+      "idealStock": 152,
+      "weeklyOrderNeed": 76,
+      "activeDaysCount": 88
+    },
+    {
+      "code": "0000001836",
+      "name": "CERVEJA AMSTEL 600ML",
+      "brand": "AMSTEL",
+      "unit": "UN",
+      "totalQty": 1343,
+      "totalRevenue": 23371.17,
+      "avgPrice": 17.4,
+      "dailyAvg": 14.92,
+      "weekdayAvg": 7.82,
+      "weekendAvg": 24.4,
+      "minStock": 82,
+      "idealStock": 209,
+      "weeklyOrderNeed": 105,
+      "activeDaysCount": 84
+    },
+    {
+      "code": "0000002437",
+      "name": "JOELHO TRINCHADO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 369,
+      "totalRevenue": 22351.57,
+      "avgPrice": 60.57,
+      "dailyAvg": 4.1,
+      "weekdayAvg": 3.34,
+      "weekendAvg": 5.11,
+      "minStock": 20,
+      "idealStock": 58,
+      "weeklyOrderNeed": 29,
+      "activeDaysCount": 85
+    },
+    {
+      "code": "0000001938",
+      "name": "COCA COLA ZERO LATA 350ML UN",
+      "brand": "COCA COLA",
+      "unit": "UN",
+      "totalQty": 2261,
+      "totalRevenue": 22188.38,
+      "avgPrice": 9.81,
+      "dailyAvg": 25.12,
+      "weekdayAvg": 16.41,
+      "weekendAvg": 36.74,
+      "minStock": 131,
+      "idealStock": 352,
+      "weeklyOrderNeed": 176,
+      "activeDaysCount": 89
+    },
+    {
+      "code": "0000015433",
+      "name": "FETTUCCINE DE CAMARAO AO MOLHO DE QUEIJOS",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 249,
+      "totalRevenue": 21979.28,
+      "avgPrice": 88.27,
+      "dailyAvg": 2.77,
+      "weekdayAvg": 1.75,
+      "weekendAvg": 4.12,
+      "minStock": 15,
+      "idealStock": 39,
+      "weeklyOrderNeed": 20,
+      "activeDaysCount": 75
+    },
+    {
+      "code": "0000021931",
+      "name": "CHOPP SUJO AMSTEL 500ML",
+      "brand": "AMSTEL",
+      "unit": "UN",
+      "totalQty": 947,
+      "totalRevenue": 20349.3,
+      "avgPrice": 21.49,
+      "dailyAvg": 10.52,
+      "weekdayAvg": 8.63,
+      "weekendAvg": 13.04,
+      "minStock": 52,
+      "idealStock": 148,
+      "weeklyOrderNeed": 74,
+      "activeDaysCount": 85
+    },
+    {
+      "code": "0000002853",
+      "name": "COCA COLA ZERO 290ML KS UN",
+      "brand": "COCA COLA",
+      "unit": "UN",
+      "totalQty": 2035,
+      "totalRevenue": 20002.64,
+      "avgPrice": 9.83,
+      "dailyAvg": 22.61,
+      "weekdayAvg": 16.37,
+      "weekendAvg": 30.93,
+      "minStock": 115,
+      "idealStock": 317,
+      "weeklyOrderNeed": 159,
+      "activeDaysCount": 87
+    },
+    {
+      "code": "0000022785",
+      "name": "COMBO CALDEIRAO ENGENHO 2 UN",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 164,
+      "totalRevenue": 19604.9,
+      "avgPrice": 119.54,
+      "dailyAvg": 1.82,
+      "weekdayAvg": 1.3,
+      "weekendAvg": 2.51,
+      "minStock": 10,
+      "idealStock": 26,
+      "weeklyOrderNeed": 13,
+      "activeDaysCount": 69
+    },
+    {
+      "code": "0000001905",
+      "name": "AGUA MINERAL C/ GAS 350ML",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 2247,
+      "totalRevenue": 19565.06,
+      "avgPrice": 8.71,
+      "dailyAvg": 24.97,
+      "weekdayAvg": 18.2,
+      "weekendAvg": 33.99,
+      "minStock": 126,
+      "idealStock": 350,
+      "weeklyOrderNeed": 175,
+      "activeDaysCount": 90
+    },
+    {
+      "code": "0000002565",
+      "name": "TAMBAQUI MANAUARA 1P",
+      "brand": "TAMBAQUI",
+      "unit": "UN",
+      "totalQty": 252,
+      "totalRevenue": 19399.43,
+      "avgPrice": 76.98,
+      "dailyAvg": 2.8,
+      "weekdayAvg": 2.28,
+      "weekendAvg": 3.5,
+      "minStock": 14,
+      "idealStock": 40,
+      "weeklyOrderNeed": 20,
+      "activeDaysCount": 73
+    },
+    {
+      "code": "0000002414",
+      "name": "BOLINHO DE BACALHAU TRADICIONAL",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 331,
+      "totalRevenue": 17924.85,
+      "avgPrice": 54.15,
+      "dailyAvg": 3.68,
+      "weekdayAvg": 2.61,
+      "weekendAvg": 5.11,
+      "minStock": 19,
+      "idealStock": 52,
+      "weeklyOrderNeed": 26,
+      "activeDaysCount": 85
+    },
+    {
+      "code": "0000022654",
+      "name": "GUARNIÇÃO ESPECIAL DO ENGENHO P2",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 298,
+      "totalRevenue": 17790.9,
+      "avgPrice": 59.7,
+      "dailyAvg": 3.31,
+      "weekdayAvg": 2.1,
+      "weekendAvg": 4.93,
+      "minStock": 18,
+      "idealStock": 47,
+      "weeklyOrderNeed": 24,
+      "activeDaysCount": 82
+    },
+    {
+      "code": "0000005565",
+      "name": "PICANHA ANGUS 2P",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 168,
+      "totalRevenue": 17063.56,
+      "avgPrice": 101.57,
+      "dailyAvg": 1.87,
+      "weekdayAvg": 1.42,
+      "weekendAvg": 2.46,
+      "minStock": 10,
+      "idealStock": 27,
+      "weeklyOrderNeed": 14,
+      "activeDaysCount": 70
+    },
+    {
+      "code": "0000022662",
+      "name": "ARROZ DE RABADA COM RUCULA",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 272,
+      "totalRevenue": 16981.74,
+      "avgPrice": 62.43,
+      "dailyAvg": 3.02,
+      "weekdayAvg": 2.26,
+      "weekendAvg": 4.04,
+      "minStock": 16,
+      "idealStock": 43,
+      "weeklyOrderNeed": 22,
+      "activeDaysCount": 80
+    },
+    {
+      "code": "0000017508",
+      "name": "FRALDINHA BLACK ANGUS",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 128,
+      "totalRevenue": 16276.47,
+      "avgPrice": 127.16,
+      "dailyAvg": 1.42,
+      "weekdayAvg": 1.15,
+      "weekendAvg": 1.79,
+      "minStock": 7,
+      "idealStock": 20,
+      "weeklyOrderNeed": 10,
+      "activeDaysCount": 65
+    },
+    {
+      "code": "0000022608",
+      "name": "X MANAOS COSTELA",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 331,
+      "totalRevenue": 15967.01,
+      "avgPrice": 48.24,
+      "dailyAvg": 3.68,
+      "weekdayAvg": 3.03,
+      "weekendAvg": 4.54,
+      "minStock": 18,
+      "idealStock": 52,
+      "weeklyOrderNeed": 26,
+      "activeDaysCount": 81
+    },
+    {
+      "code": "0000022658",
+      "name": "TIRAS DE FILE MIGNON KIDS UN",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 330,
+      "totalRevenue": 15859.22,
+      "avgPrice": 48.06,
+      "dailyAvg": 3.67,
+      "weekdayAvg": 2.02,
+      "weekendAvg": 5.86,
+      "minStock": 20,
+      "idealStock": 52,
+      "weeklyOrderNeed": 26,
+      "activeDaysCount": 78
+    },
+    {
+      "code": "0000001934",
+      "name": "COCA COLA LT 350ML",
+      "brand": "COCA COLA",
+      "unit": "UN",
+      "totalQty": 1555,
+      "totalRevenue": 15349.96,
+      "avgPrice": 9.87,
+      "dailyAvg": 17.28,
+      "weekdayAvg": 11.32,
+      "weekendAvg": 25.23,
+      "minStock": 90,
+      "idealStock": 242,
+      "weeklyOrderNeed": 121,
+      "activeDaysCount": 89
+    },
+    {
+      "code": "0000001957",
+      "name": "COCA COLA 290ML KS UN",
+      "brand": "COCA COLA",
+      "unit": "UN",
+      "totalQty": 1540,
+      "totalRevenue": 15190.76,
+      "avgPrice": 9.86,
+      "dailyAvg": 17.11,
+      "weekdayAvg": 11.34,
+      "weekendAvg": 24.81,
+      "minStock": 89,
+      "idealStock": 240,
+      "weeklyOrderNeed": 120,
+      "activeDaysCount": 89
+    },
+    {
+      "code": "0000016696",
+      "name": "COSTELA DE TAMBAQUI EXECUTIVO",
+      "brand": "TAMBAQUI",
+      "unit": "UN",
+      "totalQty": 209,
+      "totalRevenue": 14420.37,
+      "avgPrice": 69,
+      "dailyAvg": 2.32,
+      "weekdayAvg": 2.8,
+      "weekendAvg": 1.69,
+      "minStock": 10,
+      "idealStock": 33,
+      "weeklyOrderNeed": 17,
+      "activeDaysCount": 58
+    },
+    {
+      "code": "0000022600",
+      "name": "CARNE ASSADA DE PANELA EXECUTIVO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 258,
+      "totalRevenue": 13907.27,
+      "avgPrice": 53.9,
+      "dailyAvg": 2.87,
+      "weekdayAvg": 3.5,
+      "weekendAvg": 2.02,
+      "minStock": 12,
+      "idealStock": 41,
+      "weeklyOrderNeed": 21,
+      "activeDaysCount": 58
+    },
+    {
+      "code": "0000002691",
+      "name": "PIZZA CALABRESA GRANDE",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 202,
+      "totalRevenue": 13855.58,
+      "avgPrice": 68.59,
+      "dailyAvg": 2.24,
+      "weekdayAvg": 1.69,
+      "weekendAvg": 2.98,
+      "minStock": 12,
+      "idealStock": 32,
+      "weeklyOrderNeed": 16,
+      "activeDaysCount": 73
+    },
+    {
+      "code": "0000015432",
+      "name": "BOBO DE CAMARAO EXECUTIVO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 245,
+      "totalRevenue": 13236.94,
+      "avgPrice": 54.03,
+      "dailyAvg": 2.72,
+      "weekdayAvg": 3.05,
+      "weekendAvg": 2.28,
+      "minStock": 12,
+      "idealStock": 39,
+      "weeklyOrderNeed": 20,
+      "activeDaysCount": 61
+    }
+  ],
+  "topProductsByVolume": [
+    {
+      "code": "0000002742",
+      "name": "COUVERT PROJETO SOM E SABOR UN",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 11596,
+      "totalRevenue": 131780.74,
+      "avgPrice": 11.36,
+      "dailyAvg": 128.84,
+      "weekdayAvg": 73.54,
+      "weekendAvg": 202.59,
+      "minStock": 691,
+      "idealStock": 1804,
+      "weeklyOrderNeed": 902,
+      "activeDaysCount": 90
+    },
+    {
+      "code": "0000021927",
+      "name": "CHOPP AMSTEL 300ML",
+      "brand": "AMSTEL",
+      "unit": "UN",
+      "totalQty": 6023,
+      "totalRevenue": 72755.28,
+      "avgPrice": 12.08,
+      "dailyAvg": 66.92,
+      "weekdayAvg": 51.22,
+      "weekendAvg": 87.86,
+      "minStock": 333,
+      "idealStock": 937,
+      "weeklyOrderNeed": 469,
+      "activeDaysCount": 88
+    },
+    {
+      "code": "0000021918",
+      "name": "CHOPP HEINEKEN 300ML",
+      "brand": "HEINEKEN",
+      "unit": "UN",
+      "totalQty": 6021,
+      "totalRevenue": 85606.4,
+      "avgPrice": 14.22,
+      "dailyAvg": 66.9,
+      "weekdayAvg": 48.63,
+      "weekendAvg": 91.26,
+      "minStock": 338,
+      "idealStock": 937,
+      "weeklyOrderNeed": 469,
+      "activeDaysCount": 90
+    },
+    {
+      "code": "0000001899",
+      "name": "AGUA MINERAL S/GAS 350ML",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 5205,
+      "totalRevenue": 45839.45,
+      "avgPrice": 8.81,
+      "dailyAvg": 57.83,
+      "weekdayAvg": 36.54,
+      "weekendAvg": 86.23,
+      "minStock": 303,
+      "idealStock": 810,
+      "weeklyOrderNeed": 405,
+      "activeDaysCount": 90
+    },
+    {
+      "code": "0000014138",
+      "name": "CHOPP TRINCA PERFEITA",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 5175,
+      "totalRevenue": 87421.39,
+      "avgPrice": 16.89,
+      "dailyAvg": 57.5,
+      "weekdayAvg": 42.49,
+      "weekendAvg": 77.52,
+      "minStock": 289,
+      "idealStock": 805,
+      "weeklyOrderNeed": 403,
+      "activeDaysCount": 88
+    },
+    {
+      "code": "0000021919",
+      "name": "CHOPP HEINEKEN 500ML",
+      "brand": "HEINEKEN",
+      "unit": "UN",
+      "totalQty": 3375,
+      "totalRevenue": 72888.31,
+      "avgPrice": 21.6,
+      "dailyAvg": 37.5,
+      "weekdayAvg": 28.41,
+      "weekendAvg": 49.62,
+      "minStock": 187,
+      "idealStock": 525,
+      "weeklyOrderNeed": 263,
+      "activeDaysCount": 90
+    },
+    {
+      "code": "0000021930",
+      "name": "CHOPP SUJO AMSTEL 300ML",
+      "brand": "AMSTEL",
+      "unit": "UN",
+      "totalQty": 2826,
+      "totalRevenue": 41465.69,
+      "avgPrice": 14.67,
+      "dailyAvg": 31.4,
+      "weekdayAvg": 21.64,
+      "weekendAvg": 44.41,
+      "minStock": 161,
+      "idealStock": 440,
+      "weeklyOrderNeed": 220,
+      "activeDaysCount": 88
+    },
+    {
+      "code": "0000001655",
+      "name": "CAIPIRINHA DO ENGENHO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 2439,
+      "totalRevenue": 29776.5,
+      "avgPrice": 12.21,
+      "dailyAvg": 27.1,
+      "weekdayAvg": 20.61,
+      "weekendAvg": 35.75,
+      "minStock": 135,
+      "idealStock": 380,
+      "weeklyOrderNeed": 190,
+      "activeDaysCount": 90
+    },
+    {
+      "code": "0000021921",
+      "name": "CHOPP SUJO HEINEKEN 300ML",
+      "brand": "HEINEKEN",
+      "unit": "UN",
+      "totalQty": 2293,
+      "totalRevenue": 37863.79,
+      "avgPrice": 16.51,
+      "dailyAvg": 25.48,
+      "weekdayAvg": 19.37,
+      "weekendAvg": 33.63,
+      "minStock": 127,
+      "idealStock": 357,
+      "weeklyOrderNeed": 179,
+      "activeDaysCount": 90
+    },
+    {
+      "code": "0000001938",
+      "name": "COCA COLA ZERO LATA 350ML UN",
+      "brand": "COCA COLA",
+      "unit": "UN",
+      "totalQty": 2261,
+      "totalRevenue": 22188.38,
+      "avgPrice": 9.81,
+      "dailyAvg": 25.12,
+      "weekdayAvg": 16.41,
+      "weekendAvg": 36.74,
+      "minStock": 131,
+      "idealStock": 352,
+      "weeklyOrderNeed": 176,
+      "activeDaysCount": 89
+    },
+    {
+      "code": "0000001905",
+      "name": "AGUA MINERAL C/ GAS 350ML",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 2247,
+      "totalRevenue": 19565.06,
+      "avgPrice": 8.71,
+      "dailyAvg": 24.97,
+      "weekdayAvg": 18.2,
+      "weekendAvg": 33.99,
+      "minStock": 126,
+      "idealStock": 350,
+      "weeklyOrderNeed": 175,
+      "activeDaysCount": 90
+    },
+    {
+      "code": "0000002853",
+      "name": "COCA COLA ZERO 290ML KS UN",
+      "brand": "COCA COLA",
+      "unit": "UN",
+      "totalQty": 2035,
+      "totalRevenue": 20002.64,
+      "avgPrice": 9.83,
+      "dailyAvg": 22.61,
+      "weekdayAvg": 16.37,
+      "weekendAvg": 30.93,
+      "minStock": 115,
+      "idealStock": 317,
+      "weeklyOrderNeed": 159,
+      "activeDaysCount": 87
+    },
+    {
+      "code": "0000001934",
+      "name": "COCA COLA LT 350ML",
+      "brand": "COCA COLA",
+      "unit": "UN",
+      "totalQty": 1555,
+      "totalRevenue": 15349.96,
+      "avgPrice": 9.87,
+      "dailyAvg": 17.28,
+      "weekdayAvg": 11.32,
+      "weekendAvg": 25.23,
+      "minStock": 90,
+      "idealStock": 242,
+      "weeklyOrderNeed": 121,
+      "activeDaysCount": 89
+    },
+    {
+      "code": "0000001957",
+      "name": "COCA COLA 290ML KS UN",
+      "brand": "COCA COLA",
+      "unit": "UN",
+      "totalQty": 1540,
+      "totalRevenue": 15190.76,
+      "avgPrice": 9.86,
+      "dailyAvg": 17.11,
+      "weekdayAvg": 11.34,
+      "weekendAvg": 24.81,
+      "minStock": 89,
+      "idealStock": 240,
+      "weeklyOrderNeed": 120,
+      "activeDaysCount": 89
+    },
+    {
+      "code": "0000001835",
+      "name": "CERVEJA HEINEKEN 600ML",
+      "brand": "HEINEKEN",
+      "unit": "UN",
+      "totalQty": 1526,
+      "totalRevenue": 36357.64,
+      "avgPrice": 23.83,
+      "dailyAvg": 16.96,
+      "weekdayAvg": 10.5,
+      "weekendAvg": 25.56,
+      "minStock": 90,
+      "idealStock": 238,
+      "weeklyOrderNeed": 119,
+      "activeDaysCount": 85
+    },
+    {
+      "code": "0000021928",
+      "name": "CHOPP AMSTEL 500ML",
+      "brand": "AMSTEL",
+      "unit": "UN",
+      "totalQty": 1501,
+      "totalRevenue": 29503.39,
+      "avgPrice": 19.66,
+      "dailyAvg": 16.68,
+      "weekdayAvg": 11.57,
+      "weekendAvg": 23.49,
+      "minStock": 86,
+      "idealStock": 234,
+      "weeklyOrderNeed": 117,
+      "activeDaysCount": 87
+    },
+    {
+      "code": "0000001836",
+      "name": "CERVEJA AMSTEL 600ML",
+      "brand": "AMSTEL",
+      "unit": "UN",
+      "totalQty": 1343,
+      "totalRevenue": 23371.17,
+      "avgPrice": 17.4,
+      "dailyAvg": 14.92,
+      "weekdayAvg": 7.82,
+      "weekendAvg": 24.4,
+      "minStock": 82,
+      "idealStock": 209,
+      "weeklyOrderNeed": 105,
+      "activeDaysCount": 84
+    },
+    {
+      "code": "0000002514",
+      "name": "MINI PASTEL CARNE DE SOL",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 1259,
+      "totalRevenue": 30691.78,
+      "avgPrice": 24.38,
+      "dailyAvg": 13.99,
+      "weekdayAvg": 9.72,
+      "weekendAvg": 19.68,
+      "minStock": 72,
+      "idealStock": 196,
+      "weeklyOrderNeed": 98,
+      "activeDaysCount": 88
+    },
+    {
+      "code": "0000021922",
+      "name": "CHOPP SUJO HEINEKEN 500ML",
+      "brand": "HEINEKEN",
+      "unit": "UN",
+      "totalQty": 1208,
+      "totalRevenue": 29147.2,
+      "avgPrice": 24.13,
+      "dailyAvg": 13.42,
+      "weekdayAvg": 11.3,
+      "weekendAvg": 16.26,
+      "minStock": 65,
+      "idealStock": 188,
+      "weeklyOrderNeed": 94,
+      "activeDaysCount": 86
+    },
+    {
+      "code": "0000004180",
+      "name": "CARNE DE SOL NORDESTINA 200G EXECUTIVO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 1124,
+      "totalRevenue": 61372.71,
+      "avgPrice": 54.6,
+      "dailyAvg": 12.49,
+      "weekdayAvg": 14.6,
+      "weekendAvg": 9.67,
+      "minStock": 52,
+      "idealStock": 175,
+      "weeklyOrderNeed": 88,
+      "activeDaysCount": 63
+    },
+    {
+      "code": "0000002549",
+      "name": "CARNE DE SOL DO ENGENHO 2P",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 1060,
+      "totalRevenue": 167751.11,
+      "avgPrice": 158.26,
+      "dailyAvg": 11.78,
+      "weekdayAvg": 7.21,
+      "weekendAvg": 17.86,
+      "minStock": 63,
+      "idealStock": 165,
+      "weeklyOrderNeed": 83,
+      "activeDaysCount": 90
+    },
+    {
+      "code": "0000002507",
+      "name": "MINI PASTEL QUEIJO COALHO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 971,
+      "totalRevenue": 23756.11,
+      "avgPrice": 24.47,
+      "dailyAvg": 10.79,
+      "weekdayAvg": 8.03,
+      "weekendAvg": 14.47,
+      "minStock": 55,
+      "idealStock": 152,
+      "weeklyOrderNeed": 76,
+      "activeDaysCount": 88
+    },
+    {
+      "code": "0000014126",
+      "name": "FEIJOADA UN",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 955,
+      "totalRevenue": 66307.84,
+      "avgPrice": 69.43,
+      "dailyAvg": 10.61,
+      "weekdayAvg": 0,
+      "weekendAvg": 24.76,
+      "minStock": 69,
+      "idealStock": 149,
+      "weeklyOrderNeed": 75,
+      "activeDaysCount": 14
+    },
+    {
+      "code": "0000021931",
+      "name": "CHOPP SUJO AMSTEL 500ML",
+      "brand": "AMSTEL",
+      "unit": "UN",
+      "totalQty": 947,
+      "totalRevenue": 20349.3,
+      "avgPrice": 21.49,
+      "dailyAvg": 10.52,
+      "weekdayAvg": 8.63,
+      "weekendAvg": 13.04,
+      "minStock": 52,
+      "idealStock": 148,
+      "weeklyOrderNeed": 74,
+      "activeDaysCount": 85
+    },
+    {
+      "code": "0000003749",
+      "name": "LIMAO ESPREMIDO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 927,
+      "totalRevenue": 3652.43,
+      "avgPrice": 3.94,
+      "dailyAvg": 10.3,
+      "weekdayAvg": 7.49,
+      "weekendAvg": 14.05,
+      "minStock": 52,
+      "idealStock": 145,
+      "weeklyOrderNeed": 73,
+      "activeDaysCount": 89
+    },
+    {
+      "code": "0000006951",
+      "name": "PUDIM DE LEITE EXECUTIVO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 801,
+      "totalRevenue": 7.97,
+      "avgPrice": 0.01,
+      "dailyAvg": 8.9,
+      "weekdayAvg": 10.29,
+      "weekendAvg": 7.05,
+      "minStock": 38,
+      "idealStock": 125,
+      "weeklyOrderNeed": 63,
+      "activeDaysCount": 65
+    },
+    {
+      "code": "0000002464",
+      "name": "BATATA FRITA",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 744,
+      "totalRevenue": 25642.78,
+      "avgPrice": 34.47,
+      "dailyAvg": 8.27,
+      "weekdayAvg": 4.82,
+      "weekendAvg": 12.86,
+      "minStock": 45,
+      "idealStock": 116,
+      "weeklyOrderNeed": 58,
+      "activeDaysCount": 89
+    },
+    {
+      "code": "0000004185",
+      "name": "SORVETE COM FAROFA DE BROWNIE",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 743,
+      "totalRevenue": 7.43,
+      "avgPrice": 0.01,
+      "dailyAvg": 8.26,
+      "weekdayAvg": 9.99,
+      "weekendAvg": 5.94,
+      "minStock": 34,
+      "idealStock": 116,
+      "weeklyOrderNeed": 58,
+      "activeDaysCount": 63
+    },
+    {
+      "code": "0000022182",
+      "name": "BOLINHO DE CARNE SECA EXECUTIVO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 681,
+      "totalRevenue": 6.81,
+      "avgPrice": 0.01,
+      "dailyAvg": 7.57,
+      "weekdayAvg": 8.56,
+      "weekendAvg": 6.25,
+      "minStock": 33,
+      "idealStock": 106,
+      "weeklyOrderNeed": 53,
+      "activeDaysCount": 49
+    },
+    {
+      "code": "0000002434",
+      "name": "COMPLETA DO ENGENHO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 671,
+      "totalRevenue": 60223.99,
+      "avgPrice": 89.75,
+      "dailyAvg": 7.46,
+      "weekdayAvg": 5.64,
+      "weekendAvg": 9.88,
+      "minStock": 38,
+      "idealStock": 105,
+      "weeklyOrderNeed": 53,
+      "activeDaysCount": 89
+    },
+    {
+      "code": "0000015109",
+      "name": "CALDINHO EXECUTIVO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 628,
+      "totalRevenue": 6.27,
+      "avgPrice": 0.01,
+      "dailyAvg": 6.98,
+      "weekdayAvg": 8.54,
+      "weekendAvg": 4.9,
+      "minStock": 29,
+      "idealStock": 98,
+      "weeklyOrderNeed": 49,
+      "activeDaysCount": 63
+    },
+    {
+      "code": "0000019717",
+      "name": "BOWL DE SALADA VERANO EXECUTIVO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 593,
+      "totalRevenue": 5.93,
+      "avgPrice": 0.01,
+      "dailyAvg": 6.59,
+      "weekdayAvg": 7.97,
+      "weekendAvg": 4.74,
+      "minStock": 27,
+      "idealStock": 93,
+      "weeklyOrderNeed": 47,
+      "activeDaysCount": 63
+    },
+    {
+      "code": "0000002548",
+      "name": "CARNE DE SOL DO ENGENHO 1P",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 583,
+      "totalRevenue": 46354.79,
+      "avgPrice": 79.51,
+      "dailyAvg": 6.48,
+      "weekdayAvg": 4.59,
+      "weekendAvg": 9,
+      "minStock": 33,
+      "idealStock": 91,
+      "weeklyOrderNeed": 46,
+      "activeDaysCount": 89
+    },
+    {
+      "code": "0000002449",
+      "name": "CALDINHO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 547,
+      "totalRevenue": 10580.79,
+      "avgPrice": 19.34,
+      "dailyAvg": 6.08,
+      "weekdayAvg": 4.22,
+      "weekendAvg": 8.56,
+      "minStock": 32,
+      "idealStock": 86,
+      "weeklyOrderNeed": 43,
+      "activeDaysCount": 88
+    },
+    {
+      "code": "0000002965",
+      "name": "MARACUJA CANECA SUCO 300ML",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 537,
+      "totalRevenue": 9011.25,
+      "avgPrice": 16.78,
+      "dailyAvg": 5.97,
+      "weekdayAvg": 4.2,
+      "weekendAvg": 8.32,
+      "minStock": 31,
+      "idealStock": 84,
+      "weeklyOrderNeed": 42,
+      "activeDaysCount": 85
+    },
+    {
+      "code": "0000002956",
+      "name": "LARANJA CANECA SUCO 300ML",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 482,
+      "totalRevenue": 8682.07,
+      "avgPrice": 18.01,
+      "dailyAvg": 5.36,
+      "weekdayAvg": 3.83,
+      "weekendAvg": 7.39,
+      "minStock": 28,
+      "idealStock": 75,
+      "weeklyOrderNeed": 38,
+      "activeDaysCount": 90
+    },
+    {
+      "code": "0000002702",
+      "name": "PETIT GATEAU TRADICIONAL",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 465,
+      "totalRevenue": 11264.77,
+      "avgPrice": 24.23,
+      "dailyAvg": 5.17,
+      "weekdayAvg": 3.34,
+      "weekendAvg": 7.6,
+      "minStock": 27,
+      "idealStock": 73,
+      "weeklyOrderNeed": 37,
+      "activeDaysCount": 83
+    },
+    {
+      "code": "0000002550",
+      "name": "CARNE DE SOL  DO ENGENHO 3P",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 417,
+      "totalRevenue": 93176.07,
+      "avgPrice": 223.44,
+      "dailyAvg": 4.63,
+      "weekdayAvg": 2.94,
+      "weekendAvg": 6.9,
+      "minStock": 25,
+      "idealStock": 65,
+      "weeklyOrderNeed": 33,
+      "activeDaysCount": 87
+    },
+    {
+      "code": "0000002972",
+      "name": "MORANGO CANECA SUCO 300ML",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 407,
+      "totalRevenue": 6847.88,
+      "avgPrice": 16.83,
+      "dailyAvg": 4.52,
+      "weekdayAvg": 3.23,
+      "weekendAvg": 6.25,
+      "minStock": 23,
+      "idealStock": 64,
+      "weeklyOrderNeed": 32,
+      "activeDaysCount": 85
+    },
+    {
+      "code": "0000002412",
+      "name": "COSTELINHA DO ENGENHO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 401,
+      "totalRevenue": 25516.3,
+      "avgPrice": 63.63,
+      "dailyAvg": 4.46,
+      "weekdayAvg": 3.54,
+      "weekendAvg": 5.68,
+      "minStock": 22,
+      "idealStock": 63,
+      "weeklyOrderNeed": 32,
+      "activeDaysCount": 78
+    },
+    {
+      "code": "0000002447",
+      "name": "BOLINHO DE MACAXEIRA",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 396,
+      "totalRevenue": 9472.41,
+      "avgPrice": 23.92,
+      "dailyAvg": 4.4,
+      "weekdayAvg": 3.4,
+      "weekendAvg": 5.73,
+      "minStock": 22,
+      "idealStock": 62,
+      "weeklyOrderNeed": 31,
+      "activeDaysCount": 63
+    },
+    {
+      "code": "0000018984",
+      "name": "CERVEJA HEINEKEN 330ML",
+      "brand": "HEINEKEN",
+      "unit": "UN",
+      "totalQty": 390,
+      "totalRevenue": 6511.91,
+      "avgPrice": 16.7,
+      "dailyAvg": 4.33,
+      "weekdayAvg": 2.59,
+      "weekendAvg": 6.66,
+      "minStock": 23,
+      "idealStock": 61,
+      "weeklyOrderNeed": 31,
+      "activeDaysCount": 72
+    },
+    {
+      "code": "0000002519",
+      "name": "JOELHO PORCO DEFUMADO 3P",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 386,
+      "totalRevenue": 75595.75,
+      "avgPrice": 195.84,
+      "dailyAvg": 4.29,
+      "weekdayAvg": 3.34,
+      "weekendAvg": 5.55,
+      "minStock": 22,
+      "idealStock": 61,
+      "weeklyOrderNeed": 31,
+      "activeDaysCount": 86
+    },
+    {
+      "code": "0000005025",
+      "name": "PAO DE ALHO UN",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 383,
+      "totalRevenue": 5954.87,
+      "avgPrice": 15.55,
+      "dailyAvg": 4.26,
+      "weekdayAvg": 2.98,
+      "weekendAvg": 5.96,
+      "minStock": 22,
+      "idealStock": 60,
+      "weeklyOrderNeed": 30,
+      "activeDaysCount": 84
+    },
+    {
+      "code": "0000002437",
+      "name": "JOELHO TRINCHADO",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 369,
+      "totalRevenue": 22351.57,
+      "avgPrice": 60.57,
+      "dailyAvg": 4.1,
+      "weekdayAvg": 3.34,
+      "weekendAvg": 5.11,
+      "minStock": 20,
+      "idealStock": 58,
+      "weeklyOrderNeed": 29,
+      "activeDaysCount": 85
+    },
+    {
+      "code": "0000002543",
+      "name": "FILE DO ENGENHO 1P",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 359,
+      "totalRevenue": 32031.35,
+      "avgPrice": 89.22,
+      "dailyAvg": 3.99,
+      "weekdayAvg": 2.86,
+      "weekendAvg": 5.5,
+      "minStock": 21,
+      "idealStock": 56,
+      "weeklyOrderNeed": 28,
+      "activeDaysCount": 86
+    },
+    {
+      "code": "0000002959",
+      "name": "LIMAO CANECA SUCO 300ML",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 345,
+      "totalRevenue": 5082.36,
+      "avgPrice": 14.73,
+      "dailyAvg": 3.83,
+      "weekdayAvg": 2.49,
+      "weekendAvg": 5.63,
+      "minStock": 20,
+      "idealStock": 54,
+      "weeklyOrderNeed": 27,
+      "activeDaysCount": 83
+    },
+    {
+      "code": "0000008173",
+      "name": "EXPRESSO ATENTO- 3 CORACOES",
+      "brand": "3 CORACOES",
+      "unit": "UN",
+      "totalQty": 339,
+      "totalRevenue": 2552.26,
+      "avgPrice": 7.53,
+      "dailyAvg": 3.77,
+      "weekdayAvg": 3.56,
+      "weekendAvg": 4.04,
+      "minStock": 18,
+      "idealStock": 53,
+      "weeklyOrderNeed": 27,
+      "activeDaysCount": 74
+    },
+    {
+      "code": "0000002414",
+      "name": "BOLINHO DE BACALHAU TRADICIONAL",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 331,
+      "totalRevenue": 17924.85,
+      "avgPrice": 54.15,
+      "dailyAvg": 3.68,
+      "weekdayAvg": 2.61,
+      "weekendAvg": 5.11,
+      "minStock": 19,
+      "idealStock": 52,
+      "weeklyOrderNeed": 26,
+      "activeDaysCount": 85
+    },
+    {
+      "code": "0000022608",
+      "name": "X MANAOS COSTELA",
+      "brand": "ENGENHO / REGIONAL",
+      "unit": "UN",
+      "totalQty": 331,
+      "totalRevenue": 15967.01,
+      "avgPrice": 48.24,
+      "dailyAvg": 3.68,
+      "weekdayAvg": 3.03,
+      "weekendAvg": 4.54,
+      "minStock": 18,
+      "idealStock": 52,
+      "weeklyOrderNeed": 26,
+      "activeDaysCount": 81
+    }
+  ],
+  "paymentsSummary": [
+    {
+      "method": "VISA CRÉDITO TEF",
+      "revenue": 562039.81,
+      "count": 17259,
+      "percentage": 18.7
+    },
+    {
+      "method": "PIX TEF",
+      "revenue": 535944.31,
+      "count": 18568,
+      "percentage": 17.9
+    },
+    {
+      "method": "MASTER CRÉDITO TEF",
+      "revenue": 520271.5,
+      "count": 16828,
+      "percentage": 17.3
+    },
+    {
+      "method": "MASTER DÉBITO TEF",
+      "revenue": 374387,
+      "count": 12859,
+      "percentage": 12.5
+    },
+    {
+      "method": "TEF VISA DÉBITO",
+      "revenue": 286164.35,
+      "count": 9158,
+      "percentage": 9.5
+    },
+    {
+      "method": "DINHEIRO",
+      "revenue": 189423.62,
+      "count": 5431,
+      "percentage": 6.3
+    },
+    {
+      "method": "TEF CRÉDITO",
+      "revenue": 82134.15,
+      "count": 2679,
+      "percentage": 2.7
+    },
+    {
+      "method": "ELO DÉBITO TEF",
+      "revenue": 66155.92,
+      "count": 2295,
+      "percentage": 2.2
+    },
+    {
+      "method": "TEF DÉBITO",
+      "revenue": 57469.78,
+      "count": 2055,
+      "percentage": 1.9
+    },
+    {
+      "method": "ELO CRÉDITO TEF",
+      "revenue": 54286.79,
+      "count": 1794,
+      "percentage": 1.8
+    },
+    {
+      "method": "PIX ITAU",
+      "revenue": 45346.77,
+      "count": 1481,
+      "percentage": 1.5
+    },
+    {
+      "method": "VISA CRÉDITO",
+      "revenue": 39826.4,
+      "count": 1150,
+      "percentage": 1.3
+    },
+    {
+      "method": "MASTER CRÉDITO",
+      "revenue": 38173.66,
+      "count": 1082,
+      "percentage": 1.3
+    },
+    {
+      "method": "AMEX TEF",
+      "revenue": 35457.71,
+      "count": 1065,
+      "percentage": 1.2
+    },
+    {
+      "method": "MASTER DÉBITO",
+      "revenue": 30674.87,
+      "count": 1047,
+      "percentage": 1
+    },
+    {
+      "method": "VISA DÉBITO",
+      "revenue": 25012.87,
+      "count": 715,
+      "percentage": 0.8
+    },
+    {
+      "method": "ELO CRÉDITO",
+      "revenue": 7932.72,
+      "count": 203,
+      "percentage": 0.3
+    },
+    {
+      "method": "ALELO REFEIÇÃO TEF",
+      "revenue": 7070.67,
+      "count": 237,
+      "percentage": 0.2
+    },
+    {
+      "method": "TEF VOUCHER REFEIÇÃO",
+      "revenue": 6779.93,
+      "count": 249,
+      "percentage": 0.2
+    },
+    {
+      "method": "ELO DÉBITO",
+      "revenue": 6311.62,
+      "count": 298,
+      "percentage": 0.2
+    },
+    {
+      "method": "SODEXO REFEIÇÃO TEF",
+      "revenue": 4504.26,
+      "count": 200,
+      "percentage": 0.2
+    },
+    {
+      "method": "CONTA ASSINADA FUNCIONARIO",
+      "revenue": 3726.95,
+      "count": 99,
+      "percentage": 0.1
+    },
+    {
+      "method": "AMEX",
+      "revenue": 3432.6,
+      "count": 73,
+      "percentage": 0.1
+    },
+    {
+      "method": "VOUCHER CLIENTE",
+      "revenue": 2495.45,
+      "count": 83,
+      "percentage": 0.1
+    },
+    {
+      "method": "PAINEL DE LED",
+      "revenue": 2392.05,
+      "count": 76,
+      "percentage": 0.1
+    },
+    {
+      "method": "ALELO ALIMENTAÇÃO TEF",
+      "revenue": 1736.41,
+      "count": 53,
+      "percentage": 0.1
+    },
+    {
+      "method": "TICKET REFEIÇÃO TEF",
+      "revenue": 1678.64,
+      "count": 59,
+      "percentage": 0.1
+    },
+    {
+      "method": "ALELO ALIMENTAÇÃO",
+      "revenue": 946.9,
+      "count": 23,
+      "percentage": 0
+    },
+    {
+      "method": "FECHAMENTOS DE EVENTOS",
+      "revenue": 835.23,
+      "count": 20,
+      "percentage": 0
+    },
+    {
+      "method": "ROGERIO SALLES",
+      "revenue": 787.05,
+      "count": 196,
+      "percentage": 0
+    },
+    {
+      "method": "TICKET REFEIÇÃO",
+      "revenue": 727.64,
+      "count": 32,
+      "percentage": 0
+    },
+    {
+      "method": "SIDNEI DUTRA",
+      "revenue": 686.1,
+      "count": 181,
+      "percentage": 0
+    },
+    {
+      "method": "VR REFEIÇÃO TEF",
+      "revenue": 674.39,
+      "count": 27,
+      "percentage": 0
+    },
+    {
+      "method": "ALELO REFEIÇÃO",
+      "revenue": 625.04,
+      "count": 27,
+      "percentage": 0
+    },
+    {
+      "method": "CONSUMO QUALIDADE",
+      "revenue": 615.74,
+      "count": 224,
+      "percentage": 0
+    },
+    {
+      "method": "SODEXO ALIMENTAÇÃO",
+      "revenue": 581.04,
+      "count": 27,
+      "percentage": 0
+    },
+    {
+      "method": "CONSUMO AÇÕES INTERNAS",
+      "revenue": 569.32,
+      "count": 317,
+      "percentage": 0
+    },
+    {
+      "method": "TICKET ALIMENTAÇÃO TEF",
+      "revenue": 506.01,
+      "count": 9,
+      "percentage": 0
+    },
+    {
+      "method": "SODEXO REFEIÇÃO",
+      "revenue": 439.21,
+      "count": 10,
+      "percentage": 0
+    },
+    {
+      "method": "TEF VOUCHER ALIMENTAÇÃO",
+      "revenue": 408.83,
+      "count": 15,
+      "percentage": 0
+    },
+    {
+      "method": "TICKET ALIMENTAÇÃO",
+      "revenue": 378.53,
+      "count": 11,
+      "percentage": 0
+    },
+    {
+      "method": "VR ALIMENTAÇÃO TEF",
+      "revenue": 372.48,
+      "count": 14,
+      "percentage": 0
+    },
+    {
+      "method": "ALINE PERDIZ",
+      "revenue": 263.69,
+      "count": 74,
+      "percentage": 0
+    },
+    {
+      "method": "ROGERIO FILHO",
+      "revenue": 152.35,
+      "count": 42,
+      "percentage": 0
+    },
+    {
+      "method": "GERENTE ADM",
+      "revenue": 98.4,
+      "count": 8,
+      "percentage": 0
+    },
+    {
+      "method": "GERENTE TECNICO",
+      "revenue": 76.04,
+      "count": 15,
+      "percentage": 0
+    },
+    {
+      "method": "SUPERVISAO TECNICA",
+      "revenue": 47.72,
+      "count": 17,
+      "percentage": 0
+    },
+    {
+      "method": "GERENTE MNS",
+      "revenue": 6.86,
+      "count": 7,
+      "percentage": 0
+    },
+    {
+      "method": "GERENTE T&M",
+      "revenue": 1.78,
+      "count": 1,
+      "percentage": 0
+    }
+  ],
+  "brandsSummary": [
+    {
+      "brand": "ENGENHO / REGIONAL",
+      "revenue": 2062232.28,
+      "qty": 65453,
+      "productsCount": 669,
+      "topItems": [
+        "BOLONHESA UN",
+        "CALDINHO EXECUTIVO",
+        "PUDIM DE LEITE EXECUTIVO",
+        "PASTEL DE BELEM EXECUTIVO",
+        "CARNE DE SOL NORDESTINA 200G EXECUTIVO"
+      ]
+    },
+    {
+      "brand": "HEINEKEN",
+      "revenue": 276921.87,
+      "qty": 15199,
+      "productsCount": 12,
+      "topItems": [
+        "CHOPP HEINEKEN 300ML",
+        "CHOPP HEINEKEN 500ML",
+        "CHOPP SUJO HEINEKEN 500ML",
+        "CHOPP SUJO HEINEKEN 300ML",
+        "CHOPP DE MENTA HEINEKEN 500ML"
+      ]
+    },
+    {
+      "brand": "AMSTEL",
+      "revenue": 190352.44,
+      "qty": 12745,
+      "productsCount": 11,
+      "topItems": [
+        "CHOPP SUJO AMSTEL 500ML",
+        "CHOPP AMSTEL 300ML",
+        "CHOPP SUJO AMSTEL 300ML",
+        "CERVEJA AMSTEL 600ML",
+        "CHOPP AMSTEL 500ML"
+      ]
+    },
+    {
+      "brand": "COCA COLA",
+      "revenue": 72731.74,
+      "qty": 7391,
+      "productsCount": 4,
+      "topItems": [
+        "COCA COLA LT 350ML",
+        "COCA COLA ZERO LATA 350ML UN",
+        "COCA COLA 290ML KS UN",
+        "COCA COLA ZERO 290ML KS UN"
+      ]
+    },
+    {
+      "brand": "TAMBAQUI",
+      "revenue": 58809.3,
+      "qty": 587,
+      "productsCount": 3,
+      "topItems": [
+        "COSTELA DE TAMBAQUI EXECUTIVO",
+        "TAMBAQUI MANAUARA 1P",
+        "TAMBAQUI SMOKED 3P"
+      ]
+    },
+    {
+      "brand": "PIRARUCU",
+      "revenue": 44575.64,
+      "qty": 670,
+      "productsCount": 6,
+      "topItems": [
+        "MOQUECA DE PIRARUCU EXECUTIVO",
+        "PIRARUCU GRELHADO COM LEGUMES",
+        "FILE DE PIRARUCU 2P",
+        "PIRARUCU RIBEIRINHO",
+        "PIRARUCU EM CROSTA DE CASTANHA"
+      ]
+    },
+    {
+      "brand": "APEROL",
+      "revenue": 9330.29,
+      "qty": 238,
+      "productsCount": 1,
+      "topItems": [
+        "APEROL SPRITZ"
+      ]
+    },
+    {
+      "brand": "ABSOLUT",
+      "revenue": 7534.71,
+      "qty": 257,
+      "productsCount": 8,
+      "topItems": [
+        "VODKA ABSOLUT 1L",
+        "CAIPIROSCA C/ ABSOLUT LIMAO",
+        "CAIPIROSCA C/ ABSOLUT KIWI",
+        "CAIPIROSCA C/ ABSOLUT MORANGO",
+        "CAIPIROSCA C/ ABSOLUT ABACAXI"
+      ]
+    },
+    {
+      "brand": "TANQUERAY",
+      "revenue": 7294,
+      "qty": 200,
+      "productsCount": 10,
+      "topItems": [
+        "GIN TONICA ABACAXI TANQUERAY",
+        "NEGRONI TANQUERAY",
+        "TRIPLE T TANQUERAY UN",
+        "TANQUERAY & TONIC COQUETEL",
+        "WATERMELON FIT TANQUERAY"
+      ]
+    },
+    {
+      "brand": "EISENBAHN",
+      "revenue": 5313.5,
+      "qty": 274,
+      "productsCount": 7,
+      "topItems": [
+        "CERVEJA EISENBAHN PALE ALE 355ML",
+        "CERVEJA EISENBAHN AMERICAN IPA 355ML",
+        "CERVEJA EISENBAHN PILSEN 600ML",
+        "CERVEJA EISENBAHN WEIZENBIER 355ML",
+        "CERVEJA EISENBAHN PILSEN LN 355ML"
+      ]
+    },
+    {
+      "brand": "SCHWEPPES",
+      "revenue": 4298.09,
+      "qty": 400,
+      "productsCount": 2,
+      "topItems": [
+        "SCHWEPPES TONICA LT 350ML",
+        "SCHWEPPES CITRUS LT 350ML"
+      ]
+    },
+    {
+      "brand": "3 CORACOES",
+      "revenue": 4226.7,
+      "qty": 538,
+      "productsCount": 8,
+      "topItems": [
+        "EXPRESSO ATENTO- 3 CORACOES",
+        "CAFE FILTRADO TRAD - 3 CORACOES",
+        "CAPPUCCINO CLASS- 3 CORACOES",
+        "EXPRESSO DECAF- 3 CORACOES",
+        "CAPPUCCINO CHOCOLATTO- 3 CORACOES"
+      ]
+    },
+    {
+      "brand": "JOHNNIE WALKER",
+      "revenue": 3700.6,
+      "qty": 74,
+      "productsCount": 9,
+      "topItems": [
+        "DOSE JOHNNIE WALKER RED LABEL 50ML",
+        "DOSE JOHNNIE WALKER BLACK LABEL UN 50ML",
+        "JOHNNIE WALKER GREEN LABEL 750ML",
+        "DOSE JOHNNIE WALKER DOUBLE BLACK UN 50ML",
+        "DOSE JOHNNIE WALKER RED 8 ANOS UN 50ML"
+      ]
+    },
+    {
+      "brand": "CAMPARI",
+      "revenue": 2472.1,
+      "qty": 139,
+      "productsCount": 2,
+      "topItems": [
+        "DOSE CAMPARI UN 50ML",
+        "CAMPARI 900ML UN"
+      ]
+    },
+    {
+      "brand": "SMIRNOFF",
+      "revenue": 2406.6,
+      "qty": 94,
+      "productsCount": 6,
+      "topItems": [
+        "CAIPIROSCA LIMAO C/ SMIRNOFF",
+        "CAIPIROSCA MORANGO C/ SMIRNOFF",
+        "DOSE SMIRNOFF RED 50ML",
+        "CAIPIROSCA ABACAXI C/ SMIRNOFF",
+        "CAIPIROSCA KIWI C/ SMIRNOFF"
+      ]
+    },
+    {
+      "brand": "JACK DANIELS",
+      "revenue": 1102.1,
+      "qty": 29,
+      "productsCount": 3,
+      "topItems": [
+        "DOSE JACK DANIELS TENESSE FIRE 50ML",
+        "DOSE JACK DANIELS TENNESSEE UN 50ML",
+        "DOSE JACK DANIELS GENTLEMAN UN 50ML"
+      ]
+    },
+    {
+      "brand": "NESTLE",
+      "revenue": 41.3,
+      "qty": 7,
+      "productsCount": 1,
+      "topItems": [
+        "SURPRESA TABLETE NESTLE 20G"
+      ]
+    },
+    {
+      "brand": "SAGATIBA",
+      "revenue": 29.9,
+      "qty": 1,
+      "productsCount": 1,
+      "topItems": [
+        "DOSE SAGATIBA PRATA UN 50ML"
+      ]
+    }
+  ],
+  "dailyTrends": [
+    {
+      "date": "01/07/2026",
+      "isoDate": "2026-07-01",
+      "revenue": 21905.63,
+      "qty": 788,
+      "ordersCount": 103,
+      "ticketMedio": 212.68,
+      "topItem": "CHOPP AMSTEL 300ML"
+    },
+    {
+      "date": "02/07/2026",
+      "isoDate": "2026-07-02",
+      "revenue": 18978.76,
+      "qty": 700,
+      "ordersCount": 92,
+      "ticketMedio": 206.29,
+      "topItem": "CHOPP AMSTEL 300ML"
+    },
+    {
+      "date": "03/07/2026",
+      "isoDate": "2026-07-03",
+      "revenue": 39264.87,
+      "qty": 1393,
+      "ordersCount": 168,
+      "ticketMedio": 233.72,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "04/07/2026",
+      "isoDate": "2026-07-04",
+      "revenue": 36985.6,
+      "qty": 1216,
+      "ordersCount": 158,
+      "ticketMedio": 234.09,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "05/07/2026",
+      "isoDate": "2026-07-05",
+      "revenue": 32409.58,
+      "qty": 1214,
+      "ordersCount": 141,
+      "ticketMedio": 229.86,
+      "topItem": "AGUA MINERAL S/GAS 350ML"
+    },
+    {
+      "date": "06/07/2026",
+      "isoDate": "2026-07-06",
+      "revenue": 22180.92,
+      "qty": 764,
+      "ordersCount": 124,
+      "ticketMedio": 178.88,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "07/07/2026",
+      "isoDate": "2026-07-07",
+      "revenue": 22396.37,
+      "qty": 764,
+      "ordersCount": 116,
+      "ticketMedio": 193.07,
+      "topItem": "CHOPP HEINEKEN 300ML"
+    },
+    {
+      "date": "08/07/2026",
+      "isoDate": "2026-07-08",
+      "revenue": 20961.59,
+      "qty": 795,
+      "ordersCount": 104,
+      "ticketMedio": 201.55,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "09/07/2026",
+      "isoDate": "2026-07-09",
+      "revenue": 27066.81,
+      "qty": 983,
+      "ordersCount": 150,
+      "ticketMedio": 180.45,
+      "topItem": "CHOPP HEINEKEN 300ML"
+    },
+    {
+      "date": "10/07/2026",
+      "isoDate": "2026-07-10",
+      "revenue": 39724.66,
+      "qty": 1422,
+      "ordersCount": 177,
+      "ticketMedio": 224.43,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "11/07/2026",
+      "isoDate": "2026-07-11",
+      "revenue": 51093.93,
+      "qty": 1644,
+      "ordersCount": 228,
+      "ticketMedio": 224.1,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "12/07/2026",
+      "isoDate": "2026-07-12",
+      "revenue": 38338.95,
+      "qty": 1185,
+      "ordersCount": 167,
+      "ticketMedio": 229.57,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "13/07/2026",
+      "isoDate": "2026-07-13",
+      "revenue": 15925.69,
+      "qty": 545,
+      "ordersCount": 86,
+      "ticketMedio": 185.18,
+      "topItem": "AGUA MINERAL S/GAS 350ML"
+    },
+    {
+      "date": "14/07/2026",
+      "isoDate": "2026-07-14",
+      "revenue": 17576.4,
+      "qty": 663,
+      "ordersCount": 89,
+      "ticketMedio": 197.49,
+      "topItem": "CHOPP TRINCA PERFEITA"
+    },
+    {
+      "date": "15/07/2026",
+      "isoDate": "2026-07-15",
+      "revenue": 22673.82,
+      "qty": 785,
+      "ordersCount": 135,
+      "ticketMedio": 167.95,
+      "topItem": "CHOPP AMSTEL 300ML"
+    },
+    {
+      "date": "16/07/2026",
+      "isoDate": "2026-07-16",
+      "revenue": 25916.26,
+      "qty": 875,
+      "ordersCount": 125,
+      "ticketMedio": 207.33,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "17/07/2026",
+      "isoDate": "2026-07-17",
+      "revenue": 33144.4,
+      "qty": 1282,
+      "ordersCount": 172,
+      "ticketMedio": 192.7,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "18/07/2026",
+      "isoDate": "2026-07-18",
+      "revenue": 37882.73,
+      "qty": 1337,
+      "ordersCount": 168,
+      "ticketMedio": 225.49,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "19/07/2026",
+      "isoDate": "2026-07-19",
+      "revenue": 35129.68,
+      "qty": 1197,
+      "ordersCount": 156,
+      "ticketMedio": 225.19,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "20/07/2026",
+      "isoDate": "2026-07-20",
+      "revenue": 21143.85,
+      "qty": 739,
+      "ordersCount": 112,
+      "ticketMedio": 188.78,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "21/07/2026",
+      "isoDate": "2026-07-21",
+      "revenue": 15098.18,
+      "qty": 577,
+      "ordersCount": 103,
+      "ticketMedio": 146.58,
+      "topItem": "CHOPP HEINEKEN 300ML"
+    },
+    {
+      "date": "22/07/2026",
+      "isoDate": "2026-07-22",
+      "revenue": 19711.88,
+      "qty": 682,
+      "ordersCount": 89,
+      "ticketMedio": 221.48,
+      "topItem": "CHOPP AMSTEL 300ML"
+    },
+    {
+      "date": "23/07/2026",
+      "isoDate": "2026-07-23",
+      "revenue": 22084.53,
+      "qty": 794,
+      "ordersCount": 119,
+      "ticketMedio": 185.58,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "24/07/2026",
+      "isoDate": "2026-07-24",
+      "revenue": 43554.91,
+      "qty": 1524,
+      "ordersCount": 211,
+      "ticketMedio": 206.42,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "25/07/2026",
+      "isoDate": "2026-07-25",
+      "revenue": 39040.82,
+      "qty": 1311,
+      "ordersCount": 183,
+      "ticketMedio": 213.34,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "26/07/2026",
+      "isoDate": "2026-07-26",
+      "revenue": 44725.5,
+      "qty": 1388,
+      "ordersCount": 195,
+      "ticketMedio": 229.36,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "27/07/2026",
+      "isoDate": "2026-07-27",
+      "revenue": 16335.14,
+      "qty": 561,
+      "ordersCount": 92,
+      "ticketMedio": 177.56,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "28/07/2026",
+      "isoDate": "2026-07-28",
+      "revenue": 22244.71,
+      "qty": 785,
+      "ordersCount": 108,
+      "ticketMedio": 205.97,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "29/07/2026",
+      "isoDate": "2026-07-29",
+      "revenue": 26891.4,
+      "qty": 988,
+      "ordersCount": 164,
+      "ticketMedio": 163.97,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "30/07/2026",
+      "isoDate": "2026-07-30",
+      "revenue": 29287.32,
+      "qty": 1057,
+      "ordersCount": 152,
+      "ticketMedio": 192.68,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "31/07/2026",
+      "isoDate": "2026-07-31",
+      "revenue": 42102.41,
+      "qty": 1561,
+      "ordersCount": 224,
+      "ticketMedio": 187.96,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "01/08/2026",
+      "isoDate": "2026-08-01",
+      "revenue": 49044.24,
+      "qty": 1483,
+      "ordersCount": 227,
+      "ticketMedio": 216.05,
+      "topItem": "CHOPP HEINEKEN 300ML"
+    },
+    {
+      "date": "02/08/2026",
+      "isoDate": "2026-08-02",
+      "revenue": 35480.03,
+      "qty": 1188,
+      "ordersCount": 184,
+      "ticketMedio": 192.83,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "03/08/2026",
+      "isoDate": "2026-08-03",
+      "revenue": 26490.55,
+      "qty": 974,
+      "ordersCount": 136,
+      "ticketMedio": 194.78,
+      "topItem": "CHOPP HEINEKEN 300ML"
+    },
+    {
+      "date": "04/08/2026",
+      "isoDate": "2026-08-04",
+      "revenue": 18654.11,
+      "qty": 646,
+      "ordersCount": 113,
+      "ticketMedio": 165.08,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "05/08/2026",
+      "isoDate": "2026-08-05",
+      "revenue": 25809.22,
+      "qty": 940,
+      "ordersCount": 151,
+      "ticketMedio": 170.92,
+      "topItem": "CHOPP HEINEKEN 500ML"
+    },
+    {
+      "date": "06/08/2026",
+      "isoDate": "2026-08-06",
+      "revenue": 31102.93,
+      "qty": 1155,
+      "ordersCount": 170,
+      "ticketMedio": 182.96,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "07/08/2026",
+      "isoDate": "2026-08-07",
+      "revenue": 43510.5,
+      "qty": 1715,
+      "ordersCount": 219,
+      "ticketMedio": 198.68,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "08/08/2026",
+      "isoDate": "2026-08-08",
+      "revenue": 62944.81,
+      "qty": 2014,
+      "ordersCount": 251,
+      "ticketMedio": 250.78,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "09/08/2026",
+      "isoDate": "2026-08-09",
+      "revenue": 55227.13,
+      "qty": 1633,
+      "ordersCount": 217,
+      "ticketMedio": 254.5,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "10/08/2026",
+      "isoDate": "2026-08-10",
+      "revenue": 17618.72,
+      "qty": 559,
+      "ordersCount": 92,
+      "ticketMedio": 191.51,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "11/08/2026",
+      "isoDate": "2026-08-11",
+      "revenue": 29257.08,
+      "qty": 1021,
+      "ordersCount": 143,
+      "ticketMedio": 204.59,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "12/08/2026",
+      "isoDate": "2026-08-12",
+      "revenue": 24665.49,
+      "qty": 823,
+      "ordersCount": 113,
+      "ticketMedio": 218.28,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "13/08/2026",
+      "isoDate": "2026-08-13",
+      "revenue": 24614.79,
+      "qty": 855,
+      "ordersCount": 131,
+      "ticketMedio": 187.9,
+      "topItem": "CHOPP AMSTEL 300ML"
+    },
+    {
+      "date": "14/08/2026",
+      "isoDate": "2026-08-14",
+      "revenue": 38194.11,
+      "qty": 1599,
+      "ordersCount": 199,
+      "ticketMedio": 191.93,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "15/08/2026",
+      "isoDate": "2026-08-15",
+      "revenue": 50324.89,
+      "qty": 1660,
+      "ordersCount": 235,
+      "ticketMedio": 214.15,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "16/08/2026",
+      "isoDate": "2026-08-16",
+      "revenue": 29901.31,
+      "qty": 1079,
+      "ordersCount": 149,
+      "ticketMedio": 200.68,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "17/08/2026",
+      "isoDate": "2026-08-17",
+      "revenue": 16030.33,
+      "qty": 609,
+      "ordersCount": 99,
+      "ticketMedio": 161.92,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "18/08/2026",
+      "isoDate": "2026-08-18",
+      "revenue": 19418.18,
+      "qty": 693,
+      "ordersCount": 103,
+      "ticketMedio": 188.53,
+      "topItem": "CHOPP AMSTEL 300ML"
+    },
+    {
+      "date": "19/08/2026",
+      "isoDate": "2026-08-19",
+      "revenue": 20306.98,
+      "qty": 747,
+      "ordersCount": 101,
+      "ticketMedio": 201.06,
+      "topItem": "CHOPP HEINEKEN 300ML"
+    },
+    {
+      "date": "20/08/2026",
+      "isoDate": "2026-08-20",
+      "revenue": 26496.94,
+      "qty": 961,
+      "ordersCount": 140,
+      "ticketMedio": 189.26,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "21/08/2026",
+      "isoDate": "2026-08-21",
+      "revenue": 47471.41,
+      "qty": 1933,
+      "ordersCount": 229,
+      "ticketMedio": 207.3,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "22/08/2026",
+      "isoDate": "2026-08-22",
+      "revenue": 59501.04,
+      "qty": 2001,
+      "ordersCount": 269,
+      "ticketMedio": 221.19,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "23/08/2026",
+      "isoDate": "2026-08-23",
+      "revenue": 33762.49,
+      "qty": 1120,
+      "ordersCount": 141,
+      "ticketMedio": 239.45,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "24/08/2026",
+      "isoDate": "2026-08-24",
+      "revenue": 21958,
+      "qty": 753,
+      "ordersCount": 98,
+      "ticketMedio": 224.06,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "25/08/2026",
+      "isoDate": "2026-08-25",
+      "revenue": 17613.07,
+      "qty": 659,
+      "ordersCount": 121,
+      "ticketMedio": 145.56,
+      "topItem": "CHOPP HEINEKEN 300ML"
+    },
+    {
+      "date": "26/08/2026",
+      "isoDate": "2026-08-26",
+      "revenue": 23946.91,
+      "qty": 882,
+      "ordersCount": 114,
+      "ticketMedio": 210.06,
+      "topItem": "CHOPP AMSTEL 300ML"
+    },
+    {
+      "date": "27/08/2026",
+      "isoDate": "2026-08-27",
+      "revenue": 22667.03,
+      "qty": 810,
+      "ordersCount": 108,
+      "ticketMedio": 209.88,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "28/08/2026",
+      "isoDate": "2026-08-28",
+      "revenue": 36274.71,
+      "qty": 1382,
+      "ordersCount": 171,
+      "ticketMedio": 212.13,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "29/08/2026",
+      "isoDate": "2026-08-29",
+      "revenue": 51179.21,
+      "qty": 1608,
+      "ordersCount": 229,
+      "ticketMedio": 223.49,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "30/08/2026",
+      "isoDate": "2026-08-30",
+      "revenue": 33532.72,
+      "qty": 1097,
+      "ordersCount": 144,
+      "ticketMedio": 232.87,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "31/08/2026",
+      "isoDate": "2026-08-31",
+      "revenue": 18307.18,
+      "qty": 693,
+      "ordersCount": 106,
+      "ticketMedio": 172.71,
+      "topItem": "CHOPP AMSTEL 300ML"
+    },
+    {
+      "date": "01/09/2026",
+      "isoDate": "2026-09-01",
+      "revenue": 19620.09,
+      "qty": 663,
+      "ordersCount": 101,
+      "ticketMedio": 194.26,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "02/09/2026",
+      "isoDate": "2026-09-02",
+      "revenue": 22294.47,
+      "qty": 812,
+      "ordersCount": 112,
+      "ticketMedio": 199.06,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "03/09/2026",
+      "isoDate": "2026-09-03",
+      "revenue": 35612.14,
+      "qty": 1301,
+      "ordersCount": 165,
+      "ticketMedio": 215.83,
+      "topItem": "CHOPP HEINEKEN 300ML"
+    },
+    {
+      "date": "04/09/2026",
+      "isoDate": "2026-09-04",
+      "revenue": 51759.75,
+      "qty": 1882,
+      "ordersCount": 249,
+      "ticketMedio": 207.87,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "05/09/2026",
+      "isoDate": "2026-09-05",
+      "revenue": 68003.52,
+      "qty": 2236,
+      "ordersCount": 290,
+      "ticketMedio": 234.49,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "06/09/2026",
+      "isoDate": "2026-09-06",
+      "revenue": 40715.05,
+      "qty": 1378,
+      "ordersCount": 201,
+      "ticketMedio": 202.56,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "07/09/2026",
+      "isoDate": "2026-09-07",
+      "revenue": 39733.95,
+      "qty": 1176,
+      "ordersCount": 202,
+      "ticketMedio": 196.7,
+      "topItem": "CHOPP HEINEKEN 300ML"
+    },
+    {
+      "date": "08/09/2026",
+      "isoDate": "2026-09-08",
+      "revenue": 17812.57,
+      "qty": 667,
+      "ordersCount": 105,
+      "ticketMedio": 169.64,
+      "topItem": "CHOPP AMSTEL 300ML"
+    },
+    {
+      "date": "09/09/2026",
+      "isoDate": "2026-09-09",
+      "revenue": 24292.72,
+      "qty": 881,
+      "ordersCount": 120,
+      "ticketMedio": 202.44,
+      "topItem": "CHOPP AMSTEL 300ML"
+    },
+    {
+      "date": "10/09/2026",
+      "isoDate": "2026-09-10",
+      "revenue": 32788.13,
+      "qty": 1169,
+      "ordersCount": 136,
+      "ticketMedio": 241.09,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "11/09/2026",
+      "isoDate": "2026-09-11",
+      "revenue": 42880.84,
+      "qty": 1646,
+      "ordersCount": 222,
+      "ticketMedio": 193.16,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "12/09/2026",
+      "isoDate": "2026-09-12",
+      "revenue": 65073.11,
+      "qty": 2184,
+      "ordersCount": 258,
+      "ticketMedio": 252.22,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "13/09/2026",
+      "isoDate": "2026-09-13",
+      "revenue": 42218.99,
+      "qty": 1415,
+      "ordersCount": 201,
+      "ticketMedio": 210.04,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "14/09/2026",
+      "isoDate": "2026-09-14",
+      "revenue": 20746.1,
+      "qty": 742,
+      "ordersCount": 112,
+      "ticketMedio": 185.23,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "15/09/2026",
+      "isoDate": "2026-09-15",
+      "revenue": 24822.33,
+      "qty": 866,
+      "ordersCount": 130,
+      "ticketMedio": 190.94,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "16/09/2026",
+      "isoDate": "2026-09-16",
+      "revenue": 37878.95,
+      "qty": 1326,
+      "ordersCount": 167,
+      "ticketMedio": 226.82,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "17/09/2026",
+      "isoDate": "2026-09-17",
+      "revenue": 43787.36,
+      "qty": 1484,
+      "ordersCount": 188,
+      "ticketMedio": 232.91,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "18/09/2026",
+      "isoDate": "2026-09-18",
+      "revenue": 58591.64,
+      "qty": 2185,
+      "ordersCount": 241,
+      "ticketMedio": 243.12,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "19/09/2026",
+      "isoDate": "2026-09-19",
+      "revenue": 73048.64,
+      "qty": 2445,
+      "ordersCount": 293,
+      "ticketMedio": 249.31,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "20/09/2026",
+      "isoDate": "2026-09-20",
+      "revenue": 41159.34,
+      "qty": 1312,
+      "ordersCount": 191,
+      "ticketMedio": 215.49,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "21/09/2026",
+      "isoDate": "2026-09-21",
+      "revenue": 16734.44,
+      "qty": 592,
+      "ordersCount": 95,
+      "ticketMedio": 176.15,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "22/09/2026",
+      "isoDate": "2026-09-22",
+      "revenue": 23655.6,
+      "qty": 820,
+      "ordersCount": 147,
+      "ticketMedio": 160.92,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "23/09/2026",
+      "isoDate": "2026-09-23",
+      "revenue": 21159.83,
+      "qty": 759,
+      "ordersCount": 114,
+      "ticketMedio": 185.61,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "24/09/2026",
+      "isoDate": "2026-09-24",
+      "revenue": 36070.47,
+      "qty": 1258,
+      "ordersCount": 150,
+      "ticketMedio": 240.47,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "25/09/2026",
+      "isoDate": "2026-09-25",
+      "revenue": 62009.79,
+      "qty": 2283,
+      "ordersCount": 231,
+      "ticketMedio": 268.44,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "26/09/2026",
+      "isoDate": "2026-09-26",
+      "revenue": 72874.3,
+      "qty": 2264,
+      "ordersCount": 291,
+      "ticketMedio": 250.43,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "27/09/2026",
+      "isoDate": "2026-09-27",
+      "revenue": 36090.36,
+      "qty": 1159,
+      "ordersCount": 165,
+      "ticketMedio": 218.73,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    },
+    {
+      "date": "28/09/2026",
+      "isoDate": "2026-09-28",
+      "revenue": 16113.27,
+      "qty": 579,
+      "ordersCount": 90,
+      "ticketMedio": 179.04,
+      "topItem": "COUVERT PROJETO SOM E SABOR UN"
+    }
+  ],
+  "hourlyDistribution": [
+    {
+      "hour": "00:00",
+      "revenue": 24379.99
+    },
+    {
+      "hour": "01:00",
+      "revenue": 895.86
+    },
+    {
+      "hour": "02:00",
+      "revenue": 0
+    },
+    {
+      "hour": "03:00",
+      "revenue": 0
+    },
+    {
+      "hour": "04:00",
+      "revenue": 0
+    },
+    {
+      "hour": "05:00",
+      "revenue": 0
+    },
+    {
+      "hour": "06:00",
+      "revenue": 0
+    },
+    {
+      "hour": "07:00",
+      "revenue": 0
+    },
+    {
+      "hour": "08:00",
+      "revenue": 0
+    },
+    {
+      "hour": "09:00",
+      "revenue": 0
+    },
+    {
+      "hour": "10:00",
+      "revenue": 130.96
+    },
+    {
+      "hour": "11:00",
+      "revenue": 1369.33
+    },
+    {
+      "hour": "12:00",
+      "revenue": 9052.15
+    },
+    {
+      "hour": "13:00",
+      "revenue": 99506.81
+    },
+    {
+      "hour": "14:00",
+      "revenue": 357658.49
+    },
+    {
+      "hour": "15:00",
+      "revenue": 396347.7
+    },
+    {
+      "hour": "16:00",
+      "revenue": 248954.15
+    },
+    {
+      "hour": "17:00",
+      "revenue": 133230.52
+    },
+    {
+      "hour": "18:00",
+      "revenue": 138054.86
+    },
+    {
+      "hour": "19:00",
+      "revenue": 168195.65
+    },
+    {
+      "hour": "20:00",
+      "revenue": 240074.64
+    },
+    {
+      "hour": "21:00",
+      "revenue": 399109.42
+    },
+    {
+      "hour": "22:00",
+      "revenue": 471964.75
+    },
+    {
+      "hour": "23:00",
+      "revenue": 311705.88
+    }
+  ],
+  "dayOfWeekDistribution": [
+    {
+      "day": "Domingo",
+      "revenue": 498691.13,
+      "share": 16.6
+    },
+    {
+      "day": "Segunda-feira",
+      "revenue": 269318.14,
+      "share": 9
+    },
+    {
+      "day": "Terça-feira",
+      "revenue": 248168.69,
+      "share": 8.3
+    },
+    {
+      "day": "Quarta-feira",
+      "revenue": 312498.89,
+      "share": 10.4
+    },
+    {
+      "day": "Quinta-feira",
+      "revenue": 376473.47,
+      "share": 12.5
+    },
+    {
+      "day": "Sexta-feira",
+      "revenue": 578484,
+      "share": 19.3
+    },
+    {
+      "day": "Sábado",
+      "revenue": 716996.84,
+      "share": 23.9
+    }
+  ]
+}

@@ -24,6 +24,7 @@ import { SidebarTabId } from './AppSidebar';
 
 const TAB_TITLES: Record<SidebarTabId, { title: string; subtitle: string }> = {
   gestao: { title: 'Visão do Dono & DRE', subtitle: 'Demonstrativo de Resultado e Governança' },
+  inteligencia_vendas: { title: 'Inteligência de Vendas, Degelo & Estoque', subtitle: 'Teknisa POS • Cotas de Degelo, Prevenção de Ruptura e Compras' },
   financeiro: { title: 'Painel Financeiro', subtitle: 'Fluxo de Caixa, Contas a Pagar e Recebimentos' },
   calendario: { title: 'Calendário & Prazos do Gerente', subtitle: 'Prazos de ANVISA, Laudos, Fiscal e Obrigações da Loja' },
   operacao: { title: 'Salão & Mesas', subtitle: 'Operação de Salão, Checklists e Degelo' },

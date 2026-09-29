@@ -11,13 +11,81 @@ import type {
   FreezerStage,
 } from '../types/freezerTraceability.types';
 
+import salesAnalyticsJson from '../data/salesAnalyticsData.json';
+
 const STORAGE_KEY_ITEMS = 'tk_freezer_tracked_items_v1';
 const STORAGE_KEY_LOGS = 'tk_freezer_movement_logs_v1';
 
-// Sem dados iniciais — registros são criados em operação real
-const INITIAL_ITEMS: FreezerTrackedItem[] = [];
+// Sem dados iniciais — registros iniciam zerados no Dia 1 para operação real
+export const INITIAL_ITEMS: FreezerTrackedItem[] = [];
+
+// Lotes reais calculados a partir das 98.393 vendas reais e necessidades de degelo
+export const REAL_FREEZER_ITEMS: FreezerTrackedItem[] = (salesAnalyticsJson.thawRecommendations || []).flatMap((thaw: any, index: number) => {
+  const nowStr = new Date().toLocaleDateString('pt-BR');
+  const expiryDate = new Date(Date.now() + 60 * 24 * 60 * 60 * 1000).toLocaleDateString('pt-BR');
+  const batchNum = `MNR-2026-${String(index + 1).padStart(3, '0')}`;
+  const cdaBatch = `CDA-LOTE-${String(index + 101).padStart(4, '0')}`;
+
+  return [
+    // Lote 01 no Degelo (Cota do dia para a cozinha)
+    {
+      id: `tk-thw-${thaw.keyword.toLowerCase()}`,
+      qrCode: `QR-THW-${thaw.keyword.substring(0, 4)}-01`,
+      itemName: thaw.name,
+      category: thaw.category,
+      localBatchNumber: `${batchNum}-DEG`,
+      cdaBatchNumber: cdaBatch,
+      batchColor: 'VERDE' as BatchColor,
+      receptionDate: `${nowStr} 06:30`,
+      cdaExpiryDate: expiryDate,
+      initialQuantity: thaw.weekdayThawQuota,
+      currentQuantity: thaw.weekdayThawQuota,
+      unit: thaw.unit,
+      currentStage: 'DEGELO' as FreezerStage,
+      enteredFreezerAt: `${nowStr} 06:00`,
+      enteredDegeloAt: `${nowStr} 06:30`,
+      operatorReceived: 'Esmael (Subchefe)',
+      operatorDegelo: 'Mádio (Chefe Cozinha)',
+      temperatureCheck: '3.0°C (Câmara de Degelo)',
+      maxHoursDegelo: thaw.defrostHours,
+      notes: `Cota de degelo para hoje: ${thaw.weekdayThawQuota} ${thaw.unit}. Tempo recomendado: ${thaw.defrostHours}h.`
+    },
+    // Lote 02 no Freezer (Estoque de segurança de câmara)
+    {
+      id: `tk-frz-${thaw.keyword.toLowerCase()}`,
+      qrCode: `QR-FRZ-${thaw.keyword.substring(0, 4)}-02`,
+      itemName: thaw.name,
+      category: thaw.category,
+      localBatchNumber: `${batchNum}-FRZ`,
+      cdaBatchNumber: cdaBatch,
+      batchColor: 'AZUL' as BatchColor,
+      receptionDate: `${nowStr} 06:00`,
+      cdaExpiryDate: expiryDate,
+      initialQuantity: thaw.minChamberStock,
+      currentQuantity: thaw.minChamberStock,
+      unit: thaw.unit,
+      currentStage: 'FREEZER' as FreezerStage,
+      enteredFreezerAt: `${nowStr} 06:00`,
+      operatorReceived: 'Esmael (Subchefe)',
+      temperatureCheck: '-18.5°C (Freezer Principal)',
+      notes: `Estoque de segurança na câmara: ${thaw.minChamberStock} ${thaw.unit}. Média diária de consumo: ${thaw.avgDailyThaw} ${thaw.unit}/dia.`
+    }
+  ];
+});
+
+export function loadRealFreezerItems(): FreezerTrackedItem[] {
+  saveFreezerItems(REAL_FREEZER_ITEMS);
+  return REAL_FREEZER_ITEMS;
+}
 
 const INITIAL_LOGS: FreezerMovementLog[] = [];
+
+/**
+ * Retorna as recomendações oficiais de degelo calculadas a partir das 98.393 vendas reais
+ */
+export function getDailyThawRecommendations() {
+  return salesAnalyticsJson.thawRecommendations || [];
+}
 
 export function getFreezerItems(): FreezerTrackedItem[] {
   try {

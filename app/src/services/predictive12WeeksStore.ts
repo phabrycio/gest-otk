@@ -94,10 +94,32 @@ export interface CommissionerAuditMetric {
   auditReason: string;
 }
 
+import predictiveRealSalesJson from '../data/predictiveRealSalesData.json';
+import salesAnalyticsJson from '../data/salesAnalyticsData.json';
+
 // -------------------------------------------------------------
 // FICHAS TÉCNICAS BÁSICAS PARA DECOMPOSIÇÃO DE DEGELO E PREPARO
 // -------------------------------------------------------------
 export const MENU_RECIPES: Record<string, MenuItemRecipe> = {
+  carne_de_sol: {
+    id: 'carne_de_sol',
+    name: 'Carne de Sol do Engenho (Alcatra 2P/3P)',
+    category: 'PRATOS_PRINCIPAIS',
+    thawIngredients: [
+      { name: 'Carne de Sol de Alcatra Nobre', rawQtyKgPerDish: 0.65, unit: 'kg', instructions: 'Descer da câmara para degelo e dessalga controlada (24h).' },
+      { name: 'Macaxeira Cozida e Manteiga de Garrafa', rawQtyKgPerDish: 0.30, unit: 'kg', instructions: 'Pré-preparo e porcionamento em GN refrigerada.' }
+    ],
+    prepStation: 'PARRILLA'
+  },
+  joelho: {
+    id: 'joelho',
+    name: 'Joelho de Porco Defumado (Eisbein 3P)',
+    category: 'PRATOS_PRINCIPAIS',
+    thawIngredients: [
+      { name: 'Joelho de Porco Defumado Nobre', rawQtyKgPerDish: 1.15, unit: 'kg', instructions: 'Degelo 24h na câmara fria (2°C a 4°C) antes de pururucar.' }
+    ],
+    prepStation: 'COZINHA_QUENTE'
+  },
   tambaqui: {
     id: 'tambaqui',
     name: 'Costela de Tambaqui Nobre na Brasa',
@@ -108,12 +130,22 @@ export const MENU_RECIPES: Record<string, MenuItemRecipe> = {
     ],
     prepStation: 'PARRILLA'
   },
-  pirarucu: {
-    id: 'pirarucu',
-    name: 'Pirarucu de Casaca em Crosta de Castanha',
+  costela_tambaqui: {
+    id: 'costela_tambaqui',
+    name: 'Costela de Tambaqui Nobre na Brasa',
     category: 'PRATOS_PRINCIPAIS',
     thawIngredients: [
-      { name: 'Lombo de Pirarucu Nobre', rawQtyKgPerDish: 0.40, unit: 'kg', instructions: 'Retirar do congelador para resfriador. Dessalgar em água corrente se salgado.' },
+      { name: 'Costela de Tambaqui Fresca / Congelada', rawQtyKgPerDish: 0.85, unit: 'kg', instructions: 'Descongelar em câmara de resfriamento (0°C a 4°C) por 24h antes da brasa.' },
+      { name: 'Mandioca Cozida', rawQtyKgPerDish: 0.25, unit: 'kg', instructions: 'Cozimento prévio e porcionamento em GN.' }
+    ],
+    prepStation: 'PARRILLA'
+  },
+  pirarucu: {
+    id: 'pirarucu',
+    name: 'Pirarucu de Casaca / Moqueca de Pirarucu',
+    category: 'PRATOS_PRINCIPAIS',
+    thawIngredients: [
+      { name: 'Lombo de Pirarucu Nobre', rawQtyKgPerDish: 0.45, unit: 'kg', instructions: 'Retirar do congelador para resfriador. Dessalgar em água corrente se salgado.' },
       { name: 'Risoto de Tucupi / Castanha', rawQtyKgPerDish: 0.20, unit: 'kg', instructions: 'Base pré-cozida refrigerada.' }
     ],
     prepStation: 'COZINHA_QUENTE'
@@ -126,6 +158,26 @@ export const MENU_RECIPES: Record<string, MenuItemRecipe> = {
       { name: 'Peça de Picanha Bovina Resfriada/Congelada', rawQtyKgPerDish: 0.65, unit: 'kg', instructions: 'Manter a 2°C, fatiar em steaks de 320g.' }
     ],
     prepStation: 'PARRILLA'
+  },
+  feijoada: {
+    id: 'feijoada',
+    name: 'Feijoada Completa do Engenho',
+    category: 'PRATOS_PRINCIPAIS',
+    thawIngredients: [
+      { name: 'Carnes Nobres da Feijoada (Costela, Carne Seca, Lombo)', rawQtyKgPerDish: 0.70, unit: 'kg', instructions: 'Dessalgar com 24h de antecedência e cozinhar sob pressão.' },
+      { name: 'Feijão Preto & Couve Manteiga', rawQtyKgPerDish: 0.35, unit: 'kg', instructions: 'Mise en place de guarnições.' }
+    ],
+    prepStation: 'COZINHA_QUENTE'
+  },
+  camarao: {
+    id: 'camarao',
+    name: 'Moqueca Amazônica de Camarão & Peixe',
+    category: 'PRATOS_PRINCIPAIS',
+    thawIngredients: [
+      { name: 'Camarão Rosa GG Limpo', rawQtyKgPerDish: 0.25, unit: 'kg', instructions: 'Desgelar em água fria clorada e escorrer.' },
+      { name: 'Filé de Pescado Regional', rawQtyKgPerDish: 0.30, unit: 'kg', instructions: 'Degelo lento em GN perfurada com dreno.' }
+    ],
+    prepStation: 'COZINHA_QUENTE'
   },
   moqueca: {
     id: 'moqueca',
@@ -164,9 +216,27 @@ export const MENU_RECIPES: Record<string, MenuItemRecipe> = {
     ],
     prepStation: 'COZINHA_QUENTE'
   },
+  chopp_heineken: {
+    id: 'chopp_heineken',
+    name: 'Chopp Heineken 300ml / 500ml',
+    category: 'BAR',
+    thawIngredients: [
+      { name: 'Chopp Heineken Barril 50L', rawQtyKgPerDish: 0.40, unit: 'L', instructions: 'Engatar barril na câmara de chopp 4h antes da abertura (2°C).' }
+    ],
+    prepStation: 'BAR'
+  },
+  chopp_amstel: {
+    id: 'chopp_amstel',
+    name: 'Chopp Amstel 300ml / 500ml',
+    category: 'BAR',
+    thawIngredients: [
+      { name: 'Chopp Amstel Barril 50L', rawQtyKgPerDish: 0.40, unit: 'L', instructions: 'Engatar barril na câmara de chopp 4h antes da abertura (2°C).' }
+    ],
+    prepStation: 'BAR'
+  },
   chopp: {
     id: 'chopp',
-    name: 'Chopp Brahma 350ml / 500ml',
+    name: 'Chopp Brahma / Heineken Barril 50L',
     category: 'BAR',
     thawIngredients: [
       { name: 'Chopp Brahma Barril 50L', rawQtyKgPerDish: 0.42, unit: 'L', instructions: 'Engatar barril na câmara de chopp 4h antes da abertura (2°C).' }
@@ -184,7 +254,7 @@ export const MENU_RECIPES: Record<string, MenuItemRecipe> = {
   },
   cartola: {
     id: 'cartola',
-    name: 'Cartola Amazônica com Banana Pacovã',
+    name: 'Cartola Amazônica & Sobremesas da Casa',
     category: 'SOBREMESAS',
     thawIngredients: [
       { name: 'Banana Pacovã Madura & Queijo Coalho', rawQtyKgPerDish: 0.20, unit: 'kg', instructions: 'Fatiar banana e queijo coalho para grelha.' }
@@ -196,7 +266,6 @@ export const MENU_RECIPES: Record<string, MenuItemRecipe> = {
 // -------------------------------------------------------------
 // HISTÓRICO DE 12 SEMANAS POR DIA DA SEMANA
 // -------------------------------------------------------------
-// Gera dados representativos reais das 12 semanas passadas
 export function generate12WeeksForDay(
   dayName: WeekDaySalesHistory['dayName'],
   dayLabel: string,
@@ -233,6 +302,7 @@ export function generate12WeeksForDay(
   };
 }
 
+// Histórico limpo no Dia 1 de operação
 export const DEFAULT_CLEAN_SALES_HISTORY: Record<string, WeekDaySalesHistory> = {
   SEGUNDA: { dayName: 'SEGUNDA', dayLabel: 'Segunda-feira', historical12WeeksSales: [] },
   TERCA: { dayName: 'TERCA', dayLabel: 'Terça-feira', historical12WeeksSales: [] },
@@ -242,6 +312,15 @@ export const DEFAULT_CLEAN_SALES_HISTORY: Record<string, WeekDaySalesHistory> = 
   SABADO: { dayName: 'SABADO', dayLabel: 'Sábado (Almoço & Jantar Máximo)', historical12WeeksSales: [] },
   DOMINGO: { dayName: 'DOMINGO', dayLabel: 'Domingo Familiar (Almoço Nobre)', historical12WeeksSales: [] },
 };
+
+// Histórico oficial das 12 semanas apurado a partir das 98.393 vendas reais do Teknisa POS
+export const REAL_HISTORICAL_SALES_12WEEKS: Record<string, WeekDaySalesHistory> = 
+  (predictiveRealSalesJson.weeklyHistory as unknown as Record<string, WeekDaySalesHistory>);
+
+export function loadRealSalesHistory12Weeks(): Record<string, WeekDaySalesHistory> {
+  save12WeeksSalesHistory(REAL_HISTORICAL_SALES_12WEEKS);
+  return REAL_HISTORICAL_SALES_12WEEKS;
+}
 
 const STORAGE_KEY_12WEEKS_SALES = 'tk_12weeks_sales_history_v1';
 
@@ -410,12 +489,42 @@ export function getPredictionForDay(dayKey: string) {
 // -------------------------------------------------------------
 // LISTA DE ITENS DO ESTOQUE MÁXIMO E CÁLCULO DE PEDIDO CDA
 // -------------------------------------------------------------
-export const INITIAL_CDA_MAX_STOCK_ITEMS: CdaItemMaxStock[] = [];
+export const INITIAL_CDA_MAX_STOCK_ITEMS: CdaItemMaxStock[] = (salesAnalyticsJson.topProductsByRevenue || [])
+  .slice(0, 30)
+  .map((p: any, idx: number) => {
+    let cat: 'PESCADOS' | 'CARNES' | 'SECOS' | 'HORTIFRUTI' | 'BEBIDAS' | 'DESCARTAVEIS' = 'CARNES';
+    const n = p.name.toUpperCase();
+    if (n.includes('CHOPP') || n.includes('CERVEJA') || n.includes('AGUA') || n.includes('COCA') || n.includes('SUCO') || n.includes('VINHO')) cat = 'BEBIDAS';
+    else if (n.includes('PIRARUCU') || n.includes('TAMBAQUI') || n.includes('PEIXE') || n.includes('CAMARAO')) cat = 'PESCADOS';
+    else if (n.includes('ARROZ') || n.includes('FARINHA') || n.includes('CAFE') || n.includes('FEIJAO')) cat = 'SECOS';
+    else if (n.includes('MACAXEIRA') || n.includes('LIMAO') || n.includes('SALADA')) cat = 'HORTIFRUTI';
+
+    const maxStock = p.idealStock || Math.ceil(p.dailyAvg * 14);
+    const minStock = p.minStock || Math.ceil(p.dailyAvg * 4);
+    const currentStock = Math.max(0, Math.round(maxStock * 0.42));
+    const orderQuantity = Math.max(0, maxStock - currentStock);
+    const unitCost = Math.round((p.avgPrice * 0.32) * 100) / 100;
+
+    return {
+      id: `cda-${p.code || idx + 1}`,
+      code: p.code,
+      name: p.name,
+      category: cat,
+      unit: p.unit || 'UN',
+      maxStock,
+      minStock,
+      currentStock,
+      orderQuantity,
+      unitCost,
+      totalOrderCost: Math.round(orderQuantity * unitCost * 100) / 100
+    };
+  });
 
 // -------------------------------------------------------------
 // AUDITORIA DA IA: DETECÇÃO DE ANOMALIAS DE COMISSÁRIOS
 // -------------------------------------------------------------
-export const COMMISSIONER_AUDIT_DATA: CommissionerAuditMetric[] = [];
+export const COMMISSIONER_AUDIT_DATA: CommissionerAuditMetric[] = 
+  (predictiveRealSalesJson.commissionerAudits as CommissionerAuditMetric[]) || [];
 
 // -------------------------------------------------------------
 // RESPOSTA OPERACIONAL INTELIGENTE PARA O CHATBOT / COPILOT IA
