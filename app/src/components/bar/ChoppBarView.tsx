@@ -181,10 +181,12 @@ export default function ChoppBarView() {
               <span className="text-xl font-black text-rose-400">
                 {barSummary.totalDeviationLiters.toFixed(2)} L
               </span>
-              <span className="text-[10px] text-rose-300/70">~10 copos</span>
+              <span className="text-[10px] text-rose-300/70">
+                {barSummary.totalDeviationLiters > 0 ? `~${Math.round(barSummary.totalDeviationLiters / 0.35)} copos` : '0 copos'}
+              </span>
             </div>
             <p className="text-[10px] text-rose-200/60 mt-0.5">
-              Não justificado por quebra técnica (5.5%)
+              {barSummary.totalDeviationLiters > 0 ? 'Não justificado por quebra técnica (5.5%)' : 'Nenhuma perda não justificada registrada'}
             </p>
           </div>
 
@@ -218,7 +220,7 @@ export default function ChoppBarView() {
               </span>
             </div>
             <p className="text-[10px] text-emerald-200/60 mt-0.5">
-              +7 barris lacrados na câmara fria
+              +{coldRoomKegs.reduce((acc, k) => acc + k.quantitySealed, 0)} barris lacrados na câmara fria
             </p>
           </div>
         </div>
@@ -295,7 +297,16 @@ export default function ChoppBarView() {
       {/* ABA 1: TORNEIRAS & CHOPEIRAS */}
       {activeSubTab === 'TORNEIRAS' && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {taps.map((tap) => {
+          {taps.length === 0 ? (
+            <div className="col-span-full p-8 text-center bg-white rounded-2xl border border-dashed border-slate-200 space-y-2">
+              <Beer className="w-8 h-8 text-slate-400 mx-auto" />
+              <h4 className="text-xs font-bold text-slate-700">Nenhuma chopeira ou torneira ativa no momento</h4>
+              <p className="text-[11px] text-slate-500 max-w-md mx-auto">
+                No Dia 1 de operação, engate os barris de chopp nas torneiras para iniciar o monitoramento de pressão, temperatura e rendimento.
+              </p>
+            </div>
+          ) : (
+            taps.map((tap) => {
             const fillPct = Math.min(100, Math.max(0, Math.round((tap.currentVolumeLiters / tap.kegCapacityLiters) * 100)));
             const diagnoses = diagnoseChoppTap(tap);
             const criticalDiag = diagnoses.find(d => d.severity === 'DANGER') || diagnoses.find(d => d.severity === 'WARNING');
@@ -510,9 +521,10 @@ export default function ChoppBarView() {
                 </div>
               </div>
             );
-          })}
-        </div>
-      )}
+          })
+        )}
+      </div>
+    )}
 
       {/* ABA 2: DESTILADOS & DRINKS */}
       {activeSubTab === 'DESTILADOS' && (
@@ -547,8 +559,17 @@ export default function ChoppBarView() {
             </div>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs">
+          {bottles.length === 0 ? (
+            <div className="p-8 text-center bg-slate-50/50 space-y-2">
+              <Wine className="w-8 h-8 text-slate-400 mx-auto" />
+              <h4 className="text-xs font-bold text-slate-700">Nenhuma garrafa cadastrada no momento</h4>
+              <p className="text-[11px] text-slate-500 max-w-md mx-auto">
+                No Dia 1 de operação, registre garrafas para controle de doses e auditoria de pesagem por foto (OCR).
+              </p>
+            </div>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs">
               <thead className="bg-slate-50 text-slate-600 font-semibold border-b border-slate-200">
                 <tr>
                   <th className="py-3 px-4">Destilado / Garrafa</th>
@@ -680,6 +701,7 @@ export default function ChoppBarView() {
               </tbody>
             </table>
           </div>
+        )}
 
           <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-xs text-slate-600 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div className="flex items-center gap-2">
@@ -718,37 +740,47 @@ export default function ChoppBarView() {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-              {coldRoomKegs.map((keg) => (
-                <div key={keg.id} className="p-3.5 rounded-xl border border-slate-200 bg-slate-50/60 space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-900">{keg.beerName}</span>
-                    <span className="text-[10px] px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold">
-                      {keg.capacityLiters}L
-                    </span>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-2 text-xs">
-                    <div className="bg-white p-2 rounded-lg border border-slate-200">
-                      <div className="text-[10px] text-slate-500">Cheios Lacrados</div>
-                      <div className="text-base font-black text-emerald-700">{keg.quantitySealed} barris</div>
-                      <div className="text-[9px] text-slate-400">{(keg.quantitySealed * keg.capacityLiters)} Litros</div>
+            {coldRoomKegs.length === 0 ? (
+              <div className="p-8 text-center bg-slate-50/80 rounded-xl border border-dashed border-slate-200 space-y-2">
+                <Layers className="w-8 h-8 text-slate-400 mx-auto" />
+                <h4 className="text-xs font-bold text-slate-700">Nenhum barril armazenado na câmara fria</h4>
+                <p className="text-[11px] text-slate-500 max-w-md mx-auto">
+                  No Dia 1 de operação, entradas de barris e devolução de comodatos aparecerão aqui para acompanhamento do chefe do bar.
+                </p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                {coldRoomKegs.map((keg) => (
+                  <div key={keg.id} className="p-3.5 rounded-xl border border-slate-200 bg-slate-50/60 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold text-slate-900">{keg.beerName}</span>
+                      <span className="text-[10px] px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold">
+                        {keg.capacityLiters}L
+                      </span>
                     </div>
 
-                    <div className="bg-white p-2 rounded-lg border border-slate-200">
-                      <div className="text-[10px] text-slate-500">Vazios (Troca)</div>
-                      <div className="text-base font-black text-amber-700">{keg.quantityEmptyVasilhame} vasilhames</div>
-                      <div className="text-[9px] text-slate-400">R$ {(keg.quantityEmptyVasilhame * keg.depositValuePerKegReais).toFixed(0)} comodato</div>
+                    <div className="grid grid-cols-2 gap-2 text-xs">
+                      <div className="bg-white p-2 rounded-lg border border-slate-200">
+                        <div className="text-[10px] text-slate-500">Cheios Lacrados</div>
+                        <div className="text-base font-black text-emerald-700">{keg.quantitySealed} barris</div>
+                        <div className="text-[9px] text-slate-400">{(keg.quantitySealed * keg.capacityLiters)} Litros</div>
+                      </div>
+
+                      <div className="bg-white p-2 rounded-lg border border-slate-200">
+                        <div className="text-[10px] text-slate-500">Vazios (Troca)</div>
+                        <div className="text-base font-black text-amber-700">{keg.quantityEmptyVasilhame} vasilhames</div>
+                        <div className="text-[9px] text-slate-400">R$ {(keg.quantityEmptyVasilhame * keg.depositValuePerKegReais).toFixed(0)} comodato</div>
+                      </div>
+                    </div>
+
+                    <div className="text-[10px] text-slate-500 flex items-center justify-between pt-1 border-t border-slate-200/60">
+                      <span>Lote: {keg.batchNumber}</span>
+                      <span>Validade: {keg.expiryDate}</span>
                     </div>
                   </div>
-
-                  <div className="text-[10px] text-slate-500 flex items-center justify-between pt-1 border-t border-slate-200/60">
-                    <span>Lote: {keg.batchNumber}</span>
-                    <span>Validade: {keg.expiryDate}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       )}
@@ -764,46 +796,27 @@ export default function ChoppBarView() {
               </h2>
             </div>
 
-            <div className="space-y-3">
-              <div className="p-3.5 rounded-xl bg-amber-50/80 border border-amber-200 text-xs space-y-1.5">
-                <div className="font-bold text-amber-900 flex items-center gap-1.5">
-                  <AlertTriangle className="w-4 h-4 text-amber-600" />
-                  1. Pressão de CO₂ Descalibrada na Torneira 2 (IPA 30L)
-                </div>
-                <p className="text-amber-800 leading-relaxed">
-                  A pressão em 26 PSI e a temperatura de 3.8°C na serpentina estão gerando descarbonatação prévia e colarinho excessivo. Os garçons estão descartando espuma no ralo, causando o desvio de 1.86L (R$ 46,50 de custo / R$ 92,50 no caixa).
+            {barSummary.topDiscrepancies.length === 0 ? (
+              <div className="p-6 rounded-xl bg-emerald-50/70 border border-emerald-200 text-center space-y-2">
+                <CheckCircle2 className="w-8 h-8 text-emerald-600 mx-auto" />
+                <div className="text-xs font-bold text-emerald-900">Nenhum desvio operacional detectado no bar</div>
+                <p className="text-[11px] text-emerald-700 max-w-md mx-auto">
+                  Todas as chopeiras, torneiras e garrafas de destilados operam em 100% de conformidade técnica (&gt;94% de rendimento) e sem perdas não justificadas.
                 </p>
-                <div className="font-semibold text-emerald-800 text-[11px] pt-1">
-                  Ação Recomendada: Elevar a pressão do regulador para 34 PSI e regular a vazão compensadora da torneira para vazão suave.
-                </div>
               </div>
-
-              <div className="p-3.5 rounded-xl bg-rose-50/80 border border-rose-200 text-xs space-y-1.5">
-                <div className="font-bold text-rose-900 flex items-center gap-1.5">
-                  <TrendingDown className="w-4 h-4 text-rose-600" />
-                  2. Discrepância em Doses de Gin Tanqueray (6 doses não faturadas)
-                </div>
-                <p className="text-rose-800 leading-relaxed">
-                  Foram faturados 26 drinks no Teknisa, mas o peso das garrafas abertas indica consumo de 32 doses. Diferença de 300ml sem registro de venda no caixa (prejuízo de R$ 192,00).
-                </p>
-                <div className="font-semibold text-emerald-800 text-[11px] pt-1">
-                  Ação Recomendada: Auditoria cega de balança no início e fim do turno do barman e checklist obrigatório de dosador inox 50ml.
-                </div>
+            ) : (
+              <div className="space-y-3">
+                {barSummary.topDiscrepancies.map((disc, idx) => (
+                  <div key={idx} className="p-3.5 rounded-xl bg-amber-50/80 border border-amber-200 text-xs space-y-1.5">
+                    <div className="font-bold text-amber-900 flex items-center gap-1.5">
+                      <AlertTriangle className="w-4 h-4 text-amber-600" />
+                      Desvio Operacional Detectado
+                    </div>
+                    <p className="text-amber-800 leading-relaxed">{disc}</p>
+                  </div>
+                ))}
               </div>
-
-              <div className="p-3.5 rounded-xl bg-blue-50/80 border border-blue-200 text-xs space-y-1.5">
-                <div className="font-bold text-blue-900 flex items-center gap-1.5">
-                  <Calendar className="w-4 h-4 text-blue-600" />
-                  3. Barril Aberto com Validade Curta (Torneira 4 - Taperebá Sour)
-                </div>
-                <p className="text-blue-800 leading-relaxed">
-                  Restam 11 Litros no barril e o vencimento pós-abertura ocorre em 48 horas (2026-09-24).
-                </p>
-                <div className="font-semibold text-emerald-800 text-[11px] pt-1">
-                  Ação Recomendada: Disparar sugestão ativa pelos garçons no almoço e jantar ou criar combo promocional "Chopp Taperebá + Petisco de Costela" no Teknisa.
-                </div>
-              </div>
-            </div>
+            )}
           </div>
         </div>
       )}

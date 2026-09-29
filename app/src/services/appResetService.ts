@@ -3,7 +3,7 @@
 // Tk Gestão e Tecnologia • Unidade Engenho Manauara
 // ============================================================
 
-export const CLEAN_MODE_FLAG = 'tk_clean_mode_v7_total_zero';
+export const CLEAN_MODE_FLAG = 'tk_clean_mode_v9_total_zero_bar_and_diag';
 
 /**
  * Zera todos os dados fictícios e mocks do armazenamento local (localStorage),

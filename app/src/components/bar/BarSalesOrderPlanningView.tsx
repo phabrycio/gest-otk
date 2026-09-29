@@ -236,63 +236,73 @@ export const BarSalesOrderPlanningView: React.FC = () => {
             </div>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs border-collapse">
-              <thead>
-                <tr className="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
-                  <th className="py-2.5 px-3">Bebida / Insumo</th>
-                  <th className="py-2.5 px-3">Categoria</th>
-                  <th className="py-2.5 px-3 text-center">Teto Máx CDA</th>
-                  <th className="py-2.5 px-3 text-center">Contagem Atual</th>
-                  <th className="py-2.5 px-3 text-center bg-indigo-50/50">Média Semanal (+10%)</th>
-                  <th className="py-2.5 px-3 text-center bg-emerald-50 text-emerald-900">Qtd a Pedir CDA</th>
-                  <th className="py-2.5 px-3 text-center">Status CDA</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100">
-                {items.map((it) => {
-                  return (
-                    <tr key={it.id} className="hover:bg-slate-50/80 transition-colors">
-                      <td className="py-2.5 px-3 font-bold text-slate-900">
-                        {it.name}
-                        <span className="text-[10px] text-slate-400 block font-normal">{it.cdaCode}</span>
-                      </td>
-                      <td className="py-2.5 px-3 text-slate-600">
-                        <span className="px-2 py-0.5 rounded bg-slate-100 text-[10px] font-semibold">
-                          {it.category}
-                        </span>
-                      </td>
-                      <td className="py-2.5 px-3 text-center font-bold text-slate-700">
-                        {it.maxStockCda} {it.unit}
-                      </td>
-                      <td className="py-2.5 px-3 text-center font-bold text-slate-900">
-                        {it.currentStock} {it.unit}
-                      </td>
-                      <td className="py-2.5 px-3 text-center bg-indigo-50/30 font-bold text-indigo-900">
-                        {it.weeklyDemandWithSafety} {it.unit}
-                      </td>
-                      <td className="py-2.5 px-3 text-center bg-emerald-50/50 font-black text-emerald-700 text-sm">
-                        {it.calculatedOrderQty} {it.unit}
-                      </td>
-                      <td className="py-2.5 px-3 text-center">
-                        {it.requiresCdaCapIncrease ? (
-                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-rose-100 text-rose-800 text-[10px] font-black border border-rose-300">
-                            <AlertTriangle className="w-3 h-3" />
-                            Aumentar Teto ({it.suggestedNewCdaMax})
+          {items.length === 0 ? (
+            <div className="p-8 text-center bg-slate-50/80 rounded-xl border border-dashed border-slate-200 space-y-2">
+              <ClipboardList className="w-8 h-8 text-slate-400 mx-auto" />
+              <h4 className="text-xs font-bold text-slate-700">Nenhuma bebida cadastrada no bar no momento</h4>
+              <p className="text-[11px] text-slate-500 max-w-md mx-auto">
+                No Dia 1 de operação, cadastre os insumos e bebidas do bar ou registre transferências do CDA para gerar a lista automatizada de reposição.
+              </p>
+            </div>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr className="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
+                    <th className="py-2.5 px-3">Bebida / Insumo</th>
+                    <th className="py-2.5 px-3">Categoria</th>
+                    <th className="py-2.5 px-3 text-center">Teto Máx CDA</th>
+                    <th className="py-2.5 px-3 text-center">Contagem Atual</th>
+                    <th className="py-2.5 px-3 text-center bg-indigo-50/50">Média Semanal (+10%)</th>
+                    <th className="py-2.5 px-3 text-center bg-emerald-50 text-emerald-900">Qtd a Pedir CDA</th>
+                    <th className="py-2.5 px-3 text-center">Status CDA</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {items.map((it) => {
+                    return (
+                      <tr key={it.id} className="hover:bg-slate-50/80 transition-colors">
+                        <td className="py-2.5 px-3 font-bold text-slate-900">
+                          {it.name}
+                          <span className="text-[10px] text-slate-400 block font-normal">{it.cdaCode}</span>
+                        </td>
+                        <td className="py-2.5 px-3 text-slate-600">
+                          <span className="px-2 py-0.5 rounded bg-slate-100 text-[10px] font-semibold">
+                            {it.category}
                           </span>
-                        ) : (
-                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold border border-emerald-300">
-                            <CheckCircle2 className="w-3 h-3" />
-                            Teto Seguro
-                          </span>
-                        )}
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
+                        </td>
+                        <td className="py-2.5 px-3 text-center font-bold text-slate-700">
+                          {it.maxStockCda} {it.unit}
+                        </td>
+                        <td className="py-2.5 px-3 text-center font-bold text-slate-900">
+                          {it.currentStock} {it.unit}
+                        </td>
+                        <td className="py-2.5 px-3 text-center bg-indigo-50/30 font-bold text-indigo-900">
+                          {it.weeklyDemandWithSafety} {it.unit}
+                        </td>
+                        <td className="py-2.5 px-3 text-center bg-emerald-50/50 font-black text-emerald-700 text-sm">
+                          {it.calculatedOrderQty} {it.unit}
+                        </td>
+                        <td className="py-2.5 px-3 text-center">
+                          {it.requiresCdaCapIncrease ? (
+                            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-rose-100 text-rose-800 text-[10px] font-black border border-rose-300">
+                              <AlertTriangle className="w-3 h-3" />
+                              Aumentar Teto ({it.suggestedNewCdaMax})
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold border border-emerald-300">
+                              <CheckCircle2 className="w-3 h-3" />
+                              Teto Seguro
+                            </span>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
       )}
 
@@ -342,43 +352,53 @@ export const BarSalesOrderPlanningView: React.FC = () => {
             </span>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs border-collapse">
-              <thead>
-                <tr className="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
-                  <th className="py-2.5 px-3">Bebida do Bar</th>
-                  <th className="py-2.5 px-3">Tipo</th>
-                  <th className="py-2.5 px-3 text-center">Média Histórica (2 Meses)</th>
-                  <th className="py-2.5 px-3 text-center bg-amber-50 text-amber-950 font-black">
-                    Disponibilidade Recomendada (+10%)
-                  </th>
-                  <th className="py-2.5 px-3">Orientação do Turno</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100">
-                {items.map((it) => {
-                  const dayAvg = it.dailyAverage[selectedDay] || 0;
-                  const dayWithSafety = Math.ceil(dayAvg * 1.10 * 10) / 10;
+          {items.length === 0 ? (
+            <div className="p-8 text-center bg-slate-50/80 rounded-xl border border-dashed border-slate-200 space-y-2">
+              <TrendingUp className="w-8 h-8 text-slate-400 mx-auto" />
+              <h4 className="text-xs font-bold text-slate-700">Nenhum histórico de consumo diário registrado</h4>
+              <p className="text-[11px] text-slate-500 max-w-md mx-auto">
+                Conforme as vendas do bar forem registradas pelo Teknisa/PDV, a inteligência calculará automaticamente a média por dia da semana e a margem de segurança de +10%.
+              </p>
+            </div>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr className="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
+                    <th className="py-2.5 px-3">Bebida do Bar</th>
+                    <th className="py-2.5 px-3">Tipo</th>
+                    <th className="py-2.5 px-3 text-center">Média Histórica (2 Meses)</th>
+                    <th className="py-2.5 px-3 text-center bg-amber-50 text-amber-950 font-black">
+                      Disponibilidade Recomendada (+10%)
+                    </th>
+                    <th className="py-2.5 px-3">Orientação do Turno</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {items.map((it) => {
+                    const dayAvg = it.dailyAverage[selectedDay] || 0;
+                    const dayWithSafety = Math.ceil(dayAvg * 1.10 * 10) / 10;
 
-                  return (
-                    <tr key={it.id} className="hover:bg-slate-50 transition-colors">
-                      <td className="py-2.5 px-3 font-bold text-slate-900">{it.name}</td>
-                      <td className="py-2.5 px-3 text-slate-500 text-[11px]">{it.category}</td>
-                      <td className="py-2.5 px-3 text-center font-semibold text-slate-700">
-                        {dayAvg} {it.unit}
-                      </td>
-                      <td className="py-2.5 px-3 text-center bg-amber-50/40 font-black text-amber-900 text-sm">
-                        {dayWithSafety} {it.unit}
-                      </td>
-                      <td className="py-2.5 px-3 text-[11px] text-slate-600">
-                        Manter pelo menos {dayWithSafety} {it.unit} geladas e prontas para o turno de {selectedDay.toLowerCase()}.
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
+                    return (
+                      <tr key={it.id} className="hover:bg-slate-50 transition-colors">
+                        <td className="py-2.5 px-3 font-bold text-slate-900">{it.name}</td>
+                        <td className="py-2.5 px-3 text-slate-500 text-[11px]">{it.category}</td>
+                        <td className="py-2.5 px-3 text-center font-semibold text-slate-700">
+                          {dayAvg} {it.unit}
+                        </td>
+                        <td className="py-2.5 px-3 text-center bg-amber-50/40 font-black text-amber-900 text-sm">
+                          {dayWithSafety} {it.unit}
+                        </td>
+                        <td className="py-2.5 px-3 text-[11px] text-slate-600">
+                          Manter pelo menos {dayWithSafety} {it.unit} geladas e prontas para o turno de {selectedDay.toLowerCase()}.
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
       )}
 
@@ -395,55 +415,67 @@ export const BarSalesOrderPlanningView: React.FC = () => {
               </p>
             </div>
 
-            <button
-              onClick={handleSaveSundayCount}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all shadow-sm cursor-pointer"
-            >
-              <Save className="w-3.5 h-3.5" />
-              <span>Salvar Contagem & Atualizar Pedido</span>
-            </button>
+            {items.length > 0 && (
+              <button
+                onClick={handleSaveSundayCount}
+                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all shadow-sm cursor-pointer"
+              >
+                <Save className="w-3.5 h-3.5" />
+                <span>Salvar Contagem & Atualizar Pedido</span>
+              </button>
+            )}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-            {items.map((it) => {
-              const currentVal = countedValues[it.id] !== undefined ? countedValues[it.id] : it.currentStock;
+          {items.length === 0 ? (
+            <div className="p-8 text-center bg-slate-50/80 rounded-xl border border-dashed border-slate-200 space-y-2">
+              <Clock className="w-8 h-8 text-slate-400 mx-auto" />
+              <h4 className="text-xs font-bold text-slate-700">Nenhuma bebida aguardando contagem física</h4>
+              <p className="text-[11px] text-slate-500 max-w-md mx-auto">
+                Os itens adicionados ao bar aparecerão aqui todos os domingos para a contagem cega em mãos do líder do bar.
+              </p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+              {items.map((it) => {
+                const currentVal = countedValues[it.id] !== undefined ? countedValues[it.id] : it.currentStock;
 
-              return (
-                <div key={it.id} className="p-3.5 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2">
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <span className="font-bold text-xs text-slate-900 block">{it.name}</span>
-                      <span className="text-[10px] text-slate-400">Teto CDA: {it.maxStockCda} {it.unit}</span>
+                return (
+                  <div key={it.id} className="p-3.5 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2">
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <span className="font-bold text-xs text-slate-900 block">{it.name}</span>
+                        <span className="text-[10px] text-slate-400">Teto CDA: {it.maxStockCda} {it.unit}</span>
+                      </div>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-200 text-slate-700">
+                        {it.unit}
+                      </span>
                     </div>
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-200 text-slate-700">
-                      {it.unit}
-                    </span>
-                  </div>
 
-                  <div className="pt-1">
-                    <label className="text-[11px] font-bold text-slate-600 block mb-1">
-                      Quantidade Contada em Mãos:
-                    </label>
-                    <input
-                      type="number"
-                      min="0"
-                      step="0.1"
-                      value={currentVal}
-                      onChange={(e) => handleStockInputChange(it.id, e.target.value)}
-                      className="w-full text-xs p-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:outline-hidden bg-white font-bold"
-                    />
-                  </div>
+                    <div className="pt-1">
+                      <label className="text-[11px] font-bold text-slate-600 block mb-1">
+                        Quantidade Contada em Mãos:
+                      </label>
+                      <input
+                        type="number"
+                        min="0"
+                        step="0.1"
+                        value={currentVal}
+                        onChange={(e) => handleStockInputChange(it.id, e.target.value)}
+                        className="w-full text-xs p-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:outline-hidden bg-white font-bold"
+                      />
+                    </div>
 
-                  <div className="flex items-center justify-between text-[10px] text-slate-500 pt-1 border-t border-slate-200">
-                    <span>Pedido CDA resultante:</span>
-                    <span className="font-black text-emerald-700">
-                      {Math.max(0, it.maxStockCda - currentVal)} {it.unit}
-                    </span>
+                    <div className="flex items-center justify-between text-[10px] text-slate-500 pt-1 border-t border-slate-200">
+                      <span>Pedido CDA resultante:</span>
+                      <span className="font-black text-emerald-700">
+                        {Math.max(0, it.maxStockCda - currentVal)} {it.unit}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       )}
 

@@ -26,26 +26,7 @@ export const StaffOnboardingView: React.FC = () => {
   const [activeSubTab, setActiveSubTab] = useState<'OBRIGACOES_DIARIAS' | 'TRILHA_7_DIAS' | 'REGRAS_OURO'>('OBRIGACOES_DIARIAS');
   const [showScanModal, setShowScanModal] = useState(false);
   const [isScanning, setIsScanning] = useState(false);
-  const [recentScans, setRecentScans] = useState<PopScanResult[]>([
-    {
-      id: 'scan-01',
-      popTitle: 'POP-SAL-04: Protocolo de Hospitalidade & Atendimento de Mesa',
-      detectedRole: 'Garçom de Salão',
-      extractedObligationsCount: 8,
-      confidenceScore: 98,
-      timestamp: 'Hoje às 09:15',
-      summary: 'Reconhecidas regras de abordagem em 90s, protocolo de retirada de pratos e upselling de sobremesas.',
-    },
-    {
-      id: 'scan-02',
-      popTitle: 'POP-COZ-08: Padrão de Grelha, Ponto de Pescados & Tempo de Boqueta',
-      detectedRole: 'Cozinheiro de Praça (Grelha)',
-      extractedObligationsCount: 6,
-      confidenceScore: 96,
-      timestamp: 'Ontem às 16:40',
-      summary: 'Mapeadas temperaturas de carvão, corte da Costela de Tambaqui (400g) e tempo de boqueta <= 18min.',
-    },
-  ]);
+  const [recentScans, setRecentScans] = useState<PopScanResult[]>([]);
 
   // Funções / Cargos cadastrados
   const [roles, setRoles] = useState<StaffRoleOnboarding[]>([
@@ -496,19 +477,23 @@ export const StaffOnboardingView: React.FC = () => {
                 Últimos POPs Ingeridos por IA
               </span>
               <div className="divide-y divide-slate-100 text-xs">
-                {recentScans.map((scan) => (
-                  <div key={scan.id} className="py-2 space-y-0.5">
-                    <div className="flex items-center justify-between">
-                      <span className="font-bold text-slate-800 text-[11px]">{scan.popTitle}</span>
-                      <span className="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
-                        {scan.confidenceScore}% precisão
+                {recentScans.length === 0 ? (
+                  <p className="text-[11px] text-slate-400 py-3 text-center">Nenhum POP escaneado recentemente. Aponte a câmera para cadastrar novas rotinas.</p>
+                ) : (
+                  recentScans.map((scan) => (
+                    <div key={scan.id} className="py-2 space-y-0.5">
+                      <div className="flex items-center justify-between">
+                        <span className="font-bold text-slate-800 text-[11px]">{scan.popTitle}</span>
+                        <span className="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
+                          {scan.confidenceScore}% precisão
+                        </span>
+                      </div>
+                      <span className="text-[10px] text-slate-500 block">
+                        Função: <strong>{scan.detectedRole}</strong> &bull; {scan.extractedObligationsCount} obrigações criadas
                       </span>
                     </div>
-                    <span className="text-[10px] text-slate-500 block">
-                      Função: <strong>{scan.detectedRole}</strong> &bull; {scan.extractedObligationsCount} obrigações criadas
-                    </span>
-                  </div>
-                ))}
+                  ))
+                )}
               </div>
             </div>
           </div>
