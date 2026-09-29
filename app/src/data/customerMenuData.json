@@ -56,8 +56,8 @@
     "id": "dish-03",
     "name": {
       "pt": "Carne de Sol do Engenho com Baião Cremoso",
-      "en": "Carne de Sol do Engenho with Baião de Dois Cremoso",
-      "es": "Carne de Sol do Engenho con Baião de Dois Cremoso"
+      "en": "Artisanal Sun-Cured Beef with Creamy Baião de Dois",
+      "es": "Carne de Sol Artesanal con Baião de Dois Cremoso"
     },
     "description": {
       "pt": "Carne de sol maturada artesanalmente, grelhada com manteiga de garrafa, servida com baião de dois cremoso puxado no queijo coalho e macaxeira crocante.",
@@ -740,8 +740,8 @@
     "id": "dish-dion-028",
     "name": {
       "pt": "Trio do Engenho",
-      "en": "Engenho Taster Trio (Pastel, Rib & Tapioca)",
-      "es": "Trío Degustación do Engenho (Pastel, Costilla y Tapioca)"
+      "en": "Engenho Signature Taster Trio (Jerked Beef, Pork Shank & Tambaqui Ribs)",
+      "es": "Trío Degustación do Engenho (Carne Seca, Codillo y Costillas de Tambaquí)"
     },
     "description": {
       "pt": "Combinação de Charque na brasa, Lascas de Joelho e Costela de Tambaqui, sobre um incrível barbecue de cupuaçu.",
@@ -1739,8 +1739,8 @@
     "id": "dish-dion-071",
     "name": {
       "pt": "Escolha a proteína e os acompanhamentos que os pequenos mais gostam Escolha até 3 acompanhamentos: Arroz branco, massa Capeline (Cabelo de Anjo), Batata Frita, Purê, Feijão ou Salada",
-      "en": "Escolha a proteína e os acompanhamentos que os pequenos mais gostam Escolha até 3 acompanhamentos: Arroz branco, massa Capeline (Cabelo de Anjo), Batata Crispy Fried, Purê, Feijão ou Salada",
-      "es": "Escolha a proteína e os acompanhamentos que os pequenos mais gostam Escolha até 3 acompanhamentos: Arroz branco, massa Capeline (Cabelo de Anjo), Batata Crujiente Frita, Purê, Feijão ou Salada"
+      "en": "Kids Combo: Pick Your Protein & 3 Classic Sides",
+      "es": "Menú Infantil Combinado: Proteína y 3 Guarniciones a Elección"
     },
     "description": {
       "pt": "Empanado de Frango - Frango de verdade, processado artesanalmente, temperado e empanado",
@@ -2704,7 +2704,7 @@
     "id": "dish-dion-112",
     "name": {
       "pt": "Bife Chorizo Black Angus 250g",
-      "en": "Prime Black Angus Bife de Chorizo Sirloin Steak (250g)",
+      "en": "Prime Black Angus Striploin Sirloin Steak (Bife de Chorizo 250g)",
       "es": "Bife de Chorizo Black Angus a las Brasas (250g)"
     },
     "description": {
@@ -4613,8 +4613,8 @@
     "id": "dish-dion-195",
     "name": {
       "pt": "Chopp Heineken De Menta 300ml",
-      "en": "Draft Beer Heineken De Menta 300ml",
-      "es": "Cerveza de Barril Heineken De Menta 300ml"
+      "en": "Heineken Mint Draft Beer (300ml)",
+      "es": "Cerveza de Barril Heineken con Menta Fresca (300ml)"
     },
     "description": {
       "pt": "Chopp Heineken puro malte tirado na hora, super refrescante com 5% de teor alcoólico e colarinho denso na caneca congelada.",
@@ -4636,8 +4636,8 @@
     "id": "dish-dion-196",
     "name": {
       "pt": "Chopp Heineken De Menta 500ml",
-      "en": "Draft Beer Heineken De Menta 500ml",
-      "es": "Cerveza de Barril Heineken De Menta 500ml"
+      "en": "Heineken Mint Draft Beer (500ml)",
+      "es": "Cerveza de Barril Heineken con Menta Fresca (500ml)"
     },
     "description": {
       "pt": "Chopp Heineken puro malte tirado na hora, super refrescante com 5% de teor alcoólico e colarinho denso na caneca congelada.",
@@ -4659,8 +4659,8 @@
     "id": "dish-dion-197",
     "name": {
       "pt": "Chopp Heineken De Menta 1L",
-      "en": "Draft Beer Heineken De Menta 1L",
-      "es": "Cerveza de Barril Heineken De Menta 1L"
+      "en": "Heineken Mint Draft Beer Pitcher (1L)",
+      "es": "Jarra de Cerveza Heineken con Menta Fresca (1L)"
     },
     "description": {
       "pt": "Chopp Heineken puro malte tirado na hora, super refrescante com 5% de teor alcoólico e colarinho denso na caneca congelada.",
@@ -5763,8 +5763,8 @@
     "id": "dish-dion-245",
     "name": {
       "pt": "Licor De Cachaça",
-      "en": "Licor De Cachaça (House Selection)",
-      "es": "Licor De Cachaça (Selección Especial)"
+      "en": "Artisanal Cachaça Cream Liqueur",
+      "es": "Licor Cremoso Artesanal de Cachaça"
     },
     "description": {
       "pt": "Dose de cachaça artesanal de alambique selecionada, aroma marcante e notas amadeiradas.",
@@ -6982,8 +6982,8 @@
     "id": "dish-dion-298",
     "name": {
       "pt": "Beijo De Morango",
-      "en": "Beijo De Morango (House Selection)",
-      "es": "Beijo De Morango (Selección Especial)"
+      "en": "Strawberry Kiss Mocktail (Fresh Strawberry & Citrus Blend)",
+      "es": "Cóctel sin Alcohol Beso de Fresa con Cítricos"
     },
     "description": {
       "pt": "Polpa de morango, sorvete de morango leite, leite condensado e chantilly",
@@ -10226,7 +10226,7 @@
     "name": {
       "pt": "Batente Syrah Reserva Seco",
       "en": "Batente Syrah Reserva Dry",
-      "es": "Batente Syrah Reserva Seco"
+      "es": "Vino Tinto Batente Syrah Reserva Seco"
     },
     "description": {
       "pt": "Marcante e intenso, com notas de pimenta, especiarias e pimenta.",
