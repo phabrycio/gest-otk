@@ -38,11 +38,27 @@ export const GestaoHubView: React.FC<GestaoHubViewProps> = ({
   const [showReceiptModal, setShowReceiptModal] = useState(false);
   const [targetReceiptMonth, setTargetReceiptMonth] = useState<string | undefined>();
 
+  const [targetPredictionTab, setTargetPredictionTab] = useState<'DEGELO' | 'ESTOQUE_MAXIMO_CDA'>('DEGELO');
+
   useEffect(() => {
     if (initialSubView) {
       setSubView(initialSubView);
     }
   }, [initialSubView]);
+
+  // Escuta evento global para troca de subview na Gestão
+  useEffect(() => {
+    const handleSubViewNav = (e: any) => {
+      if (e.detail?.subView) {
+        setSubView(e.detail.subView);
+        if (e.detail.tab) {
+          setTargetPredictionTab(e.detail.tab);
+        }
+      }
+    };
+    window.addEventListener('navigate_gestao_subview', handleSubViewNav);
+    return () => window.removeEventListener('navigate_gestao_subview', handleSubViewNav);
+  }, []);
 
   // Escuta evento global para abrir arquivo fiscal
   useEffect(() => {
@@ -179,13 +195,24 @@ export const GestaoHubView: React.FC<GestaoHubViewProps> = ({
       </div>
 
       {subView === 'DONO_DRE' ? (
-        <OwnerVisionView />
+        <OwnerVisionView
+          onNavigateTab={onNavigateToTab}
+          onNavigateSubView={(nextSub) => {
+            setSubView(nextSub);
+            if (nextSub === 'PREVISAO_12_SEMANAS') {
+              setTargetPredictionTab('DEGELO');
+            }
+          }}
+        />
       ) : subView === 'INTELIGENCIA_VENDAS' ? (
         <SalesIntelligenceView onOpenCopilot={onOpenCopilot} />
       ) : subView === 'PAINEL_FINANCEIRO_CONSUMER' ? (
         <ConsumerFinanceDashboardView onOpenCopilot={onOpenCopilot} />
       ) : subView === 'PREVISAO_12_SEMANAS' ? (
-        <WeeklySalesPredictionView onOpenCopilot={onOpenCopilot} />
+        <WeeklySalesPredictionView
+          initialTab={targetPredictionTab}
+          onOpenCopilot={onOpenCopilot}
+        />
       ) : subView === 'LOG_COLABORADORES' ? (
         <CollaboratorAuditFeedView currentUserName="Ivan / Pabricio (Gerência Geral)" />
       ) : subView === 'RELATORIOS_DASHBOARD' ? (

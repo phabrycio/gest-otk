@@ -47,9 +47,10 @@ import salesAnalyticsData from '../data/salesAnalyticsData.json';
 
 interface OwnerVisionViewProps {
   onNavigateTab?: (tab: string) => void;
+  onNavigateSubView?: (subView: 'PREVISAO_12_SEMANAS' | 'INTELIGENCIA_VENDAS' | 'PAINEL_FINANCEIRO_CONSUMER' | 'LOG_COLABORADORES' | 'RELATORIOS_DASHBOARD' | 'METAS_BONUS') => void;
 }
 
-export const OwnerVisionView: React.FC<OwnerVisionViewProps> = ({ onNavigateTab }) => {
+export const OwnerVisionView: React.FC<OwnerVisionViewProps> = ({ onNavigateTab, onNavigateSubView }) => {
   const [activeSubTab, setActiveSubTab] = useState<'RESUMO_ACAO' | 'DRE_DETALHADO' | 'LOG_COLABORADORES' | 'PREVENCAO_PERDAS' | 'SAUDE_ATIVOS' | 'SIMULADOR_WHAT_IF'>('RESUMO_ACAO');
   const [feedStatus] = useState<SystemFeedStatus>(() => getSystemFeedStatus());
   const [showFeedModal, setShowFeedModal] = useState(false);
@@ -315,7 +316,17 @@ export const OwnerVisionView: React.FC<OwnerVisionViewProps> = ({ onNavigateTab 
               </div>
 
               <button
-                onClick={() => onNavigateTab && onNavigateTab('suprimentos')}
+                onClick={() => {
+                  if (onNavigateSubView) {
+                    onNavigateSubView('PREVISAO_12_SEMANAS');
+                  }
+                  if (typeof window !== 'undefined') {
+                    window.dispatchEvent(new CustomEvent('navigate_gestao_subview', { detail: { subView: 'PREVISAO_12_SEMANAS', tab: 'DEGELO' } }));
+                  }
+                  if (onNavigateTab) {
+                    onNavigateTab('gestao');
+                  }
+                }}
                 className="w-full py-2 bg-sky-50 hover:bg-sky-100 text-sky-800 font-bold text-xs rounded-xl transition-colors flex items-center justify-center gap-1 cursor-pointer"
               >
                 <span>Ver Guia Semanal Completo</span>
@@ -351,7 +362,17 @@ export const OwnerVisionView: React.FC<OwnerVisionViewProps> = ({ onNavigateTab 
               </div>
 
               <button
-                onClick={() => onNavigateTab && onNavigateTab('suprimentos')}
+                onClick={() => {
+                  if (onNavigateSubView) {
+                    onNavigateSubView('PREVISAO_12_SEMANAS');
+                  }
+                  if (typeof window !== 'undefined') {
+                    window.dispatchEvent(new CustomEvent('navigate_gestao_subview', { detail: { subView: 'PREVISAO_12_SEMANAS', tab: 'ESTOQUE_MAXIMO_CDA' } }));
+                  }
+                  if (onNavigateTab) {
+                    onNavigateTab('suprimentos');
+                  }
+                }}
                 className="w-full py-2 bg-amber-50 hover:bg-amber-100 text-amber-900 font-bold text-xs rounded-xl transition-colors flex items-center justify-center gap-1 cursor-pointer"
               >
                 <span>Abrir Ordem de Compra CDA</span>
@@ -387,7 +408,14 @@ export const OwnerVisionView: React.FC<OwnerVisionViewProps> = ({ onNavigateTab 
               </div>
 
               <button
-                onClick={() => onNavigateTab && onNavigateTab('bar')}
+                onClick={() => {
+                  if (onNavigateTab) {
+                    onNavigateTab('bar');
+                  }
+                  if (typeof window !== 'undefined') {
+                    window.dispatchEvent(new CustomEvent('navigate_main_tab', { detail: { tab: 'bar' } }));
+                  }
+                }}
                 className="w-full py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold text-xs rounded-xl transition-colors flex items-center justify-center gap-1 cursor-pointer"
               >
                 <span>Acessar Choperia & Balcão</span>

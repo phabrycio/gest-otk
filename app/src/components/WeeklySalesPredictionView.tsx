@@ -42,12 +42,22 @@ import {
 } from '../services/intelligenceEngine';
 
 interface WeeklySalesPredictionViewProps {
+  initialTab?: 'DEGELO' | 'ESTOQUE_MAXIMO_CDA' | 'MISE_EN_PLACE' | 'BAR' | 'AUDITORIA_IA';
   onOpenCopilot?: (prompt?: string) => void;
 }
 
-export const WeeklySalesPredictionView: React.FC<WeeklySalesPredictionViewProps> = ({ onOpenCopilot }) => {
-  const [selectedDay, setSelectedDay] = useState<DayOfWeekKey>('SEGUNDA');
-  const [activeTab, setActiveTab] = useState<'DEGELO' | 'ESTOQUE_MAXIMO_CDA' | 'MISE_EN_PLACE' | 'BAR' | 'AUDITORIA_IA'>('DEGELO');
+export const WeeklySalesPredictionView: React.FC<WeeklySalesPredictionViewProps> = ({ 
+  initialTab = 'DEGELO',
+  onOpenCopilot 
+}) => {
+  const [selectedDay, setSelectedDay] = useState<DayOfWeekKey>(() => getCurrentDayOfWeekKey());
+  const [activeTab, setActiveTab] = useState<'DEGELO' | 'ESTOQUE_MAXIMO_CDA' | 'MISE_EN_PLACE' | 'BAR' | 'AUDITORIA_IA'>(initialTab);
+
+  React.useEffect(() => {
+    if (initialTab) {
+      setActiveTab(initialTab);
+    }
+  }, [initialTab]);
   const [copiedSuccess, setCopiedSuccess] = useState(false);
   const [editingItemId, setEditingItemId] = useState<string | null>(null);
   const [editCurrentStock, setEditCurrentStock] = useState<number>(0);

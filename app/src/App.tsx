@@ -228,6 +228,17 @@ export function App({ initialAuthenticated }: AppProps = {}) {
     }
   }, [currentUser, activeTab]);
 
+  // Escuta evento global para navegação de aba principal
+  useEffect(() => {
+    const handleMainTabNav = (e: any) => {
+      if (e.detail?.tab) {
+        setActiveTab(e.detail.tab);
+      }
+    };
+    window.addEventListener('navigate_main_tab', handleMainTabNav);
+    return () => window.removeEventListener('navigate_main_tab', handleMainTabNav);
+  }, []);
+
   // ---- Handlers de Dados ----
   const toggleShift = () => {
     setCurrentShift((prev) => (prev === 'MANHA_ALMOCO' ? 'NOITE_JANTAR' : 'MANHA_ALMOCO'));
