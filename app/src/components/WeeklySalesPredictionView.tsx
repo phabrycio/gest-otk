@@ -38,6 +38,7 @@ import {
   getStockMaxRecommendations,
   updateStockItemLevels,
   useOperationalIntelligence,
+  getCurrentDayOfWeekKey,
   DayOfWeekKey,
 } from '../services/intelligenceEngine';
 
