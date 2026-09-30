@@ -11,6 +11,7 @@ import { MarketingView } from './components/MarketingView';
 import { CopilotView } from './components/CopilotView';
 import { ManagerCalendarView } from './components/calendar/ManagerCalendarView';
 import { AiEmailAssistantView } from './components/email/AiEmailAssistantView';
+import CustomerReviewsDashboardView from './components/CustomerReviewsDashboardView';
 import { FloatingActions } from './components/FloatingActions';
 import { OnboardingModal } from './components/OnboardingModal';
 import { AboutExecutiveModal } from './components/AboutExecutiveModal';
@@ -593,6 +594,11 @@ export function App({ initialAuthenticated }: AppProps = {}) {
             />
           )}
 
+          {/* MÓDULO DE AVALIAÇÕES & REPUTAÇÃO ONLINE (Google Maps · Restaurant Guru) */}
+          {activeTab === 'avaliacoes' && permissions?.canViewMarketing && (
+            <CustomerReviewsDashboardView />
+          )}
+
           {/* PILAR 5: EQUIPE & ESCALA RH */}
           {activeTab === 'equipe' && permissions?.canViewStaff && (
             <StaffRhView
@@ -619,6 +625,7 @@ export function App({ initialAuthenticated }: AppProps = {}) {
 
           {/* Mensagem se não tem permissão para a aba */}
           {((activeTab === 'marketing' && !permissions?.canViewMarketing) ||
+            (activeTab === 'avaliacoes' && !permissions?.canViewMarketing) ||
             (activeTab === 'equipe' && !permissions?.canViewStaff) ||
             (activeTab === 'email_ia' && !permissions?.canViewCopilot) ||
             (activeTab === 'copilot' && !permissions?.canViewCopilot)) && (

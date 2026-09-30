@@ -28,6 +28,7 @@ import {
   FileCheck2,
   Timer,
   BarChart3,
+  Star,
 } from 'lucide-react';
 import { ShiftType } from '../types';
 import { OperatorProfile } from './QuickPinModal';
@@ -53,6 +54,7 @@ export type SidebarTabId =
   | 'auditoria'
   | 'equipe'
   | 'marketing'
+  | 'avaliacoes'
   | 'email_ia'
   | 'copilot';
 
@@ -176,6 +178,13 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
           id: 'marketing',
           label: 'Mkt & Reels Virais',
           icon: Flame,
+          requiredPermission: permissions?.canViewMarketing ?? true,
+        },
+        {
+          id: 'avaliacoes',
+          label: 'Avaliações & Reputação',
+          icon: Star,
+          badge: 'NPS 48',
           requiredPermission: permissions?.canViewMarketing ?? true,
         },
         {

@@ -28,6 +28,7 @@ import {
 } from '../../services/coldChamberStore';
 import { ColdChamberCaptureModal } from './ColdChamberCaptureModal';
 import { ColdChamberWeeklyReportModal } from './ColdChamberWeeklyReportModal';
+import { getDefrostPlanForDay, getCurrentDayOfWeekKey, DayOfWeekKey, DAY_OF_WEEK_CONFIG } from '../../services/intelligenceEngine';
 
 interface ColdChamberDashboardViewProps {
   currentRole?: string;
@@ -43,6 +44,10 @@ export const ColdChamberDashboardView: React.FC<ColdChamberDashboardViewProps> =
   const [isReportModalOpen, setIsReportModalOpen] = useState(false);
   const [selectedPhotoForZoom, setSelectedPhotoForZoom] = useState<ColdChamberReading | null>(null);
   const [actionToast, setActionToast] = useState<string | null>(null);
+  const [selectedDayDefrost, setSelectedDayDefrost] = useState<DayOfWeekKey>(() => getCurrentDayOfWeekKey());
+  const [confirmedThaws, setConfirmedThaws] = useState<Record<string, boolean>>({});
+
+  const todayPlan = getDefrostPlanForDay(selectedDayDefrost);
 
   const loadData = () => {
     const list = getColdChamberReadings(39);
@@ -200,6 +205,95 @@ export const ColdChamberDashboardView: React.FC<ColdChamberDashboardViewProps> =
           >
             <FileText className="w-5 h-5" />
           </button>
+        </div>
+      </div>
+
+      {/* Painel Integrado: Plano de Degelo da Semana (Seg a Dom) Calculado por Vendas */}
+      <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs overflow-hidden">
+        <div className="p-4 bg-sky-50/70 border-b border-sky-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div className="flex items-center gap-2.5">
+            <div className="w-9 h-9 rounded-xl bg-sky-200 text-sky-800 flex items-center justify-center shrink-0">
+              <ThermometerSnowflake className="w-5 h-5 text-sky-700" />
+            </div>
+            <div>
+              <h3 className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                <span>Plano de Degelo Operacional — {todayPlan.dayLabel}</span>
+                <span className="px-2 py-0.2 rounded-full bg-sky-200 text-sky-900 text-[10px] font-black">
+                  +20% Reserva
+                </span>
+              </h3>
+              <p className="text-[11px] text-slate-500">
+                Calculado automaticamente sobre 98.393 vendas reais. Descongelamento lento a +2°C / +4°C para os turnos de almoço e jantar.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-1 bg-white p-1 rounded-xl border border-sky-200 text-xs">
+            {(['SEGUNDA', 'TERCA', 'QUARTA', 'QUINTA', 'SEXTA', 'SABADO', 'DOMINGO'] as DayOfWeekKey[]).map((d) => (
+              <button
+                key={d}
+                onClick={() => setSelectedDayDefrost(d)}
+                className={`px-2.5 py-1 rounded-lg font-bold text-[11px] transition-all cursor-pointer ${
+                  selectedDayDefrost === d
+                    ? 'bg-sky-600 text-white shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                {DAY_OF_WEEK_CONFIG[d].label.slice(0, 3)}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="p-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+            {todayPlan.items.slice(0, 6).map((item) => {
+              const isChecked = confirmedThaws[item.id] || false;
+              return (
+                <div
+                  key={item.id}
+                  onClick={() => setConfirmedThaws((prev) => ({ ...prev, [item.id]: !isChecked }))}
+                  className={`p-3 rounded-xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${
+                    isChecked
+                      ? 'bg-emerald-50/60 border-emerald-300 ring-1 ring-emerald-200'
+                      : 'bg-slate-50 hover:bg-slate-100 border-slate-200'
+                  }`}
+                >
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <input
+                      type="checkbox"
+                      checked={isChecked}
+                      onChange={() => {}}
+                      className="w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500"
+                    />
+                    <div className="min-w-0">
+                      <p className={`text-xs font-bold truncate ${isChecked ? 'text-emerald-900 line-through' : 'text-slate-900'}`}>
+                        {item.name}
+                      </p>
+                      <p className="text-[10px] text-slate-500 truncate">
+                        {item.defrostLeadHours}h antes &bull; {item.targetShift === 'ALMOCO' ? 'Almoço' : 'Jantar'}
+                      </p>
+                    </div>
+                  </div>
+
+                  <span className={`px-2 py-1 rounded-lg text-xs font-black shrink-0 ${
+                    isChecked ? 'bg-emerald-200 text-emerald-900' : 'bg-sky-100 text-sky-900'
+                  }`}>
+                    {item.thawQuantityKg} {item.unit}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+            <span>
+              Total a desgelar para {todayPlan.dayLabel}: <strong className="text-slate-900">{todayPlan.totalKgToDefrost} KG</strong>
+            </span>
+            <span className="text-[11px] text-emerald-700 font-bold">
+              ✓ Evita quebra de textura e descongelamento em água corrente
+            </span>
+          </div>
         </div>
       </div>
 

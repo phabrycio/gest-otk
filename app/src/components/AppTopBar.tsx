@@ -35,6 +35,7 @@ const TAB_TITLES: Record<SidebarTabId, { title: string; subtitle: string }> = {
   auditoria: { title: 'Auditorias & POPs', subtitle: 'Procedimentos Operacionais Padrão e Qualidade' },
   equipe: { title: 'Equipe & Escala RH', subtitle: 'Quadro de Colaboradores e Turnos' },
   marketing: { title: 'Marketing & Reels', subtitle: 'Reputação Online e Conteúdos Promocionais' },
+  avaliacoes: { title: 'Avaliações & Reputação Online', subtitle: 'Google Maps · Restaurant Guru · Plano de Ação IA por Categoria de Reclamação' },
   email_ia: { title: 'Central de Resposta de E-mails IA', subtitle: 'Redação Inteligente de Respostas Fundamentada nos Dados da Loja' },
   copilot: { title: 'Copilot IA Gemini', subtitle: 'Assistente Operacional e Técnico' },
   fila_espera: { title: 'Fila de Espera & Recepção', subtitle: 'Chamada com Regra dos 2 Minutos e Alocação por Capacidade de Mesas' },

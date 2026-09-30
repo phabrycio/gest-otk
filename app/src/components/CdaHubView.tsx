@@ -18,14 +18,16 @@ import {
   ChevronDown,
   Layers,
   Calendar,
-  AlertTriangle
+  AlertTriangle,
+  MessageCircle
 } from 'lucide-react';
 import { CdaRequisition, CorporateTicket } from '../types';
 import { 
-  INITIAL_PREDICTIVE_ITEMS, 
-  calculatePredictiveItem,
-  PredictiveOrderItem 
-} from '../data/cdaPredictiveData';
+  getStockMaxRecommendations,
+  useOperationalIntelligence,
+  updateStockItemLevels,
+  StockMaxRecommendation,
+} from '../services/intelligenceEngine';
 
 interface CdaHubViewProps {
   requisition: CdaRequisition;
@@ -45,12 +47,36 @@ export const CdaHubView: React.FC<CdaHubViewProps> = ({ requisition, tickets, on
   const [copiedSuccess, setCopiedSuccess] = useState(false);
   const [transmittedSuccess, setTransmittedSuccess] = useState(false);
 
-  // Calcula todos os itens preditivos com base nos últimos meses + margem de buffer
+  // Escuta o motor unificado
+  const operationalSummary = useOperationalIntelligence();
+  const rawRecommendations = useMemo(() => getStockMaxRecommendations(), [operationalSummary]);
+
+  // Calcula todos os itens preditivos com base nos dados reais do Teknisa + estoque máximo
   const calculatedItems = useMemo(() => {
-    return INITIAL_PREDICTIVE_ITEMS.map((item: PredictiveOrderItem) => 
-      calculatePredictiveItem(item, bufferPct)
-    );
-  }, [bufferPct]);
+    return rawRecommendations.map((item) => {
+      // Ajuste com base no buffer selecionado (+10% ou +15%)
+      const adjustedOrder = Math.max(0, Math.ceil(item.cdaOrderSuggestion * (1 + (bufferPct - 10) / 100)));
+      const subtotal = +(adjustedOrder * item.unitCost).toFixed(2);
+      return {
+        id: item.code,
+        code: item.code,
+        name: item.name,
+        category: item.category,
+        unit: item.unit,
+        unitCost: item.unitCost,
+        currentStock: item.currentStock,
+        currentMaxStock: item.currentMaxStock,
+        recommendedMaxStock: item.recommendedMaxStock,
+        suggestedAction: item.suggestedAction,
+        minimumPackQuantity: 1,
+        weeklyAverage: item.weeklyDemand,
+        suggestedQuantity: adjustedOrder,
+        subtotal,
+        urgency: item.urgency,
+        rationale: item.rationale,
+      };
+    });
+  }, [rawRecommendations, bufferPct]);
 
   // Filtra por termo de busca
   const filteredItems = useMemo(() => {
@@ -71,27 +97,36 @@ export const CdaHubView: React.FC<CdaHubViewProps> = ({ requisition, tickets, on
     return calculatedItems.filter(item => item.suggestedQuantity > 0).length;
   }, [calculatedItems]);
 
-  const handleCopyOrder = () => {
-    let text = `📋 PEDIDO DE REPOSIÇÃO SEMANAL - CDA GRUPO ENGENHO\n`;
-    text += `Unidade: Engenho Manauara • Shopping Ponta Negra\n`;
-    text += `Data: ${new Date().toLocaleDateString('pt-BR')} • Margem de Segurança: +${bufferPct}%\n`;
+  const buildOrderText = () => {
+    let text = `📋 *PEDIDO DE REPOSIÇÃO SEMANAL - CDA GRUPO ENGENHO*\n`;
+    text += `📍 *Unidade:* Engenho Manauara • Shopping Ponta Negra\n`;
+    text += `📅 *Data:* ${new Date().toLocaleDateString('pt-BR')} • *Margem de Segurança:* +${bufferPct}%\n`;
     text += `--------------------------------------------------\n\n`;
 
     calculatedItems
       .filter(i => i.suggestedQuantity > 0)
       .forEach((item, index) => {
-        text += `${index + 1}. [${item.code}] ${item.name}\n`;
+        text += `${index + 1}. *[${item.code}] ${item.name}*\n`;
         text += `   Estoque Atual: ${item.currentStock} ${item.unit} | Média Semanal: ${item.weeklyAverage.toFixed(1)} ${item.unit}\n`;
-        text += `   ➡️ PEDIR: ${item.suggestedQuantity} ${item.unit} (R$ ${item.subtotal.toFixed(2)})\n\n`;
+        text += `   ➡️ *PEDIR: ${item.suggestedQuantity} ${item.unit}* (R$ ${item.subtotal.toFixed(2)})\n\n`;
       });
 
     text += `--------------------------------------------------\n`;
-    text += `TOTAL ESTIMADO DO PEDIDO: R$ ${totalSuggested.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}\n`;
-    text += `Horário de Corte: Hoje às 15:00 • Entrega Prevista: Sexta às 08h30 (Doca 2)\n`;
+    text += `💰 *TOTAL ESTIMADO DO PEDIDO: R$ ${totalSuggested.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}*\n`;
+    text += `⏰ *Horário de Corte:* Hoje às 15:00 • *Entrega Prevista:* Sexta às 08h30 (Doca 2)\n`;
+    return text;
+  };
 
+  const handleCopyOrder = () => {
+    const text = buildOrderText();
     navigator.clipboard.writeText(text);
     setCopiedSuccess(true);
     setTimeout(() => setCopiedSuccess(false), 3000);
+  };
+
+  const handleSendWhatsApp = () => {
+    const text = buildOrderText();
+    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
   };
 
   const handleTransmit = () => {
@@ -203,13 +238,22 @@ export const CdaHubView: React.FC<CdaHubViewProps> = ({ requisition, tickets, on
               </span>
               <div className="flex items-center gap-1.5 mt-1">
                 <button
+                  onClick={handleSendWhatsApp}
+                  className="flex-1 py-1.5 px-2 rounded-lg text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-xs transition-all flex items-center justify-center gap-1 cursor-pointer"
+                  title="Enviar pedido formatado direto no WhatsApp do comprador/CDA (Padrão Alô Chefia)"
+                >
+                  <MessageCircle className="w-3.5 h-3.5" />
+                  <span>WhatsApp</span>
+                </button>
+
+                <button
                   onClick={handleCopyOrder}
-                  className={`flex-1 py-1.5 px-2.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                  className={`flex-1 py-1.5 px-2 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1 cursor-pointer ${
                     copiedSuccess 
-                      ? 'bg-emerald-600 text-white shadow-xs' 
+                      ? 'bg-emerald-700 text-white shadow-xs' 
                       : 'bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200'
                   }`}
-                  title="Copiar lista de compras para WhatsApp do comprador"
+                  title="Copiar lista de compras para área de transferência"
                 >
                   {copiedSuccess ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                   <span>{copiedSuccess ? 'Copiado!' : 'Copiar'}</span>
@@ -217,7 +261,7 @@ export const CdaHubView: React.FC<CdaHubViewProps> = ({ requisition, tickets, on
 
                 <button
                   onClick={handleTransmit}
-                  className="flex-1 py-1.5 px-2.5 rounded-lg text-xs font-bold bg-[#0a2e23] hover:bg-[#123e30] text-amber-300 shadow-xs transition-all flex items-center justify-center gap-1 cursor-pointer"
+                  className="flex-1 py-1.5 px-2 rounded-lg text-xs font-bold bg-[#0a2e23] hover:bg-[#123e30] text-amber-300 shadow-xs transition-all flex items-center justify-center gap-1 cursor-pointer"
                   title="Transmitir requisição para a Matriz"
                 >
                   <Send className="w-3 h-3" />
@@ -360,7 +404,7 @@ export const CdaHubView: React.FC<CdaHubViewProps> = ({ requisition, tickets, on
                                     {item.rationale}
                                   </p>
                                   <p className="text-[10px] text-slate-400 font-mono">
-                                    Cálculo: Média semanal ({item.weeklyAverage.toFixed(1)}) + {bufferPct}% = {item.projectedWeeklyDemand.toFixed(1)} - Estoque ({item.currentStock.toFixed(1)}) = Lote de compra: {item.suggestedQuantity.toFixed(1)} {item.unit}.
+                                    Cálculo: Média semanal ({item.weeklyAverage.toFixed(1)}) + {bufferPct}% = {(item.weeklyAverage * (1 + bufferPct / 100)).toFixed(1)} - Estoque ({item.currentStock.toFixed(1)}) = Lote de compra: {item.suggestedQuantity.toFixed(1)} {item.unit}.
                                   </p>
                                 </div>
                                 {onOpenCopilot && (

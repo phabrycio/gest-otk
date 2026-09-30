@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   Calendar,
   Sparkles,
@@ -19,737 +19,822 @@ import {
   UserCheck,
   ChevronRight,
   Calculator,
+  ArrowUpRight,
+  ArrowDownRight,
+  Check,
+  Edit2,
+  Save,
+  Clock,
+  Send,
+  MessageCircle,
 } from 'lucide-react';
 import {
   WEEK_DAYS,
   WeekDay,
-  getPredictionForDay,
-  INITIAL_CDA_MAX_STOCK_ITEMS,
   COMMISSIONER_AUDIT_DATA,
-  CdaItemMaxStock,
 } from '../services/predictive12WeeksStore';
+import {
+  getDefrostPlanForDay,
+  getStockMaxRecommendations,
+  updateStockItemLevels,
+  useOperationalIntelligence,
+  DayOfWeekKey,
+} from '../services/intelligenceEngine';
 
 interface WeeklySalesPredictionViewProps {
   onOpenCopilot?: (prompt?: string) => void;
 }
 
 export const WeeklySalesPredictionView: React.FC<WeeklySalesPredictionViewProps> = ({ onOpenCopilot }) => {
-  const [selectedDay, setSelectedDay] = useState<WeekDay>('SEGUNDA');
-  const [activeTab, setActiveTab] = useState<'DEGELO' | 'MISE_EN_PLACE' | 'BAR' | 'PEDIDO_CDA' | 'AUDITORIA_IA'>('DEGELO');
+  const [selectedDay, setSelectedDay] = useState<DayOfWeekKey>('SEGUNDA');
+  const [activeTab, setActiveTab] = useState<'DEGELO' | 'ESTOQUE_MAXIMO_CDA' | 'MISE_EN_PLACE' | 'BAR' | 'AUDITORIA_IA'>('DEGELO');
   const [copiedSuccess, setCopiedSuccess] = useState(false);
+  const [editingItemId, setEditingItemId] = useState<string | null>(null);
+  const [editCurrentStock, setEditCurrentStock] = useState<number>(0);
+  const [editMaxStock, setEditMaxStock] = useState<number>(0);
+  const [searchFilter, setSearchFilter] = useState('');
+  const [statusFilter, setStatusFilter] = useState<'TODOS' | 'AUMENTAR' | 'CRITICA'>('TODOS');
 
-  // Dados calculados para o dia da semana selecionado
-  const prediction = getPredictionForDay(selectedDay);
+  // Dados do Motor Reativo Central
+  const operationalSummary = useOperationalIntelligence();
+  const defrostPlan = useMemo(() => getDefrostPlanForDay(selectedDay), [selectedDay]);
+  const stockRecommendations = useMemo(() => getStockMaxRecommendations(), [operationalSummary]);
 
-  // Lista de itens para pedido do CDA
-  const cdaItems = INITIAL_CDA_MAX_STOCK_ITEMS;
-  const totalCdaOrderCost = cdaItems.reduce((acc, curr) => acc + curr.totalOrderCost, 0);
-  const totalCdaItemsToOrder = cdaItems.filter((i) => i.orderQuantity > 0).length;
+  // Itens filtrados para a tabela de Estoque Máximo & Pedido CDA
+  const filteredStockItems = useMemo(() => {
+    return stockRecommendations.filter((item) => {
+      const matchSearch = item.name.toLowerCase().includes(searchFilter.toLowerCase()) || item.code.includes(searchFilter);
+      const matchStatus =
+        statusFilter === 'TODOS'
+          ? true
+          : statusFilter === 'AUMENTAR'
+          ? item.suggestedAction === 'AUMENTAR'
+          : item.urgency === 'CRITICA';
+      return matchSearch && matchStatus;
+    });
+  }, [stockRecommendations, searchFilter, statusFilter]);
+
+  // Totalizadores de Pedido ao CDA
+  const totalCdaOrderCost = useMemo(() => {
+    return stockRecommendations.reduce((acc, curr) => acc + curr.totalOrderCost, 0);
+  }, [stockRecommendations]);
+
+  const itemsToOrderCount = useMemo(() => {
+    return stockRecommendations.filter((i) => i.cdaOrderSuggestion > 0).length;
+  }, [stockRecommendations]);
+
+  const itemsToIncreaseMaxStockCount = useMemo(() => {
+    return stockRecommendations.filter((i) => i.suggestedAction === 'AUMENTAR').length;
+  }, [stockRecommendations]);
+
+  // Edição inline de estoque
+  const handleStartEdit = (item: (typeof stockRecommendations)[0]) => {
+    setEditingItemId(item.code);
+    setEditCurrentStock(item.currentStock);
+    setEditMaxStock(item.currentMaxStock);
+  };
+
+  const handleSaveEdit = (code: string) => {
+    updateStockItemLevels(code, {
+      currentStock: editCurrentStock,
+      maxStock: editMaxStock,
+    });
+    setEditingItemId(null);
+  };
+
+  // Gerador de Texto do Pedido CDA
+  const buildCdaOrderText = () => {
+    let text = `📦 *ORDEM DE COMPRA & AJUSTES DE ESTOQUE MÁXIMO — ENGENHO MANAUARA*\n`;
+    text += `Metodologia: Análise de 3 Meses de Vendas (Teknisa) + Regra (Estoque Máximo - Atual)\n`;
+    text += `Data da Requisição: ${new Date().toLocaleDateString('pt-BR')}\n`;
+    text += `Total Previsto: R$ ${totalCdaOrderCost.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}\n\n`;
+
+    stockRecommendations
+      .filter((i) => i.cdaOrderSuggestion > 0)
+      .forEach((item, index) => {
+        text += `${index + 1}. *[${item.code}] ${item.name}*\n`;
+        text += `   • Estoque Atual: ${item.currentStock} ${item.unit} | Teto Atual: ${item.currentMaxStock} ${item.unit}\n`;
+        if (item.suggestedAction === 'AUMENTAR') {
+          text += `   ⚠️ RECOMENDAÇÃO IA: Elevar teto para ${item.recommendedMaxStock} ${item.unit} (+${item.diffPercentage}%)\n`;
+        }
+        text += `   ➡️ *PEDIR AO CDA: ${item.cdaOrderSuggestion} ${item.unit}* (R$ ${item.totalOrderCost.toFixed(2)})\n\n`;
+      });
+
+    text += `Total de Itens: ${itemsToOrderCount} insumos com reposição imediata recomendada.\n`;
+    return text;
+  };
 
   const handleCopyCdaOrder = () => {
-    let text = `📦 ORDEM DE COMPRA CDA - ENGENHO MANAUARA\n`;
-    text += `Metodologia: Estoque Máximo da Unidade (-) Estoque Atual Virtual\n`;
-    text += `Data da Requisição: ${new Date().toLocaleDateString('pt-BR')}\n\n`;
-
-    cdaItems.forEach((item, index) => {
-      text += `${index + 1}. [${item.code}] ${item.name}\n`;
-      text += `   Estoque Máx: ${item.maxStock} ${item.unit} | Estoque Atual: ${item.currentStock} ${item.unit}\n`;
-      text += `   ➡️ PEDIR AO CDA: ${item.orderQuantity} ${item.unit} (R$ ${item.totalOrderCost.toFixed(2)})\n\n`;
-    });
-
-    text += `TOTAL ESTIMADO DO PEDIDO: R$ ${totalCdaOrderCost.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}\n`;
-    text += `Status: Aprovado pela Gerência Geral\n`;
-
+    const text = buildCdaOrderText();
     navigator.clipboard.writeText(text);
     setCopiedSuccess(true);
     setTimeout(() => setCopiedSuccess(false), 3000);
   };
 
+  const handleWhatsAppCdaOrder = () => {
+    const text = buildCdaOrderText();
+    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
+  };
+
+  // Gerador de Guia de Degelo
+  const buildDayDefrostText = () => {
+    let text = `❄️ *GUIA DE DEGELO DA COZINHA — ${defrostPlan.dayLabel.toUpperCase()}*\n`;
+    text += `Restaurante Engenho Manauara • Planejamento de Proteínas\n`;
+    text += `Previsão Operacional: R$ ${defrostPlan.expectedRevenue.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} (~${defrostPlan.expectedPax} PAX)\n`;
+    text += `Total para Degelo: *${defrostPlan.totalKgToDefrost} KG* (+20% margem de segurança inclusa)\n\n`;
+
+    defrostPlan.items.forEach((item, idx) => {
+      text += `${idx + 1}. *${item.name}* (${item.category})\n`;
+      text += `   • *Retirar para Degelo:* ${item.thawQuantityKg} ${item.unit} (${item.defrostLeadHours}h antes)\n`;
+      text += `   • *Turno de Destino:* ${item.targetShift === 'ALMOCO' ? 'Almoço' : item.targetShift === 'JANTAR' ? 'Jantar' : 'Dia Seguinte'}\n`;
+      text += `   • *Pratos:* ${item.associatedDishes.join(', ')}\n\n`;
+    });
+    return text;
+  };
+
+  const handleCopyDayDefrost = () => {
+    const text = buildDayDefrostText();
+    navigator.clipboard.writeText(text);
+    setCopiedSuccess(true);
+    setTimeout(() => setCopiedSuccess(false), 3000);
+  };
+
+  const handleWhatsAppDayDefrost = () => {
+    const text = buildDayDefrostText();
+    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
+  };
+
   return (
-    <div className="space-y-6">
-      {/* Top Banner: Cérebro da Gestão IA & Explicação Metodológica */}
-      <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border border-indigo-900/60 rounded-2xl p-6 text-white shadow-xl relative overflow-hidden">
-        <div className="absolute right-0 top-0 -mr-16 -mt-16 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
-        
+    <div className="space-y-5 max-w-7xl mx-auto">
+      {/* Top Banner Inteligente: Ação Contextual Clara */}
+      <div className="bg-gradient-to-r from-[#0a2e23] via-[#0f3d30] to-slate-900 border border-emerald-800/50 rounded-2xl p-5 sm:p-6 text-white shadow-xl relative overflow-hidden">
+        <div className="absolute right-0 top-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 relative z-10">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-semibold">
-              <Sparkles className="w-3.5 h-3.5 text-indigo-400 animate-pulse" />
-              <span>Cérebro da Gestão IA &bull; Inteligência Preditiva de 12 Semanas</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-bold">
+              <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
+              <span>Motor Conectado • 98.393 Vendas Reais do Teknisa Analisadas</span>
             </div>
-            <h1 className="text-2xl font-black tracking-tight text-white flex items-center gap-2">
-              Planejamento Diário & Estoque Máximo do CDA
+            <h1 className="text-xl sm:text-2xl font-black tracking-tight text-white flex items-center gap-2">
+              Planejamento Semanal de Degelo & Otimização do Estoque Máximo
             </h1>
-            <p className="text-slate-300 text-sm max-w-3xl leading-relaxed">
-              Análise estatística baseada na <strong>mediana de vendas das últimas 12 semanas</strong> para cada dia específico.
-              A mediana previne distorções causadas por picos anômalos. Em seguida, o sistema adiciona automaticamente uma{' '}
-              <strong className="text-emerald-300">+20% de margem de segurança</strong> para absorver flutuações e eliminar rupturas de estoque ou desperdícios de mise en place.
+            <p className="text-slate-300 text-xs sm:text-sm max-w-3xl leading-relaxed">
+              Os dados dos <strong>3 meses de vendas</strong> cruzam o consumo diário com o estoque físico da loja. 
+              O sistema calcula as <strong>cotas exatas de degelo para cada dia (Seg a Dom)</strong> e indica 
+              quais itens devem ter o <strong>estoque máximo ampliado</strong> para proteger a operação nos dias de maior movimento.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2.5">
             <button
-              onClick={() => onOpenCopilot && onOpenCopilot('Hoje é dia de pedidos para o CDA, faça uma lista de pedidos baseado em nosso estoque mínimo e nosso estoque máximo, baseado em nosso estoque atual.')}
-              className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-2 cursor-pointer"
+              onClick={handleWhatsAppCdaOrder}
+              className="px-3.5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer"
+              title="Enviar Pedido de Reposição direto no WhatsApp do CDA (Padrão Alô Chefia)"
             >
-              <Sparkles className="w-4 h-4" />
-              <span>Perguntar ao Cérebro IA</span>
+              <MessageCircle className="w-4 h-4 text-white" />
+              <span>WhatsApp CDA</span>
+            </button>
+            <button
+              onClick={handleCopyCdaOrder}
+              className="px-4 py-2.5 bg-amber-400 hover:bg-amber-300 text-slate-950 rounded-xl text-xs font-black transition-all shadow-md flex items-center gap-2 cursor-pointer"
+            >
+              {copiedSuccess ? <Check className="w-4 h-4 text-slate-950" /> : <Copy className="w-4 h-4" />}
+              <span>{copiedSuccess ? 'Ordem Copiada!' : 'Copiar Pedido CDA'}</span>
+            </button>
+            <button
+              onClick={() => onOpenCopilot && onOpenCopilot(`Quais itens correm risco de ruptura de estoque nesta ${defrostPlan.dayLabel}? Mostre os dados de vendas dos últimos 3 meses e o pedido necessário.`)}
+              className="px-3.5 py-2.5 bg-white/10 hover:bg-white/20 text-white rounded-xl text-xs font-bold transition-all border border-white/20 flex items-center gap-2 cursor-pointer"
+            >
+              <Sparkles className="w-4 h-4 text-amber-300" />
+              <span>Consultar IA</span>
             </button>
           </div>
         </div>
 
-        {/* Resumo Rápido dos Pilares Operacionais */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6 pt-5 border-t border-indigo-800/40 text-xs">
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400">
-              <Calculator className="w-4 h-4" />
+        {/* 3 Métricas Críticas de Resumo */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-5 pt-4 border-t border-emerald-800/40 text-xs">
+          <div className="flex items-center gap-2.5 bg-black/20 p-2.5 rounded-xl border border-emerald-500/20">
+            <div className="w-8 h-8 rounded-lg bg-sky-500/20 flex items-center justify-center text-sky-300 shrink-0">
+              <Snowflake className="w-4 h-4" />
             </div>
             <div>
-              <p className="font-semibold text-slate-200">Mediana 12 Semanas</p>
-              <p className="text-slate-400">Elimina outliers e eventos fora da curva</p>
+              <p className="font-bold text-white">Degelo {defrostPlan.dayLabel}: {defrostPlan.totalKgToDefrost} KG</p>
+              <p className="text-slate-300 text-[11px]">{defrostPlan.items.length} cortes proteicos com +20% de reserva</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center text-amber-400">
-              <TrendingUp className="w-4 h-4" />
+          <div className="flex items-center gap-2.5 bg-black/20 p-2.5 rounded-xl border border-emerald-500/20">
+            <div className="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center text-amber-300 shrink-0">
+              <AlertTriangle className="w-4 h-4" />
             </div>
             <div>
-              <p className="font-semibold text-slate-200">+20% Margem de Segurança</p>
-              <p className="text-slate-400">Garante mise en place sem risco de ruptura</p>
+              <p className="font-bold text-white">{itemsToIncreaseMaxStockCount} Itens Exigem Aumento de Teto</p>
+              <p className="text-slate-300 text-[11px]">Consumo dos 3 meses superou a capacidade atual</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-sky-500/20 flex items-center justify-center text-sky-400">
+          <div className="flex items-center gap-2.5 bg-black/20 p-2.5 rounded-xl border border-emerald-500/20">
+            <div className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-300 shrink-0">
               <Package className="w-4 h-4" />
             </div>
             <div>
-              <p className="font-semibold text-slate-200">Fórmula CDA Estrita</p>
-              <p className="text-slate-400">Pedido = Estoque Máx (-) Estoque Atual</p>
+              <p className="font-bold text-white">Pedido ao CDA: R$ {totalCdaOrderCost.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
+              <p className="text-slate-300 text-[11px]">{itemsToOrderCount} insumos para recompor teto máximo</p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Seletor dos 7 Dias da Semana */}
-      <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-xs">
-        <div className="flex items-center justify-between mb-2 px-1">
-          <span className="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
-            <Calendar className="w-3.5 h-3.5 text-indigo-600" />
-            Selecione o Dia para Análise Histórica & Degelo:
-          </span>
-          <span className="text-xs text-slate-400">
-            Amostra: 12 {selectedDay.toLowerCase()}s passadas
-          </span>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2">
-          {WEEK_DAYS.map((day) => {
-            const isSelected = selectedDay === day.dayName;
-            return (
-              <button
-                key={day.dayName}
-                onClick={() => setSelectedDay(day.dayName)}
-                className={`py-3 px-3 rounded-xl border text-center transition-all cursor-pointer ${
-                  isSelected
-                    ? 'bg-indigo-600 text-white border-indigo-700 shadow-md ring-2 ring-indigo-300'
-                    : 'bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200'
-                }`}
-              >
-                <div className="text-xs font-extrabold">{day.dayLabel}</div>
-                <div className={`text-[10px] mt-0.5 ${isSelected ? 'text-indigo-100' : 'text-slate-400'}`}>
-                  12 semanas auditadas
-                </div>
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Mini-Cockpit do Dia Selecionado */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-500">Faturamento Mediano</span>
-            <DollarSign className="w-4 h-4 text-emerald-600" />
-          </div>
-          <div className="text-2xl font-black text-slate-900 mt-1">
-            R$ {prediction.medianRevenue.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
-          </div>
-          <p className="text-[11px] text-slate-500 mt-1">
-            Base: 12 {prediction.dayLabel.toLowerCase()}s
-          </p>
-        </div>
-
-        <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-500">Fluxo Mediano de Clientes</span>
-            <TrendingUp className="w-4 h-4 text-indigo-600" />
-          </div>
-          <div className="text-2xl font-black text-slate-900 mt-1">
-            {prediction.medianPax} PAX
-          </div>
-          <p className="text-[11px] text-slate-500 mt-1">
-            Média por mesa: ~3.4 pessoas
-          </p>
-        </div>
-
-        <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-500">Itens em Degelo Crítico</span>
-            <Snowflake className="w-4 h-4 text-sky-600" />
-          </div>
-          <div className="text-2xl font-black text-sky-700 mt-1">
-            {prediction.thawList.length} Insumos
-          </div>
-          <p className="text-[11px] text-sky-600 font-medium mt-1">
-            Com margem +20% inclusa
-          </p>
-        </div>
-
-        <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-500">Previsão Chopp Brahma</span>
-            <Wine className="w-4 h-4 text-amber-600" />
-          </div>
-          <div className="text-2xl font-black text-amber-700 mt-1">
-            {prediction.barPreparation.choppBrahmaLitersWithBuffer} L
-          </div>
-          <p className="text-[11px] text-slate-500 mt-1">
-            ~{prediction.barPreparation.recommendedKegs} Barril(is) de 50L
-          </p>
-        </div>
-      </div>
-
-      {/* Navegação entre Visões Especializadas */}
-      <div className="bg-slate-100 p-1.5 rounded-xl border border-slate-200 flex items-center justify-center overflow-x-auto gap-1">
+      {/* Navegação Principal das Abas */}
+      <div className="bg-slate-100 p-1.5 rounded-2xl border border-slate-200 flex items-center justify-start sm:justify-center overflow-x-auto gap-1 scrollbar-none">
         <button
           onClick={() => setActiveTab('DEGELO')}
-          className={`flex-1 py-2.5 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap ${
+          className={`py-2 px-3.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
             activeTab === 'DEGELO'
-              ? 'bg-white text-slate-900 shadow-xs ring-1 ring-slate-300'
-              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50/50'
+              ? 'bg-[#0a2e23] text-amber-300 shadow-sm'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
           }`}
         >
-          <Snowflake className="w-4 h-4 text-sky-600" />
-          <span>Degelo do Dia (+20%)</span>
+          <Snowflake className="w-4 h-4" />
+          <span>Degelo Semanal (Seg a Dom)</span>
+        </button>
+
+        <button
+          onClick={() => setActiveTab('ESTOQUE_MAXIMO_CDA')}
+          className={`py-2 px-3.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+            activeTab === 'ESTOQUE_MAXIMO_CDA'
+              ? 'bg-[#0a2e23] text-amber-300 shadow-sm'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+          }`}
+        >
+          <Package className="w-4 h-4" />
+          <span>Estoque Máximo & Pedido CDA ({stockRecommendations.length})</span>
         </button>
 
         <button
           onClick={() => setActiveTab('MISE_EN_PLACE')}
-          className={`flex-1 py-2.5 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap ${
+          className={`py-2 px-3.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
             activeTab === 'MISE_EN_PLACE'
-              ? 'bg-white text-slate-900 shadow-xs ring-1 ring-slate-300'
-              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50/50'
+              ? 'bg-[#0a2e23] text-amber-300 shadow-sm'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
           }`}
         >
-          <UtensilsCrossed className="w-4 h-4 text-orange-600" />
+          <UtensilsCrossed className="w-4 h-4" />
           <span>Mise en Place & Entradas</span>
         </button>
 
         <button
           onClick={() => setActiveTab('BAR')}
-          className={`flex-1 py-2.5 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap ${
+          className={`py-2 px-3.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
             activeTab === 'BAR'
-              ? 'bg-white text-slate-900 shadow-xs ring-1 ring-slate-300'
-              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50/50'
+              ? 'bg-[#0a2e23] text-amber-300 shadow-sm'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
           }`}
         >
-          <Wine className="w-4 h-4 text-purple-600" />
-          <span>Preparo do Bar</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('PEDIDO_CDA')}
-          className={`flex-1 py-2.5 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap ${
-            activeTab === 'PEDIDO_CDA'
-              ? 'bg-white text-slate-900 shadow-xs ring-1 ring-slate-300'
-              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50/50'
-          }`}
-        >
-          <Package className="w-4 h-4 text-indigo-600" />
-          <span>Lista Máxima Pedido CDA</span>
+          <Wine className="w-4 h-4" />
+          <span>Preparo do Bar & Chopp</span>
         </button>
 
         <button
           onClick={() => setActiveTab('AUDITORIA_IA')}
-          className={`flex-1 py-2.5 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap ${
+          className={`py-2 px-3.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
             activeTab === 'AUDITORIA_IA'
-              ? 'bg-white text-slate-900 shadow-xs ring-1 ring-slate-300'
-              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50/50'
+              ? 'bg-[#0a2e23] text-amber-300 shadow-sm'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
           }`}
         >
-          <ShieldAlert className="w-4 h-4 text-rose-600" />
-          <span>Auditoria IA de Comissários</span>
+          <ShieldAlert className="w-4 h-4" />
+          <span>Auditoria IA de Salão</span>
         </button>
       </div>
 
-      {/* CONTEÚDO 1: GUIA DE DEGELO DA COZINHA */}
+      {/* ABA 1: DEGELO SEMANAL COMPLETO DE SEGUNDA A DOMINGO */}
       {activeTab === 'DEGELO' && (
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
-          <div className="p-4 border-b border-slate-200 bg-sky-50/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-            <div>
-              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
-                <Snowflake className="w-5 h-5 text-sky-600" />
-                <span>Degelo Recomendado para {prediction.dayLabel}</span>
-              </h3>
-              <p className="text-xs text-slate-600">
-                Retirar da câmara de congelados (-18°C) para desgelo lento na câmara de resfriados (0° a 4°C).
-                Margem de segurança de +20% já calculada sobre a mediana das últimas 12 semanas.
-              </p>
-            </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white border border-sky-200 rounded-lg text-xs font-semibold text-sky-800">
-              <CheckCircle2 className="w-3.5 h-3.5 text-sky-600" />
-              <span>{prediction.thawList.length} itens calculados</span>
-            </div>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs">
-              <thead className="bg-slate-50 text-slate-600 font-bold uppercase tracking-wider border-b border-slate-200">
-                <tr>
-                  <th className="py-3 px-4">Insumo Bruto para Degelo</th>
-                  <th className="py-3 px-4 text-center">Mediana 12 Sem.</th>
-                  <th className="py-3 px-4 text-center text-emerald-700 bg-emerald-50/50">+20% Margem</th>
-                  <th className="py-3 px-4 text-right font-black text-sky-900">Total a Degelar</th>
-                  <th className="py-3 px-4">Pratos que Utilizam</th>
-                  <th className="py-3 px-4">Procedimento Seguro</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100">
-                {prediction.thawList.length === 0 ? (
-                  <tr>
-                    <td colSpan={6} className="py-12 text-center text-slate-400">
-                      <Snowflake className="w-8 h-8 text-sky-500/40 mx-auto mb-2" />
-                      <p className="font-bold text-slate-700 text-sm">Nenhum insumo em degelo previsto para {prediction.dayLabel}</p>
-                      <p className="text-xs text-slate-400 mt-1 max-w-md mx-auto">
-                        Dia 1 de operação iniciado. A inteligência de 12 semanas calculará o degelo e a margem de segurança (+20%) conforme as primeiras vendas reais forem consolidadas.
-                      </p>
-                    </td>
-                  </tr>
-                ) : (
-                  prediction.thawList.map((item, index) => (
-                    <tr key={index} className="hover:bg-slate-50/80 transition-colors">
-                      <td className="py-3 px-4 font-bold text-slate-900 flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-sky-500" />
-                        {item.ingredientName}
-                      </td>
-                      <td className="py-3 px-4 text-center text-slate-600 font-medium">
-                        {item.medianDishQuantity} porções
-                      </td>
-                      <td className="py-3 px-4 text-center font-bold text-emerald-700 bg-emerald-50/30">
-                        {item.safetyBufferQuantity} porções
-                      </td>
-                      <td className="py-3 px-4 text-right">
-                        <span className="inline-block py-1 px-2.5 rounded-lg bg-sky-100 text-sky-900 font-extrabold text-sm">
-                          {item.totalKgToThaw} {item.unit}
-                        </span>
-                      </td>
-                      <td className="py-3 px-4 text-slate-600">
-                        <div className="flex flex-wrap gap-1">
-                          {item.associatedDishes.map((d, dIdx) => (
-                            <span key={dIdx} className="px-2 py-0.5 bg-slate-100 border border-slate-200 rounded text-[11px]">
-                              {d}
-                            </span>
-                          ))}
-                        </div>
-                      </td>
-                      <td className="py-3 px-4 text-slate-500 text-[11px] italic">
-                        {item.instructions}
-                      </td>
-                    </tr>
-                  ))
-                )}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="p-4 bg-slate-50 border-t border-slate-200 text-xs text-slate-600 flex items-start gap-2">
-            <Info className="w-4 h-4 text-sky-600 shrink-0 mt-0.5" />
-            <p>
-              <strong>Por que a margem de 20%?</strong> Em dias de pico ou mesas extras não programadas, a equipe de cozinha não precisará recorrer ao descongelamento rápido em micro-ondas ou água corrente, mantendo a conformidade rígida com os padrões da ANVISA e evitando queixas de textura ou perda de suculência nas carnes e peixes.
-            </p>
-          </div>
-        </div>
-      )}
-
-      {/* CONTEÚDO 2: MISE EN PLACE & PORCIONAMENTO */}
-      {activeTab === 'MISE_EN_PLACE' && (
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
-          <div className="p-4 border-b border-slate-200 bg-orange-50/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-            <div>
-              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
-                <UtensilsCrossed className="w-5 h-5 text-orange-600" />
-                <span>Mise en Place & Produção Diária ({prediction.dayLabel})</span>
-              </h3>
-              <p className="text-xs text-slate-600">
-                Quantidades exatas a serem pré-porcionadas e preparadas para atender o serviço sem ruptura de estoque.
-              </p>
-            </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white border border-orange-200 rounded-lg text-xs font-semibold text-orange-800">
-              <Flame className="w-3.5 h-3.5 text-orange-600" />
-              <span>Base: Mediana + 20%</span>
-            </div>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs">
-              <thead className="bg-slate-50 text-slate-600 font-bold uppercase tracking-wider border-b border-slate-200">
-                <tr>
-                  <th className="py-3 px-4">Item de Venda / Mise en Place</th>
-                  <th className="py-3 px-4">Categoria</th>
-                  <th className="py-3 px-4 text-center">Mediana Histórica</th>
-                  <th className="py-3 px-4 text-center font-black text-orange-900 bg-orange-50/50">Produzir no Dia (+20%)</th>
-                  <th className="py-3 px-4">Praça Responsável</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100">
-                {prediction.miseEnPlaceList.length === 0 ? (
-                  <tr>
-                    <td colSpan={5} className="py-12 text-center text-slate-400">
-                      <UtensilsCrossed className="w-8 h-8 text-orange-500/40 mx-auto mb-2" />
-                      <p className="font-bold text-slate-700 text-sm">Nenhum item de mise en place calculado para {prediction.dayLabel}</p>
-                      <p className="text-xs text-slate-400 mt-1 max-w-md mx-auto">
-                        Aguardando primeiras vendas do cardápio para gerar as metas de pré-porcionamento diário.
-                      </p>
-                    </td>
-                  </tr>
-                ) : (
-                  prediction.miseEnPlaceList.map((item, index) => (
-                    <tr key={index} className="hover:bg-slate-50/80 transition-colors">
-                      <td className="py-3 px-4 font-bold text-slate-900">
-                        {item.dishName}
-                      </td>
-                      <td className="py-3 px-4 text-slate-600">
-                        <span className="px-2 py-0.5 bg-slate-100 rounded text-[11px] font-medium">
-                          {item.category}
-                        </span>
-                      </td>
-                      <td className="py-3 px-4 text-center text-slate-500 font-semibold">
-                        {item.medianSales12Weeks} porções
-                      </td>
-                      <td className="py-3 px-4 text-center font-black text-orange-950 bg-orange-50/30">
-                        <span className="inline-block py-1 px-3 rounded-lg bg-orange-100 text-orange-900 text-sm font-black">
-                          {item.recommendedPortionsWith20Pct} porções
-                        </span>
-                      </td>
-                      <td className="py-3 px-4">
-                        <span className="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-md font-semibold text-slate-700 text-[11px]">
-                          {item.prepStation.replace('_', ' ')}
-                        </span>
-                      </td>
-                    </tr>
-                  ))
-                )}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      )}
-
-      {/* CONTEÚDO 3: PREPARO DO BAR & BEBIDAS */}
-      {activeTab === 'BAR' && (
         <div className="space-y-4">
-          <div className="bg-white rounded-2xl border border-slate-200 shadow-xs p-6">
-            <div className="flex items-center gap-3 border-b border-slate-200 pb-4">
-              <div className="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center text-purple-700">
-                <Wine className="w-5 h-5" />
+          {/* Seletor dos 7 Dias da Semana com Indicadores */}
+          <div className="bg-white p-3 sm:p-4 rounded-2xl border border-slate-200 shadow-xs">
+            <div className="flex items-center justify-between mb-3 px-1">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1.5">
+                <Calendar className="w-4 h-4 text-emerald-700" />
+                Selecione o Dia da Semana para ver a cota de degelo:
+              </span>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={handleWhatsAppDayDefrost}
+                  className="text-xs text-white bg-emerald-600 hover:bg-emerald-700 px-2.5 py-1 rounded-lg font-bold flex items-center gap-1 cursor-pointer shadow-2xs"
+                  title="Enviar Guia de Degelo direto para os Cozinheiros no WhatsApp (Padrão Alô Chefia)"
+                >
+                  <MessageCircle className="w-3.5 h-3.5" />
+                  <span>WhatsApp Cozinha</span>
+                </button>
+                <button
+                  onClick={handleCopyDayDefrost}
+                  className="text-xs text-emerald-800 hover:text-emerald-950 font-bold flex items-center gap-1 cursor-pointer"
+                >
+                  <Copy className="w-3.5 h-3.5" />
+                  <span>Copiar Guia de {defrostPlan.dayLabel}</span>
+                </button>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2">
+              {(
+                [
+                  { key: 'SEGUNDA', label: 'Segunda-feira', short: 'Seg' },
+                  { key: 'TERCA', label: 'Terça-feira', short: 'Ter' },
+                  { key: 'QUARTA', label: 'Quarta-feira', short: 'Qua' },
+                  { key: 'QUINTA', label: 'Quinta-feira', short: 'Qui' },
+                  { key: 'SEXTA', label: 'Sexta-feira', short: 'Sex' },
+                  { key: 'SABADO', label: 'Sábado', short: 'Sáb' },
+                  { key: 'DOMINGO', label: 'Domingo', short: 'Dom' },
+                ] as const
+              ).map((d) => {
+                const isSelected = selectedDay === d.key;
+                const plan = getDefrostPlanForDay(d.key);
+                return (
+                  <button
+                    key={d.key}
+                    onClick={() => setSelectedDay(d.key)}
+                    className={`py-3 px-2.5 rounded-xl border text-center transition-all cursor-pointer flex flex-col justify-between ${
+                      isSelected
+                        ? 'bg-[#0a2e23] text-white border-emerald-900 shadow-md ring-2 ring-emerald-500/50'
+                        : 'bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200'
+                    }`}
+                  >
+                    <div className="text-xs font-extrabold">{d.label}</div>
+                    <div className={`text-[11px] font-bold mt-1 ${isSelected ? 'text-amber-300' : 'text-slate-900'}`}>
+                      {plan.totalKgToDefrost} KG
+                    </div>
+                    <div className={`text-[10px] mt-0.5 ${isSelected ? 'text-emerald-200' : 'text-slate-400'}`}>
+                      R$ {plan.expectedRevenue.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Cartão de Resumo do Dia Selecionado */}
+          <div className="bg-sky-50 border border-sky-200 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-sky-200 text-sky-800 flex items-center justify-center font-black">
+                <Snowflake className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-slate-900">
-                  Planejamento e Preparação do Bar ({prediction.dayLabel})
+                <h3 className="text-sm font-bold text-slate-900">
+                  Cota de Degelo Obrigatória para {defrostPlan.dayLabel}
                 </h3>
-                <p className="text-xs text-slate-500">
-                  Mediana de 12 semanas cruzada com fichas técnicas de coquetelaria e volume de chopeiras.
+                <p className="text-slate-600">
+                  Previsão de faturamento: <strong>R$ {defrostPlan.expectedRevenue.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</strong> (~{defrostPlan.expectedPax} clientes). 
+                  Descongelamento lento em câmara de resfriamento (+2°C a +4°C).
                 </p>
               </div>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-              {/* Chopp Brahma */}
-              <div className="bg-amber-50/50 border border-amber-200 rounded-xl p-4 space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase text-amber-900">Chopp Brahma 50L</span>
-                  <span className="text-[10px] bg-amber-200 text-amber-900 font-extrabold px-2 py-0.5 rounded">
-                    Chopeiras
-                  </span>
-                </div>
-                <div className="text-3xl font-black text-amber-950">
-                  {prediction.barPreparation.recommendedKegs} Barris
-                </div>
-                <div className="text-xs text-slate-600 space-y-1">
-                  <p>• Mediana 12 semanas: <strong>{prediction.barPreparation.choppBrahmaLitersSoldMedian} Litros</strong></p>
-                  <p>• Com margem de +20%: <strong>{prediction.barPreparation.choppBrahmaLitersWithBuffer} Litros</strong></p>
-                  <p className="text-[11px] text-amber-800 italic mt-2">
-                    Deixar 1 barril em repouso na câmara fria a 1°C para engate rápido durante o pico de salão.
-                  </p>
-                </div>
-              </div>
-
-              {/* Caipirinhas & Coquetéis */}
-              <div className="bg-emerald-50/50 border border-emerald-200 rounded-xl p-4 space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase text-emerald-900">Caipirinhas de Jambu</span>
-                  <span className="text-[10px] bg-emerald-200 text-emerald-900 font-extrabold px-2 py-0.5 rounded">
-                    Coquetelaria
-                  </span>
-                </div>
-                <div className="text-3xl font-black text-emerald-950">
-                  {prediction.barPreparation.caipirinhasMedianWithBuffer} Doses
-                </div>
-                <div className="text-xs text-slate-600 space-y-1">
-                  <p>• Cachaça de Jambu: <strong>{prediction.barPreparation.cachaçaJambuBottles} garrafas</strong></p>
-                  <p>• Limões Taiti Cortados: <strong>{prediction.barPreparation.limePortionsCut} porções</strong></p>
-                  <p className="text-[11px] text-emerald-800 italic mt-2">
-                    Pré-cortar limões em cubos sem o miolo branco para evitar amargor na coqueteleira.
-                  </p>
-                </div>
-              </div>
-
-              {/* Outros Insumos Críticos */}
-              <div className="bg-sky-50/50 border border-sky-200 rounded-xl p-4 space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase text-sky-900">Gelo & Xaropes</span>
-                  <span className="text-[10px] bg-sky-200 text-sky-900 font-extrabold px-2 py-0.5 rounded">
-                    Mise en Place
-                  </span>
-                </div>
-                <div className="text-3xl font-black text-sky-950">
-                  45 kg Gelo
-                </div>
-                <div className="text-xs text-slate-600 space-y-1">
-                  <p>• Gelo em cubos cristal: <strong>3 sacos de 15kg</strong></p>
-                  <p>• Xarope de açúcar 1:1: <strong>2 litros prontos</strong></p>
-                  <p className="text-[11px] text-sky-800 italic mt-2">
-                    Garante abastecimento contínuo das 2 cubas do balcão principal e deck externo.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* CONTEÚDO 4: LISTA DE ESTOQUE MÁXIMO DE PEDIDO AO CDA */}
-      {activeTab === 'PEDIDO_CDA' && (
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden space-y-0">
-          <div className="p-4 border-b border-slate-200 bg-slate-900 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-            <div>
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 text-xs font-semibold mb-1">
-                <Package className="w-3.5 h-3.5" />
-                <span>Regra Corporativa: Pedido = Estoque Máximo - Estoque Atual</span>
-              </div>
-              <h3 className="text-lg font-black tracking-tight text-white flex items-center gap-2">
-                Ordem de Compra & Abastecimento Semanal do CDA
-              </h3>
-              <p className="text-slate-300 text-xs max-w-2xl">
-                Alimentado pelo estoque virtual com base nas transferências anteriores do CDA, contagens in loco e baixas diárias automáticas por ficha técnica.
-              </p>
-            </div>
-
             <div className="flex items-center gap-2">
-              <button
-                onClick={handleCopyCdaOrder}
-                className="px-3 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
-              >
-                {copiedSuccess ? <CheckCircle2 className="w-4 h-4 text-emerald-300" /> : <Copy className="w-4 h-4" />}
-                <span>{copiedSuccess ? 'Copiado!' : 'Copiar Ordem do CDA'}</span>
-              </button>
+              <span className="px-3 py-1 bg-white border border-sky-300 rounded-xl text-sky-900 font-extrabold text-sm shadow-xs">
+                Total: {defrostPlan.totalKgToDefrost} KG
+              </span>
             </div>
           </div>
 
-          {/* Destaque do Exemplo do Usuário (Arroz 60kg vs 13kg) */}
-          <div className="p-4 bg-amber-50/70 border-b border-amber-200/80 flex items-start gap-3">
-            <div className="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center text-amber-800 shrink-0 mt-0.5">
-              <Info className="w-4 h-4" />
-            </div>
-            <div className="text-xs text-slate-700">
-              <p className="font-bold text-amber-950">
-                Regra Aplicada em Tempo Real (Exemplo do Arroz Parboilizado):
-              </p>
-              <p className="text-slate-600 mt-0.5">
-                "O estoque máximo do arroz para a nossa unidade é <strong>60 kg</strong>. Na contagem in loco/virtual havia apenas <strong>13 kg</strong>.
-                Portanto, a quantidade exata a entrar na lista de pedidos ao CDA é <strong>47 kg</strong> (60 - 13)."
-              </p>
-            </div>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs">
-              <thead className="bg-slate-50 text-slate-600 font-bold uppercase tracking-wider border-b border-slate-200">
-                <tr>
-                  <th className="py-3 px-4">Código & Insumo</th>
-                  <th className="py-3 px-4">Categoria</th>
-                  <th className="py-3 px-4 text-center">Estoque Máximo CDA</th>
-                  <th className="py-3 px-4 text-center">Estoque Atual (Virtual)</th>
-                  <th className="py-3 px-4 text-center font-black text-indigo-900 bg-indigo-50/60">Qtd. a Pedir ao CDA</th>
-                  <th className="py-3 px-4 text-right">Custo Estimado</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100">
-                {cdaItems.map((item) => {
-                  const isRiceExample = item.code === 'CDA-SEC-01';
-                  return (
-                    <tr
-                      key={item.id}
-                      className={`hover:bg-slate-50/80 transition-colors ${
-                        isRiceExample ? 'bg-amber-50/30 font-semibold' : ''
-                      }`}
-                    >
-                      <td className="py-3 px-4">
-                        <div className="font-bold text-slate-900 flex items-center gap-1.5">
-                          {item.name}
-                          {isRiceExample && (
-                            <span className="px-1.5 py-0.2 bg-amber-200 text-amber-900 text-[10px] rounded font-bold">
-                              Exemplo
-                            </span>
-                          )}
+          {/* Tabela de Itens de Degelo */}
+          <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs">
+                <thead className="bg-slate-50 text-slate-600 font-bold uppercase tracking-wider border-b border-slate-200">
+                  <tr>
+                    <th className="py-3 px-4">Proteína / Insumo</th>
+                    <th className="py-3 px-4">Categoria</th>
+                    <th className="py-3 px-4 text-center">Consumo Médio</th>
+                    <th className="py-3 px-4 text-center bg-sky-50 font-black text-sky-950">Tirar para Degelo (+20%)</th>
+                    <th className="py-3 px-4 text-center">Antecedência</th>
+                    <th className="py-3 px-4">Pratos Atendidos</th>
+                    <th className="py-3 px-4 text-center">Status</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {defrostPlan.items.map((item) => (
+                    <tr key={item.id} className="hover:bg-slate-50/80 transition-colors">
+                      <td className="py-3 px-4 font-bold text-slate-900">
+                        <div className="flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-sky-500" />
+                          <span>{item.name}</span>
                         </div>
-                        <div className="text-[11px] text-slate-400 font-mono">{item.code}</div>
                       </td>
-                      <td className="py-3 px-4">
+                      <td className="py-3 px-4 text-slate-500">
                         <span className="px-2 py-0.5 bg-slate-100 rounded text-[11px] font-medium text-slate-700">
                           {item.category}
                         </span>
                       </td>
-                      <td className="py-3 px-4 text-center font-bold text-slate-800">
-                        {item.maxStock} {item.unit}
+                      <td className="py-3 px-4 text-center text-slate-600 font-medium">
+                        {item.dailyAvgUsage} {item.unit}/dia
                       </td>
-                      <td className="py-3 px-4 text-center text-slate-600">
-                        {item.currentStock} {item.unit}
-                      </td>
-                      <td className="py-3 px-4 text-center bg-indigo-50/30">
-                        <span className="inline-block py-1 px-3 rounded-lg bg-indigo-600 text-white font-extrabold text-sm shadow-xs">
-                          {item.orderQuantity} {item.unit}
+                      <td className="py-3 px-4 text-center bg-sky-50/40">
+                        <span className="inline-block py-1 px-3 rounded-lg bg-sky-600 text-white font-black text-sm shadow-xs">
+                          {item.thawQuantityKg} {item.unit}
                         </span>
                       </td>
-                      <td className="py-3 px-4 text-right font-bold text-slate-900">
-                        R$ {item.totalOrderCost.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                      <td className="py-3 px-4 text-center text-slate-600 font-medium">
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 rounded text-[11px]">
+                          <Clock className="w-3 h-3 text-slate-500" />
+                          {item.defrostLeadHours}h
+                        </span>
+                      </td>
+                      <td className="py-3 px-4 text-slate-600">
+                        <div className="flex flex-wrap gap-1 max-w-xs">
+                          {item.associatedDishes.map((dish, i) => (
+                            <span key={i} className="px-1.5 py-0.5 bg-slate-100 border border-slate-200 rounded text-[10px]">
+                              {dish}
+                            </span>
+                          ))}
+                        </div>
+                      </td>
+                      <td className="py-3 px-4 text-center">
+                        <span
+                          className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                            item.urgency === 'CRITICA'
+                              ? 'bg-rose-100 text-rose-800'
+                              : item.urgency === 'URGENTE'
+                              ? 'bg-amber-100 text-amber-800'
+                              : 'bg-emerald-100 text-emerald-800'
+                          }`}
+                        >
+                          {item.urgency}
+                        </span>
                       </td>
                     </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="p-4 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-            <div className="text-slate-600">
-              Total de <strong>{totalCdaItemsToOrder} itens</strong> a serem requisitados na remessa do CDA desta semana.
-            </div>
-            <div className="text-base font-black text-slate-900">
-              Total Orçado: <span className="text-indigo-600">R$ {totalCdaOrderCost.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
       )}
 
-      {/* CONTEÚDO 5: AUDITORIA IA DE COMISSÁRIOS & TAXA DE 10% */}
+      {/* ABA 2: ESTOQUE MÁXIMO & LISTA PRÉVIA DE COMPRAS CDA */}
+      {activeTab === 'ESTOQUE_MAXIMO_CDA' && (
+        <div className="space-y-4">
+          {/* Card de Contexto e Regras de Negócio */}
+          <div className="bg-white rounded-2xl border border-slate-200 p-4 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div>
+              <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <Package className="w-4 h-4 text-emerald-700" />
+                <span>Auditoria de Estoque Máximo vs Consumo Real de 3 Meses</span>
+              </h3>
+              <p className="text-xs text-slate-500">
+                A IA compara o giro histórico (98.393 vendas) com o Estoque Máximo cadastrado. Se o consumo semanal for maior, a IA recomenda aumentar o teto.
+                Você pode clicar no ícone de lápis para editar o Estoque Atual e Estoque Máximo de qualquer item.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2 shrink-0">
+              <button
+                onClick={handleWhatsAppCdaOrder}
+                className="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition-all shadow-xs flex items-center gap-1.5 cursor-pointer"
+                title="Disparar pedido no WhatsApp do CDA (Padrão Alô Chefia)"
+              >
+                <MessageCircle className="w-3.5 h-3.5" />
+                <span>WhatsApp CDA</span>
+              </button>
+              <button
+                onClick={handleCopyCdaOrder}
+                className="px-3.5 py-2 bg-[#0a2e23] hover:bg-[#124b3a] text-amber-300 rounded-xl text-xs font-bold transition-all shadow-xs flex items-center gap-1.5 cursor-pointer"
+              >
+                <Copy className="w-3.5 h-3.5" />
+                <span>Copiar Ordem de Compra</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Filtros e Busca Rápida */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5">
+            <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200 text-xs">
+              <button
+                onClick={() => setStatusFilter('TODOS')}
+                className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
+                  statusFilter === 'TODOS' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                Todos ({stockRecommendations.length})
+              </button>
+              <button
+                onClick={() => setStatusFilter('AUMENTAR')}
+                className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer flex items-center gap-1 ${
+                  statusFilter === 'AUMENTAR' ? 'bg-amber-500 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                <ArrowUpRight className="w-3.5 h-3.5" />
+                <span>Aumentar Teto ({itemsToIncreaseMaxStockCount})</span>
+              </button>
+              <button
+                onClick={() => setStatusFilter('CRITICA')}
+                className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer flex items-center gap-1 ${
+                  statusFilter === 'CRITICA' ? 'bg-rose-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                <AlertTriangle className="w-3.5 h-3.5" />
+                <span>Risco Crítico</span>
+              </button>
+            </div>
+
+            <div className="relative">
+              <input
+                type="text"
+                value={searchFilter}
+                onChange={(e) => setSearchFilter(e.target.value)}
+                placeholder="Filtrar por nome ou código..."
+                className="w-full sm:w-64 px-3 py-2 bg-white rounded-xl border border-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              />
+            </div>
+          </div>
+
+          {/* Tabela Interativa de Estoque Máximo & Pedido ao CDA */}
+          <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs">
+                <thead className="bg-slate-50 text-slate-600 font-bold uppercase tracking-wider border-b border-slate-200">
+                  <tr>
+                    <th className="py-3 px-4">Código & Insumo</th>
+                    <th className="py-3 px-3 text-center">Giro/Dia (3 Meses)</th>
+                    <th className="py-3 px-3 text-center">Estoque Atual</th>
+                    <th className="py-3 px-3 text-center">Teto Atual</th>
+                    <th className="py-3 px-4">Diagnóstico da IA</th>
+                    <th className="py-3 px-4 text-center bg-emerald-50/50 font-black text-emerald-950">Pedir ao CDA</th>
+                    <th className="py-3 px-4 text-right">Custo Est.</th>
+                    <th className="py-3 px-3 text-center">Ações</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {filteredStockItems.map((item) => {
+                    const isEditing = editingItemId === item.code;
+                    return (
+                      <tr key={item.code} className="hover:bg-slate-50/80 transition-colors">
+                        <td className="py-3 px-4">
+                          <div className="font-bold text-slate-900">{item.name}</div>
+                          <div className="text-[11px] text-slate-400 font-mono flex items-center gap-1.5 mt-0.5">
+                            <span>{item.code}</span>
+                            <span>&bull;</span>
+                            <span>{item.category}</span>
+                          </div>
+                        </td>
+
+                        <td className="py-3 px-3 text-center font-semibold text-slate-700">
+                          {item.dailyAvgSales} {item.unit}/dia
+                          <span className="block text-[10px] text-slate-400">~{item.weeklyDemand} {item.unit}/sem</span>
+                        </td>
+
+                        <td className="py-3 px-3 text-center">
+                          {isEditing ? (
+                            <input
+                              type="number"
+                              value={editCurrentStock}
+                              onChange={(e) => setEditCurrentStock(Number(e.target.value))}
+                              className="w-16 px-1.5 py-1 text-center font-bold border border-emerald-500 rounded bg-emerald-50"
+                            />
+                          ) : (
+                            <span className="font-bold text-slate-900">
+                              {item.currentStock} {item.unit}
+                            </span>
+                          )}
+                          <span className="block text-[10px] text-slate-400">
+                            {item.daysCoverageCurrent} dias cob.
+                          </span>
+                        </td>
+
+                        <td className="py-3 px-3 text-center">
+                          {isEditing ? (
+                            <input
+                              type="number"
+                              value={editMaxStock}
+                              onChange={(e) => setEditMaxStock(Number(e.target.value))}
+                              className="w-16 px-1.5 py-1 text-center font-bold border border-emerald-500 rounded bg-emerald-50"
+                            />
+                          ) : (
+                            <span className="font-bold text-slate-700">
+                              {item.currentMaxStock} {item.unit}
+                            </span>
+                          )}
+                        </td>
+
+                        <td className="py-3 px-4">
+                          {item.suggestedAction === 'AUMENTAR' ? (
+                            <div className="space-y-1">
+                              <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-amber-100 text-amber-900 rounded font-black text-[11px]">
+                                <ArrowUpRight className="w-3.5 h-3.5" />
+                                <span>Aumentar Teto p/ {item.recommendedMaxStock} {item.unit} (+{item.diffPercentage}%)</span>
+                              </span>
+                              <p className="text-[10px] text-slate-500 line-clamp-1">{item.rationale}</p>
+                            </div>
+                          ) : item.suggestedAction === 'REDUZIR' ? (
+                            <div className="space-y-1">
+                              <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-sky-100 text-sky-900 rounded font-bold text-[11px]">
+                                <ArrowDownRight className="w-3.5 h-3.5" />
+                                <span>Reduzir Teto p/ {item.recommendedMaxStock} {item.unit}</span>
+                              </span>
+                            </div>
+                          ) : (
+                            <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-emerald-50 text-emerald-800 rounded font-bold text-[11px]">
+                              <Check className="w-3 h-3 text-emerald-600" />
+                              <span>Teto Equilibrado</span>
+                            </span>
+                          )}
+                        </td>
+
+                        <td className="py-3 px-4 text-center bg-emerald-50/30">
+                          <span
+                            className={`inline-block py-1 px-3 rounded-lg font-black text-sm shadow-xs ${
+                              item.cdaOrderSuggestion > 0
+                                ? 'bg-[#0a2e23] text-amber-300'
+                                : 'bg-slate-100 text-slate-400'
+                            }`}
+                          >
+                            {item.cdaOrderSuggestion} {item.unit}
+                          </span>
+                        </td>
+
+                        <td className="py-3 px-4 text-right font-bold text-slate-900">
+                          R$ {item.totalOrderCost.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                        </td>
+
+                        <td className="py-3 px-3 text-center">
+                          {isEditing ? (
+                            <button
+                              onClick={() => handleSaveEdit(item.code)}
+                              className="p-1.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg cursor-pointer"
+                              title="Salvar alterações"
+                            >
+                              <Save className="w-3.5 h-3.5" />
+                            </button>
+                          ) : (
+                            <button
+                              onClick={() => handleStartEdit(item)}
+                              className="p-1.5 text-slate-400 hover:text-slate-800 rounded-lg hover:bg-slate-100 cursor-pointer"
+                              title="Editar estoque atual ou máximo"
+                            >
+                              <Edit2 className="w-3.5 h-3.5" />
+                            </button>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Rodapé com Totais */}
+            <div className="p-4 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+              <div className="text-slate-600">
+                Total de <strong>{itemsToOrderCount} insumos</strong> requisitados.
+                Fórmula estrita: <strong>Pedido CDA = (Estoque Máximo - Estoque Atual)</strong>.
+              </div>
+              <div className="text-sm font-black text-slate-900">
+                Valor Total Orçado ao CDA: <span className="text-emerald-700 text-base">R$ {totalCdaOrderCost.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ABA 3: MISE EN PLACE */}
+      {activeTab === 'MISE_EN_PLACE' && (
+        <div className="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <UtensilsCrossed className="w-4 h-4 text-orange-600" />
+                <span>Mise en Place & Pré-Porcionamento para {defrostPlan.dayLabel}</span>
+              </h3>
+              <p className="text-xs text-slate-500">
+                Metas diárias de porcionamento para cozinha quente, fria e sobremesas (+20% de reserva inclusa).
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            {[
+              { dish: 'Carne de Sol do Engenho 2P', qty: selectedDay === 'SABADO' || selectedDay === 'DOMINGO' ? 38 : 22, station: 'COZINHA QUENTE' },
+              { dish: 'Pirarucu Ribeirinho & Filé 2P', qty: selectedDay === 'SABADO' || selectedDay === 'DOMINGO' ? 26 : 16, station: 'COZINHA QUENTE' },
+              { dish: 'Costela de Tambaqui de Cativeiro', qty: selectedDay === 'SABADO' || selectedDay === 'DOMINGO' ? 24 : 14, station: 'COZINHA QUENTE' },
+              { dish: 'Picanha Angus Certificada', qty: selectedDay === 'SABADO' || selectedDay === 'DOMINGO' ? 18 : 10, station: 'GRELHA & CHURRASQUEIRA' },
+              { dish: 'Dadinhos de Tapioca c/ Geleia', qty: selectedDay === 'SABADO' || selectedDay === 'DOMINGO' ? 45 : 25, station: 'COZINHA FRIA' },
+              { dish: 'Pastéis de Tambaqui (Porção 6un)', qty: selectedDay === 'SABADO' || selectedDay === 'DOMINGO' ? 35 : 18, station: 'COZINHA FRIA' },
+            ].map((p, idx) => (
+              <div key={idx} className="p-3.5 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-between">
+                <div>
+                  <h4 className="font-bold text-slate-900 text-xs">{p.dish}</h4>
+                  <span className="text-[10px] text-slate-500 uppercase">{p.station}</span>
+                </div>
+                <div className="text-right">
+                  <span className="text-base font-black text-orange-600">{p.qty} porções</span>
+                  <span className="block text-[10px] text-slate-400">Meta +20%</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ABA 4: PREPARO DO BAR */}
+      {activeTab === 'BAR' && (
+        <div className="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs space-y-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <Wine className="w-4 h-4 text-purple-600" />
+                <span>Previsão de Bebidas & Chopp para {defrostPlan.dayLabel}</span>
+              </h3>
+              <p className="text-xs text-slate-500">
+                Engate preventivo de barris e pré-corte de limão para caipirinhas com base nas 98k vendas.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <div className="p-4 rounded-xl border border-amber-200 bg-amber-50/50">
+              <span className="text-xs text-slate-600 font-medium">Barris de Chopp Sugeridos</span>
+              <div className="text-2xl font-black text-amber-800 mt-1">{defrostPlan.kegsChoppEstimated} Barris (50L)</div>
+              <p className="text-[11px] text-slate-500 mt-1">Câmara fria do bar em 2°C</p>
+            </div>
+
+            <div className="p-4 rounded-xl border border-emerald-200 bg-emerald-50/50">
+              <span className="text-xs text-slate-600 font-medium">Caipirinhas Estimadas</span>
+              <div className="text-2xl font-black text-emerald-800 mt-1">{defrostPlan.caipirinhasEstimated} Drinks</div>
+              <p className="text-[11px] text-slate-500 mt-1">~{Math.ceil(defrostPlan.caipirinhasEstimated / 10)} kg de limão fatiado</p>
+            </div>
+
+            <div className="p-4 rounded-xl border border-sky-200 bg-sky-50/50">
+              <span className="text-xs text-slate-600 font-medium">Chopp Heineken / Amstel</span>
+              <div className="text-2xl font-black text-sky-800 mt-1">{(defrostPlan.kegsChoppEstimated * 45).toFixed(0)} L</div>
+              <p className="text-[11px] text-slate-500 mt-1">Volume previsto para o turno</p>
+            </div>
+
+            <div className="p-4 rounded-xl border border-purple-200 bg-purple-50/50">
+              <span className="text-xs text-slate-600 font-medium">Cachaça de Jambu</span>
+              <div className="text-2xl font-black text-purple-800 mt-1">
+                {Math.max(1, Math.ceil(defrostPlan.caipirinhasEstimated * 0.05))} Garrafas
+              </div>
+              <p className="text-[11px] text-slate-500 mt-1">Em temperatura ambiente no balcão</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ABA 5: AUDITORIA IA DE COMISSÁRIOS */}
       {activeTab === 'AUDITORIA_IA' && (
         <div className="space-y-4">
-          <div className="bg-gradient-to-r from-rose-900/90 to-slate-900 border border-rose-800 rounded-2xl p-6 text-white shadow-xl">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-rose-500/20 border border-rose-500/40 flex items-center justify-center text-rose-300 shrink-0">
-                <ShieldAlert className="w-6 h-6 animate-pulse" />
-              </div>
-              <div className="space-y-1 flex-1">
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-200 text-xs font-semibold">
-                  <span>Alerta de Auditoria Disciplinar &bull; Cérebro IA Ativo</span>
-                </div>
-                <h3 className="text-lg font-bold text-white">
-                  Detecção de Anomalia Crítica: Cancelamento Excessivo da Taxa de Serviço (10%)
-                </h3>
-                <p className="text-rose-100 text-xs max-w-3xl leading-relaxed">
-                  A IA cruzou os relatórios de fechamento de comanda por comissário com o log auditável do sistema.
-                  Foi identificado um desvio estatístico severo em um dos colaboradores do salão.
+          <div className="bg-gradient-to-r from-rose-950 via-slate-900 to-rose-950 border border-rose-800/60 rounded-2xl p-5 text-white shadow-xl">
+            <div className="flex items-start gap-3">
+              <ShieldAlert className="w-5 h-5 text-rose-400 mt-0.5 shrink-0" />
+              <div>
+                <h3 className="text-sm font-bold text-white">Detecção de Anomalias de Comissários (Taxa de Serviço 10%)</h3>
+                <p className="text-xs text-slate-300 mt-0.5">
+                  A IA cruza o histórico de cancelamentos de taxas de 10% nas comandas com o comportamento da brigada.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Lista de Comissários Auditados */}
-          <div className="grid grid-cols-1 gap-4">
-            {COMMISSIONER_AUDIT_DATA.map((com) => {
-              const isAnomaly = com.isAnomaly;
-              return (
-                <div
-                  key={com.id}
-                  className={`bg-white rounded-2xl border p-5 transition-all shadow-xs ${
-                    isAnomaly ? 'border-rose-300 ring-2 ring-rose-100' : 'border-slate-200'
-                  }`}
-                >
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <div
-                        className={`w-10 h-10 rounded-xl flex items-center justify-center font-black text-sm ${
-                          isAnomaly ? 'bg-rose-100 text-rose-700' : 'bg-slate-100 text-slate-700'
-                        }`}
-                      >
-                        {com.name.charAt(0)}
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <h4 className="font-bold text-slate-900 text-sm">{com.name}</h4>
-                          <span className="text-xs text-slate-500">({com.role})</span>
-                          {isAnomaly && (
-                            <span className="px-2 py-0.5 bg-rose-600 text-white text-[10px] font-extrabold rounded-full">
-                              ALERTA DE ANOMALIA
-                            </span>
-                          )}
-                        </div>
-                        <p className="text-xs text-slate-500">
-                          {com.tablesServedCount} mesas atendidas &bull; R$ {com.totalGrossSales.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} faturados
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center gap-4 text-xs">
-                      <div>
-                        <span className="text-slate-400 block text-[10px] uppercase">Taxa Cancelada</span>
-                        <span className={`font-black ${isAnomaly ? 'text-rose-700 text-base' : 'text-slate-700'}`}>
-                          R$ {com.serviceFee10PctCancelled.toFixed(2)}
-                        </span>
-                      </div>
-                      <div>
-                        <span className="text-slate-400 block text-[10px] uppercase">Taxa de Cancelamento</span>
-                        <span className={`font-black text-base ${isAnomaly ? 'text-rose-700' : 'text-emerald-700'}`}>
-                          {com.cancellationRatePct}%
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Detalhes do Parecer da IA */}
-                  <div
-                    className={`mt-4 p-3.5 rounded-xl text-xs ${
-                      isAnomaly ? 'bg-rose-50 border border-rose-200 text-rose-900' : 'bg-slate-50 text-slate-600'
-                    }`}
-                  >
-                    <p className="font-bold flex items-center gap-1.5 mb-1">
-                      <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
-                      Parecer Investigativo do Cérebro IA:
-                    </p>
-                    <p className="leading-relaxed">{com.auditReason}</p>
-
-                    {isAnomaly && (
-                      <div className="mt-3 pt-2.5 border-t border-rose-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-                        <span className="text-[11px] font-semibold text-rose-800">
-                          Média da Brigada: apenas {com.brigadeAverageRatePct}% de cancelamento
-                        </span>
-                        <button
-                          onClick={() => onOpenCopilot && onOpenCopilot('O comissário Paulo teve um aumento expressivo no cancelamento de taxas no período. O que a gerência deve fazer?')}
-                          className="px-3 py-1.5 bg-rose-600 hover:bg-rose-700 text-white rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
-                        >
-                          <Sparkles className="w-3.5 h-3.5" />
-                          <span>Abrir Investigação com Copilot IA</span>
-                        </button>
-                      </div>
+          <div className="grid grid-cols-1 gap-3">
+            {COMMISSIONER_AUDIT_DATA.map((com) => (
+              <div
+                key={com.id}
+                className={`bg-white rounded-2xl border p-4 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 ${
+                  com.isAnomaly ? 'border-rose-300 ring-2 ring-rose-100 bg-rose-50/20' : 'border-slate-200'
+                }`}
+              >
+                <div>
+                  <div className="flex items-center gap-2">
+                    <h4 className="font-bold text-slate-900 text-sm">{com.name}</h4>
+                    <span className="text-xs text-slate-500">({com.role})</span>
+                    {com.isAnomaly && (
+                      <span className="px-2 py-0.5 bg-rose-600 text-white text-[10px] font-black rounded-full">
+                        ANOMALIA DETECTADA
+                      </span>
                     )}
                   </div>
+                  <p className="text-xs text-slate-500 mt-0.5">
+                    {com.tablesServedCount} mesas atendidas &bull; R$ {com.totalGrossSales.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} faturados
+                  </p>
                 </div>
-              );
-            })}
+
+                <div className="flex items-center gap-4 text-xs">
+                  <div>
+                    <span className="text-slate-400 block text-[10px] uppercase">Taxa Cancelada</span>
+                    <span className={`font-black ${com.isAnomaly ? 'text-rose-700 text-sm' : 'text-slate-700'}`}>
+                      R$ {com.serviceFee10PctCancelled.toFixed(2)}
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-slate-400 block text-[10px] uppercase">% Cancelamento</span>
+                    <span className={`font-black text-sm ${com.isAnomaly ? 'text-rose-700' : 'text-emerald-700'}`}>
+                      {com.cancellationRatePct}%
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       )}

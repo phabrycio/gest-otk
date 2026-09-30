@@ -23,6 +23,13 @@ import {
 } from 'lucide-react';
 import { useOperationalData } from '../../services/centralDataStore';
 import salesAnalyticsData from '../../data/salesAnalyticsData.json';
+import {
+  getDefrostPlanForDay,
+  getStockMaxRecommendations,
+  getCurrentDayOfWeekKey,
+  DayOfWeekKey,
+  DAY_OF_WEEK_CONFIG,
+} from '../../services/intelligenceEngine';
 
 interface SalesIntelligenceViewProps {
   onOpenCopilot?: (prompt?: string) => void;
@@ -35,9 +42,12 @@ export const SalesIntelligenceView: React.FC<SalesIntelligenceViewProps> = ({ on
   const [copiedSuccess, setCopiedSuccess] = useState(false);
   const [syncingCloud, setSyncingCloud] = useState(false);
   const [syncSuccessMessage, setSyncSuccessMessage] = useState<string | null>(null);
+  const [selectedThawDay, setSelectedThawDay] = useState<DayOfWeekKey>(() => getCurrentDayOfWeekKey());
 
   const operationalData = useOperationalData();
   const summary = operationalData.summary;
+  const stockRecommendations = useMemo(() => getStockMaxRecommendations(), []);
+  const dayPlan = useMemo(() => getDefrostPlanForDay(selectedThawDay), [selectedThawDay]);
   const thawRecommendations = operationalData.thawRecommendations?.length ? operationalData.thawRecommendations : salesAnalyticsData.thawRecommendations;
   const paymentsSummary = operationalData.paymentsSummary?.length ? operationalData.paymentsSummary : salesAnalyticsData.paymentsSummary;
 
@@ -536,62 +546,75 @@ export const SalesIntelligenceView: React.FC<SalesIntelligenceViewProps> = ({ on
             <div className="space-y-1">
               <h3 className="font-black text-blue-950 text-lg flex items-center gap-2">
                 <Snowflake className="w-5 h-5 text-blue-600" />
-                Solução Operacional de Degelo • Cozinha do Engenho
+                Solução Operacional de Degelo • Cozinha do Engenho ({dayPlan.dayLabel})
               </h3>
               <p className="text-sm text-blue-800 max-w-3xl">
-                Cálculo de cotas diárias de degelo para o <strong>Chefe Mádio</strong> e <strong>Subchefe Esmael</strong>. Garante que os pescados e carnes nobres desçam do freezer (-18°C) para o resfriamento com a antecedência correta para o almoço e jantar, <strong>sem ruptura e sem desperdício de proteínas</strong>.
+                Cálculo de cotas de degelo para <strong>{dayPlan.dayLabel}</strong> (~R$ {dayPlan.expectedRevenue.toLocaleString('pt-BR', { maximumFractionDigits: 0 })} faturamento).
+                Total de <strong>{dayPlan.totalKgToDefrost} KG</strong> calculados com margem de segurança de +20%.
               </p>
             </div>
             <button
               onClick={handleCopyThawPlan}
-              className="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-sm font-bold shadow-md transition-all self-start md:self-auto shrink-0"
+              className="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-sm font-bold shadow-md transition-all self-start md:self-auto shrink-0 cursor-pointer"
             >
               {copiedSuccess ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-              {copiedSuccess ? 'Copiado para Área de Transferência!' : 'Copiar Guia da Cozinha'}
+              <span>{copiedSuccess ? 'Copiado!' : 'Copiar Guia'}</span>
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {thawRecommendations.map((thaw) => (
-              <div key={thaw.keyword} className="bg-white rounded-2xl border border-stone-200 shadow-sm p-5 space-y-4 hover:border-blue-400 transition-all">
+          {/* Seletor Rápido de Dia da Semana */}
+          <div className="bg-white p-3 rounded-2xl border border-stone-200 shadow-xs flex items-center gap-2 overflow-x-auto">
+            <span className="text-xs font-bold text-stone-500 uppercase shrink-0 px-1">Ver Dia:</span>
+            {(['SEGUNDA', 'TERCA', 'QUARTA', 'QUINTA', 'SEXTA', 'SABADO', 'DOMINGO'] as DayOfWeekKey[]).map((d) => (
+              <button
+                key={d}
+                onClick={() => setSelectedThawDay(d)}
+                className={`px-3 py-1.5 rounded-xl text-xs font-extrabold transition-all cursor-pointer whitespace-nowrap ${
+                  selectedThawDay === d
+                    ? 'bg-blue-600 text-white shadow-xs'
+                    : 'bg-stone-100 hover:bg-stone-200 text-stone-700'
+                }`}
+              >
+                {DAY_OF_WEEK_CONFIG[d].label} ({getDefrostPlanForDay(d).totalKgToDefrost} kg)
+              </button>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {dayPlan.items.map((thaw) => (
+              <div key={thaw.id} className="bg-white rounded-2xl border border-stone-200 shadow-sm p-4 space-y-3 hover:border-blue-400 transition-all">
                 <div className="flex items-start justify-between">
                   <div>
-                    <span className="text-xs font-semibold text-blue-600 uppercase tracking-wider block">
+                    <span className="text-[11px] font-semibold text-blue-600 uppercase tracking-wider block">
                       {thaw.category}
                     </span>
-                    <h4 className="font-black text-stone-900 text-base">{thaw.name}</h4>
+                    <h4 className="font-bold text-stone-900 text-sm">{thaw.name}</h4>
                   </div>
-                  <span className="text-xs bg-stone-100 text-stone-600 font-semibold px-2 py-1 rounded-md">
-                    {thaw.defrostHours}h degelo
+                  <span className="text-[11px] bg-sky-50 text-sky-800 font-bold px-2 py-0.5 rounded-md border border-sky-200">
+                    {thaw.defrostLeadHours}h antes
                   </span>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 pt-2 border-t border-stone-100">
-                  <div className="bg-stone-50 p-2.5 rounded-xl text-center">
-                    <span className="text-[11px] font-semibold text-stone-500 uppercase block">Segunda a Quinta</span>
-                    <span className="text-lg font-black text-stone-800">{thaw.weekdayThawQuota} {thaw.unit}</span>
-                    <span className="text-[10px] text-stone-400 block">por dia útil</span>
+                <div className="bg-sky-50/70 p-3 rounded-xl border border-sky-100 flex items-center justify-between">
+                  <div>
+                    <span className="text-[10px] text-sky-700 font-bold uppercase block">Cota {dayPlan.dayLabel} (+20%)</span>
+                    <span className="text-xl font-black text-sky-950">{thaw.thawQuantityKg} {thaw.unit}</span>
                   </div>
-                  <div className="bg-amber-50 p-2.5 rounded-xl text-center border border-amber-200">
-                    <span className="text-[11px] font-semibold text-amber-800 uppercase block">Sexta a Domingo 🔥</span>
-                    <span className="text-lg font-black text-amber-700">{thaw.weekendThawQuota} {thaw.unit}</span>
-                    <span className="text-[10px] text-amber-600 font-semibold block">pico fim de semana</span>
+                  <div className="text-right">
+                    <span className="text-[10px] text-slate-400 uppercase block">Consumo Médio</span>
+                    <span className="text-xs font-bold text-slate-700">{thaw.dailyAvgUsage} {thaw.unit}/dia</span>
                   </div>
                 </div>
 
-                <div className="space-y-1.5 text-xs text-stone-600 bg-stone-50/80 p-3 rounded-xl">
-                  <div className="flex justify-between">
-                    <span className="text-stone-500">Média Geral Diária:</span>
-                    <strong className="text-stone-800">{thaw.avgDailyThaw} {thaw.unit}/dia</strong>
+                <div className="text-xs text-stone-600 space-y-1">
+                  <div className="flex flex-wrap gap-1">
+                    {thaw.associatedDishes.map((dish, i) => (
+                      <span key={i} className="px-1.5 py-0.5 bg-stone-100 text-stone-700 rounded text-[10px]">
+                        {dish}
+                      </span>
+                    ))}
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-stone-500">Estoque Mínimo Câmara:</span>
-                    <strong className="text-blue-700">{thaw.minChamberStock} {thaw.unit}</strong>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-stone-500">Total 90 Dias Vendidos:</span>
-                    <strong className="text-stone-800">{thaw.totalQtySold.toLocaleString('pt-BR')} {thaw.unit}</strong>
-                  </div>
+                  <p className="text-[10px] text-stone-400 italic mt-1">{thaw.preparationInstructions}</p>
                 </div>
               </div>
             ))}
@@ -704,39 +727,54 @@ export const SalesIntelligenceView: React.FC<SalesIntelligenceViewProps> = ({ on
                     <th className="px-4 py-3 text-right">Giro Diário</th>
                     <th className="px-4 py-3 text-center">Estoque Mínimo</th>
                     <th className="px-4 py-3 text-center">Pedido Sugerido (7d)</th>
+                    <th className="px-4 py-3 text-center">Estoque Máximo / IA</th>
                     <th className="px-4 py-3 text-right">Preço Estimado</th>
                     <th className="px-4 py-3 text-right">Total Previsto</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-stone-100">
-                  {weeklyPurchasingList.map((item) => (
-                    <tr key={item.code} className="hover:bg-emerald-50/40 transition-colors">
-                      <td className="px-4 py-3 font-mono text-xs text-stone-500">{item.code}</td>
-                      <td className="px-4 py-3 font-bold text-stone-900">{item.name}</td>
-                      <td className="px-4 py-3">
-                        <span className="text-xs px-2 py-0.5 rounded bg-stone-100 text-stone-700 font-medium">
-                          {item.brand}
-                        </span>
-                      </td>
-                      <td className="px-4 py-3 text-right font-medium text-stone-700">
-                        {item.dailyAvg} {item.unit}
-                      </td>
-                      <td className="px-4 py-3 text-center font-semibold text-stone-600">
-                        {item.currentSafetyStock} {item.unit}
-                      </td>
-                      <td className="px-4 py-3 text-center">
-                        <span className="px-2.5 py-1 rounded-md text-xs font-black bg-emerald-100 text-emerald-900 border border-emerald-300">
-                          {item.recommendedOrderQty} {item.unit}
-                        </span>
-                      </td>
-                      <td className="px-4 py-3 text-right font-mono text-stone-600">
-                        R$ {item.avgPrice.toFixed(2)}
-                      </td>
-                      <td className="px-4 py-3 text-right font-black text-emerald-800">
-                        R$ {item.estimatedWeeklyCost.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
-                      </td>
-                    </tr>
-                  ))}
+                  {weeklyPurchasingList.map((item) => {
+                    const rec = stockRecommendations.find((r) => r.code === item.code);
+                    return (
+                      <tr key={item.code} className="hover:bg-emerald-50/40 transition-colors">
+                        <td className="px-4 py-3 font-mono text-xs text-stone-500">{item.code}</td>
+                        <td className="px-4 py-3 font-bold text-stone-900">{item.name}</td>
+                        <td className="px-4 py-3">
+                          <span className="text-xs px-2 py-0.5 rounded bg-stone-100 text-stone-700 font-medium">
+                            {item.brand}
+                          </span>
+                        </td>
+                        <td className="px-4 py-3 text-right font-medium text-stone-700">
+                          {item.dailyAvg} {item.unit}
+                        </td>
+                        <td className="px-4 py-3 text-center font-semibold text-stone-600">
+                          {item.currentSafetyStock} {item.unit}
+                        </td>
+                        <td className="px-4 py-3 text-center">
+                          <span className="px-2.5 py-1 rounded-md text-xs font-black bg-emerald-100 text-emerald-900 border border-emerald-300">
+                            {item.recommendedOrderQty} {item.unit}
+                          </span>
+                        </td>
+                        <td className="px-4 py-3 text-center">
+                          {rec && rec.suggestedAction === 'AUMENTAR' ? (
+                            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-100 text-amber-900 font-bold text-[11px]">
+                              ▲ Aumentar Teto (+{rec.diffPercentage}%)
+                            </span>
+                          ) : (
+                            <span className="text-xs text-stone-500 font-medium">
+                              Teto OK ({rec?.currentMaxStock || Math.ceil(item.dailyAvg * 14)} {item.unit})
+                            </span>
+                          )}
+                        </td>
+                        <td className="px-4 py-3 text-right font-mono text-stone-600">
+                          R$ {item.avgPrice.toFixed(2)}
+                        </td>
+                        <td className="px-4 py-3 text-right font-black text-emerald-800">
+                          R$ {item.estimatedWeeklyCost.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
