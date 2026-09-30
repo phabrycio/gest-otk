@@ -106,6 +106,8 @@ export const TraceabilityView: React.FC = () => {
   const [selectedBatchId, setSelectedBatchId] = useState('batch-01');
   const [withdrawQty, setWithdrawQty] = useState('3');
   const [withdrawChef, setWithdrawChef] = useState('Sous-Chef Geovane Barroso');
+  const [justificationSent, setJustificationSent] = useState(false);
+  const [matrixWarningLogged, setMatrixWarningLogged] = useState(false);
 
   const handleOpenReceiptCamera = () => {
     setCameraMode('NOTA_FISCAL');
@@ -270,16 +272,56 @@ export const TraceabilityView: React.FC = () => {
               </span>
               <div className="flex items-center gap-2">
                 <button
-                  onClick={() => alert('Notificação enviada ao Sous-Chef Geovane e Chef Sebastião para justificar o destino das 2 costelas!')}
-                  className="px-3 py-1.5 rounded-lg bg-rose-700 hover:bg-rose-800 text-white text-xs font-bold shadow-sm transition-all"
+                  onClick={() => {
+                    setJustificationSent(true);
+                    try {
+                      const existing = JSON.parse(localStorage.getItem('kitchen_justification_requests') || '[]');
+                      existing.unshift({
+                        id: `req-${Date.now()}`,
+                        item: 'Costela de Tambaqui Nobre',
+                        discrepancy: '2 porções (R$ 77,00)',
+                        requestedAt: new Date().toLocaleTimeString('pt-BR'),
+                        target: 'Sous-Chef Geovane e Chef Sebastião',
+                        status: 'AGUARDANDO_RESPOSTA'
+                      });
+                      localStorage.setItem('kitchen_justification_requests', JSON.stringify(existing));
+                    } catch (e) {
+                      console.error(e);
+                    }
+                  }}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold shadow-sm transition-all cursor-pointer ${
+                    justificationSent
+                      ? 'bg-emerald-700 text-white'
+                      : 'bg-rose-700 hover:bg-rose-800 text-white'
+                  }`}
                 >
-                  Cobrar Justificativa da Cozinha
+                  {justificationSent ? '✓ Notificação Enviada à Cozinha' : 'Cobrar Justificativa da Cozinha'}
                 </button>
                 <button
-                  onClick={() => alert('Registrada advertência operacional no relatório executivo do fechamento!')}
-                  className="px-3 py-1.5 rounded-lg bg-white border border-rose-300 text-rose-900 text-xs font-bold hover:bg-rose-50"
+                  onClick={() => {
+                    setMatrixWarningLogged(true);
+                    try {
+                      const warnings = JSON.parse(localStorage.getItem('matrix_audit_warnings') || '[]');
+                      warnings.unshift({
+                        id: `warn-${Date.now()}`,
+                        item: 'Costela de Tambaqui Nobre',
+                        impact: 77.00,
+                        loggedAt: new Date().toISOString(),
+                        reportedBy: 'Ivan / Pabricio (Gerência)',
+                        type: 'DIVERGENCIA_CAMARA_PDV'
+                      });
+                      localStorage.setItem('matrix_audit_warnings', JSON.stringify(warnings));
+                    } catch (e) {
+                      console.error(e);
+                    }
+                  }}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                    matrixWarningLogged
+                      ? 'bg-emerald-50 border border-emerald-300 text-emerald-800'
+                      : 'bg-white border border-rose-300 text-rose-900 hover:bg-rose-50'
+                  }`}
                 >
-                  Registrar em Relatório da Matriz
+                  {matrixWarningLogged ? '✓ Registrado no Relatório Matriz' : 'Registrar em Relatório da Matriz'}
                 </button>
               </div>
             </div>

@@ -52,6 +52,7 @@ export const WaitingQueueView: React.FC = () => {
   const [showReleaseModal, setShowReleaseModal] = useState(false);
   const [selectedTableForRelease, setSelectedTableForRelease] = useState<QueueTable | null>(null);
   const [manualTableNumber, setManualTableNumber] = useState('');
+  const [onTheWayMap, setOnTheWayMap] = useState<Record<string, boolean>>({});
 
   // Relógio em tempo real para cronômetro regressivo
   const [now, setNow] = useState<number>(Date.now());
@@ -1218,10 +1219,27 @@ export const WaitingQueueView: React.FC = () => {
                           </p>
 
                           <button
-                            onClick={() => alert('Notificação enviada à hostess: Cliente a caminho!')}
-                            className="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs shadow-md"
+                            onClick={() => {
+                              setOnTheWayMap((prev) => ({ ...prev, [cust.id]: true }));
+                              try {
+                                waitingQueueStore.addLogEntry(
+                                  `Cliente ${cust.name} (Mesa ${cust.assignedTableNumber}) confirmou via app que está a caminho da recepção.`,
+                                  'CLIENTE_SENTOU'
+                                );
+                              } catch (e) {
+                                console.error(e);
+                              }
+                            }}
+                            disabled={!!onTheWayMap[cust.id]}
+                            className={`w-full py-2.5 rounded-xl font-extrabold text-xs shadow-md transition-all ${
+                              onTheWayMap[cust.id]
+                                ? 'bg-emerald-700 text-white border border-emerald-500 cursor-default'
+                                : 'bg-emerald-600 hover:bg-emerald-700 text-white cursor-pointer active:scale-98'
+                            }`}
                           >
-                            Estou a Caminho da Porta!
+                            {onTheWayMap[cust.id]
+                              ? '✓ Hostess Notificada: Estamos aguardando você na porta!'
+                              : 'Estou a Caminho da Porta!'}
                           </button>
                         </div>
                       ) : (

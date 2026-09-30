@@ -9,6 +9,7 @@ import {
   WaitingCustomer,
   QueueTable,
   QueueLogRecord,
+  QueueActionType,
 } from '../types/waitingQueue.types';
 import { recordAuditAction } from './auditTrailStore';
 import { sanitizePlainText, sanitizePhoneNumber, maskPhoneLgpd } from './securitySanitizer';
@@ -594,6 +595,17 @@ Caso você não se apresente dentro desse tempo, a mesa será automaticamente re
     } catch {
       /* ignore audio error */
     }
+  }
+
+  /**
+   * Registra log público disparado por interações de tela
+   */
+  public addLogEntry(description: string, action: QueueActionType = 'CLIENTE_SENTOU'): void {
+    this.addLog({
+      action,
+      description,
+    });
+    this.notify();
   }
 
   /**

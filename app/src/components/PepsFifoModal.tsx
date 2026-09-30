@@ -36,6 +36,7 @@ export const PepsFifoModal: React.FC<PepsFifoModalProps> = ({ isOpen, onClose, o
   const [withdrawQty, setWithdrawQty] = useState<string>('');
   const [showViolationWarning, setShowViolationWarning] = useState<boolean>(false);
   const [violationDetails, setViolationDetails] = useState<string>('');
+  const [pepsFeedback, setPepsFeedback] = useState<{ type: 'SUCCESS' | 'ERROR'; message: string } | null>(null);
 
   if (!isOpen) return null;
 
@@ -65,7 +66,8 @@ export const PepsFifoModal: React.FC<PepsFifoModalProps> = ({ isOpen, onClose, o
       .sort((a, b) => a.entryTimestamp - b.entryTimestamp);
 
     if (itemBatchesSorted.length === 0) {
-      alert('Não há lotes ativos para este item no momento!');
+      setPepsFeedback({ type: 'ERROR', message: 'Não há lotes ativos para este item no momento!' });
+      setTimeout(() => setPepsFeedback(null), 3500);
       return;
     }
 
@@ -123,7 +125,11 @@ export const PepsFifoModal: React.FC<PepsFifoModalProps> = ({ isOpen, onClose, o
   // Simulação de tentativa de violação do PEPS
   const handleAttemptViolation = (batch: StockBatch) => {
     if (batch.pepsQueuePosition === 1) {
-      alert(`O lote ${batch.batchCode} é exatamente o 1º da Fila PEPS! A retirada dele é a correta.`);
+      setPepsFeedback({
+        type: 'SUCCESS',
+        message: `✓ O lote ${batch.batchCode} é exatamente o 1º da Fila PEPS! A retirada dele é a correta pela norma ANVISA.`,
+      });
+      setTimeout(() => setPepsFeedback(null), 4000);
       return;
     }
 
@@ -164,6 +170,18 @@ export const PepsFifoModal: React.FC<PepsFifoModalProps> = ({ isOpen, onClose, o
 
         {/* Corpo com Scroll */}
         <div className="p-5 sm:p-6 space-y-6 overflow-y-auto flex-1 text-slate-800">
+          {pepsFeedback && (
+            <div className={`p-3 rounded-2xl text-xs font-bold flex items-center justify-between border animate-slide-down ${
+              pepsFeedback.type === 'SUCCESS'
+                ? 'bg-emerald-50 border-emerald-300 text-emerald-900'
+                : 'bg-rose-50 border-rose-300 text-rose-900'
+            }`}>
+              <span>{pepsFeedback.message}</span>
+              <button onClick={() => setPepsFeedback(null)} className="text-slate-500 hover:text-slate-800">
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+          )}
           {/* Card Didático da Regra Operacional */}
           <div className="bg-amber-50/70 rounded-2xl p-4 border border-amber-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
             <div className="flex items-start gap-2.5">

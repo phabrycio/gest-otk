@@ -43,9 +43,61 @@ export const CdaHubView: React.FC<CdaHubViewProps> = ({ requisition, tickets, on
   // Margem de segurança padrão de 10%
   const [bufferPct, setBufferPct] = useState<number>(10);
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedItemDetail, setSelectedItemDetail] = useState<string | null>(null);
   const [copiedSuccess, setCopiedSuccess] = useState(false);
   const [transmittedSuccess, setTransmittedSuccess] = useState(false);
+  const [selectedItemDetail, setSelectedItemDetail] = useState<string | null>(null);
+
+  // Chamados para a Matriz com Persistência
+  const [localTickets, setLocalTickets] = useState<CorporateTicket[]>(() => {
+    try {
+      const saved = localStorage.getItem('cda_corporate_tickets');
+      if (saved) return JSON.parse(saved);
+    } catch (e) {
+      console.error(e);
+    }
+    return tickets;
+  });
+  const [showNewTicketModal, setShowNewTicketModal] = useState(false);
+  const [ticketTitle, setTicketTitle] = useState('');
+  const [ticketDept, setTicketDept] = useState<'MANUTENCAO' | 'TI_SISTEMAS' | 'RH_MATRIZ' | 'FINANCEIRO'>('MANUTENCAO');
+  const [ticketPriority, setTicketPriority] = useState<'MEDIA' | 'ALTA' | 'CRITICA'>('ALTA');
+
+  const handleCreateTicket = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!ticketTitle.trim()) return;
+    const newTicket: CorporateTicket = {
+      id: `ticket-${Date.now()}`,
+      protocol: `MAT-${Math.floor(1000 + Math.random() * 9000)}`,
+      title: ticketTitle.trim(),
+      department: ticketDept,
+      priority: ticketPriority,
+      status: 'ABERTO',
+      date: new Date().toLocaleDateString('pt-BR'),
+    };
+    const updated = [newTicket, ...localTickets];
+    setLocalTickets(updated);
+    try {
+      localStorage.setItem('cda_corporate_tickets', JSON.stringify(updated));
+    } catch (err) {
+      console.error(err);
+    }
+    setTicketTitle('');
+    setShowNewTicketModal(false);
+  };
+
+  const handleToggleTicketStatus = (id: string) => {
+    const updated = localTickets.map((t) =>
+      t.id === id
+        ? { ...t, status: (t.status === 'CONCLUIDO' ? 'ABERTO' : 'CONCLUIDO') as 'ABERTO' | 'CONCLUIDO' }
+        : t
+    );
+    setLocalTickets(updated);
+    try {
+      localStorage.setItem('cda_corporate_tickets', JSON.stringify(updated));
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   // Escuta o motor unificado
   const operationalSummary = useOperationalIntelligence();
@@ -580,15 +632,15 @@ export const CdaHubView: React.FC<CdaHubViewProps> = ({ requisition, tickets, on
               <p className="text-xs text-slate-500">Acompanhamento de solicitações para Manutenção Predial, TI e RH</p>
             </div>
             <button
-              onClick={() => alert('Novo chamado registrado para a equipe corporativa da matriz!')}
-              className="px-3 py-1.5 rounded-xl bg-[#0a2e23] text-white text-xs font-bold shadow-xs cursor-pointer"
+              onClick={() => setShowNewTicketModal(true)}
+              className="px-3 py-1.5 rounded-xl bg-[#0a2e23] hover:bg-[#134938] text-amber-300 text-xs font-bold shadow-xs cursor-pointer flex items-center gap-1 transition-all"
             >
-              + Novo Chamado
+              <span>+ Novo Chamado</span>
             </button>
           </div>
 
           <div className="divide-y divide-slate-100">
-            {tickets.length === 0 ? (
+            {localTickets.length === 0 ? (
               <div className="text-center py-8 text-slate-500 text-xs">
                 <Wrench className="w-8 h-8 text-slate-400 mx-auto mb-2 opacity-80" />
                 <p className="font-semibold text-slate-700">Nenhum chamado aberto no momento</p>
@@ -597,7 +649,7 @@ export const CdaHubView: React.FC<CdaHubViewProps> = ({ requisition, tickets, on
                 </p>
               </div>
             ) : (
-              tickets.map((ticket) => (
+              localTickets.map((ticket) => (
                 <div key={ticket.id} className="py-3 flex items-center justify-between">
                   <div className="flex items-start gap-3">
                     <div className="p-2 rounded-xl bg-slate-100 text-slate-700 mt-0.5">
@@ -606,7 +658,13 @@ export const CdaHubView: React.FC<CdaHubViewProps> = ({ requisition, tickets, on
                     <div>
                       <div className="flex items-center gap-2">
                         <span className="text-xs font-bold text-slate-900">{ticket.title}</span>
-                        <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-200">
+                        <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded ${
+                          ticket.priority === 'CRITICA'
+                            ? 'bg-rose-50 text-rose-700 border border-rose-200'
+                            : ticket.priority === 'ALTA'
+                            ? 'bg-amber-50 text-amber-700 border border-amber-200'
+                            : 'bg-slate-50 text-slate-700 border border-slate-200'
+                        }`}>
                           {ticket.priority}
                         </span>
                       </div>
@@ -615,19 +673,102 @@ export const CdaHubView: React.FC<CdaHubViewProps> = ({ requisition, tickets, on
                       </span>
                     </div>
                   </div>
-                  <span
-                    className={`text-[11px] font-bold px-2.5 py-1 rounded-full ${
+                  <button
+                    onClick={() => handleToggleTicketStatus(ticket.id)}
+                    title="Clique para alternar status entre Aberto e Concluído"
+                    className={`text-[11px] font-bold px-2.5 py-1 rounded-full cursor-pointer transition-all ${
                       ticket.status === 'CONCLUIDO'
-                        ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
-                        : 'bg-amber-50 text-amber-700 border border-amber-200'
+                        ? 'bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100'
+                        : 'bg-amber-50 text-amber-700 border border-amber-200 hover:bg-amber-100'
                     }`}
                   >
-                    {ticket.status.replace('_', ' ')}
-                  </span>
+                    {ticket.status === 'CONCLUIDO' ? '✓ CONCLUÍDO' : 'ABERTO'}
+                  </button>
                 </div>
               ))
             )}
           </div>
+
+          {/* Modal de Abertura de Chamado */}
+          {showNewTicketModal && (
+            <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
+              <div className="bg-white rounded-2xl max-w-md w-full p-5 shadow-2xl space-y-4 border border-slate-200">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                  <div className="flex items-center gap-2">
+                    <div className="p-2 rounded-xl bg-emerald-50 text-emerald-800">
+                      <Wrench className="w-4 h-4" />
+                    </div>
+                    <h3 className="text-sm font-bold text-slate-900">Novo Chamado para a Matriz</h3>
+                  </div>
+                  <button
+                    onClick={() => setShowNewTicketModal(false)}
+                    className="text-slate-400 hover:text-slate-600 font-bold text-sm cursor-pointer"
+                  >
+                    ✕
+                  </button>
+                </div>
+
+                <form onSubmit={handleCreateTicket} className="space-y-3">
+                  <div>
+                    <label className="text-xs font-bold text-slate-700 block mb-1">Título da Solicitação</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Ex: Calibração Choperia Naja / Manutenção Câmara Congelados"
+                      value={ticketTitle}
+                      onChange={(e) => setTicketTitle(e.target.value)}
+                      className="w-full text-xs p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-600"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2">
+                    <div>
+                      <label className="text-xs font-bold text-slate-700 block mb-1">Departamento</label>
+                      <select
+                        value={ticketDept}
+                        onChange={(e) => setTicketDept(e.target.value as any)}
+                        className="w-full text-xs p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-600"
+                      >
+                        <option value="MANUTENCAO">Manutenção Predial</option>
+                        <option value="TI_SISTEMAS">TI & Sistemas / PDV</option>
+                        <option value="RH_MATRIZ">RH Corporativo</option>
+                        <option value="FINANCEIRO">Financeiro / Compras</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="text-xs font-bold text-slate-700 block mb-1">Prioridade</label>
+                      <select
+                        value={ticketPriority}
+                        onChange={(e) => setTicketPriority(e.target.value as any)}
+                        className="w-full text-xs p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-600"
+                      >
+                        <option value="MEDIA">Média (Até 48h)</option>
+                        <option value="ALTA">Alta (Até 24h)</option>
+                        <option value="CRITICA">Crítica (Imediato)</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="flex justify-end gap-2 pt-2 border-t border-slate-100">
+                    <button
+                      type="button"
+                      onClick={() => setShowNewTicketModal(false)}
+                      className="px-3.5 py-2 text-xs font-bold text-slate-600 hover:bg-slate-100 rounded-xl cursor-pointer"
+                    >
+                      Cancelar
+                    </button>
+                    <button
+                      type="submit"
+                      className="px-4 py-2 text-xs font-bold bg-[#0a2e23] text-amber-300 rounded-xl hover:bg-[#124b3a] shadow-xs cursor-pointer"
+                    >
+                      Salvar & Abrir Chamado
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>

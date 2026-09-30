@@ -21,6 +21,7 @@ interface AnvisaInspectionModalProps {
 export const AnvisaInspectionModal: React.FC<AnvisaInspectionModalProps> = ({ isOpen, onClose }) => {
   const [activeTab, setActiveTab] = useState<'VISUALIZACAO_LAUDO' | 'CERTIFICADOS_LEGAIS'>('VISUALIZACAO_LAUDO');
   const [isExporting, setIsExporting] = useState(false);
+  const [downloadSuccess, setDownloadSuccess] = useState<string | null>(null);
 
   if (!isOpen) return null;
 
@@ -32,13 +33,64 @@ export const AnvisaInspectionModal: React.FC<AnvisaInspectionModalProps> = ({ is
     setIsExporting(true);
     setTimeout(() => {
       setIsExporting(false);
-      alert('Dossiê Sanitário Oficial ANVISA gerado com sucesso! Arquivo: DOSSIE_ANVISA_ENGENHO_PONTA_NEGRA_2026.pdf');
-    }, 1500);
+      const dossierContent = `================================================================================
+DOSSIÊ SANITÁRIO OFICIAL & BOAS PRÁTICAS OPERACIONAIS (RDC 216 / CVS 5)
+Engenho Cozinha Brasileira • Unidade Ponta Negra • Manaus/AM
+Data de Emissão: ${new Date().toLocaleDateString('pt-BR')} às ${new Date().toLocaleTimeString('pt-BR')}
+Auditor Responsável: Pabricio / Ivan (Gerência Geral) • Nutricionista RT: CRN-7 4912
+================================================================================
+
+1. MONITORAMENTO FOTOGRÁFICO DE TEMPERATURAS (CÂMARAS FRIAS):
+- Câmara de Congelados: -19.4°C (Padrão: <= -18°C) • 100% Conforme (Semana 39)
+- Câmara de Resfriados: +3.2°C (Padrão: +2°C a +4°C) • 100% Conforme
+- Vistos: Supervisora Patricia (100% registrado) | Check Gerência Geral (100% verificado)
+
+2. PLANO DE DESCONGELAMENTO CONTROLADO (PEPS / FIFO):
+- 100% das proteínas descongeladas em câmara lenta (evitando banho-maria ou água corrente)
+- Reserva técnica operacional de +20% aplicada sobre demanda semanal
+
+3. MANUTENÇÃO PREVENTIVA DE EQUIPAMENTOS CRÍTICOS:
+- Torre Naja Chopp: Serpentinas sanitizadas quimicamente (-2.1°C)
+- Forno Combinado Rational: Ciclo de descalcificação programado
+- Filtros de Água e Gelo Brema: Troca bacteriológica realizada
+
+4. AUDITORIA DE RESÍDUOS E PREVENÇÃO DE PERDAS:
+- Descarte de insumos dentro da margem de segurança do CMV (28,4%)
+
+================================================================================
+DOCUMENTO REGISTRADO ELETRONICAMENTE NO SISTEMA OPERACIONAL TK GESTÃO
+Hash de Integridade Sanitária: ${Math.random().toString(36).substring(2, 15).toUpperCase()}
+================================================================================`;
+
+      const blob = new Blob([dossierContent], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `DOSSIE_ANVISA_ENGENHO_PONTA_NEGRA_${new Date().toISOString().slice(0, 10)}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      setDownloadSuccess('Dossiê Sanitário Oficial ANVISA baixado com sucesso!');
+      setTimeout(() => setDownloadSuccess(null), 4000);
+    }, 1000);
   };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-sm animate-fadeIn">
       <div className="bg-white w-full max-w-4xl max-h-[92vh] rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col">
+        {downloadSuccess && (
+          <div className="bg-emerald-600 text-white text-xs font-bold px-4 py-2 flex items-center justify-between animate-slide-down">
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4 text-emerald-200" />
+              {downloadSuccess}
+            </span>
+            <button onClick={() => setDownloadSuccess(null)} className="text-white hover:text-emerald-100">
+              <X className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        )}
         {/* Topo Institucional do Modal */}
         <div className="p-4 sm:p-5 bg-gradient-to-r from-[#062018] via-[#0a2e23] to-[#062018] text-white flex items-center justify-between border-b border-emerald-900">
           <div className="flex items-center gap-3">

@@ -227,7 +227,8 @@ export const BarSalesOrderPlanningView: React.FC = () => {
                     )
                     .join('\n');
                   navigator.clipboard.writeText(`PEDIDO CDA - BAR ENGENHO\n\n${text}`);
-                  alert('Lista de pedidos copiada para a área de transferência!');
+                  setSaveSuccessMsg('✓ Lista de pedidos para o CDA copiada com sucesso para a área de transferência!');
+                  setTimeout(() => setSaveSuccessMsg(null), 3500);
                 }}
                 className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-all cursor-pointer border border-slate-200"
               >
@@ -533,7 +534,8 @@ export const BarSalesOrderPlanningView: React.FC = () => {
                       onClick={() => {
                         const emailPrompt = `Escreva um e-mail formal para a coordenação do CDA solicitando o aumento de estoque máximo de ${alt.itemName} de ${alt.currentCdaMax} para ${alt.suggestedNewCdaMax} unidades por semana, justificando que a média de vendas dos últimos 2 meses superou a capacidade atual e haverá ruptura de estoque nos finais de semana.`;
                         navigator.clipboard.writeText(emailPrompt);
-                        alert('Texto para a IA de E-mails copiado! Acesse a aba "Resposta de E-mails IA" para disparar a solicitação ao CDA.');
+                        setSaveSuccessMsg(`✓ Prompt copiado para a IA de E-mails! Acesse a aba "Resposta de E-mails IA" para enviar a solicitação de ${alt.itemName} ao CDA.`);
+                        setTimeout(() => setSaveSuccessMsg(null), 4500);
                       }}
                       className="px-2.5 py-1 rounded-lg bg-rose-600 hover:bg-rose-700 text-white font-bold transition-all cursor-pointer flex items-center gap-1 text-[11px]"
                     >

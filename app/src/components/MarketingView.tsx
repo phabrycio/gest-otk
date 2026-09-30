@@ -410,6 +410,7 @@ export const MarketingView: React.FC<MarketingViewProps> = ({ reviews, onAnswerR
   const [showTechnicalDetails, setShowTechnicalDetails] = useState<boolean>(false);
   const [showAlgorithmModal, setShowAlgorithmModal] = useState<boolean>(false);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [marketingToast, setMarketingToast] = useState<string | null>(null);
 
   const activeScript = viralScripts.find((s) => s.id === selectedScriptId) || viralScripts[0];
   const activeScene = activeScript.scenes[currentSceneIndex] || activeScript.scenes[0];
@@ -429,7 +430,8 @@ export const MarketingView: React.FC<MarketingViewProps> = ({ reviews, onAnswerR
     setPromos((prev) =>
       prev.map((p) => (p.id === promoId ? { ...p, status: 'ATIVADA_PDV' } : p))
     );
-    alert('✅ Combo cadastrado e ativado instantaneamente no sistema PDV e no tablet dos garçons!');
+    setMarketingToast('✅ Combo cadastrado e ativado instantaneamente no sistema PDV e no tablet dos garçons!');
+    setTimeout(() => setMarketingToast(null), 4000);
   };
 
   const handleSelectReview = (rev: CustomerReview) => {
@@ -439,11 +441,18 @@ export const MarketingView: React.FC<MarketingViewProps> = ({ reviews, onAnswerR
 
   const handlePublish = (id: string) => {
     onAnswerReview(id, responseText);
-    alert('Resposta oficial publicada no Google Maps com sucesso!');
+    setMarketingToast('✓ Resposta oficial publicada no Google Maps com sucesso!');
+    setTimeout(() => setMarketingToast(null), 4000);
   };
 
   return (
     <div className="space-y-4 animate-fade-in">
+      {marketingToast && (
+        <div className="p-3 bg-emerald-950 text-emerald-300 border border-emerald-500/50 rounded-xl text-xs font-bold flex items-center gap-2 shadow-lg animate-slide-down">
+          <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+          <span>{marketingToast}</span>
+        </div>
+      )}
       {/* Topo do Módulo de Marketing */}
       <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
         <div>

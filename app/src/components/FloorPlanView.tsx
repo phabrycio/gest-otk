@@ -33,6 +33,8 @@ export const FloorPlanView: React.FC<FloorPlanViewProps> = ({ onOpenCopilot }) =
   const [new86Reason, setNew86Reason] = useState<'ESGOTADO' | 'RACIONADO'>('RACIONADO');
   const [new86Portions, setNew86Portions] = useState('4');
 
+  const [actionToast, setActionToast] = useState<string | null>(null);
+
   const filteredTables = selectedArea === 'TODOS'
     ? tables
     : tables.filter((t) => t.area === selectedArea);
@@ -62,6 +64,12 @@ export const FloorPlanView: React.FC<FloorPlanViewProps> = ({ onOpenCopilot }) =
 
   return (
     <div className="space-y-4">
+      {actionToast && (
+        <div className="p-3 bg-emerald-950 text-emerald-300 border border-emerald-500/50 rounded-xl text-xs font-bold flex items-center gap-2 shadow-lg animate-slide-down">
+          <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+          <span>{actionToast}</span>
+        </div>
+      )}
       {/* Topo do Módulo Salão & Lista 86 */}
       <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div>
@@ -495,10 +503,26 @@ export const FloorPlanView: React.FC<FloorPlanViewProps> = ({ onOpenCopilot }) =
 
               <button
                 onClick={() => {
-                  alert(`Garçom ${selectedTable.waiterName} acionado para conferir a Mesa ${selectedTable.number}!`);
+                  const targetWaiter = selectedTable.waiterName || 'da Praça';
+                  const msg = `Garçom ${targetWaiter} acionado com prioridade máxima para a Mesa ${selectedTable.number}!`;
+                  setActionToast(msg);
+                  try {
+                    const calls = JSON.parse(localStorage.getItem('saloon_waiter_calls') || '[]');
+                    calls.unshift({
+                      id: `call-${Date.now()}`,
+                      tableNumber: selectedTable.number,
+                      waiter: targetWaiter,
+                      time: new Date().toLocaleTimeString('pt-BR'),
+                      minutesDelayed: selectedTable.minutesSinceOrder,
+                    });
+                    localStorage.setItem('saloon_waiter_calls', JSON.stringify(calls));
+                  } catch (e) {
+                    console.error(e);
+                  }
                   setSelectedTable(null);
+                  setTimeout(() => setActionToast(null), 4500);
                 }}
-                className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-all"
+                className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-all cursor-pointer"
               >
                 Chamar Garçom Responsável
               </button>

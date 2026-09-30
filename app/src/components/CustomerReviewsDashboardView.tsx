@@ -2,7 +2,8 @@ import React, { useState, useMemo } from 'react';
 import {
   Star, MessageSquare, AlertTriangle, CheckCircle2, Clock, ChefHat,
   TrendingUp, TrendingDown, Sparkles, Brain, Filter, ExternalLink,
-  ThumbsUp, ThumbsDown, Minus, BarChart3, Globe, Send, Eye, EyeOff, X
+  ThumbsUp, ThumbsDown, Minus, BarChart3, Globe, Send, Eye, EyeOff, X,
+  Copy, Check
 } from 'lucide-react';
 import {
   COMPILED_REVIEWS, REVIEWS_OVERVIEW, AI_SOLUTIONS, CATEGORY_LABELS, getReviewStats,
@@ -61,6 +62,7 @@ export default function CustomerReviewsDashboardView() {
   const [selectedCategory, setSelectedCategory] = useState<ReviewCategory | null>(null);
   const [selectedReview, setSelectedReview] = useState<CustomerReview | null>(null);
   const [activeTab, setActiveTab] = useState<'overview' | 'reviews' | 'solutions'>('overview');
+  const [copiedResponse, setCopiedResponse] = useState(false);
   const [resolvedIds, setResolvedIds] = useState<Set<string>>(new Set(
     COMPILED_REVIEWS.filter((r) => r.resolved).map((r) => r.id)
   ));
@@ -536,9 +538,28 @@ export default function CustomerReviewsDashboardView() {
             </div>
             {selectedReview.aiResponse && (
               <div>
-                <div className="flex items-center gap-1.5 text-xs font-bold text-purple-700 mb-2">
-                  <Send className="w-3.5 h-3.5" />
-                  Resposta pública sugerida (Google Maps / Instagram)
+                <div className="flex items-center justify-between mb-2">
+                  <span className="flex items-center gap-1.5 text-xs font-bold text-purple-700">
+                    <Send className="w-3.5 h-3.5" />
+                    Resposta pública sugerida (Google Maps / Instagram)
+                  </span>
+                  <button
+                    onClick={() => {
+                      if (selectedReview.aiResponse) {
+                        navigator.clipboard.writeText(selectedReview.aiResponse);
+                        setCopiedResponse(true);
+                        setTimeout(() => setCopiedResponse(false), 3000);
+                      }
+                    }}
+                    className={`px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all flex items-center gap-1 cursor-pointer ${
+                      copiedResponse
+                        ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
+                        : 'bg-purple-100 hover:bg-purple-200 text-purple-800'
+                    }`}
+                  >
+                    {copiedResponse ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
+                    <span>{copiedResponse ? 'Copiado!' : 'Copiar Resposta'}</span>
+                  </button>
                 </div>
                 <div className="bg-purple-50 border border-purple-200 rounded-lg p-3 text-xs text-slate-700 leading-relaxed">
                   {selectedReview.aiResponse}
